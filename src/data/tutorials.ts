@@ -71,6 +71,7 @@ import { jsLevel2 } from "./tutorials/js-level2";
 import { jsLevel3 } from "./tutorials/js-level3";
 import { jsLevel4 } from "./tutorials/js-level4";
 import { jsLevel5 } from "./tutorials/js-level5";
+import { jsLevel6 } from "./tutorials/js-level6";
 export const tutorials: Tutorial[] = [
   // === WEB DEVELOPMENT ===
   {
@@ -487,6 +488,7 @@ console.log(double(5));`,
   ...jsLevel3,
   ...jsLevel4,
   ...jsLevel5,
+  ...jsLevel6,
 
   // === LINUX ===
   {
