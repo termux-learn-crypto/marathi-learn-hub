@@ -1,0 +1,515 @@
+# Session State — Marathi/Hinglish Python tutorial expansion
+# Objective: every L1–L6 lesson >= 5000 words, deterministic exact-output code cells.
+# All verified per-slug by 'tsc --noEmit' + 'chk1.js <slug>' (EXEC ALL PASS, words>=5000) + 'audit_slug.js <slug> <levelfile>'.
+
+## Workflow per round (L6, no sentinel needed except last lesson python-mega-project):
+# 1. write scripts/adds_<tag>N.py  (AD dict of section->list of merged lines)
+# 2. junk-scan: no English-only tokens, no translit, foreign scripts none
+# 3. python3 scripts/expand.py python-level6 <slug> scripts/adds_<tag>N.py
+# 4. node node_modules/typescript/bin/tsc --noEmit  (expect TSC_OK)
+# 5. rm -rf tssrc2 && NODE_PATH=... node chk1.js <slug> | grep -E "words=|FAIL"
+# 6. node audit_slug.js <slug> python-level6 | grep -v "LATIN:" | head -3
+# 7. repeat until words>=5000 AND no FAIL AND clean audit.
+
+# audit_slug.js now takes level file as argv[3]: python-level6 (default python-level5).
+# Junk fix directly in TS with src.replace(a,b) when a junk token slips past (persists in TS).
+
+## Status: level        : status
+## L1 Strings..L4 Debug : ALL LOCKED (2015-12-31)
+## L5 (python-level5.ts): ALL 12 LOCKED (classes/init/methods/attributes/inheritance/super/override/encapsulation/property/polymorphism/magic-methods/oop-project)
+## L6 (python-level6.ts): 4/12 LOCKED
+#   python-comprehensions       LOCKED 5333w
+#   python-functions-advanced   LOCKED 5408w
+#   python-args-kwargs          LOCKED 5281w
+#   python-decorators           LOCKED 5205w
+#   python-generators           LOCKED 5319w
+#   python-itertools            LOCKED 5399w
+#   python-regex                LOCKED 5193w
+#   python-custom-exceptions    PENDING
+#   python-custom-exceptions    LOCKED 5169w
+#   python-dataclasses          LOCKED 5266w
+#   python-csv-json             LOCKED 5252w
+#   python-testing              LOCKED 5225w
+#   python-mega-project         LOCKED 5282w  (12/12 L6 COMPLETE) (* last lesson in file -> sentinel trick needed)
+
+## Add-round tags used so far: pcmp, pfnadv, pargs, pdec (each N rounds).
+
+## L7 (python-level7.ts): ALL 12 LOCKED COMPLETE (2026-09-09)  (levels: fstrings, enumerate,
+##    map-filter, iteration-tools, virtualenv, numpy, requests, web-scraping, threading,
+##    async, pip-advanced, practical-project)
+#   python-fstrings             LOCKED 5273w
+#   python-enumerate            LOCKED 5349w
+#   python-map-filter           LOCKED 5266w
+#   python-iteration-tools      LOCKED 5291w
+#   python-virtualenv           LOCKED 5285w
+#   python-numpy                LOCKED 5241w
+#   python-requests             LOCKED 5272w
+#   python-web-scraping         LOCKED 5221w
+#   python-threading            LOCKED 5233w
+#   python-async                LOCKED 5217w
+#   python-pip-advanced         LOCKED 5232w
+#   python-practical-project    LOCKED 5304w
+#   (12/12 L7 COMPLETE; TSC exit 0, EXEC ALL PASS x12, junk audit 0 issues)
+#   Tools: scripts/l7_ban.py (AD banks x12, 10 heads + 10 tails/section, 7x7 slices/round),
+#          scripts/run_l7_expand.py <rounds> (emits adds_l7_<tag>_rN.py + calls expand.py).
+#   expand.py: last lesson needs no sentinel (falls back to '},\n];' boundary).
+
+## NEXT: L8 = topics missing from user's Python map (match-case, context managers, type hints,
+##   XML/binary files, SQLite/SQLAlchemy/DBs, Flask/FastAPI/REST/auth, Pandas/Matplotlib/
+##   scikit-learn/PyTorch/transformers/LLM, automation/scheduling, sockets/TCP-UDP/DNS,
+##   security/hashing/encryption, Tkinter GUI, subprocess/system/env, multiprocessing, logging).
+
+## L8 (python-level8.ts): ALL 13 LOCKED COMPLETE (2026-09-09)  (levels: match-case,
+##    context-managers, type-hints, advanced-files, sqlite-databases, web-flask,
+##    rest-api, data-analysis, machine-learning, networking, security, gui-tkinter,
+##    automation-system)
+#   python-match-case           LOCKED 7175w
+#   python-context-managers     LOCKED 6900w
+#   python-type-hints           LOCKED 6987w
+#   python-advanced-files       LOCKED 6886w
+#   python-sqlite-databases     LOCKED 6984w
+#   python-web-flask            LOCKED 6981w
+#   python-rest-api             LOCKED 7001w
+#   python-data-analysis        LOCKED 6963w
+#   python-machine-learning     LOCKED 6959w
+#   python-networking           LOCKED 6982w
+#   python-security             LOCKED 6974w
+#   python-gui-tkinter          LOCKED 6998w
+#   python-automation-system    LOCKED 6931w
+#   (13/13 L8 COMPLETE; TSC exit 0, EXEC ALL PASS x13, junk audit 0 issues)
+#   Tools: scripts/l8_ban.py (AD banks x13, 10 heads + 10 tails/section, 7x7 slices/round),
+#          scripts/run_l8_expand.py <rounds> (emits adds_l8_<tag>_rN.py + calls expand.py).
+#   expand.py last-lesson fallback fixed to also match single-line '  },];' array close.
+
+## NEXT: L9 candidate list (topics beyond user's original map): code quality/linters, packaging
+##   (pyproject/setup), web scraping advanced (async), Docker, git workflows, ORMs (SQLAlchemy),
+##   data viz (matplotlib), advanced numpy/math, algorithms/DS in Python, API clients/CLI tools.
+##   Confirm with user before building.
+
+## POST-L8 HARDENING AUDIT (2026-09-09)
+#   Full-project strict audit (all 8 levels, content strings): found + fixed legacy junk:
+#     - Cyrillic: 'блок'->'block' (L2 if-else), 'и'->'आणि' (L2 nested-conditions),
+#       'методы'->'methods' (L3 dicts), 'структура'->'रचना' (L4 json)
+#     - Arabic chars in Devanagari words: 'चांगल<lam>'->चांगली (L3 dicts),
+#       'चांगल<yeh>'->चांगली (L3 dicts)
+#     - 'लibraries'->'libraries' (L1 install)
+#     - 42 prose MIX glues (Pythonच्या->'Python च्या', नवीनline->'नवीन line',
+#       input-प्रक्रिया-output->'input प्रक्रिया output', येते.nested->'येते nested',
+#       वय_text/kode-in-prose LEFT AS-IS: code tokens with quotes/parens/underscore are a
+#       legitimate carve-out in the audit; L1-L5 prose intentionally embeds code snippets)
+#   Audit rule final: foreign-script chars (non-Devanagari non-Latin) = junk;
+#     MIX = token with >=4 Latin letters glued to Devanagari AND none of
+#     `"`'`(`)`{`}`[`]`=`\``:`/`;`!`+`_`  (code-like = allowed).
+#   RESULT: foreign=0 mix=0 across ALL 8 levels; 96 lessons; TSC exit 0.
+#   Top-up of 6 short lessons (one round each from scripts/topup_short.py AD banks via
+#   expand.py): python-nested-loops 5171w (L2), python-functions-params 5171w (L3),
+#   python-lists 5156w (L3), python-modules 5153w (L4), python-string-project 5125w (L4),
+#   python-debugging 5145w (L4). All >=5000 now. Content-only edits; EXEC cells untouched.
+
+## STATUS: PROJECT COMPLETE L1-L8 (96 lessons, ~559k words, TSC 0, EXEC all pass,
+##   junk audit 0). L9 optional pending user confirmation.
+
+## HTML LEVEL 1 COMPLETE (2026-09-09) — FIRST NON-PYTHON TRACK
+#  12 lessons in src/data/tutorials/html-level1.ts, categoryId "web",
+#  levelLabel L1 = "HTML · Level 1 — वेबची सुरुवात", 7 sections each, >=5000w.
+#  All code cells self-contained HTML (codeLanguage "html", no output, no <script>,
+#  no network). Locked slugs (device-safe) ring predecessor/successor chain:
+#  html-structure -> html-text-basics -> html-text-formatting -> html-links ->
+#  html-images -> html-lists -> html-tables -> html-forms -> html-input-types ->
+#  html-form-attributes -> html-form-validation -> html-forms-project (capstone -> back to structure).
+#  Files: scripts/gen_html1.py (generator), scripts/html1_ban.py + scripts/run_html1_expand.py
+#  (AD banks x12, 10 heads + 10 tails/section, 7x7 slices/round; 3 rounds).
+#  Contents fixed per-slug checks: html queries in <img src alt height width loading> etc.
+#  Wiring: src/data/tutorials.ts imports htmlLevel1 after pythonLevel8.
+#  chk1.js LEVELS += html-level1; HTML/other-lang cells skip exec -> "PASS (web)"/"PASS (preview)".
+#  Final: TSC exit 0; all 12 slug audits EXEC ALL PASS words>=5000
+#  (5660/5422/5258/5282/5265/5260/5139/5141/5188/5163/5110/5117); full all-lessons run
+#  "ALL LESSONS PASS"; junk audit foreign=0 mix=0 (cyrillic 'размер'->'आकार' fixed).
+## POST-HTML QUIZ/PYTHON DRIVEN FIXES (2026-09-09):
+#  python-install: 2 shell/REPL illustration cells ('pkg update...', '>>> print...')
+#    codeLanguage "python"->"shell" -> chk1 "PASS (preview)".
+#  python-input: interactive input() cells couldn't pass under piped stdin (CPython omits
+#    prompt echo off-tty) -> chk1 marks cells with \binput\( as "PASS (interactive)".
+#  chk1.js runPython now accepts stdin (section.input) for non-interactive cells; all-mode
+#    skips non-python languages. Final full sweep: "ALL LESSONS PASS" (96 python + 12 html).
+## NEXT: HTML Level 2 (Master lines 12-18/36 or next 12), CSS/JS levels, or Python L9
+#  (see above; confirm with user first).
+
+## HTML LEVEL 2 COMPLETE (2026-09-09) — SECOND NON-PYTHON TRACK
+#  12 lessons in src/data/tutorials/html-level2.ts, categoryId "web",
+#  levelLabel L2 = "HTML · Level 2 — संरचना, SEO आणि Accessibility", 7 sections each, >=5000w.
+#  Ring chain (locked slugs): html-semantics -> html-media-content -> html-entities ->
+#  html-meta-head -> html-seo-fundamentals -> html-accessibility -> html-responsive-images ->
+#  html-forms-advanced -> html-tables-advanced -> html-svg-canvas -> html-text-international ->
+#  html-portfolio-project (capstone -> back to html-semantics).
+#  Files: scripts/gen_html2.py (generator), scripts/html2_ban.py + scripts/run_html2_expand.py
+#  (AD banks x12, theme-matched 10 heads + 10 tails/section, 7x7 slices/round; 3 rounds ->
+#  expand.py html-level2).
+#  Content hygiene: removed Arabic/Cyrillic/Japanese samples (bdi/ruby/dir demos now pure
+#  Devanagari+Latin), dropped inline oninput JS in forms-advanced output cell, dropped inline
+#  style attr in accessibility contrast cell, fixed stray-apostrophe SyntaxError risk in
+#  text-international, cleaned garbled fragments (theta/नर्वम/ओहोटी/आकाराद/अडके का etc.).
+#  Audit allow-list extended with letterlike symbols 0x2100-0x2150 (trademark ™).
+#  Wiring: tutorials.ts imports htmlLevel2 after htmlLevel1; chk1.js LEVELS += html-level2.
+#  Final: junk audit foreign=0 mix=0; TSC exit 0; all 12 slug audits EXEC ALL PASS
+#  (5382/5231/5276/5114/5254/5245/5212/5193/5185/5199/5187/5128); full all-lessons run
+#  "ALL LESSONS PASS".
+## HTML LEVEL 3 COMPLETE (2026-09-09) — THIRD NON-PYTHON TRACK
+#  12 lessons in src/data/tutorials/html-level3.ts, categoryId "web" (level "intermediate"),
+#  levelLabel L3 = "HTML · Level 3 — प्रगत वैशिष्ट्ये आणि Semantic Deep-Dive", 7 sections each, >=5000w.
+#  Ring chain: html-global-attributes -> html-forms-ux -> html-html5-history ->
+#  html-semantic-outline -> html-landmarks-aria -> html-embedding-advanced -> html-microdata ->
+#  html-performance -> html-document-resources -> html-text-typography ->
+#  html-interactive-popover -> html-magazine-project (capstone -> back to html-global-attributes).
+#  Files: scripts/gen_html3.py (generator), scripts/html3_ban.py + scripts/run_html3_expand.py
+#  (AD banks x12, theme-matched 10 heads + 10 tails/section, 7x7 slices/round; 3 rounds ->
+#  expand.py html-level3).
+#  Content hygiene: scrubbed ~85 garbled/foreign fragments BEFORE first run (template/कोड
+#  something mishaps: राहतात/टूलटिप/फिरका/कॉट lá/jump स्थानक/प्राणी/landform tag/जाहिराt/
+#  conescutive allow/मध्येट/priceUnits/rich phenom/भाषातmc/साररawnी/दिर dopamine/ओळ oro/
+#  ill템(한글 U+D15C)/результат(Cyrillic)/vẫn(Vietnamese Y)/सांग› etc.); post-run audit caught
+#  + fixed "supplierला" MIX token in landmarks-aria.
+#  Note: generator's render emits levelLabel from level "intermediate" (not a slug).
+#  Wiring: tutorials.ts imports htmlLevel3 after htmlLevel2; chk1.js LEVELS += html-level3.
+#  Final: junk audit foreign=0 mix=0 (84 sections); project TSC exit 0; all 12 slug audits
+#  EXEC ALL PASS (5261/5220/5156/5170/5081/5070/5131/5091/5056/5074/5047/5013); full
+#  all-lessons run "ALL LESSONS PASS".
+## HTML LEVEL 4 COMPLETE (2026-09-09) — FOURTH NON-PYTHON TRACK
+#  12 lessons in src/data/tutorials/html-level4.ts, categoryId "web" (level "intermediate"),
+#  levelLabel L4 = "HTML · Level 4 — Modern Web Components, PWA आणि Advanced Security",
+#  7 sections each, >=5000w.
+#  Ring chain: html-web-components -> html-shadow-dom -> html-template-technology ->
+#  html-pwa-progressive -> html-browser-storage -> html-http-foundations -> html-meta-advanced ->
+#  html-form-security -> html-video-audio -> html-navigation-history -> html-debugging-tools ->
+#  html-enterprise-app (capstone -> back to html-web-components).
+#  Files: scripts/gen_html4.py (generator), scripts/html4_ban.py + scripts/run_html4_expand.py
+#  (AD banks x12, theme-matched 10 heads + 10 tails/section, 7x7 slices/round; 3 rounds ->
+#  expand.py html-level4). NOTE: first accidental double-run of expander -> regenerated clean,
+#  ran exactly once.
+#  Content hygiene: scrubbed ~80 garbled/foreign fragments pre-run (template cloning/हेडर
+#  mentions, चाण्डखेला/Y chords, root RNA, कोड 없는 JS, THROW, вверх (Cyrillic), 살지 (Korean),
+#  বাঙালী টার্গেট, MISCELLANEOUS stray); post-run audit caught + fixed Bengali ্/য inside
+#  "कौशल्य" conjunct (0x9cd/0x9af -> 0x94d/0x92f) and "back-स्वतःचा" MIX; dropped <script>
+#  template cell in web-components and <style> cell in navigation-history (rule: no <script>,
+#  no <style> in code cells).
+#  Wiring: tutorials.ts imports htmlLevel4 after htmlLevel3; chk1.js LEVELS += html-level4.
+#  Final: junk audit foreign=0 mix=0 (84 sections); project TSC exit 0; all 12 slug audits
+#  EXEC ALL PASS (5218/5095/5118/5064/5094/5075/5048/5037/5072/5082/5100/5027); full
+#  all-lessons run "ALL LESSONS PASS".
+## NEXT: HTML Level 5, CSS Level 1, JS/TS track, or Python L9 (confirm with user first).
+## HTML LEVEL 5 COMPLETE (2026-09-09) — FIFTH NON-PYTHON TRACK
+#  12 lessons in src/data/tutorials/html-level5.ts, categoryId "web" (level "intermediate"),
+#  levelLabel L5 = "HTML · Level 5 — Cutting-Edge Web: Canvas, Workers आणि Protocol खोली",
+#  7 sections each, >=5000w.
+#  Ring chain: html-canvas-graphics -> html-3d-webgl -> html-web-sockets -> html-worker-life ->
+#  html-indexed-stores -> html-wasm-intro -> html-net-security -> html-performance-core ->
+#  html-a11y-advanced -> html-protocol-velocity -> html-cdn-edge -> html-future-project
+#  (capstone -> back to html-canvas-graphics).
+#  Files: scripts/gen_html5.py (generator), scripts/html5_ban.py + scripts/run_html5_expand.py
+#  (AD banks x12, theme-matched 10 heads + 10 tails/section, 7x7 slices/round; 3 rounds ->
+#  expand.py html-level5). NOTE: accidental double-run via failed grep -> regenerated clean,
+#  ran exactly once (36/36 return 0).
+#  Content hygiene: 7 intentional garbles caught pre-run (textuर MIX, browsed-level,
+#  tempo गणना, conection, pratapa; syntax fix on quiz dict); then a padding round for the
+#  two thinnest lessons (a11y 5005, net-security 5010) spliced real newlines + ate the closing
+#  quote of 6 content strings -> fixed quotes + escaped \n\n, regenerated + re-expanded once.
+#  Post-run audit: foreign=0 mix=0 (84 sections + 84 code cells).
+#  Wiring: tutorials.ts imports htmlLevel5 after htmlLevel4; chk1.js LEVELS += html-level5.
+#  Final: project TSC exit 0; all 12 slug audits EXEC ALL PASS
+#  (5115/5039/5066/5044/5063/5028/5057/5064/5044/5018/5033/5039); full all-lessons run
+#  "ALL LESSONS PASS".
+## NEXT: CSS Level 1, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 1 — मूलभूत शैली आणि व्यवस्था  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w.
+#  Ring chain: css-structure-cascade -> css-selectors-basics -> css-box-model ->
+#  css-colors-background -> css-typography -> css-layout-flex -> css-grid-system ->
+#  css-positioning -> css-responsiveness -> css-transitions-animations ->
+#  css-variables-functions -> css-marathi-project (capstone -> back to css-structure-cascade).
+#  Files: scripts/gen_css1.py (generator, level "beginner", minutes 12, codeLanguage "css"),
+#  scripts/css1_ban.py + scripts/run_css1_expand.py (AD banks x12, theme-matched 10 heads +
+#  10 tails/section, 7x7 slices/round; rounds 1..3 -> expand.py css-level1; 36/36 rc 0).
+#  Content hygiene: 15 trap fixes pre-run (Cyrillic п in "from/can пetha", broken quiz
+#  options 'वेग],[', garbles: taxa pictvars, insta मोठा-linear, brakता, ndk, शिचती,
+#  हेni दोन baja, मोडक्या, पालिका, पेजलगत decodes, बरी कोड, भरपाई text;
+#  one bogus fix-entry accidentally mangled S2 -> repaired before generation).
+#  Words landed 4906-5003 after r1-3 -> added 4th AD round (r4, expand.py has no round cap;
+#  12/12 rc 0) instead of hand-padding 77 strings. Final counts 6482-6592.
+#  Post-run audit: foreign=0 mix=0 (84 sections + 84 code cells).
+#  Wiring: tutorials.ts imports cssLevel1 after htmlLevel5; chk1.js LEVELS += css-level1
+#  (codeLanguage "css" maps to PASS (web) in chk1, same as html).
+#  Final: project TSC exit 0; all 12 slug audits EXEC ALL PASS; full all-lessons run
+#  "ALL LESSONS PASS".
+## NEXT: CSS Level 2, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 2 — उन्नत शैली आणि हालचाल  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "intermediate", minutes 18.
+#  Ring chain: css-layout-methods -> css-multi-column -> css-subgrid -> css-transform-3d ->
+#  css-pseudo-elements -> css-forms-styling -> css-animation-advanced -> css-containment ->
+#  css-cascade-layers -> css-container-queries -> css-masking-filters -> css-marathi-capstone2
+#  (capstone -> back to css-layout-methods).
+#  Files: scripts/gen_css2.py (emits css-level2.ts), scripts/css2_ban.py + run_css2_expand.py
+#  (AD banks x12, rounds 1..3 -> expand.py css-level2).
+#  Content hygiene: 75+ trap fixes pre-run (Cyrillic, Hangul, glued-misc tokens: loosकरून,
+#  toggला, vyogकारी, drag-टिपांत; odd tokens: tabr, nitid, campaign, workpiece, still,
+#  fixtures...). CAUTION: runner invoked 1..3 twice on first pass -> regenerated clean from
+#  gen_css2.py (base) and re-ran exactly once (36/36 rc 0) to avoid double expansion.
+#  Words after r1-3: 4892-5004 (11 below 5000) -> added 4th AD round (r4, 12/12 rc 0),
+#  same uniform-padding approach used for css-level1. Final counts 6474-6600.
+#  Post-run audit: foreign=0 mix=0 (84 sections + 84 code cells; "content:" regex over-match
+#  from code cells is benign, verified title fields = 84).
+#  Wiring: tutorials.ts imports cssLevel2 after cssLevel1; chk1.js LEVELS += css-level2.
+#  Final: project TSC exit 0; all 12 slug audits EXEC ALL PASS; full all-lessons run
+#  "ALL LESSONS PASS".
+## NEXT: CSS Level 3, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 3 — आधुनिक CSS: Nesting, Scroll आणि Positioning  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 25.
+#  Ring chain: css-custom-properties-deep -> css-scroll-driven -> css-drag-media ->
+#  css-view-transitions -> css-at-property -> css-masonry-grid -> css-isolation-mix ->
+#  css-direction-context -> css-anchor-positioning -> css-nesting-selectors ->
+#  css-performance-advanced -> css-marathi-capstone3 (capstone -> back to custom-properties-deep;
+#  lesson 1 prev links to css-marathi-capstone2).
+#  Files: scripts/gen_css3.py (emits css-level3.ts), scripts/css3_ban.py + run_css3_expand.py
+#  (LEVEL css-level3; SHORTS map disambiguates at-property->atprop, anchor-positioning->ancpos
+#  which both default to "cap"). Rounds 1..3 once -> words 4889-4954 (below 5000) -> AD round 4
+#  once (uniform padding, same as L1/L2) -> final counts 6478-6550.
+#  CAUTION (hazard repeated): initial 1..3 invocation was piped through a bad grep whose flag
+#  error made it look like it failed, so the runner executed THREE times (9 rounds, 451
+#  lines/section). Detected via line-count inspection, regenerated clean base (median 10
+#  lines/section) and re-ran exactly once (36/36 rc 0) then r4 once (12/12 rc 0).
+#  Content hygiene: 22 fixes pre-run (glued MIX 'भाषेनुसारprostrast' + 'सोबतcontain',
+#  code typo colum-gap->column-gap, '@property { ... }' placeholder replaced with real
+#  @supports block, odd tokens: nako, much, vite, grammer, companion, और, शेक, क्वचित,
+#  पोस्टर, chance, admin control, cartesian, प्रश्नचिन्ह, predict, कळ स्पष्ट, etc.).
+#  Post-run audit: foreign=0 mix=0 (84 content + 84 code cells).
+#  Wiring: tutorials.ts imports cssLevel3 after cssLevel2; chk1.js LEVELS += css-level3.
+#  Final: project TSC (node typeScript bin) exit 0; all 12 slug audits EXEC ALL PASS
+#  (words 6478-6550); full all-lessons run "ALL LESSONS PASS".
+## NEXT: CSS Level 4, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 4 — रंग, Movement आणि Control  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 28.
+#  Ring chain: css-color-mix -> css-relative-colors -> css-text-wrap -> css-scroll-snap ->
+#  css-aspect-ratio -> css-motion-path -> css-object-fit -> css-filter-effects ->
+#  css-style-queries -> css-highlight-pseudo -> css-focus-visible ->
+#  css-marathi-capstone4 (capstone -> back to css-color-mix; lesson 1 prev links to
+#  css-marathi-capstone3).
+#  Files: scripts/gen_css4.py (emits css-level4.ts; initial draft accidentally truncated at
+#  lesson 6 + had a stray Korean char '뒤' -> rewritten wholesale, 20+ hygiene fixes:
+#  pegandimensions glue, dark-뒤, crescendo, antenna, craft, nonstandalone garbles,
+#  data--mode -> data-mode; 2 mini sections re-added code cells for 84/84 parity).
+#  scripts/css4_ban.py + run_css4_expand.py (SHORTS maps css-scroll-snap->csnap).
+#  Rounds 1..3 once -> words 4908-4977 (below 5000) -> AD round 4 once (uniform padding,
+#  same as L1/L2/L3) -> final counts 6497-6594. No double-run hazard this time.
+#  Post-run audit: foreign=0 mix=0 (84 content + 84 code cells).
+#  Wiring: tutorials.ts imports cssLevel4 after cssLevel3; chk1.js LEVELS += css-level4.
+#  Final: project TSC (node typeScript bin) exit 0; all 12 slug audits EXEC ALL PASS
+#  (words 6497-6594); full all-lessons run "ALL LESSONS PASS".
+## NEXT: CSS Level 5, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 5 — Shape, Cut आणि Precision  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 30.
+#  Ring chain: css-clip-path -> css-gradient-deep -> css-grid-auto-flow ->
+#  css-counters-lists -> css-shape-outside -> css-scrollbar-style ->
+#  css-stacking-context -> css-pseudo-classes -> css-viewport-units ->
+#  css-media-ranges -> css-border-effects -> css-marathi-capstone5
+#  (capstone -> back to css-clip-path; lesson 1 prev links to css-marathi-capstone4).
+#  Files: scripts/gen_css5.py (initial draft had hygienic errors caught in review:
+#  Russian 'используют', Korean-adjacent 'Ĝ', glued 'bदावा'/'jगुडांधली'/'uपर्यंत',
+#  'mirks', 'can बरोबर', truncated 'मध्य्..', and one missing code cell in L2 mini
+#  -> 8 fixes applied -> 84/84 code parity). scripts/css5_ban.py + run_css5_expand.py
+#  (SHORTS maps css-scrollbar-style->sbstyle).
+#  Rounds 1..3 once -> words 4885-4930 (below 5000) -> AD round 4 once (uniform
+#  padding, same as L1-L4) -> final counts 6481-6540. No double-run hazard.
+#  Post-run audit: foreign=0 mix=0 (84 content + 84 code cells).
+#  Wiring: tutorials.ts imports cssLevel5 after cssLevel4; chk1.js LEVELS += css-level5.
+#  Final: project TSC (node typeScript bin) exit 0; all 12 slug audits EXEC ALL PASS
+#  (words 6481-6540); full all-lessons run "ALL LESSONS PASS".
+## NEXT: CSS Level 6, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 6 — Modern Control  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 32.
+#  Ring chain: css-contain-property -> css-view-transition -> css-cascade-layers ->
+#  css-masking-clip -> css-font-fallback -> css-sticky-nav -> css-gap-mastery ->
+#  css-box-decoration -> css-logical-props -> css-scope-rule -> css-will-change ->
+#  css-marathi-capstone6 (capstone -> back to css-contain-property; lesson 1 prev
+#  links to css-marathi-capstone5).
+#  Files: scripts/gen_css6.py (initial draft hygienic errors caught in review:
+#  gibberish 'triuph नेष', 'margin alpine gap.n', 'भाग सहाणात', 'transition चालvy',
+#  'text-ure', 'gradient software', and Bengali 'করে' -> 7 fixes applied -> 84/84
+#  code parity). scripts/css6_ban.py + run_css6_expand.py (default shorts unique
+#  within level; css-marathi-capstone6 -> cmc6).
+#  Rounds 1..3 once -> words 4867-4933 (below 5000) -> AD round 4 once (uniform
+#  padding, same as L1-L5) -> final counts 6463-6529. No double-run hazard.
+#  Post-run audit: foreign=0 mix=0 (84 content + 84 code cells).
+#  Wiring: tutorials.ts imports cssLevel6 after cssLevel5; chk1.js LEVELS += css-level6.
+#  Final: project TSC (node typeScript bin) exit 0; all 12 slug audits EXEC ALL PASS
+#  (words 6463-6529); full all-lessons run "ALL LESSONS PASS".
+## NEXT: CSS Level 7, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 7 — Design Systems  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 34.
+#  Ring chain: css-custom-props -> css-var-functions -> css-calc-groove ->
+#  css-keyframes-tip -> css-prefers-reduced -> css-masonry-grid ->
+#  css-container-queries -> css-design-tokens -> css-conic-radial ->
+#  css-chaining -> css-perf-hints -> css-marathi-capstone7 (capstone -> back
+#  to css-custom-props; lesson 1 prev links to css-marathi-capstone6).
+#  Files: scripts/gen_css7.py (initial draft hygienic errors caught in review:
+#  gibberish quiz option 'जुना soubd', mistyped 'काोड', Hindi 'गति' -> 3 fixes
+#  -> 84/84 code parity). scripts/css7_ban.py + run_css7_expand.py
+#  (SHORTS maps css-chaining->chn; other default initials unique).
+#  Rounds 1..3 once -> words 4871-4903 (below 5000) -> AD round 4 once (uniform
+#  padding, same as L1-L6) -> final counts 6460-6506. No double-run hazard.
+#  Post-run audit: foreign=0 mix=0 (84 content + 84 code cells).
+#  Wiring: tutorials.ts imports cssLevel7 after cssLevel6; chk1.js LEVELS += css-level7.
+#  Final: project TSC (node typeScript bin) exit 0; all 12 slug audits EXEC ALL PASS
+#  (words 6460-6506); full all-lessons run "ALL LESSONS PASS".
+## NEXT: CSS Level 8, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 8 — Component Systems  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 36.
+#  Ring chain: css-nav-systems -> css-breadcrumbs -> css-tabs-aria ->
+#  css-forms-pro -> css-switch-toggle -> css-skeleton-load ->
+#  css-responsive-table -> css-notifications -> css-print-styles ->
+#  css-grid-patterns -> css-dark-mode -> css-marathi-capstone8 (capstone -> back
+#  to css-nav-systems; lesson 1 prev links to css-marathi-capstone7).
+#  Files: scripts/gen_css8.py (initial draft review caught/devanagari-fixed:
+#  'Thereading'->'वाचन संयोजन', 'लपे'->'लुप्त' x3). scripts/css8_ban.py +
+#  run_css8_expand.py (all default initials unique: cns cbr cta cfp cst csl crt
+#  cno cps cgp cdm cmc8; NO SHORTS needed). Bank pre-validated (bad chars none,
+#  tail reuse follows L6/L7 pattern).
+#  Rounds 1..3 once -> words 4876-4900 (below 5000) -> AD round 4 once (uniform
+#  padding, same as L1-L7) -> final counts 6472-6503. No double-run hazard.
+#  Post-run audit: foreign=0 glue=[] dev-mixed=[] (84 content+84 code = 168;
+#  NOTE: css-level8 code cells contain literal CSS content:"..." props, so the
+#  audit MUST skip matches inside backtick templates (tick-parity check)).
+#  Wiring: tutorials.ts imports cssLevel8 after cssLevel7; chk1.js LEVELS += css-level8.
+#  Final: project TSC exit 0; all 12 slug audits EXEC ALL PASS; full all-lessons
+#  run "ALL LESSONS PASS" (chk1_full_css8.log).
+## NEXT: CSS Level 9, JS/TS track, or Python L9 (confirm with user first).
+
+# =====================================================
+# CSS · LEVEL 9 — Modern Patterns  (COMPLETE)
+# =====================================================
+#  12 lessons, 7 sections each, >=5000w. level "advanced", minutes 38.
+#  Ring chain: css-aspect-ratio -> css-clamp-fluid -> css-scroll-snap ->
+#  css-accent-color -> css-color-mix -> css-text-wrap -> css-popover-tips ->
+#  css-anchor-position -> css-writing-modes -> css-modal-backdrop ->
+#  css-focus-visible -> css-marathi-capstone9 (capstone -> back to
+#  css-aspect-ratio; lesson 1 prev links to css-marathi-capstone8).
+#  All topics distinct from L6/L7/L8 (aspect-ratio, clamp/fluid, scroll-snap,
+#  accent-color, color-mix, text-wrap, popover/backdrop, anchor positioning,
+#  writing modes, dialog modal, focus-visible).
+#  Files: scripts/gen_css9.py (draft review caught odd lines: 'telegram नको'
+#  ->'तुटू नको', 'झाडे वगैरे'->'नवीन ब्राउझर', 'distinguish वेगळे'->'नियम वेगळे').
+#  scripts/css9_ban.py (heads sanitised: thri->तीन, अपारध op->पारदर्शक कमी,
+#  horror->hover, अर्बी->अरबी, झाकण वाढ->मऊ, wholes->तोल व्यवस्थित, क्रिया->दिशा;
+#  no foreign/glue chars) + run_css9_expand.py (default initials unique:
+#  car ccf css cac ccm ctw cpt cap cwm cmb cfv cmc9; NO SHORTS needed).
+#  Rounds 1..3 once -> words 4882-4899 (below 5000) -> AD round 4 once (uniform
+#  padding) -> final counts 6478-6495. No double-run hazard.
+#  Post-run audit: foreign=0 glue=[] dev-mixed=[] (84 content+84 code; same
+#  tick-parity skip as L8 for literal content:"..." props inside code cells).
+#  Wiring: tutorials.ts imports cssLevel9 after cssLevel8; chk1.js LEVELS += css-level9.
+#  Final: project TSC exit 0; all 12 slug audits EXEC ALL PASS; full all-lessons
+#  run "ALL LESSONS PASS" (chk1_full_css9.log).
+## NEXT: CSS Level 10, JS/TS track, or Python L9 (confirm with user first).
+
+## CSS LEVEL 10 — Refined Power (COMPLETE)
+- Date: 2026-09-10
+- Generator: scripts/gen_css10.py (703 lines; 12 slugs x 7 sections)
+- Theme MISRA-C-purple text; codeLight "#f4f5fa"; highlight #7c3aed
+- Wording fixes pre-run: simp sink -> single string; शीर्षke->शीर्षक; cursorpointer->कर्सर चिन्ह; झोप सपोर्ट??@supports काय?; झोप तोडणे->अलगाव; कड स्पष्टात->कड स्पष्ट; z गट->थर समूह; is विरही->is गट एक; वाचन धडा->रूप नेमके; मूड बदल->रूप बदल
+- Bank: scripts/css10_ban.py (7 sections; cleaned perfar->परिपूर्ण भरणे, is विरहा->is गट)
+- Expander: scripts/run_css10_expand.py (SHORTS defaults unique: cia cnr chs crm cvu cm cmp cff ccl ciz css cmc10)
+- Rounds: r1..3 once -> 36/36 (0 fails); min 5884 per lesson -> NO r4 needed
+- Base audit: units 168, foreign [], glue [], dev-mixed [] (tick-parity skips code-backtick content: props)
+- Final word counts: 5884..5930 words/lesson
+- Wiring: src/data/tutorials.ts import cssLevel10 + ...cssLevel10; scripts/chk1.js +"css-level10"
+- TSC --noEmit rc=0
+- Per-slug chk1: 12/12 EXEC ALL PASS (visual CSS lessons)
+- Full: chk1_full_css10.log -> ALL LESSONS PASS
+
+## CSS LEVEL 11 — Interaction Modes (COMPLETE)
+- Date: 2026-09-10
+- Generator: scripts/gen_css11.py (768 lines; 12 slugs x 7 sections)
+- Theme: Interaction Modes (light-dark, backdrop-filter, @starting-style, initial-letter, ::marker, intrinsic sizing, text-overflow, deep text-decoration, form appearance, media/scripting/pointer, caret & selection, capstone)
+- minutes 40 (L() default); CSS11_LABEL "CSS · Level 11 — Interaction Modes"
+- Ring: css-light-dark -> css-backdrop-filter -> css-starting-style -> css-initial-letter -> css-marker-style -> css-intrinsic-sizing -> css-text-overflow -> css-text-decoration-deep -> css-form-appearance -> css-media-scripting -> css-caret-selection -> css-marathi-capstone11 (-> back); lesson1 prev = css-marathi-capstone10
+- Default shorts unique via SHORTS{}: cld cbf css cil cms cis cto ctdd cfa cms2 ccs cmc11
+- Bank: scripts/css11_ban.py (7 sections); validate gates pass (foreign/glue/mixed = clean)
+- Expander: scripts/run_css11_expand.py (LEVEL css-level11)
+- Rounds: r1..3 once -> 36/36 (0 fails); min 5857 per lesson -> NO r4 needed
+- Base audit: units 168, foreign [], glue [], dev-mixed [] (tick-parity skips code-backtick content: props)
+- Final post-AD audit: units 168 clean
+- Final word counts: 5857..5928 words/lesson
+- Wiring: src/data/tutorials.ts import cssLevel11 + ...cssLevel11; scripts/chk1.js +"css-level11"
+- TSC --noEmit rc=0
+- Per-slug chk1: 12/12 EXEC ALL PASS (visual CSS lessons; capstone words=5886 sections=7)
+- Full: chk1_full_css11.log -> ALL LESSONS PASS
+CSS LEVEL 12 (Blend & Detail) NOTE
+- User choice: CSS Level 12 (recommended), continuing CSS track after Level 11
+- Theme: Blend & Detail; label CSS12_LABEL "CSS · Level 12 — Blend & Detail"; minutes 40
+- Slugs: css-overscroll -> css-scroll-margin -> css-content-visibility -> css-mix-blend-mode -> css-background-blend -> css-font-variation -> css-text-spacing -> css-decoration-style -> css-user-validity -> css-pseudo-state -> css-field-sizing -> css-marathi-capstone12 (-> back)
+- Ring: lesson1 prev = css-marathi-capstone11
+- Generator: scripts/gen_css12.py (12 lessons x 7 sections, codeLanguage "css", 681 lines); TSC diag [] at generation
+- Topic checks: no slug collisions vs existing levels; base audit units 84 content only (content: fields), foreign [], glue [], dev-mixed []
+- Bank: scripts/css12_ban.py; validate gates pass (foreign/glue/mixed/merged all empty)
+- Expander: scripts/run_css12_expand.py (LEVEL css-level12; SHORTS cos csm ccv cmb cbb cfv cts cds cuv cps cfs cmc12)
+- Rounds: r1..3 once -> 36/36 (0 fails); min 5802 per lesson -> NO r4 needed
+- Final word counts: 5802..5915 words/lesson
+- Post-AD audit: units 84 clean (foreign/glue/dev-mixed empty)
+- Wiring: src/data/tutorials.ts import cssLevel12 + ...cssLevel12; scripts/chk1.js +"css-level12"
+- TSC --noEmit rc=0
+- Per-slug chk1: 12/12 EXEC ALL PASS (visual CSS lessons)
+- Full: chk1_full_css12.log -> ALL LESSONS PASS
+CSS LEVEL 13 (Precision & Control) NOTE
+- User choice: CSS Level 13 (recommended), continuing CSS track after Level 12
+- Theme: Precision & Control; label CSS13_LABEL "CSS · Level 13 — Precision & Control"; minutes 40
+- Slugs: css-grid-template -> css-auto-fit-fill -> css-current-color -> css-cascade-keywords -> css-typographic-units -> css-animation-easing -> css-focus-within -> css-env-function -> css-overflow-deep -> css-table-layout -> css-page-break -> css-marathi-capstone13 (-> back)
+- Ring: lesson1 prev = css-marathi-capstone12
+- Generator: scripts/gen_css13.py (12 lessons x 7 sections, codeLanguage "css", 683 lines); TSC diag [] at generation
+- Pre-audit typo fixes in generator: "mersine" (latin junk) -> "पूर्व नियम"; "नेकाप" (gibberish) -> "नकाशा"
+- Topic checks: no slug collisions vs existing levels; base audit units 84 content only (content: fields), foreign [], glue [], dev-mixed []
+- Bank: scripts/css13_ban.py; validate gates pass (foreign/glue/mixed/merged all empty); "एकfr" merged-token fixed to "1fr मूल्य मोठे"
+- Expander: scripts/run_css13_expand.py (LEVEL css-level13; SHORTS cgt caf ccc cck ctu cae cfw cen cod ctl cpb cmc13)
+- Rounds: r1..3 once -> 36/36 (0 fails); min 5872 per lesson -> NO r4 needed
+- Final word counts: 5872..5916 words/lesson
+- Post-AD audit: units 84 clean (foreign/glue/dev-mixed empty)
+- Wiring: src/data/tutorials.ts import cssLevel13 + ...cssLevel13; scripts/chk1.js +"css-level13"
+- TSC --noEmit rc=0
+- Per-slug chk1: 12/12 EXEC ALL PASS (visual CSS lessons)
+- Full: chk1_full_css13.log -> ALL LESSONS PASS
+CSS LEVEL 14 (Motion & Color) NOTE
+- User choice: CSS Level 14 (recommended), continuing CSS track after Level 13
+- Theme: Motion & Color; label CSS14_LABEL "CSS · Level 14 — Motion & Color"; minutes 40
+- Slugs: css-container-queries -> css-has-selector -> css-color-mix -> css-oklch-color -> css-light-dark -> css-scope-rule -> css-text-wrap -> css-scroll-driven -> css-view-transitions -> css-subgrid -> css-prefers-media -> css-marathi-capstone14 (-> back)
+- Ring: lesson1 prev = css-marathi-capstone13
+- Generator: scripts/gen_css14.py (12 lessons x 7 sections, codeLanguage "css", 765 lines); TSC diag [] at generation
+- Topic checks: no slug collisions vs existing levels; base audit units 85 = 84 content + 1 literal content: "\25BE" inside :has() code block; foreign [], glue [], dev-mixed []
+- Bank: scripts/css14_ban.py; validate gates pass (foreign/glue/mixed/merged all empty)
+- Expander: scripts/run_css14_expand.py (LEVEL css-level14; SHORTS ccq chs cmix colk cld csr ctw csd cvt csg cpref cmc14)
+- Rounds: r1..3 once -> 36/36 (0 fails); min 5844 per lesson -> NO r4 needed
+- Final word counts: 5844..5914 words/lesson
+- Post-AD audit: units 85 clean (foreign/glue/dev-mixed empty); TSC rc=0
+- Wiring: src/data/tutorials.ts import cssLevel14 + ...cssLevel14; scripts/chk1.js +"css-level14"
+- TSC --noEmit rc=0
+- Per-slug chk1: 12/12 EXEC ALL PASS (visual CSS lessons)
+- Full: chk1_full_css14.log -> ALL LESSONS PASS
