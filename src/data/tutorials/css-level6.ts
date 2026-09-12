@@ -165,7 +165,7 @@ export const cssLevel6: Tutorial[] = [
       expectedOutput: "Renders cascaded layered styles",
     },
     interviewQuestions: ["l", "a", "y", "e", "r", " ", "उ", "प", "य", "ो", "ग", "?"],
-    related: ["css-view-transition", "css-scope-rule", "css-cascade", "css-masking-clip"],
+    related: ["css-view-transition", "css-scope-rule", "css-cascade-layers", "css-masking-clip"],
     prev: "css-view-transition",
     next: "css-masking-clip",
     levelLabel: CSS6_LABEL,

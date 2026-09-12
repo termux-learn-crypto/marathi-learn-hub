@@ -496,7 +496,7 @@ with lock:
       "thread म्हणजे?",
       "GIL म्हणजे?",
     ],
-    related: ["python-async", "python-functions-advanced", "python-arguments"],
+    related: ["python-async", "python-functions-advanced", "ai-python"],
     prev: "python-web-scraping",
     next: "python-async",
   },

@@ -66,6 +66,9 @@ import { cssLevel12 } from "./tutorials/css-level12";
 import { cssLevel13 } from "./tutorials/css-level13";
 import { cssLevel14 } from "./tutorials/css-level14";
 import { cssLevel15 } from "./tutorials/css-level15";
+import { jsLevel1 } from "./tutorials/js-level1";
+import { jsLevel2 } from "./tutorials/js-level2";
+import { jsLevel3 } from "./tutorials/js-level3";
 export const tutorials: Tutorial[] = [
   // === WEB DEVELOPMENT ===
   {
@@ -399,65 +402,6 @@ button {
     next: "js-basics",
   },
   {
-    slug: "js-basics",
-    categoryId: "web",
-    title: "JavaScript Basics",
-    marathiTitle: "JavaScript - वेबला जीव द्या",
-    level: "beginner",
-    minutes: 20,
-    summary: "JavaScript ही प्रोग्रामिंग भाषा आहे जी वेबपेजला interactive बनवते.",
-    sections: [
-      {
-        title: "JavaScript म्हणजे काय?",
-        content: "JavaScript ही सर्वात लोकप्रिय प्रोग्रामिंग भाषांपैकी एक आहे. ती वेबपेजमध्ये interactivity जोडते.\n\nHTML रचना देतो, CSS स्टाईल देतो आणि JavaScript बटण क्लिक, form validation, animation असे dynamic behaviors जोडते.\n\nतुम्ही JavaScript कुठेही चालवू शकता - ब्राउझर, Node.js, आणि आता अगदी hardware वरही.",
-        code: `// हे एक comment आहे - प्रोग्रामरसाठी नोट
-
-// variable declare
-let name = "विलास";
-const age = 25;
-
-// console मध्ये print
-console.log("नमस्कार! " + name);
-
-// function बनवणे
-function add(a, b) {
-  return a + b;
-}
-
-console.log(add(5, 3)); // 8
-
-// if-else
-if (age >= 18) {
-  console.log("तुम्ही प्रौढ आहात");
-} else {
-  console.log("तुम्ही अल्पवयीन आहात");
-}`,
-        codeLanguage: "javascript",
-        output: "नमस्कार! विलास\n8\nतुम्ही प्रौढ आहात",
-      },
-    ],
-    quiz: [
-      {
-        question: "JavaScript मध्ये variable declare करण्यासाठी कोणता keyword वापरतात?",
-        options: ["var", "let", "const", "तीनही"],
-        correct: 3,
-      },
-      {
-        question: "console मध्ये काही print करण्यासाठी कोणती command वापरतात?",
-        options: ["print()", "console.log()", "echo()", "document.write()"],
-        correct: 1,
-      },
-      {
-        question: "खालीलपैकी कोणता JavaScript data type नाही?",
-        options: ["number", "string", "boolean", "character"],
-        correct: 3,
-      },
-    ],
-    related: ["html-basics", "python-basics", "css-basics"],
-    prev: "css-grid",
-    next: "js-functions",
-  },
-  {
     slug: "js-functions",
     categoryId: "web",
     title: "JavaScript Functions",
@@ -534,6 +478,11 @@ console.log(double(5));`,
   ...cssLevel13,
   ...cssLevel14,
   ...cssLevel15,
+
+  // --- JAVASCRIPT ---
+  ...jsLevel1,
+  ...jsLevel2,
+  ...jsLevel3,
 
   // === LINUX ===
   {
@@ -993,7 +942,7 @@ Output: नवीन फोटोमधील चेहरा ओळखते`,
         correct: 1,
       },
     ],
-    related: ["ai-machine-learning", "python-basics", "ai-applications"],
+    related: ["ai-machine-learning", "python-basics"],
     next: "ai-machine-learning",
   },
   {
@@ -1615,7 +1564,7 @@ void loop() {
         correct: 0,
       },
     ],
-    related: ["digital-skills", "web-development-career", "computer-basics"],
+    related: ["digital-skills", "python-web-flask", "computer-basics"],
     next: "freelancing-skills",
   },
   {
@@ -1644,7 +1593,7 @@ void loop() {
         correct: 0,
       },
     ],
-    related: ["freelancing-basics", "web-development-career", "digital-skills"],
+    related: ["freelancing-basics", "python-web-flask", "digital-skills"],
     prev: "freelancing-basics",
   },
 
