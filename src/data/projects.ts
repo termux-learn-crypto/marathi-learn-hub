@@ -61,7 +61,7 @@ export const projects: Project[] = [
     marathiTitle: "Login Page बनवा",
     difficulty: "मध्यम",
     minutes: 40,
-    summary: "HTML CSS JavaScript वापरून функционал login form.",
+    summary: "HTML CSS JavaScript वापरून functional login form.",
     steps: [
       "Form structure तयार करा",
       "CSS ने design करा",

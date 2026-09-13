@@ -112,11 +112,26 @@ console.log(funcVar);     // चालते`,
         code: `let पोल = 100;
 
 function खेळ() {
-  let धावा = 25枡  // खेळ चालू
+  let धावा = 25;  // खेळ चालू
   return पोल + धावा;
 }
 console.log(खेळ());`
       }
     ],
+    quiz: [
+      {
+        question: "function आत घोषित variable कुठे दिसतो?",
+        options: ["फक्त function आत", "सगळीकडे", "पुढच्या file मधे", "कधीच नाही"],
+        correct: 0,
+      },
+      {
+        question: "कोणता keyword block scope देतो?",
+        options: ["var", "let", "const मध्येही नाही", "global"],
+        correct: 1,
+      },
+    ],
+    related: ["js-comparisons", "js-variables", "js-conditionals", "js-booleans"],
+    next: "js-dom",
+    prev: "js-comparisons",
   }
 ]

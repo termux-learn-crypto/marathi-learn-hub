@@ -66,12 +66,15 @@ import { cssLevel12 } from "./tutorials/css-level12";
 import { cssLevel13 } from "./tutorials/css-level13";
 import { cssLevel14 } from "./tutorials/css-level14";
 import { cssLevel15 } from "./tutorials/css-level15";
+import { computerLevel1 } from "./tutorials/computer-level1";
 import { jsLevel1 } from "./tutorials/js-level1";
 import { jsLevel2 } from "./tutorials/js-level2";
 import { jsLevel3 } from "./tutorials/js-level3";
 import { jsLevel4 } from "./tutorials/js-level4";
 import { jsLevel5 } from "./tutorials/js-level5";
 import { jsLevel6 } from "./tutorials/js-level6";
+import { jsLevel7 } from "./tutorials/js-level7";
+import { jsLevel8 } from "./tutorials/js-level8";
 export const tutorials: Tutorial[] = [
   // === WEB DEVELOPMENT ===
   {
@@ -489,6 +492,8 @@ console.log(double(5));`,
   ...jsLevel4,
   ...jsLevel5,
   ...jsLevel6,
+  ...jsLevel7,
+  ...jsLevel8,
 
   // === LINUX ===
   {
@@ -909,7 +914,11 @@ User`,
     ],
     related: ["computer-hardware", "computer-basics", "linux-basics"],
     prev: "computer-hardware",
+    next: "computer-io-devices",
   },
+
+  // === COMPUTER · LEVEL 1 ===
+  ...computerLevel1,
 
   // === AI ===
   {

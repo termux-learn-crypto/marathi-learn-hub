@@ -217,7 +217,7 @@ export const htmlLevel3: Tutorial[] = [
   <h1>औद्योगिक प्रगती</h1>
   <p>उज्ज्वल बातमी</p>
 </hgroup>`, codeLanguage: "html" },
-      { title: "3. sectioning элементы", content: "काही घटक नवीन outline रचना तयार करतात — sectioning content.\n\nsection, article, aside, nav, header, footer — हे सर्व \"ओळखीच्या\" सीमा देतात.\n\nत्यांच्यातील heading क्रम स्वतंत्र असू शकतो — मुख्य नकाशाला धक्का नाही.\n\nदस्तऐवज एक गुंतागुंतीचा नकाशा होतो, पण तरीदेखील समजण्यासारखा.\n\nप्रत्येक sectioning block मध्ये त्याची स्वतःची h1 असू शकते? — काही वेळा; पण एकच मुख्य h1 चांगले.", code: `<article>
+      { title: "3. sectioning elements", content: "काही घटक नवीन outline रचना तयार करतात — sectioning content.\n\nsection, article, aside, nav, header, footer — हे सर्व \"ओळखीच्या\" सीमा देतात.\n\nत्यांच्यातील heading क्रम स्वतंत्र असू शकतो — मुख्य नकाशाला धक्का नाही.\n\nदस्तऐवज एक गुंतागुंतीचा नकाशा होतो, पण तरीदेखील समजण्यासारखा.\n\nप्रत्येक sectioning block मध्ये त्याची स्वतःची h1 असू शकते? — काही वेळा; पण एकच मुख्य h1 चांगले.", code: `<article>
   <h2>पहिला लेख</h2>
   <p>स्वतंत्र मजकूर.</p>
 </article>

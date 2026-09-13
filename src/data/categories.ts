@@ -7,7 +7,6 @@ export interface Category {
   icon: string;
   color: string;
   description: string;
-  topics: number;
   tags: string[];
 }
 
@@ -19,7 +18,6 @@ export const categories: Category[] = [
     icon: "💻",
     color: "bg-blue-500",
     description: "संगणकाची मूलभूत माहिती मराठीतून",
-    topics: 12,
     tags: ["computer", "संगणक", "basics", "हार्डवेअर"],
   },
   {
@@ -29,7 +27,6 @@ export const categories: Category[] = [
     icon: "🌐",
     color: "bg-emerald-500",
     description: "HTML, CSS, JavaScript शिका मराठीतून",
-    topics: 18,
     tags: ["web", "html", "css", "javascript", "वेब"],
   },
   {
@@ -39,7 +36,6 @@ export const categories: Category[] = [
     icon: "🐍",
     color: "bg-yellow-500",
     description: "पायथॉन प्रोग्रामिंग सोप्या मराठीत",
-    topics: 15,
     tags: ["python", "पायथॉन", "programming", "code"],
   },
   {
@@ -49,7 +45,6 @@ export const categories: Category[] = [
     icon: "📱",
     color: "bg-green-500",
     description: "अँड्रॉइड अॅप्स आणि टिप्स",
-    topics: 8,
     tags: ["android", "अँड्रॉइड", "mobile", "app"],
   },
   {
@@ -59,7 +54,6 @@ export const categories: Category[] = [
     icon: "🤖",
     color: "bg-purple-500",
     description: "AI च्या मूलभूत संकल्पना आणि उपयोग",
-    topics: 10,
     tags: ["ai", "आर्टिफिशियल", "intelligence", "machine learning"],
   },
   {
@@ -69,7 +63,6 @@ export const categories: Category[] = [
     icon: "🔌",
     color: "bg-orange-500",
     description: "इलेक्ट्रॉनिक्स मूलभूत आणि Arduino",
-    topics: 14,
     tags: ["electronics", "arduino", "इलेक्ट्रॉनिक्स", "circuit"],
   },
   {
@@ -79,7 +72,6 @@ export const categories: Category[] = [
     icon: "⚡",
     color: "bg-amber-500",
     description: "इलेक्ट्रिकल मूलभूत आणि सुरक्षा",
-    topics: 6,
     tags: ["electrical", "इलेक्ट्रिकल", "wiring", "सर्किट"],
   },
   {
@@ -89,7 +81,6 @@ export const categories: Category[] = [
     icon: "🐧",
     color: "bg-slate-500",
     description: "लिनक्स कमांड्स आणि सिस्टम",
-    topics: 12,
     tags: ["linux", "लिनक्स", "terminal", "command"],
   },
   {
@@ -99,7 +90,6 @@ export const categories: Category[] = [
     icon: "📟",
     color: "bg-cyan-500",
     description: "Android वर Termux वापरून प्रोग्रामिंग",
-    topics: 10,
     tags: ["termux", "टर्मक्स", "android", "tools"],
   },
   {
@@ -109,7 +99,6 @@ export const categories: Category[] = [
     icon: "🔐",
     color: "bg-red-500",
     description: "सायबर सुरक्षेची मूलभूत माहिती",
-    topics: 9,
     tags: ["cyber", "security", "सायबर", "hacking"],
   },
   {
@@ -119,7 +108,6 @@ export const categories: Category[] = [
     icon: "🛠️",
     color: "bg-stone-500",
     description: "घरगुती छोटे प्रोजेक्ट्स",
-    topics: 11,
     tags: ["diy", "projects", "प्रोजेक्ट", "making"],
   },
   {
@@ -129,7 +117,6 @@ export const categories: Category[] = [
     icon: "📊",
     color: "bg-indigo-500",
     description: "डिजिटल जगात आवश्यक कौशल्ये",
-    topics: 10,
     tags: ["digital", "skills", "tips", "कौशल्य"],
   },
   {
@@ -139,7 +126,6 @@ export const categories: Category[] = [
     icon: "💼",
     color: "bg-teal-500",
     description: "फ्रीलान्सिंगमध्ये पैसे कमवायचे?",
-    topics: 7,
     tags: ["freelance", "work", "पैसे", "income"],
   },
   {
@@ -149,14 +135,13 @@ export const categories: Category[] = [
     icon: "🧠",
     color: "bg-pink-500",
     description: "उपयुक्त सामान्य ज्ञान",
-    topics: 9,
     tags: ["general", "knowledge", "ज्ञान", "facts"],
   },
 ];
 
 export function getCategory(id: string): Category | undefined {
   const cat = categories.find((c) => c.id === id);
-  return cat ? { ...cat, topics: countFor(id) } : undefined;
+  return cat;
 }
 
 export function getTopicCount(categoryId: string): number {

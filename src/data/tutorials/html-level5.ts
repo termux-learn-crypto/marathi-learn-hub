@@ -38,7 +38,7 @@ export const htmlLevel5: Tutorial[] = [
     practiceQuestions: ["canvas म्हणजे काय?", "2d context कशासाठी?", "ग्रिड मूळ कुठे?", "canvas विरुद्ध SVG निर्णय कसा?"],
     quiz: [
       { question: "चित्र तयार करणारी जागा?", options: ["canvas", "iframe", "dialog", "slot"], correct: 0 },
-      { question: "आकार कुठे ठरतो?", options: ["width/height attributes", "style только", "title", "data"], correct: 0 },
+      { question: "आकार कुठे ठरतो?", options: ["width/height attributes", "style only", "title", "data"], correct: 0 },
       { question: "पाठ fallback कुठे?", options: ["canvas आत", "head मध्ये", "slot ने", "object"], correct: 0 },
       { question: "vector रचना?", options: ["SVG", "canvas", "image", "audio"], correct: 0 },
     ],
