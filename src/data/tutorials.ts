@@ -68,6 +68,7 @@ import { cssLevel14 } from "./tutorials/css-level14";
 import { cssLevel15 } from "./tutorials/css-level15";
 import { computerFoundation } from "./tutorials/computer-foundation";
 import { computerLevel1 } from "./tutorials/computer-level1";
+import { androidLevel1 } from "./tutorials/android-level1";
 import { jsLevel1 } from "./tutorials/js-level1";
 import { jsLevel2 } from "./tutorials/js-level2";
 import { jsLevel3 } from "./tutorials/js-level3";
@@ -817,6 +818,9 @@ python
 
   // === COMPUTER · LEVEL 1 ===
   ...computerLevel1,
+
+  // === ANDROID · APP INVENTOR ===
+  ...androidLevel1,
 
   // === AI ===
   {
