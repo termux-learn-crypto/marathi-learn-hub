@@ -45,6 +45,7 @@ export default function Footer() {
               <li><Link href="/about" className="hover:text-primary-600">आमच्याबद्दल</Link></li>
               <li><Link href="/contact" className="hover:text-primary-600">संपर्क</Link></li>
               <li><Link href="/tools" className="hover:text-primary-600">Tools</Link></li>
+              <li><Link href="/privacy" className="hover:text-primary-600">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>

@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/notes",
     "/about",
     "/contact",
+    "/privacy",
   ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "weekly",
