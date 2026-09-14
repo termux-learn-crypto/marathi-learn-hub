@@ -66,6 +66,7 @@ import { cssLevel12 } from "./tutorials/css-level12";
 import { cssLevel13 } from "./tutorials/css-level13";
 import { cssLevel14 } from "./tutorials/css-level14";
 import { cssLevel15 } from "./tutorials/css-level15";
+import { computerFoundation } from "./tutorials/computer-foundation";
 import { computerLevel1 } from "./tutorials/computer-level1";
 import { jsLevel1 } from "./tutorials/js-level1";
 import { jsLevel2 } from "./tutorials/js-level2";
@@ -811,111 +812,8 @@ python
     prev: "termux-basics",
   },
 
-  // === COMPUTER ===
-  {
-    slug: "computer-basics",
-    categoryId: "computer",
-    title: "Computer Basics",
-    marathiTitle: "संगणकाची मूलभूत माहिती",
-    level: "beginner",
-    minutes: 15,
-    summary: "संगणक म्हणजे काय, त्याचे भाग आणि मूलभूत संकल्पना मराठीतून.",
-    sections: [
-      {
-        title: "संगणक म्हणजे काय?",
-        content: "संगणक (Computer) हे एक electronic device आहे जे data (माहिती) घेते, ती प्रोसेस करते आणि निकाल देते.\n\nसंगणकाचे चार मुख्य काम:\n1. Input - माहिती घेणे (कीबोर्ड, माउस)\n2. Processing - प्रोसेस करणे (CPU)\n3. Storage - साठवणे (RAM, hard disk)\n4. Output - निकाल देणे (मॉनिटर, printer)\n\nHardware म्हणजे संगणकाचे भौतिक भाग - keyboard, mouse, monitor, CPU.\nSoftware म्हणजे programs - Windows, games, apps.",
-        code: `// Input प्रक्रिया समजून घ्या
-1. तुम्ही keyboard वर अक्षर टाइप करता (Input)
-2. CPU ते प्रोसेस करते (Processing)
-3. RAM मध्ये store होते (Storage)
-4. Monitor वर दिसते (Output)`,
-        codeLanguage: "text",
-      },
-    ],
-    quiz: [
-      {
-        question: "संगणकाचे hardware म्हणजे काय?",
-        options: ["प्रोग्रॅम्स", "भौतिक भाग", "डेटा", "इंटरनेट"],
-        correct: 1,
-      },
-      {
-        question: "संगणकाचा 'मेंदू' कोणता भाग?",
-        options: ["RAM", "Hard Disk", "CPU", "Monitor"],
-        correct: 2,
-      },
-    ],
-    related: ["computer-hardware", "linux-basics", "python-basics"],
-    next: "computer-hardware",
-  },
-  {
-    slug: "computer-hardware",
-    categoryId: "computer",
-    title: "Computer Hardware",
-    marathiTitle: "संगणकाचे भाग समजून घ्या",
-    level: "beginner",
-    minutes: 18,
-    summary: "CPU, RAM, motherboard, storage यासारखे संगणकाचे मुख्य hardware भाग.",
-    sections: [
-      {
-        title: "मुख्य Hardware भाग",
-        content: "संगणकाचे मुख्य भाग:\n\n• CPU (Central Processing Unit) - संगणकाचा मेंदू, सर्व गणना करतो\n• Motherboard - सर्व भाग जोडणारा मुख्य सर्किट बोर्ड\n• RAM - तात्पुरती माहितीची जागा, जलद पण क्षणभंगुर\n• Storage (HDD/SSD) - कायम स्वरूपाची साठवण\n• PSU - वीज पुरवठा\n• GPU - ग्राफिक्स प्रोसेसिंग\n\nRAM आणि Storage मधील फरक:\nRAM फक्त संगणक चालू असताना data ठेवते. Power बंद झाली की RAM रिकामी होते.\nStorage (hard disk/SSD) मध्ये data कायम राहतो.",
-      },
-    ],
-    quiz: [
-      {
-        question: "कोणते device तात्पुरती माहिती ठेवते?",
-        options: ["Hard Disk", "SSD", "RAM", "CD"],
-        correct: 2,
-      },
-      {
-        question: "सर्व hardware भाग कोणत्या board वर जोडलेले असतात?",
-        options: ["Graphics card", "Motherboard", "Sound card", "Network card"],
-        correct: 1,
-      },
-    ],
-    related: ["computer-basics", "linux-basics", "computer-software"],
-    prev: "computer-basics",
-    next: "computer-software",
-  },
-  {
-    slug: "computer-software",
-    categoryId: "computer",
-    title: "Computer Software",
-    marathiTitle: "सॉफ्टवेअर म्हणजे काय?",
-    level: "beginner",
-    minutes: 12,
-    summary: "System software, application software आणि त्यांचे प्रकार.",
-    sections: [
-      {
-        title: "सॉफ्टवेअरचे प्रकार",
-        content: "Software म्हणजे संगणकाला काय करायचे ते सांगणारे programs.\n\nदोन मुख्य प्रकार:\n\n1. System Software:\n• Operating System (Windows, Linux, Android)\n• Drivers\n• Utilities\n\n2. Application Software:\n• Browsers (Chrome, Firefox)\n• Office (Word, Excel)\n• Games\n• Messaging apps",
-        code: `// Software layers
-Hardware
-  ↓
-Operating System (Windows/Linux)
-  ↓
-Applications (Browser, Games)
-  ↓
-User`,
-        codeLanguage: "text",
-      },
-    ],
-    quiz: [
-      {
-        question: "Operating System कोणत्या प्रकारचे software आहे?",
-        options: ["Application", "System", "Utility", "Driver"],
-        correct: 1,
-      },
-      {
-        question: "खालीलपैकी कोणते application software आहे?",
-        options: ["Windows", "Linux", "Chrome Browser", "BIOS"],
-        correct: 2,
-      },
-    ],
-    related: ["computer-hardware", "computer-basics", "linux-basics"],
-    prev: "computer-hardware",
-    next: "computer-io-devices",
-  },
+  // === COMPUTER · FOUNDATION ===
+  ...computerFoundation,
 
   // === COMPUTER · LEVEL 1 ===
   ...computerLevel1,
