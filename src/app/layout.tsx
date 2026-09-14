@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: "मोफत शिका • प्रयोग करा • वाढा. Marathi Learn Hub is a free learning platform with tutorials, quizzes, projects and interactive coding in Marathi.",
   manifest: "/manifest.json",
   metadataBase: new URL(siteUrl()),
+  verification: {
+    google: "vpLqYEpBQV9Gi3okCKfZzBfII8sLsCSRLPaxTN3ac8o",
+  },
   icons: {
     icon: [
       { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
