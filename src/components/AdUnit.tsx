@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "";
+const ADSENSE_CLIENT =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-8509787083957252";
 const ADSENSE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_SLOT || "";
 
 declare global {
