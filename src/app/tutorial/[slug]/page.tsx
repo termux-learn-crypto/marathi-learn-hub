@@ -7,7 +7,10 @@ import { getCategory } from "@/data/categories";
 import CodeEditor from "@/components/CodeEditor";
 import QuizPlayer from "@/components/QuizPlayer";
 import { TutorialCard } from "@/components/Cards";
+import { Fragment } from "react";
 import TutorialActions from "./TutorialActions";
+import AdUnit from "@/components/AdUnit";
+import { siteUrl } from "@/lib/site";
 
 interface Props {
   params: { slug: string };
@@ -69,9 +72,47 @@ export default function TutorialDetailPage({ params }: Props) {
 
   const diffLabel = tutorial.level === "beginner" ? "सोपे" : tutorial.level === "intermediate" ? "मध्यम" : "अवघड";
 
+  const base = siteUrl();
+  const tutorialUrl = `${base}/tutorial/${tutorial.slug}`;
+  const categoryUrl = cat ? `${base}/category/${cat.id}` : undefined;
+  const breadcrumbItems = [
+    { position: 1, name: "Home", item: `${base}/` },
+    ...(cat ? [{ position: 2, name: cat.name, item: categoryUrl }] : []),
+    { position: cat ? 3 : 2, name: tutorial.marathiTitle, item: tutorialUrl },
+  ] as const;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        name: tutorial.marathiTitle,
+        description: tutorial.summary,
+        provider: {
+          "@type": "Organization",
+          name: "Marathi Learn Hub",
+          sameAs: `${base}/`,
+        },
+        url: tutorialUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbItems.map((b) => ({
+          "@type": "ListItem",
+          position: b.position,
+          name: b.name,
+          item: b.item,
+        })),
+      },
+    ],
+  };
+
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-4 flex items-center gap-2">
@@ -111,10 +152,13 @@ export default function TutorialDetailPage({ params }: Props) {
 
         <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 marathi leading-relaxed">{tutorial.summary}</p>
 
+        <AdUnit />
+
         {/* Sections */}
         <div className="space-y-8">
           {tutorial.sections.map((section, idx) => (
-            <section key={idx} className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
+            <Fragment key={idx}>
+              <section className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 flex items-center justify-center font-bold text-sm">
                   {idx + 1}
@@ -135,7 +179,9 @@ export default function TutorialDetailPage({ params }: Props) {
                   />
                 </div>
               )}
-            </section>
+              </section>
+              {(idx + 1) % 4 === 0 && <AdUnit />}
+            </Fragment>
           ))}
         </div>
 
@@ -158,6 +204,8 @@ export default function TutorialDetailPage({ params }: Props) {
           <h2 className="text-2xl font-bold marathi mb-4">🧩 Quiz - तुम्ही किती शिकलात?</h2>
           <QuizPlayer slug={tutorial.slug} quiz={tutorial.quiz} />
         </section>
+
+        <AdUnit />
 
         {/* Coding Challenge */}
         {tutorial.challenge && (
