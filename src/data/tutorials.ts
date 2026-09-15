@@ -73,6 +73,9 @@ import { aiLevel1 } from "./tutorials/ai-level1";
 import { aiLevel2 } from "./tutorials/ai-level2";
 import { electronicsLevel1 } from "./tutorials/electronics-level1";
 import { electronicsLevel2 } from "./tutorials/electronics-level2";
+import { electronicsLevel3 } from "./tutorials/electronics-level3";
+import { electronicsLevel4 } from "./tutorials/electronics-level4";
+import { electronicsLevel5 } from "./tutorials/electronics-level5";
 import { jsLevel1 } from "./tutorials/js-level1";
 import { jsLevel2 } from "./tutorials/js-level2";
 import { jsLevel3 } from "./tutorials/js-level3";
@@ -1144,6 +1147,7 @@ R = (5 - 2) / 0.02 = 150Ω`,
 
   // === ELECTRONICS · LEVEL 1 ===
   ...electronicsLevel1,
+  ...electronicsLevel3,
 
   {
     slug: "arduino-basics",
@@ -1211,7 +1215,7 @@ void loop() {
     ],
     related: ["arduino-led", "electronics-transistor", "electronics-basics"],
     next: "arduino-led",
-    prev: "electronics-transistor",
+    prev: "electronics-power-supply",
   },
 
   {
@@ -1293,6 +1297,8 @@ void loop() {
 
   // === ELECTRONICS · LEVEL 2 ===
   ...electronicsLevel2,
+  ...electronicsLevel4,
+  ...electronicsLevel5,
 
 
   // === DIY ===

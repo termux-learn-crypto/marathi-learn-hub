@@ -113,6 +113,6 @@ export const electronicsLevel2: Tutorial[] = [
     ],
     related: ["arduino-sensor", "arduino-basics", "diy-projects"],
     prev: "arduino-sensor",
-    next: "",
+    next: "arduino-ultrasonic",
   },
 ];

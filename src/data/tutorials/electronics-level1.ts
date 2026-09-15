@@ -223,6 +223,6 @@ export const electronicsLevel1: Tutorial[] = [
     ],
     related: ["electronics-capacitor", "arduino-led", "arduino-project"],
     prev: "electronics-capacitor",
-    next: "arduino-basics",
+    next: "electronics-diode",
   },
 ];
