@@ -71,6 +71,8 @@ import { computerLevel1 } from "./tutorials/computer-level1";
 import { androidLevel1 } from "./tutorials/android-level1";
 import { aiLevel1 } from "./tutorials/ai-level1";
 import { aiLevel2 } from "./tutorials/ai-level2";
+import { electronicsLevel1 } from "./tutorials/electronics-level1";
+import { electronicsLevel2 } from "./tutorials/electronics-level2";
 import { jsLevel1 } from "./tutorials/js-level1";
 import { jsLevel2 } from "./tutorials/js-level2";
 import { jsLevel3 } from "./tutorials/js-level3";
@@ -1069,6 +1071,80 @@ print(model.predict([[5.1, 3.5]]))`,
   },
 
   // === ELECTRONICS ===
+
+  {
+    slug: "electronics-basics",
+    categoryId: "electronics",
+    title: "Electronics Basics",
+    marathiTitle: "इलेक्ट्रॉनिक्सची मूलभूत संकल्पना",
+    level: "beginner",
+    minutes: 15,
+    summary: "Voltage, current, resistance - इलेक्ट्रॉनिक्सच्या मूलभूत संकल्पना.",
+    sections: [
+      {
+        title: "मूलभूत संकल्पना",
+        content: "इलेक्ट्रॉनिक्स समजून घेण्यासाठी तीन मूलभूत गोष्टी:\n\n• Voltage (V) - विद्युत दाब, पाण्याच्या दाबासारखा\n• Current (I) - विद्युत प्रवाह, पाण्याच्या प्रवाहासारखा\n• Resistance (R) - प्रवाहाला विरोध, अरुंद पाईपसारखा\n\nओहमचा नियम:\nV = I × R\n\nमूलभूत घटक:\n• Resistor - प्रवाह मर्यादित करतो\n• Capacitor - ऊर्जा store करतो\n• Diode - एका दिशेने प्रवाह\n• LED - प्रकाश देणारा diode\n• Transistor - switch/amplifier",
+        code: `# Ohm's Law उदाहरण:
+Voltage (V) = Current (I) × Resistance (R)
+
+जर V = 5V आणि R = 1000Ω:
+I = V / R = 5 / 1000 = 0.005A = 5mA
+
+# LED circuit:
+V_source = 5V
+V_led = 2V (LED चे व्होल्टेज)
+R = (5 - 2) / 0.02 = 150Ω`,
+        codeLanguage: "text",
+      },
+      {
+        title: "सर्किट आणि प्रवाह",
+        content: "प्रवाह नेहमी बंद मार्गाने (closed loop) वाहतो.\n\nसर्किटचे प्रकार:\n\t• Open circuit — मार्ग तुटलेला, प्रवाह नाही.\n\t• Closed circuit — संपूर्ण मार्ग जोडलेला, प्रवाह चालतो.\n\t• Short circuit — थेट (+)−(−) जोडणी, धोकादायक.\n\nपाण्याच्या नळीचे साधर्म्य:\n\t• Voltage = पाण्याचा दाब.\n\t• Current = वाहणारे पाणी.\n\t• Resistance = नळीची अरुंदाई.\n\nघरातील सर्किट बहुतेक समांतर असतात — एक घटक बंद झाला तरी बाकी चालतात.\n\nप्रयोगांमध्ये नेहमी फक्त लो-व्होल्टेज (3-9V) वापरा.\n\nपुढील पाठांमध्ये series/parallel चे नियम सखोल येतील.",
+      },
+      {
+        title: "ओहमचा नियम — व्यवहार",
+        content: "एकच समीकरण इलेक्ट्रॉनिक्सचे मूळ:\n\nV = I × R\n\nतीन स्वरूप:\n\t• V = I × R — voltage काढणे.\n\t• I = V / R — प्रवाह काढणे.\n\t• R = V / I — resistor काढणे.\n\nउदाहरण १:\n\t• बॅटरी 5V, resistor 1000Ω → I = 5/1000 = 0.005A = 5mA.\n\nउदाहरण २:\n\t• LED ला 2V व 20mA हवे, स्रोत 5V.\n\t• R = (5 − 2) / 0.02 = 150Ω.\n\nनियम:\n\t• मोठा R → कमी प्रवाह.\n\t• दोन resistor शृंखलेत → R बेरीज.\n\t• तार/कंडक्टरचा resistance जवळजवळ शून्य.\n\nनेहमी लक्षात ठेवा: LED सोबत 220Ω resistor आवश्यक.",
+      },
+      {
+        title: "घटकांची ओळख",
+        content: "पाच मूलभूत घटक:\n\n• Resistor — प्रवाह मर्यादित करतो.\n• Capacitor — थोडी ऊर्जा साठवतो/फिल्टर करतो.\n• Diode — एकाच दिशेने प्रवाह देतो.\n• LED — प्रकाश देणारा diode.\n• Transistor — लहान इशाऱ्याने मोठा प्रवाह नियंत्रित करतो.\n\nओळख कशी?\n\t• Resistor — रंगीत पट्ट्या.\n\t• Capacitor — गोल/सपाट, अंक लिहिलेले.\n\t• LED — लांब पाय anode (+).\n\t• Transistor — तीन पाय, अक्षर कोड.\n\nसर्वात सोपा प्रयोग: LED + resistor + बॅटरी.\n\nपुढील पाठांमध्ये प्रत्येक घटकाचे तपशील.",
+      },
+      {
+        title: "साधने — ब्रेडबोर्ड व multimeter",
+        content: "प्रयोग करण्यासाठी दोन मुख्य साधने:\n\nब्रेडबोर्ड:\n\t• मध्य रेषेच्या दोन्ही बाजूंना rows — प्रत्येक row मध्ये 5 जोडलेली छिद्रे.\n\t• बाहेरच्या रेल — एक +V, एक GND.\n\t• न वेल्ड करता योग्य तारांनी सर्किट जलद.\n\nMultimeter:\n\t• Voltage mode — घटकावरील V मोजणे.\n\t• Resistance mode — R वाचणे.\n\t• Continuity — तार तुटली आहे का तपासणे.\n\t• Current mode — प्रवाह मोजणे (सावधान).\n\nसुरक्षा:\n\t• फक्त लो-व्होल्टेज (3-9V).\n\t• बॅटरीचे ध्रुव उलट न लावा.\n\t• तारा (+)/(−) थेट जोडू नका.\n\nसराव: 2 बॅटरी holder बनवून voltage मोजा.",
+      },
+      {
+        title: "DIY — बॅटरी + LED दिवा",
+        content: "पहिला प्रोजेक्ट — battery-powered टेबल दिवा.\n\nपार्ट्स:\n\t• 1 × LED (कोणताही रंग).\n\t• 1 × resistor 100-220Ω.\n\t• 2 × AA बॅटरी + holder.\n\t• 2 तारा.\n\nजोडणी:\n\t• बॅटरी (+) → resistor → LED anode (+).\n\t• LED cathode (−) → बॅटरी (−).\n\nचाचणी:\n\t• LED जळत नसल्यास anode/cathode उलट बघा.\n\t• धूसर असेल तर resistor मूल्य कमी करा (मर्यादेत).\n\nविस्तार:\n\t• दोन LEDs समांतर.\n\t• बटण switch जोडून ON/OFF.\n\t• कागदाच्या कपाने लँपशेड.\n\nहेच सर्किट पुढे Arduino ने चालवले जाते.",
+      },
+      {
+        title: "आजचा सारांश",
+        content: "इलेक्ट्रॉनिक्स बेसिक्सचे सहा मुद्दे:\n\n• प्रवाह बंद मार्गाने वाहतो; short circuit धोकादायक.\n• V = I × R — तीन स्वरूप.\n• घटक — resistor, capacitor, diode, LED, transistor.\n• साधने — ब्रेडबोर्ड आणि multimeter.\n• सुरक्षा — लो-व्होल्टेज, ध्रुव व्यवस्थित.\n• DIY — LED दिवा; नंतर switch जोडा.\n\nआजचे प्रॅक्टिस:\n\t०१. घरातील बॅटरी दिव्यांचे निरीक्षण करा.\n\t०२. Multimeter ने बॅटरी voltage मोजा.\n\t०३. LED + 220Ω + बॅटरी दिवा बनवा.\n\t०४. दोन भिन्न resistor ची मूल्ये मोजा.\n\nपुढील पाठ — Circuits: series/parallel चे नियम.",
+      },
+    ],
+    quiz: [
+      {
+        question: "ओहमचा नियम काय आहे?",
+        options: [
+          "V = I × R",
+          "I = V × R",
+          "R = V × I",
+          "V = I / R",
+        ],
+        correct: 0,
+      },
+      {
+        question: "प्रवाह मर्यादित करणारा घटक कोणता?",
+        options: ["Capacitor", "Diode", "Resistor", "LED"],
+        correct: 2,
+      },
+    ],
+    related: ["electronics-circuits", "electrical-basics", "arduino-basics"],
+    next: "electronics-circuits",
+  },
+
+  // === ELECTRONICS · LEVEL 1 ===
+  ...electronicsLevel1,
+
   {
     slug: "arduino-basics",
     categoryId: "electronics",
@@ -1096,6 +1172,30 @@ void loop() {
 }`,
         codeLanguage: "c",
       },
+      {
+        title: "बोर्डचे भाग",
+        content: "Arduino Uno वर काय काय असते:\n\n• USB port — program upload व power.\n• Power jack — 7-12V adapter साठी.\n• Digital pins 0-13 — IN/OUT; 13 वर built-in LED.\n• Analog pins A0-A5 — sensor वाचन.\n• GND pins — सामायिक मुळा (सर्वात महत्त्वाचा).\n• 5V / 3.3V pins — बाह्य घटकांना वीज.\n• Reset button — program पुन्हा सुरू.\n• TX/RX LEDs — upload दरम्यान चमकतात.\n\nसाधा नियम:\n\t• GND शिवाय परिपूर्ण सर्किट नाही.\n\t• Built-in LED pin 13 — पहिला प्रयोग.\n\nभिन्न बोर्ड (Nano, Mega) — pin names साठी boards/documentation पहा.\n\nआता IDE उघडा आणि पहिला sketch चालवा.",
+      },
+      {
+        title: "IDE आणि पहिला sketch",
+        content: "Arduino IDE — सर्व काम एका जागी.\n\nमुख्य भाग:\n\t• Code editor — setup() आणि loop().\n\t• Upload button (→) — program बोर्डवर.\n\t• Serial monitor — बोर्डचे मजकूर वाचणे.\n\t• Board/port selector.\n\nस्ट्रक्चर:\n\tvoid setup() { } — सुरुवातीला एकदाच.\n\tvoid loop() { } — पुन्हा पुन्हा अनंत वेळा.\n\nपहिला program (Blink):\n\t• File → Examples → 01.Basics → Blink.\n\t• Tools → Board → Arduino Uno.\n\t• Tools → Port → योग्य port.\n\t• Upload दाबा.\n\t• Built-in LED 1 सेकंदाच्या अंतराने blink होईल.\n\nबोर्ड/port दिसत नसल्यास:\n\t• USB दुसऱ्या port मध्ये लावा.\n\t• driver/bootloader तपासा.\n\nएकदा Blink चालले की काहीही बनवता येईल.",
+      },
+      {
+        title: "digitalWrite — LED control",
+        content: "LED नियंत्रणाचे तीन आदेश:\n\n\tpinMode(pin, OUTPUT); — pin ची दिशा.\n\tdigitalWrite(pin, HIGH); — 5V (ON).\n\tdigitalWrite(pin, LOW); — 0V (OFF).\n\nमूल कोड:\n\tvoid setup() {\n\t  pinMode(13, OUTPUT);\n\t}\n\tvoid loop() {\n\t  digitalWrite(13, HIGH);\n\t  delay(1000);\n\t  digitalWrite(13, LOW);\n\t  delay(1000);\n\t}\n\ndelay(मिलिसेकंद):\n\t• delay(1000) = 1 सेकंद.\n\t• लहान delay → जलद blink.\n\nप्रयोग:\n\t• delay 200 करा — वेगवान flicker.\n\t• दोन LEDs दोन pins वर चालवा.\n\t• वेगवेगळे वेग द्या.\n\nसराव: 3 blink + थांबा + पुन्हा असा pattern बनवा.",
+      },
+      {
+        title: "digitalRead — बटण वाचणे",
+        content: "बटण दाबल्याचे ओळखण्यासाठी digitalRead.\n\nजोडणी (pull-down):\n\t• पिन 2 ← बटण; बटण दुसऱ्या टोकाला 5V.\n\t• 10kΩ पिन 2 ते GND — स्थिर LOW.\n\t• LED पिन 13 (built-in).\n\nकोड:\n\tint btn = 2;\n\tvoid setup() {\n\t  pinMode(btn, INPUT);\n\t  pinMode(13, OUTPUT);\n\t  Serial.begin(9600);\n\t}\n\tvoid loop() {\n\t  int v = digitalRead(btn);\n\t  Serial.println(v);\n\t  digitalWrite(13, v == HIGH ? HIGH : LOW);\n\t}\n\nकाम:\n\t• दाबल्यावर pin 2 → HIGH → LED ON.\n\t• Serial monitor मध्ये 0/1 दिसते.\n\nINPUT_PULLUP:\n\t• पिन आतून 5V कडे खेचली जाते.\n\t• बटण दुसऱ्या टोकाला GND → दाबल्यावर LOW.\n\t• कोड तद्नुसार उलट बदलतो.\n\nसराव: बटणाने blink वेग बदला.",
+      },
+      {
+        title: "analogRead — वाचन",
+        content: "सतत बदलणारे मूल्य वाचण्यासाठी analogRead.\n\nकोड:\n\tint light = analogRead(A0);\n\tSerial.println(light);\n\nमूल्यांचा अर्थ:\n\t• 0V → 0\n\t• 5V → 1023\n\t• मध्ये — voltage प्रमाणात 0-1023.\n\nव्यवहार:\n\t• LDR → प्रकाश.\n\t• Potentiometer → फिरवल्यावर voltage बदलतो.\n\t• Thermistor → तापमानाचा ठोका.\n\nSerial Plotter:\n\t• Tools → Serial Plotter — वाचनाचा ग्राफ.\n\t• बदल लगेच दिसतात.\n\nसराव: A0 वर potentiometer जोडून ग्राफ पहा.\n\nSensor पाठात हेच वाढवले जाते.",
+      },
+      {
+        title: "सुरक्षा व सामान्य चुका",
+        content: "Arduino सोबत सुरक्षा:\n\n• प्रत्येक pin फक्त ~20-40mA — LED सोबत resistor.\n• 5V आणि GND थेट जोडू नका.\n• बाह्य वीज बंद करून wiring करा.\n• पिन/data sheet तपासा.\n\nसामान्य चुका:\n\t• LED उलट — लांब पाय (+), छोटा (−).\n\t• resistor नाही → LED जळतो.\n\t• GND नाही → सर्किट बंद.\n\t• pin चुकला → काही प्रतिसाद नाही.\n\nडीबग पद्धत:\n\t• Serial.println() ने मूल्य छापा.\n\t• एकावेळी एक बदल व upload.\n\t• ब्रेडबोर्ड rows क्रमाने तपासा.\n\nसराव: मुद्दाम एक चूक करून शोधा — पटकन शिकायला होईल.",
+      },
     ],
     quiz: [
       {
@@ -1109,9 +1209,11 @@ void loop() {
         correct: 1,
       },
     ],
-    related: ["electronics-basics", "arduino-led", "diy-projects"],
+    related: ["arduino-led", "electronics-transistor", "electronics-basics"],
     next: "arduino-led",
+    prev: "electronics-transistor",
   },
+
   {
     slug: "arduino-led",
     categoryId: "electronics",
@@ -1147,6 +1249,30 @@ void loop() {
 }`,
         codeLanguage: "c",
       },
+      {
+        title: "Built-in LED — पहिले blink",
+        content: "बहुतांश boards वर pin 13 शी जोडलेला एक सोपा LED असतो.\n\nकोड:\n\tvoid setup() {\n\t  pinMode(13, OUTPUT);\n\t}\n\tvoid loop() {\n\t  digitalWrite(13, HIGH);\n\t  delay(500);\n\t  digitalWrite(13, LOW);\n\t  delay(500);\n\t}\n\nकाय घडते:\n\t• HIGH → LED प्रकाशित; LOW → बंद.\n\t• delay(500) = अर्धा सेकंद.\n\nबदल:\n\t• delay 1000 → मंद blink.\n\t• delay 100 → वेगवान blink.\n\nहेच simple timing प्रत्येक LED project मध्ये असते.\n\nसराव: SOS पॅटर्न बनवा (3 लहान, 3 मोठे, 3 लहान).",
+      },
+      {
+        title: "PWM — तेज नियंत्रण (analogWrite)",
+        content: "लक्षात ठेवा: analogRead वाचते, analogWrite तेज बदलते.\n\nतेज समजून घेणे:\n\t• analogWrite(pin, value) — value 0 ते 255.\n\t• 51 ≈ 20%, 128 ≈ 50%, 255 = 100%.\n\nकोड — हळूहळू उजळणे:\n\tint led = 9;   // PWM capable pin\n\tvoid setup() { pinMode(led, OUTPUT); }\n\tvoid loop() {\n\t  for (int i = 0; i <= 255; i++) {\n\t    analogWrite(led, i);\n\t    delay(10);\n\t  }\n\t  delay(500);\n\t  for (int i = 255; i >= 0; i--) {\n\t    analogWrite(led, i);\n\t    delay(10);\n\t  }\n\t  delay(500);\n\t}\n\nफक्त PWM pins (3,5,6,9,10,11) वर analogWrite चालते.\n\nसराव: रात्रीचा हळू उजळणारा दिवे बनवा.",
+      },
+      {
+        title: "बटण + LED — इनपुट combo",
+        content: "आता LED फक्त बटण दाबल्यावरच झळकतो.\n\nजोडणी:\n\t• पिन 2 ← बटण (बटण दुसऱ्या टोकाला GND).\n\t• पिन 9 → 220Ω → LED.\n\nकोड (INPUT_PULLUP):\n\tint btn = 2, led = 9;\n\tvoid setup() {\n\t  pinMode(btn, INPUT_PULLUP);\n\t  pinMode(led, OUTPUT);\n\t}\n\tvoid loop() {\n\t  int v = digitalRead(btn);\n\t  if (v == LOW) digitalWrite(led, HIGH);\n\t  else digitalWrite(led, LOW);\n\t}\n\nप्रयोग:\n\t• बटण GND ला → दाबल्यावर v = LOW → LED ON.\n\t• कोड उलटा असतो (LOW म्हणजे दाबलेले).\n\nबटण bounce झाल्यास delay(20) debounce जोडा.\n\nसराव: दोन बटणे — एक ON, दुसरा बदल.",
+      },
+      {
+        title: "Fade — सुरुवात-शेवट",
+        content: "analogWrite ने सोपे fade बनवू.\n\nविचार:\n\t१. value 0 → 255 (उजळणे).\n\t२. delay 10ms.\n\t३. value 255 → 0 (मंद होणे).\n\t४. delay 10ms.\n\nकोड:\n\tint led = 9;\n\tint b = 0;\n\tint step = 5;\n\tvoid setup() { pinMode(led, OUTPUT); }\n\tvoid loop() {\n\t  analogWrite(led, b);\n\t  b = b + step;\n\t  if (b <= 0 || b >= 255) step = -step;\n\t  delay(20);\n\t}\n\nstep मोठा → जलद; लहान → मंद.\n\nहेच lighting चा आधार — sunset lamp, मंद candle LED.\n\nसराव: step आणि delay बदलून दोन वेगांची तुलना करा.",
+      },
+      {
+        title: "सामान्य चुका व तपासण्या",
+        content: "LED project चालत नसेल तर क्रमाने तपासा:\n\n१. Wiring:\n\t• Anode → resistor → pin; Cathode → GND.\n\t• resistor वगळल्यास LED जळतो.\n\t• GND सामायिक झाला आहे का बघा.\n\n२. Pin:\n\t• PWM वापरत असल्यास PWM pin निवडा.\n\t• pin number आणि code जुळले का.\n\n३. Code:\n\t• braces/स्वल्पविराम कुठे चुकले नाही ना.\n\t• upload होत नसल्यास syntax error पहा.\n\n४. Serial:\n\t• Serial.println(v) ठेवा — मूल्य दिसतील.\n\t• HIGH/LOW logic पडताळा.\n\nलक्षात ठेवा: बहुतेक चुका wiring/ध्रुवांत असतात.",
+      },
+      {
+        title: "आजचा सारांश",
+        content: "Arduino LED चे सहा मुद्दे:\n\n• Built-in LED pin 13 — पहिला blink.\n• analogWrite — 0 ते 255 तेज.\n• PWM pins — 3,5,6,9,10,11.\n• बटण + INPUT_PULLUP — दाबल्यावर LOW.\n• Fade — step + delay ने दिशा बदल.\n• Debug — wiring, pin, code, serial.\n\nआजचे प्रॅक्टिस:\n\t०१. Built-in LED blink वेग बदलून बघा.\n\t०२. PWM ने LED 30% तेजावर ठेवा.\n\t०३. बटणाने LED toggle करा.\n\t०४. fade चे step/delay खेळवा.\n\nपुढे sensors — analogRead ने जग वाचा.",
+      },
     ],
     quiz: [
       {
@@ -1160,54 +1286,14 @@ void loop() {
         correct: 1,
       },
     ],
-    related: ["arduino-basics", "electronics-basics", "diy-projects"],
+    related: ["arduino-basics", "arduino-sensor", "diy-projects"],
     prev: "arduino-basics",
+    next: "arduino-sensor",
   },
-  {
-    slug: "electronics-basics",
-    categoryId: "electronics",
-    title: "Electronics Basics",
-    marathiTitle: "इलेक्ट्रॉनिक्सची मूलभूत संकल्पना",
-    level: "beginner",
-    minutes: 15,
-    summary: "Voltage, current, resistance - इलेक्ट्रॉनिक्सच्या मूलभूत संकल्पना.",
-    sections: [
-      {
-        title: "मूलभूत संकल्पना",
-        content: "इलेक्ट्रॉनिक्स समजून घेण्यासाठी तीन मूलभूत गोष्टी:\n\n• Voltage (V) - विद्युत दाब, पाण्याच्या दाबासारखा\n• Current (I) - विद्युत प्रवाह, पाण्याच्या प्रवाहासारखा\n• Resistance (R) - प्रवाहाला विरोध, अरुंद पाईपसारखा\n\nओहमचा नियम:\nV = I × R\n\nमूलभूत घटक:\n• Resistor - प्रवाह मर्यादित करतो\n• Capacitor - ऊर्जा store करतो\n• Diode - एका दिशेने प्रवाह\n• LED - प्रकाश देणारा diode\n• Transistor - switch/amplifier",
-        code: `# Ohm's Law उदाहरण:
-Voltage (V) = Current (I) × Resistance (R)
 
-जर V = 5V आणि R = 1000Ω:
-I = V / R = 5 / 1000 = 0.005A = 5mA
+  // === ELECTRONICS · LEVEL 2 ===
+  ...electronicsLevel2,
 
-# LED circuit:
-V_source = 5V
-V_led = 2V (LED चे व्होल्टेज)
-R = (5 - 2) / 0.02 = 150Ω`,
-        codeLanguage: "text",
-      },
-    ],
-    quiz: [
-      {
-        question: "ओहमचा नियम काय आहे?",
-        options: [
-          "V = I × R",
-          "I = V × R",
-          "R = V × I",
-          "V = I / R",
-        ],
-        correct: 0,
-      },
-      {
-        question: "प्रवाह मर्यादित करणारा घटक कोणता?",
-        options: ["Capacitor", "Diode", "Resistor", "LED"],
-        correct: 2,
-      },
-    ],
-    related: ["arduino-basics", "electrical-basics", "arduino-led"],
-    next: "arduino-basics",
-  },
 
   // === DIY ===
   {
@@ -1228,7 +1314,7 @@ R = (5 - 2) / 0.02 = 150Ω`,
 components:
 - LED
 - Resistor 100Ω
-- S위치 (switch)
+- स्विच (switch)
 - 9V battery
 - wires
 
