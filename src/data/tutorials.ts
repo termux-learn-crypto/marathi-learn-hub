@@ -70,6 +70,7 @@ import { computerFoundation } from "./tutorials/computer-foundation";
 import { computerLevel1 } from "./tutorials/computer-level1";
 import { androidLevel1 } from "./tutorials/android-level1";
 import { aiLevel1 } from "./tutorials/ai-level1";
+import { aiLevel2 } from "./tutorials/ai-level2";
 import { jsLevel1 } from "./tutorials/js-level1";
 import { jsLevel2 } from "./tutorials/js-level2";
 import { jsLevel3 } from "./tutorials/js-level3";
@@ -825,6 +826,9 @@ python
 
   // === AI · LEVEL 1 ===
   ...aiLevel1,
+
+  // === AI · LEVEL 2 ===
+  ...aiLevel2,
 
   // === AI ===
   {
