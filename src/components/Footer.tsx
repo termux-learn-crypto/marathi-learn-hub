@@ -23,6 +23,7 @@ export default function Footer() {
               <li><Link href="/tutorials" className="hover:text-primary-600">Tutorials</Link></li>
               <li><Link href="/projects" className="hover:text-primary-600">Projects</Link></li>
               <li><Link href="/quiz" className="hover:text-primary-600">Quiz</Link></li>
+              <li><Link href="/glossary" className="hover:text-primary-600">शब्दकोश (Glossary)</Link></li>
             </ul>
           </div>
 

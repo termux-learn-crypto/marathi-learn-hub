@@ -13,6 +13,7 @@ const navItems = [
   { href: "/projects", label: "🛠️ Projects" },
   { href: "/quiz", label: "🧩 Quiz" },
   { href: "/tools", label: "🧰 Tools" },
+  { href: "/glossary", label: "📖 Glossary" },
   { href: "/notes", label: "📒 My Progress" },
   { href: "/search", label: "🔎 Search" },
 ];

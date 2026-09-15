@@ -23,24 +23,43 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tutorial = getTutorial(params.slug);
   const cat = tutorial ? getCategory(tutorial.categoryId) : undefined;
-  const title = tutorial ? `${tutorial.marathiTitle} | Marathi Learn Hub` : "Tutorial | Marathi Learn Hub";
+  if (!tutorial) {
+    return {
+      title: "Tutorial सापडला नाही | Marathi Learn Hub",
+      description: "मराठीत कोडिंग आणि तंत्रज्ञान शिका. Learn programming and tech in Marathi.",
+    };
+  }
+  const title = `${tutorial.marathiTitle} — ${tutorial.title} | Marathi Learn Hub`;
+  const desc = `${tutorial.summary} Learn ${tutorial.title} in Marathi — मराठीत ${tutorial.marathiTitle} शिका.`;
   return {
-    title,
-    description: tutorial?.summary ?? "मोफत मराठी शिक्षा. Mराठी लर्निंग प्लॅटफॉर्म.",
+    title: { absolute: title },
+    description: desc,
     keywords: [
-      tutorial?.title ?? "",
-      tutorial?.marathiTitle ?? "",
+      tutorial.title,
+      tutorial.marathiTitle,
+      `${tutorial.title} marathi tutorial`,
+      `learn ${tutorial.title} in marathi`,
+      `${tutorial.title} मराठीत`,
+      `${tutorial.marathiTitle} tutorial`,
       cat?.name ?? "",
-      "marathi",
-      "learn",
-      "मराठी",
-      "ट्यूटोरियल",
+      cat?.marathiName ?? "",
+      ...(cat ? cat.tags : []),
+      "marathi", "learn", "मराठी", "ट्यूटोरियल",
     ].filter(Boolean).join(", "),
     openGraph: {
       title,
-      description: tutorial?.summary,
+      description: desc,
       type: "article",
       url: `/tutorial/${params.slug}`,
+      locale: "mr_IN",
+      siteName: "Marathi Learn Hub",
+      images: ["/icons/icon-512.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: desc,
+      images: ["/icons/icon-512.png"],
     },
     alternates: {
       canonical: `/tutorial/${params.slug}`,

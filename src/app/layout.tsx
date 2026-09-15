@@ -2,9 +2,20 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { siteUrl } from "@/lib/site";
 
+const defaultTitle = "Marathi Learn Hub — मोफत मराठी शिक्षा";
+const defaultDesc = "मराठीमध्ये कोडिंग, वेब, Python आणि तंत्रज्ञान शिका. Free tutorials, quizzes and interactive projects — Learn programming and tech in Marathi.";
+
 export const metadata: Metadata = {
-  title: "Marathi Learn Hub - मोफत मराठी शिक्षा",
-  description: "मोफत शिका • प्रयोग करा • वाढा. Marathi Learn Hub is a free learning platform with tutorials, quizzes, projects and interactive coding in Marathi.",
+  title: defaultTitle,
+  description: defaultDesc,
+  keywords: [
+    "learn coding in marathi", "मराठीत कोडिंग शिका",
+    "python marathi tutorial", "html css javascript marathi",
+    "free marathi tutorials", "मराठी ट्यूटोरियल",
+    "learn python in marathi", "मराठीत पायथॉन शिका",
+    "web development marathi", "मराठी वेब डेव्हलपमेंट",
+    "electronics marathi", "iot marathi",
+  ],
   manifest: "/manifest.json",
   metadataBase: new URL(siteUrl()),
   verification: {
@@ -18,10 +29,18 @@ export const metadata: Metadata = {
     apple: "/icons/icon-192.png",
   },
   openGraph: {
-    title: "Marathi Learn Hub - मोफत मराठी शिक्षा",
-    description: "मोफत शिका • प्रयोग करा • वाढा.",
+    title: defaultTitle,
+    description: defaultDesc,
     siteName: "Marathi Learn Hub",
     type: "website",
+    locale: "mr_IN",
+    images: ["/icons/icon-512.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDesc,
+    images: ["/icons/icon-512.png"],
   },
 };
 
