@@ -78,3 +78,14 @@ sections एकरूप बनवणे — human review gate सह, झटप
 | summary | `सारांश\|summary` |
 | practice | `सराव\|practice` |
 | output | `output\|आउटपुट` |
+## Learning Paths audit (audit-paths.js)
+
+`node scripts/audit-paths.js` हा verification gate चा भाग:
+
+- प्रत्येक path च्या प्रत्येक phase step चे string= tutorial slug, `{project}` = project id 
+  असल्याची खात्री करतो (broken steps = fail).
+- एखाद path मध्ये duplicate step असल्यास report करतो.
+- प्रति-path phases/steps/projects counts दाखवतो.
+
+Path हे phases-आधारित: `LearningPathPhase { title, english, steps[] }`,
+path चा journey क्रम `सुरुवात → मध्यम → प्रोजेक्ट → पुढे` असा ठेवतो.
