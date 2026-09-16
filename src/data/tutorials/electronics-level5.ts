@@ -16,27 +16,32 @@ export const electronicsLevel5: Tutorial[] = [
     sections: [
       {
         title: "IoT म्हणजे काय",
-        content: "IoT — Internet of Things: साधनं इंटरनेटशी जोडणे.\n\nअर्थ:\n\t• Sensors — data गोळा.\n\t• Network — इंटरनेट/फोन.\n\t• Control/Action — दूरून नियंत्रण.\n\nवापर:\n\t• Smart home — दिवे, fans.\n\t• Monitoring — तापमान, आर्द्रता.\n\t• Agriculture — soil/weather.\n\t• Industrial — machine status.\n\nफायदे:\n\t• दूरून वाचन/नियंत्रण.\n\t• Data इतिहास — trends.\n\t• स्वयंचलित action.\n\nसुरुवात तत्त्व:\n\t• सोपे — button on board → phone.\n\nसराव: तुमच्या घरचे कोणते उपकरण IoT बनवता येईल याची यादी करा.",
+        content: "IoT — Internet of Things म्हणजे साधनं इंटरनेटशी जोडणे. सेन्सर data गोळा करतात, नेटवर्क (WiFi/fone) द्वारे पाठवतात, आणि दूरून नियंत्रण/कृती करता येते. Smart home (दिवे, fans), monitoring (तापमान, आर्द्रता), agriculture (soil/weather) आणि industrial (machine status) यांमध्ये वापरले जाते. फायदे: दूरून वाचन/नियंत्रण, data इतिहास trends, स्वयंचलित action. सुरुवात सोपी — button on board → phone connection.",
       },
       {
-        title: "ESP8266 / ESP32",
-        content: "WiFi दोन लोकप्रिय chips:\n\nESP8266:\n\t• कमी खर्च, WiFi + TCP/IP.\n\t• एक core, 80/160MHz.\n\t• GPIO कमी, analog 1.\n\t• बोर्ड — NodeMCU, Wemos D1.\n\nESP32:\n\t• WiFi + Bluetooth(BLE).\n\t• 2 cores, 240MHz.\n\t• जास्त pins, analog, touch, DAC.\n\t• प्रोजेक्ट नवीन — शिफारस.\n\nवीज:\n\t• 3.3V logic — 5V नको.\n\t• 5V सर्वसमावेशक नाही.\n\nसराव: आपल्या बोर्डच्या GPIO pinout चा नकाशा छपवा.",
+        title: "ESP8266 आणि ESP32 — कोणते कधी",
+        content: "WiFi दोन लोकप्रिय chips आहेत. ESP8266 — कमी खर्च, WiFi + TCP/IP, एक core, 80/160MHz, GPIO कमी, analog 1; बोर्ड — NodeMCU, Wemos D1. ESP32 — WiFi + Bluetooth(BLE), 2 cores, 240MHz, जास्त pins, analog, touch, DAC; नवीन प्रोजेक्ट साठी शिफारस. दोन्ही 3.3V logic — 5V नको. Arduino vs ESP: Arduino सोपा, huge ecosystem, no WiFi (शिवाय shield), 5V logic, real-time tasks उत्तम; ESP WiFi/network योग्य, 3.3V, Arduino IDE ने program होते, MQTT/HTTP सहज. निवड: pure sensor/logic → Arduino, cloud/अॅप नियंत्रण → ESP, दोन्ही → communication.",
+        code: `#include <ESP8266WiFi.h>
+const char* ssid = "SSID";
+const char* pass = "PASSWORD";
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+  Serial.println(WiFi.localIP());
+}`,
+        codeLanguage: "cpp",
+        output: `192.168.1.50`,
       },
       {
-        title: "Arduino vs ESP",
-        content: "Arduino vs ESP — कोणते कधी?\n\nArduino:\n\t• सोपा, huge ecosystem.\n\t• No WiFi (शिवाय shield).\n\t• 5V logic.\n\t• real-time tasks उत्तम.\n\nESP:\n\t• WiFi/network योग्य.\n\t• 3.3V logic.\n\t• Arduino IDE ने program होते.\n\t• MQTT/HTTP सहज.\n\nनिवड:\n\t• Pure sensor/logic — Arduino.\n\t• Cloud/अॅप नियंत्रण — ESP.\n\t• दोन्ही — Arduino + ESP communication.\n\nप्रोग्रामिंग:\n\t• Arduino IDE — board manager install.\n\t• ESP32 — esp32 package.\n\nसराव: ESP port install करून Blink चालवा.",
+        title: "बोर्ड निवड — NodeMCU, Wemos, ESP32 DevKit",
+        content: "NodeMCU (ESP8266): वापरकर्त्यांसाठी सोपा, USB programming, पिन D0-D8 (GPIO maps). Wemos D1 mini: अगदी छोटा, breadboard-friendly, shields — LED, relays. ESP32 DevKit: जास्त समर्थ, जास्त प्रोजेक्ट, किंचित मोठा. निवड नियम: basic sensor/report → ESP8266, bluetooth/speaker/large → ESP32. प्रोग्रामिंग: Arduino IDE मध्ये board manager install करा, ESP32 साठी esp32 package. Blink चालवून port verify करा.",
       },
       {
-        title: "बोर्ड निवड — NodeMCU, Wemos",
-        content: "खरी बोर्ड निवड — प्रात्यक्षिक उदा.\n\nNodeMCU (ESP8266):\n\t• वापरकर्त्यांसाठी सोपा.\n\t• USB programming.\n\t• पिन — D0-D8 इ. (GPIO maps).\n\nWemos D1 mini:\n\t• अगदी छोटा.\n\t• Breadboard-friendly.\n\t• Shields — LED, relays.\n\nESP32 DevKit:\n\t• जास्त समर्थ — जास्त प्रोजेक्ट.\n\t• किंचित मोठा.\n\nनिवड नियम:\n\t• Basic sensor/report — ESP8266.\n\t• Bluetooth/speaker/large — ESP32.\n\nसराव: तुमच्या खरेदीची यादी बनवा.",
-      },
-      {
-        title: "पहिला WiFi प्रोग्राम",
-content: "WiFi connect होतो का — पहिला program.\n\nकोड:\n\t#include <ESP8266WiFi.h>\n\tvoid setup() {\n\t  Serial.begin(115200);\n\t  WiFi.begin(\"SSID\", \"PASSWORD\");\n\t  while (WiFi.status() != WL_CONNECTED) {\n\t    delay(500);\n\t    Serial.print(\".\");\n\t  }\n\t  Serial.println(WiFi.localIP());\n\t}\n\tvoid loop() {\n\t  Serial.println(WiFi.status());\n\t  delay(10000);\n\t}\n\nचरण:\n\t• board — NodeMCU select.\n\t• SSID — तुमचा नेटवर्क.\n\t• Serial 115200.\n\nफरक:\n\t• ESP8266WiFi.h — 8266.\n\t• ESP32 — WiFi.h.\n\nसराव: IP मिळतो का — connect success बघा.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "IoT चे सहा मुद्दे:\n\n• IoT — साधनं इंटरनेटशी.\n• ESP8266 — WiFi कमी खर्च.\n• ESP32 — Bluetooth + जास्त शक्ती.\n• Arduino vs ESP — निवड प्रोजेक्टनुसार.\n• बोर्ड — NodeMCU, Wemos, DevKit.\n• पहिला program — WiFi.begin + IP.\n\nआजचे प्रॅक्टिस:\n\t०१. Rewarn ESP port install.\n\t०२. Blink चालवा.\n\t०३. WiFi एक्सटेंशन program.\n\t०४. GPIO pinout नकाशा.\n\nपुढील पाठ — WiFi basics.",
+        title: "पहिला WiFi प्रोग्राम — संक्षिप्त सारांश",
+        content: "WiFi begin + wait status + print IP हाच मूळ pattern आहे. ESP8266WiFi.h (8266) किंवा WiFi.h (ESP32) include करा. board select करा (NodeMCU), SSID/password टाइप करा, serial 115200 set करा. IP मिळतो का — connect success बघा. आजचे practice: ESP port install, Blink चालवा, WiFi program, GPIO pinout नकाशा.",
       },
     ],
     practiceQuestions: [
@@ -66,28 +71,48 @@ content: "WiFi connect होतो का — पहिला program.\n\nक�
     summary: "WiFi connect सखोल, स्थानिक IP वापर, ESP चा mini web server, फोनवरून पेज उघडणे, HTTP request आणि सुरक्षा मूलभूत.",
     sections: [
       {
-        title: "WiFi connection — library",
-content: "ESP कडे WiFi stack — फक्त include + begin.\n\nकोड:\n\t#include <ESP8266WiFi.h>\n\tconst char* ssid = \"ssid\";\n\tconst char* pass = \"pass\";\n\tvoid setup() {\n\t  Serial.begin(115200);\n\t  WiFi.mode(WIFI_STA);\n\t  WiFi.begin(ssid, pass);\n\t  while (WiFi.status() != WL_CONNECTED) {\n\t    delay(500);\n\t  }\n\t  Serial.println(WiFi.localIP());\n\t}\n\nचरण:\n\t• WiFi.mode(WIFI_STA) — station.\n\t• begin(ssid, pass).\n\t• Wait status.\n\nटीप:\n\t• connect fail — retry logic हवी.\n\t• Reconnect व्यवस्था.\n\nसराव: disconnected झाल्यावर reconnect logic लिहा.",
+        title: "WiFi connection — library + स्थानिक IP",
+        content: "ESP कडे WiFi stack आहे — फक्त include + begin. WiFi.mode(WIFI_STA) स्थापित करा, WiFi.begin(ssid, pass) ने connect करा, status wait करा. IP उदा. 192.168.1.50 — हे केवळ local network. Static IP: IPAddress ip(192,168,1,60); WiFi.config(ip, gw, sn); — DHCP dependency कमी. connect fail असेल तर retry logic + reconnect व्यवस्था लिहा. ब्राउझरमध्ये http://IP टाइप करून पेज उघडता येते.",
+        code: `#include <ESP8266WiFi.h>
+const char* ssid = "ssid";
+const char* pass = "pass";
+void setup() {
+  Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+  Serial.println(WiFi.localIP());
+}`,
+        codeLanguage: "cpp",
+        output: `192.168.1.50`,
       },
       {
-        title: "स्थानिक IP",
-        content: "ESP ला router कडून IP मिळतो (DHCP).\n\nपरिणाम:\n\t• IP उदा. 192.168.1.50.\n\t• तो IP केवळ local network.\n\t• Outside (cloud) — port forward/Tunnel.\n\nस्थानिक वापर:\n\t• ब्राउझरमध्ये http://IP — पेज.\n\t• Home network — फोन/PC दुवा साधतो.\n\nआजचे फोकस:\n\t• Static IP setting.\n\t\tIPAddress ip(192,168,1,60);\n\t\tWiFi.config(ip, gw, sn);\n\t• DHCP वरील dependency कमी.\n\nसराव: ESP IP ब्राउझरमध्ये उघडा.",
+        title: "स्थानिक web server — ESP8266WebServer",
+        content: "ESP mini server — HTTP response देतो. ESP8266WebServer.h include करा, server object port 80 वर तयार करा. setup() मध्ये server.on(\"/\", []{ server.send(200, \"text/html\", \"<h1>Moja ESP</h1>\"); }); आणि server.begin() लिहा. loop() मध्ये server.handleClient() जरूर — नाहीतर request handle होत नाहीत. /about रूट जोडून दुसरी page बनवा. port 80 default आहे.",
+        code: `#include <ESP8266WebServer.h>
+ESP8266WebServer server(80);
+void setup() {
+  server.on("/", []{
+    server.send(200, "text/html", "<h1>Moja ESP</h1>");
+  });
+  server.begin();
+}
+void loop() { server.handleClient(); }`,
+        codeLanguage: "cpp",
       },
       {
-        title: "Web server — simple",
-content: "ESP mini server — HTTP response.\n\nभाग:\n\t#include <ESP8266WebServer.h>\n\tESP8266WebServer server(80);\n\nsetup:\n\tvoid setup() {\n\t  ...\n\t  server.on(\"/\", []{\n\t    server.send(200, \"text/html\", \"<h1>Moja ESP</h1>\");\n\t  });\n\t  server.begin();\n\t}\n\nloop:\n\tvoid loop() { server.handleClient(); }\n\nकाम:\n\t• browser → GET / → handler.\n\t• reply HTML.\n\nटीप:\n\t• Port 80.\n\t• handleClient() — loop मध्ये जरूर.\n\nसराव: /about रूट जोडून दुसरी पेज बनवा.",
+        title: "फोनवरून पेज उघडणे",
+        content: "फोन त्याच WiFi वर असावा (same network). ब्राउझर → http://ESP_IP. Serial print ने IP verify करा. mobile data बंद ठेवा — same subnet confirmed. फोन + laptop दोन्हीवरून पेज उघडून तपासा. network tool ने IP scan करता येते.",
       },
       {
-        title: "फोनवरून पेज",
-        content: "फोनवरून ESP पेज उघडणे — local network मध्ये.\n\nचरण:\n\t• फोन त्याच WiFi वर असावा.\n\t• ब्राउझर → http://192.168.1.60.\n\t• पेज दिसते.\n\nचला:\n\t• नेटवर्क tool — IP scan.\n\t• ESP IP नक्की मिळवा (Serial print).\n\t• Firebase नको — पहिली पायरी local.\n\nवापरकर्ता नोट:\n\t• Mobile data बंद ठेवा.\n\t• Same subnet — confirmed.\n\nसराव: फोन + laptop दोन्हीवरून पेज उघडा.",
-      },
-      {
-        title: "सुरक्षा — password/HTTP",
-        content: "हलके संरक्षण मूलभूत:\n\nBasic Auth:\n\t• Server कडून password मागते.\n\t• हे local network साठी पुरेसे.\n\nToken/session:\n\t• Header check — secret key.\n\t• password वापरा hardcode शिवाय — config.\n\nHTTPS:\n\t• Local HTTP — encryption नाही.\n\t• इंटरनेटवर — HTTPS/TLS आवश्यक.\n\t• TLS certificate setup — थोडे कठीण.\n\nटीप:\n\t• डिफॉल्ट password टाळा.\n\t• Public internet — NEVER कच्चा.\n\nसराव: Basic Auth एक साधी पेज वर लिहा.",
+        title: "सुरक्षा — auth आणि HTTPS",
+        content: "Basic Auth: server.authenticate(user, pass) — local network साठी पुरेसे. Token/session: header check secret key, password hardcode शिवाय config मध्ये ठेवा. Local HTTP मध्ये encryption नाही; public internet वर HTTPS/TLS आवश्यक. TLS certificate setup थोडे कठीण. डिफॉल्ट password टाळा, public internet वर NEVER कच्चा. handleClient() loop मध्ये नेहमी ठेवा.",
       },
       {
         title: "आजचा सारांश",
-        content: "WiFi basics चे सहा मुद्दे:\n\n• Library — ESP8266WiFi.\n• IP — DHCP local address.\n• Server — ESP8266WebServer.\n• फोन — same network ताबा.\n• handleClient() — loop मध्ये.\n• सुरक्षा — Auth/TLS आवश्यकता.\n\nआजचे प्रॅक्टिस:\n\t०१. Connect program.\n\t०२. Basic home page.\n\t०३. दुसरी रूट पेज.\n\t०४. फोनवरून चेक.\n\nपुढील पाठ — DHT temperature monitoring.",
+        content: "WiFi basics: library — ESP8266WiFi; IP — DHCP local address; server — ESP8266WebServer; फोन — same network ताबा; handleClient() — loop मध्ये; सुरक्षा — Auth/TLS आवश्यकता. Practice: connect program, basic home page, दुसरी रूट पेज, फोनवरून चेक.",
       },
     ],
     practiceQuestions: [
@@ -117,28 +142,47 @@ content: "ESP mini server — HTTP response.\n\nभाग:\n\t#include <ESP8266W
     summary: "DHT11 sensor तापमान+आर्द्रता वाचणे, ESP सह web पेजवर दाखवणे, ThingSpeak cloud वर data upload आणि खर्च/क्षमतेचा अंदाज.",
     sections: [
       {
-        title: "DHT11 — sensor ओळख",
-        content: "DHT11 — low cost तापमान + आर्द्रता sensor.\n\nतपशील:\n\t• Temperature — 0-50°C (±2°C).\n\t• Humidity — 20-90% (±5%).\n\t• Digital single-wire protocol.\n\t• 4 pins (किंवा 3-पिन module).\n\nआदेश:\n\t• VCC → 3.3V/5V (ESP ला 3.3V).\n\t• Data pin → GPIO.\n\t• (Optional) — pullup resistor.\n\nमूलभूत:\n\t• DHT22 — अधिक अचूक, पण खर्च जास्त.\n\t• module — soldered, सोपी.\n\nसराव: DHT library (Adafruit_DHT) install करा.",
+        title: "DHT11 sensor ओळख",
+        content: "DHT11 — low cost तापमान + आर्द्रता sensor. Temperature 0-50°C (±2°C), Humidity 20-90% (±5%), digital single-wire protocol, 4 pins (किंवा 3-pin module). VCC → 3.3V/5V (ESP ला 3.3V), Data pin → GPIO, optional pullup resistor. DHT22 — अधिक अचूक पण खर्च जास्त; module — soldered, सोपी. Adafruit_DHT library install करा.",
       },
       {
-        title: "डेटा Web मध्ये",
-content: "तापमान व आर्द्रता ESP server वर.\n\nकोड:\n\t#include <DHT.h>\n\t#define DHTPIN 4\n\t#define DHTTYPE DHT11\n\tDHT dht(DHTPIN, DHTTYPE);\n\nsetup:\n\tdht.begin();\n\nloop — वाचन:\n\tfloat t = dht.readTemperature();\n\tfloat h = dht.readHumidity();\n\nserver response:\n\tString html = \"<h1>\" + String(t) + \"C / \" + String(h) + \"%</h1>\";\n\tserver.send(200, \"text/html\", html);\n\nटीप:\n\t• read मध्ये delay — 2s पेक्षा जास्त.\n\t• NaN check — धडधडत असताना.\n\nसराव: पेज auto-refresh तासभर.",
+        title: "DHT data web page वर दाखवणे",
+        content: "DHT.h include, DHTPIN 4, DHTTYPE DHT11 set करा. dht.begin() setup मध्ये. loop मध्ये: float t = dht.readTemperature(); float h = dht.readHumidity();. server response: String html = \"<h1>\" + String(t) + \"C / \" + String(h) + \"%</h1>\"; server.send(200, \"text/html\", html);. read मध्ये delay — 2s पेक्षा जास्त ठेवा. NaN check करा. page auto-refresh तासभर.",
+        code: `#include <DHT.h>
+#define DHTPIN 4
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+void setup() { dht.begin(); }
+void loop() {
+  float t = dht.readTemperature();
+  float h = dht.readHumidity();
+  String html = "<h1>" + String(t) + "C / " + String(h) + "%</h1>";
+  server.send(200, "text/html", html);
+}`,
+        codeLanguage: "cpp",
       },
       {
-        title: "ThingSpeak — cloud",
-        content: "डेटा cloud वर ठेवणे — ThingSpeak (MathWorks).\n\nचरण:\n\t• channel तयार करा.\n\t• Write API key.\n\t• HTTP GET वर upload.\n\nकोड:\n\t#include <ESP8266HTTPClient.h>\n\thttp://api.thingspeak.com/update?api_key=...&field1=25.4\n\n        // HTTPClient begin/GET\n\nवैशिष्ट्य:\n\t• Fields — field1, field2...\n\t• Charts/ग्राफ free.\n\nटीप:\n\t• API key — secret ठेवा.\n\t• Rate — 15s आत मर्यादा.\n\nसराव: channel बनवा — field1 temperature मध्ये पाठवा.",
+        title: "ThingSpeak cloud upload",
+        content: "ThingSpeak (MathWorks) — free cloud IoT data storage/chart. channel तयार करा, Write API key मिळवा, HTTP GET वर upload. channel मध्ये field1 — temperature, field2 — humidity. ESP कडून: #include <ESP8266HTTPClient.h>, URL http://api.thingspeak.com/update?api_key=...&field1=25.4, HTTPClient begin/GET. API key secret ठेवा. Rate — 15s आत मर्यादा. code 200 म्हणजे success.",
+        code: `#include <ESP8266HTTPClient.h>
+String url = "http://api.thingspeak.com/update";
+url += "?api_key=XXXXXXXX";
+url += "&field1=" + String(t);
+url += "&field2=" + String(h);
+HTTPClient http;
+http.begin(url);
+int code = http.GET();
+Serial.println(code);`,
+        codeLanguage: "cpp",
+        output: `200`,
       },
       {
-        title: "चार्ट वर Data",
-        content: "ThingSpeak — history आणि charts.\n\nग्राफ:\n\t• Visual: fields तापमान time series.\n\t• Mobile अॅप — updates.\n\t• डेटा एकत्र — field plots.\n\nडाउनलोड/वापर:\n\t• CSV export.\n\t• MATLAB/MathWorks analysis.\n\nकन्स्टंट monitoring:\n\t• 15s interval minimum.\n\t• battery/energy — कमी update.\n\nसराव: ग्राफ वर दोन राज्ये/दिवसांचा data निरीक्षण.",
-      },
-      {
-        title: "खर्च व मर्यादा",
-        content: "IoT प्रोजेक्टचा खर्च व मर्यादा:\n\nखर्च:\n\t• ESP — $\n\t• DHT — pennies.\n\t• WiFi/router — आधीपासून.\n\nमर्यादा:\n\t• WiFi range — राउटर जवळ.\n\t• Power — USB adapter.\n\t• Cloud limits — API rate.\n\nऊर्जा:\n\t• Always-on — ~70mA+.\n\t• Sleep modes — बॅटरी आयुष्य.\n\t• ESP deep sleep (wake timer).\n\nसराव: तुमच्या प्रोजेक्टचा estimated power-budget लिहा.",
+        title: "ग्राफ, मर्यादा आणि ऊर्जा",
+        content: "ThingSpeak वर charts/ग्राफ free; time range today/week निवडता येते. CSV export, MATLAB/MathWorks analysis. Mobile अॅप — MathWorks चा viewer, custom dashboard React/Vue + API. 15s interval minimum; battery/energy कमी update उत्तम. Always-on ~70mA+; ESP deep sleep (wake timer) ने बॅटरी आयुष्य वाढवा. WiFi range, cloud limits, power budget — सर्व विचारात घ्या.",
       },
       {
         title: "आजचा सारांश",
-        content: "Temp monitor चे सहा मुद्दे:\n\n• DHT11 — temp + humidity.\n• Adafruit_DHT — library.\n• Web page — server response.\n• ThingSpeak — cloud channel.\n• Charts/history — visual.\n• खर्च/ऊर्जा — power budget.\n\nआजचे प्रॅक्टिस:\n\t०१. DHT readings serial.\n\t०२. Web page — temp.\n\t०३. ThingSpeak field1 upload.\n\t०४. Chart look-alike वन weekly.\n\nपुढील पाठ — smart relay control.",
+        content: "DHT11 — temp + humidity; Adafruit_DHT library; Web page — server response; ThingSpeak — cloud channel; Charts/history — visual; खर्च/ऊर्जा — power budget. Practice: DHT readings serial, web page temp, ThingSpeak field1 upload, chart weekly.",
       },
     ],
     practiceQuestions: [
@@ -168,28 +212,33 @@ content: "तापमान व आर्द्रता ESP server वर.\n\n
     summary: "Relay + ESP सह घरचा दिवा नियंत्रण, web form/POST, साधी security, fail-safe design आणि प्रोजेक्ट विस्तार विचार.",
     sections: [
       {
-        title: "घरातील दिव्याचे नियंत्रण",
-        content: "दिवा/उपकरण इंटरनेटद्वारे ON/OFF.\n\nरचना:\n\t• ESP ← WiFi → phone/browser.\n\t• Relay module — ESP GPIO मधून.\n\t• Relay — AC load संपर्क.\n\nकाळजी:\n\t• AC मेन्स — engineering-safe circuit नको नाही तर.\n\t• Relay contact rating — 10A सुरक्षित.\n\nसुरक्षा नियम:\n\t• नव्याने सर्किट नाही — shielded module वापरा.\n\t• कमी power load सोबत प्रयोग.\n\t• Fuse + insulation.\n\nसराव: फक्त थोडा load (LED) साठी relay ब्लास्ट करा.",
+        title: "दिवा/उपकरण इंटरनेटद्वारे ON/OFF",
+        content: "रचना: ESP ← WiFi → phone/browser; Relay module — ESP GPIO मधून; Relay — AC load संपर्क. AC मेन्स — engineering-safe circuit नको नाही तर. Relay contact rating — 10A सुरक्षित. सुरक्षा: नव्याने सर्किट नाही, shielded module वापरा, कमी power load सोबत प्रयोग, fuse + insulation. फक्त थोडा load (LED) साठी relay ब्लास्ट करून सुरू करा.",
       },
       {
-        title: "Relay module + ESP",
-        content: "Module — optocoupled safer.\n\nजोडणी:\n\t• VCC → 5V (module logic 5V हवे असल्यास; काही 3.3V).\n\t• GND → common.\n\t• IN → GPIO (उदा. D1).\n\nचेतावणी:\n\t• Module — IN HIGH = relay ON (मॉड्यूलनुसार).\n\t• Active LOW — मॉड्यूलनुसार.\n\t\tHIGH → relay OFF, LOW → relay ON (कधीकधी).\n\nतपासा:\n\t• data enable jumper — पोलरिटी.\n\t• Test — LED bulb पहिले.\n\nसराव: module toggle — नियमित LED सोबत वाचा.",
+        title: "Relay module + ESP जोडणी",
+        content: "Optocoupled module सुरक्षित. जोडणी: VCC → 5V (module logic 5V हवे असल्यास; काही 3.3V), GND → common, IN → GPIO (उदा. D1). चेतावणी: IN HIGH = relay ON (मॉड्यूलनुसार); कधीकधी Active LOW — HIGH → OFF, LOW → ON. data enable jumper ने polarity तपासा. LED bulb पहिले test करा.",
       },
       {
-        title: "Web control — form",
-content: "पेज वर button — toggle दिवा.\n\nHTML:\n\t<a href=\"/on\">ON</a>\n\t<a href=\"/off\">OFF</a>\n\nServer:\n\tserver.on(\"/on\", [](){\n\t  digitalWrite(relay, HIGH);\n\t  server.send(200, \"text/html\", page(\"ON\"));\n\t});\n\tserver.on(\"/off\", [](){\n\t  digitalWrite(relay, LOW);\n\t  server.send(200, \"text/html\", page(\"OFF\"));\n\t});\n\nआहेत:\n\t• GET रूट बदलते.\n\t• Status दाखवा.\n\t• Form POST — better security.\n\nसराव: status + टॉगल एकत्र पेज बनवा.",
+        title: "Web control — form POST",
+        content: "पेज वर ON/OFF links: <a href=\"/on\">ON</a>, <a href=\"/off\">OFF</a>. Server routes: server.on(\"/on\", [](){ digitalWrite(relay, HIGH); server.send(200, \"text/html\", page(\"ON\")); }); similarly /off. GET routes बदलते; status दाखवा. Form POST — better security. status + toggle एकत्र page बनवा.",
+        code: `server.on("/on", [](){
+  digitalWrite(relay, HIGH);
+  server.send(200, "text/html", page("ON"));
+});
+server.on("/off", [](){
+  digitalWrite(relay, LOW);
+  server.send(200, "text/html", page("OFF"));
+});`,
+        codeLanguage: "cpp",
       },
       {
-        title: "सुरक्षा — प्रमाणीकरण",
-        content: "फक्त तुम्हीच नियंत्रण करू शकता.\n\nBasic auth:\n\t• server.authenticate(user, pass);\n\t• हलका — local साठी.\n\nToken:\n\t• Secret header पाठवतो.\n\nकठीण बाबी:\n\t• Public internet — TLS mand.\n\t• VPN/Tunnel — दुरून प्रवेश.\n\t• Password hard-code → env — नको.\n\nनियम:\n\t• बदलता password.\n\t• Logs — control actions.\n\nसराव: UI वर field सोबत authentication चा मूलभूत फॉर्म.",
-      },
-      {
-        title: "Fail-safe / विस्तार",
-        content: "अनपेक्षित त्रुटीतही सुरक्षा.\n\nFail-safe:\n\t• Default — डिव्हाइस OFF.\n\t• WiFi गेली — relay स्थिर ठेवा.\n\t• Watchdog — auto reset.\n\t• Manual switch — बायपास.\n\nविस्तार:\n\t• Timer/schedule — task scheduling.\n\t• Multiple relays — घरांमध्ये.\n\t• Motion — auto off.\n\t• दूरवर — Tunnel/cloud.\n\nसराव: आपल्या home automation चा fail-safe checklist लिहा.",
+        title: "सुरक्षा — auth आणि fail-safe",
+        content: "Basic auth: server.authenticate(user, pass) — local साठी. Token: secret header. Public internet — TLS mand. VPN/Tunnel — दूरून प्रवेश. Password hardcode → env. Fail-safe: default OFF, WiFi गेली — relay स्थिर, Watchdog — auto reset, Manual switch — बायपास. विस्तार: timer/schedule, multiple relays, motion auto off, tunnel/cloud. बदलता password, logs ठेवा.",
       },
       {
         title: "आजचा सारांश",
-        content: "Smart relay चे सहा मुद्दे:\n\n• गरज — दूर नियंत्रण.\n• Relay module — GPIO सोबत.\n• Web form — /on /off routes.\n• सुरक्षा — auth/TLS.\n• Fail-safe — default off.\n• विस्तार — schedule, multiple.\n\nआजचे प्रॅक्टिस:\n\t०१. Led relay toggle.\n\t०२. Web button control.\n\t०३. Basic auth.\n\t०४. Fail-safe default.\n\nपुढील पाठ — ThingSpeak: cloud data logging.",
+        content: "गरज — दूर नियंत्रण; Relay module — GPIO सोबत; Web form — /on /off routes; सुरक्षा — auth/TLS; Fail-safe — default off; विस्तार — schedule, multiple. Practice: LED relay toggle, web button control, basic auth, fail-safe default.",
       },
     ],
     practiceQuestions: [
@@ -220,27 +269,30 @@ content: "पेज वर button — toggle दिवा.\n\nHTML:\n\t<a href=\
     sections: [
       {
         title: "ThingSpeak म्हणजे काय",
-        content: "MathWorks चा free cloud — IoT data storage/chart.\n\nसेटअप:\n\t• Channel — एक विषय.\n\t• Field1..Field8 — variables.\n\t• API keys — write/read.\n\nकाम:\n\t• Devices HTTP upload.\n\t• Visualizations ग्राफ.\n\t• Downloads CSV.\n\nफायदे:\n\t• free tier शिकण्यासाठी.\n\t• MATLAB integration.\n\t• Browser/mobile access.\n\nटीप:\n\t• Keys गुप्त — public read न करा अनावश्यक.\n\nसराव: हब — data model तयार करणे.",
+        content: "MathWorks चा free cloud — IoT data storage/chart. Channel — एक विषय; Field1..Field8 — variables; API keys — write/read. Devices HTTP upload, Visualizations ग्राफ, Downloads CSV. Free tier शिकण्यासाठी, MATLAB integration, Browser/mobile access. Keys गुप्त — public read न करा अनावश्यक.",
       },
       {
-        title: "चॅनेल तयार करणे",
-        content: "Cloud वर channel script:\n\nचरण:\n\t• Login — ThingSpeak.com.\n\t• Channels → New Channel.\n\t• Name, fields.\n\t• Save → channel ID + API keys.\n\nउदा. channel:\n\t• field1 — temperature.\n\t• field2 — humidity.\n\t• Write API key — पाठवण्यासाठी.\n\nनोंद:\n\t• प्रत्येक — separate keys.\n\t• Public/private — निवडा.\n\nसराव: तुमचे चॅनेल बनवा ज्यात 2 fields असतील.",
+        title: "चॅनेल तयार करणे + API write",
+        content: "ThingSpeak.com login → Channels → New Channel → Name, fields → Save → channel ID + API keys. उदा. field1 — temperature, field2 — humidity; Write API key पाठवण्यासाठी. प्रत्येक channel separate keys; public/private निवडा. ESP कडून: #include <ESP8266HTTPClient.h>, URL http://api.thingspeak.com/update?api_key=...&field1=25.4, HTTPClient begin/GET. Rate — 15s per update maximum; code 200 म्हणजे success.",
+        code: `#include <ESP8266HTTPClient.h>
+String url = "http://api.thingspeak.com/update";
+url += "?api_key=XXXXXXXX";
+url += "&field1=" + String(t);
+url += "&field2=" + String(h);
+HTTPClient http;
+http.begin(url);
+int code = http.GET();
+Serial.println(code);`,
+        codeLanguage: "cpp",
+        output: `200`,
       },
       {
-        title: "API write — HTTP upload",
-content: "ESP कडून data पाठवणे.\n\nकोड:\n\t#include <ESP8266HTTPClient.h>\n\tString url = \"http://api.thingspeak.com/update\";\n\turl += \"?api_key=XXXXXXXX\";\n\turl += \"&field1=\" + String(t);\n\turl += \"&field2=\" + String(h);\n\tHTTPClient http;\n\thttp.begin(url);\n\tint code = http.GET();\n\tSerial.println(code);          // 200 = OK\n\nचरण:\n\t• api_key — write key.\n\t• field1.. — data.\n\t• GET विधी साधा.\n\nटीप:\n\t• Rate — 15s per update maximum.\n\t• Code तपासा — 200.\n\nसराव: रीअलटाइम 2 fields upload करा.",
-      },
-      {
-        title: "ग्राफ/फील्ड्स वाचणे",
-        content: "Cloud वर data वाचा व visual करा.\n\nग्राफ:\n\t• Channel page — graphs.\n\t• Time range — today/week.\n\nRead API:\n\t• Read keys — external access.\n\t• Script/download — प्रोसेसिंग.\n\nअंतिम:\n\t• Widgets — dashboard.\n\t• Alerts — Webhooks (pay plans).\n\nटीप:\n\t• CSV export — आन्तरिक analysis.\n\t• Mobile अॅप — जलद.\n\nसराव: या आठवड्याचा तुमचा data graph बघा.",
-      },
-      {
-        title: "Mobile अॅप",
-        content: "फोनवरून live data.\n\nThingSpeak app:\n\t• Channels वरील viewer.\n\t• अॅप — MathWorks.\n\nCustom:\n\t• Your own web dashboard.\n\t• React/Vue + API.\n\nचेतावणी:\n\t• Read key फक्त dashboard कडे.\n\t• Write — नाही त्यात.\n\nसराव: अॅप install करून channel add करा.",
+        title: "ग्राफ, widgets आणि mobile",
+        content: "Channel page वर graphs — time range today/week. Read keys ने external access, script/download प्रोसेसिंग. Widgets — dashboard; Alerts — Webhooks (pay plans). CSV export — आन्तरिक analysis. ThingSpeak mobile app — MathWorks चा viewer; custom dashboard React/Vue + API. Read key फक्त dashboard कडे; write key नाही त्यात. अॅप install करून channel add करा.",
       },
       {
         title: "आजचा सारांश",
-        content: "ThingSpeak चे सहा मुद्दे:\n\n• Free cloud — channels.\n• Fields — data structure.\n• Write API — HTTP GET upload.\n• 15s rate limit.\n• Graphs/CSV — विश्लेषण.\n• Mobile — अॅप/dashboard.\n\nआजचे प्रॅक्टिस:\n\t०१. Channel बनवा.\n\t०२. Write test (browser URL).\n\t०३. ESP upload २ fields.\n\t०४. ग्राफ निरीक्षण.\n\nपाठ संपला — आता घरगुती project सह अभ्यास करा.",
+        content: "Free cloud — channels; Fields — data structure; Write API — HTTP GET upload; 15s rate limit; Graphs/CSV — विश्लेषण; Mobile — अॅप/dashboard. Practice: channel बनवा, Write test (browser URL), ESP upload २ fields, graph निरीक्षण. पाठ संपला — आता घरगुती project सह अभ्यास करा.",
       },
     ],
     practiceQuestions: [

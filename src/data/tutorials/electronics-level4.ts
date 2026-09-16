@@ -15,28 +15,66 @@ export const electronicsLevel4: Tutorial[] = [
     summary: "HC-SR04 ultrasonic sensor कसे काम करते, trig/echo wiring, पल्सिन गणित, सेंटिमीटरमध्ये अंतर आणि distance alarm प्रोजेक्ट.",
     sections: [
       {
-        title: "Ultrasonic sensor — कसे काम करते",
-        content: "HC-SR04 आवाज (ultrasonic) पाठवून परत येण्याची वेळ मोजून अंतर सांगते.\n\nतत्त्व — echolocation:\n\t• Trigger — लहान sound pulse सोडतो (40kHz).\n\t• अडथळा आदळून परत येतो.\n\t• Echo pin वर परतलेला pulse वेळ सांगतो.\n\nसाऊंड वेग:\n\t• हवेत ~343 m/s.\n\t• म्हणून दोन्ही दिशांचा प्रवास — अर्धा करायला हवा.\n\nवैशिष्ट्य:\n\t• अंतर — 2cm ते 400cm.\n\t• कोनीय क्षेत्र — ~15°.\n\nवापर:\n\t• Parking sensor, robot obstacle detection, level measuring.\n\nसराव: धडपडू नका — trigger/echo connection आधी ठीक करा.",
+        title: "HC-SR04 ultrasonic sensor — अंतर मोजणे",
+        content: "HC-SR04 आवाज (ultrasonic) पाठवून परत येण्याची वेळ मोजून अंतर सांगते. Trigger pin 40kHz sound pulse सोडतो; अडथळा आदळून echo pin वर परत येतो; pulseIn() ही वेळ microseconds मध्ये देते. हवेत ध्वनी वेग ~343 m/s (0.0343 cm/µs). दोन्ही दिशांचा प्रवास मोजला जातो म्हणून /2 अनिवार्य — सूत्र: distance_cm = duration × 0.01715. अंतर 2cm–400cm, कोनीय क्षेत्र ~15°. वापर: parking sensor, robot obstacle detection, level measuring.",
+        code: `const int trig = 9;
+const int echo = 10;
+void setup() {
+  Serial.begin(9600);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+}
+void loop() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  long dur = pulseIn(echo, HIGH);
+  float dist = dur * 0.01715;
+  Serial.print(dist);
+  Serial.println(" cm");
+  delay(100);
+}`,
+        codeLanguage: "cpp",
+        output: `15.23 cm
+14.87 cm
+15.01 cm`,
       },
       {
-        title: "HC-SR04 — wiring",
-        content: "चार pins: VCC (5V), Trig, Echo, GND.\n\nVCC → Arduino 5V.\nGND → Arduino GND.\nTrig → एक digital pin, उदा. 9.\nEcho → दुसरा digital pin, उदा. 10.\n\nटीप — Echo output 5V:\n\t• HC-SR04 5V ला चालतो — Arduino 5V सह चालेल.\n\t• ESP8266/ESP32 (3.3V) सह voltage divider हवा.\n\nसर्किट:\n\t• आवश्यकता — sensor समोर अडथळा मोकळा.\n\t• Wiring double-check — चुका प्रचलित.\n\nसराव: बोर्डवर wiring करून serial monitor मध्ये वाचन होते का बघा.",
+        title: "Wiring — HC-SR04 + Arduino",
+        content: "चार pins: VCC (5V), Trig, Echo, GND. VCC → Arduino 5V, GND → GND, Trig → digital pin 9, Echo → digital pin 10. HC-SR04 5V ला चालतो — Arduino Uno सह थेट जोडता येते. ESP8266/ESP32 (3.3V) सह voltage divider आवश्यक. Sensor समोर अडथळा मोकळा ठेवा; wiring double-check करा — चुका प्रचलित आहेत.",
+        code: `// HC-SR04 → Arduino Uno
+// VCC  → 5V
+// GND  → GND
+// Trig → pin 9
+// Echo → pin 10`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "पल्सिन — trig/echo वाचन",
-        content: "Arduino ने trigger pulse पाठवून echo pulse मोजायचा.\n\nकोड:\n\tconst int trig = 9;\n\tconst int echo = 10;\n\tvoid setup() {\n\t  Serial.begin(9600);\n\t  pinMode(trig, OUTPUT);\n\t  pinMode(echo, INPUT);\n\t}\n\tvoid loop() {\n\t  digitalWrite(trig, LOW);\n\t  delayMicroseconds(2);\n\t  digitalWrite(trig, HIGH);\n\t  delayMicroseconds(10);\n\t  digitalWrite(trig, LOW);\n\t  long dur = pulseIn(echo, HIGH);\n\t  Serial.println(dur);\n\t  delay(100);\n\t}\n\nपहिले:\n\t• Trig ने 10µs HIGH.\n\t• Echo HIGH — आवाज गेल्यापासून ते परत येईपर्यंत.\n\t• pulseIn — तो काळ microseconds मध्ये.\n\nसराव: Serial Monitor मध्ये dur value हलताना दिसते का?",
+        title: "Distance alarm — प्रोजेक्ट",
+        content: "अंतर कमी झाल्यावर buzzer वाजवा आणि LED लावा. भाग: HC-SR04, passive/active buzzer, LED. तर्क: dist < 20cm → alarm + LED, नाहीतर शांत. Active buzzer — dc control ने वाजतो; Passive — tone() सह beep patterns. विस्तार: LED gradient (PWM) नुसार dist बदला, Serial तापमान log जोडा. Threshold 20cm वरून 40cm करून संवेदनशीलता बघा.",
+        code: `int buzz = 6;
+int LED = 13;
+void loop() {
+  // ... (ultrasonic code above)
+  float dist = dur * 0.01715;
+  if (dist < 20) {
+    digitalWrite(buzz, HIGH);
+    digitalWrite(LED, HIGH);
+  } else {
+    digitalWrite(buzz, LOW);
+    digitalWrite(LED, LOW);
+  }
+  delay(100);
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "अंतर मोजण्याचे गणित",
-content: "ध्वनीची गती व pulse वेळ वापरून अंतर.\n\nसूत्र:\n\t• distance = (dur × speed) / 2.\n\t• speed = 0.0343 cm/µs.\n\t• म्हणून distance_cm = dur × 0.0343 / 2 = dur × 0.01715.\n\nकोडमध्ये:\n\tfloat dist = dur * 0.01715;\n\nचिंता:\n\t• ध्वनी दोनदा प्रवास करतो — /2 अनिवार्य.\n\t• उदा. 100µs → ~1.7cm.\n\nSerial मध्ये:\n\tSerial.print(dist);\n\tSerial.println(\" cm\");\n\nसतत नवे वाचन:\n\t• delay 50-100ms पुरेसा.\n\t• fast rotation — 20Hz पर्यंत.\n\nसराव: शासकाने मोजलेल्या अंतराशी तुलना करून सुधारणा करा.",
-      },
-      {
-        title: "प्रोजेक्ट — distance alarm",
-        content: "अंतर कमी झाल्यावर buzzer वाजला पाहिजे.\n\nभाग:\n\t• HC-SR04, passive/active buzzer, LED.\n\nतर्क:\n\t• dist < 20cm → alarm + LED.\n\t• नाहीतर शांत.\n\nकोड — बदल:\n\tint buzz = 6;\n\tif (dist < 20) {\n\t  digitalWrite(buzz, HIGH);\n\t  digitalWrite(LED, HIGH);\n\t} else {\n\t  digitalWrite(buzz, LOW);\n\t  digitalWrite(LED, LOW);\n\t}\n\nटीप:\n\t• Active buzzer — dc control.\n\t• Passive — tone() सह beep patterns.\n\nविस्तार:\n\t• LED gradient — dist नुसार PWM.\n\t• Serial तापमान log.\n\nसराव: threshold 20cm वरून 40cm करून संवेदनशीलता बघा.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "HC-SR04 चे सहा मुद्दे:\n\n• काम — sound pulse + echo time.\n• Wiring — VCC/Trig/Echo/GND.\n• पल्सिन — pulseIn dur code.\n• गणित — dur × 0.01715 cm.\n• ध्वनी दोनदा — /2 सक्तीचे.\n• प्रोजेक्ट — distance alarm.\n\nआजचे प्रॅक्टिस:\n\t०१. Serial मध्ये dur व distance दोन्ही दाखवा.\n\t०२. शासकासोबत अचूकता तपासा.\n\t०३. Buzzer alarm + LED प्रोजेक्ट.\n\t०४. Threshold dynamic करा.\n\nपुढील पाठ — servo: कोन नियंत्रण.",
+        title: "सारांश — ultrasonic",
+        content: "HC-SR04: sound pulse + echo time ने अंतर. Wiring — VCC/Trig/Echo/GND (4 pins). पल्सिन: pulseIn(echo, HIGH) duration microseconds. सूत्र: dur × 0.01715 = cm; ध्वनी दोनदा जातो म्हणून /2. प्रोजेक्ट: distance alarm (buzzer + LED). सराव: Serial मध्ये dur व distance दोन्ही दाखवा; शासकासोबत अचूकता तपासा; Buzzer alarm + LED एकत्र करा; Threshold dynamic करा.",
       },
     ],
     practiceQuestions: [
@@ -66,28 +104,53 @@ content: "ध्वनीची गती व pulse वेळ वापरून
     summary: "Servo library वापर, 0-180° कोन नियंत्रण, sweep, potentiometer द्वारे manual control आणि automatic gate चे प्रोजेक्ट.",
     sections: [
       {
-        title: "Servo म्हणजे काय",
-        content: "Servo 0° ते 180° पर्यंत नेमका कोन नियंत्रित करतो.\n\nआतून:\n\t• Small motor + gearbox.\n\t• Potentiometer — सध्याचा कोन वाचतो.\n\t• Control circuit — desired vs actual तुलना.\n\nकारण:\n\t• position control अचूक.\n\t• continuous rotation नाही — angle देतो.\n\nवापर:\n\t• Robotic arm, camera gimbal, auto-gate.\n\nतारा:\n\t• Brown — GND.\n\t• Red — 5V.\t// मोठ्या servo ला बाह्य वीज\n\t• Signal — PWM pin (9/10).\n\nसराव: datasheet प्रमाणे angle range तपासा — सगळे 180° नसतात.",
+        title: "Servo motor — ओळख आणि कार्यपद्धती",
+        content: "Servo 0° ते 180° पर्यंत नेमका कोन नियंत्रित करतो. आतून: small motor + gearbox, potentiometer (सध्याचा कोन वाचतो), control circuit (desired vs actual तुलना). position control अचूक; continuous rotation नाही — angle देतो. वापर: robotic arm, camera gimbal, auto-gate. तारा: Brown—GND, Red—5V (मोठ्या servo ला बाह्य वीज), Signal—PWM pin (9/10). Servo signal 50Hz PWM pulse: 1ms ~ 0°, 1.5ms ~ 90°, 2ms ~ 180°. Library write() angle → pulse width करते.",
+        code: `#include <Servo.h>
+Servo myServo;
+void setup() {
+  myServo.attach(9);
+}
+void loop() {
+  myServo.write(90);
+  delay(15);
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "Servo library — जोडणी",
-        content: "Arduino IDE मध्ये Servo library आधीच आहे.\n\nसमाविष्ट करा:\n\t#include <Servo.h>\n\tServo myServo;\n\nsetup:\n\tvoid setup() {\n\t  myServo.attach(9);   // signal pin\n\t}\n\nमहत्त्वाचे:\n\t• attach(pin) — pin नाही तर PWM सक्षम.\n\t• एका program मध्ये अनेक servo — attach दोन pins.\n\t• 9/10 चा वापर timer सोबत compatible.\n\nचुका:\n\t• attach न करता write — काही होत नाही.\n\t• जास्त भार — servo खेचेल, पॉवर खर्च.\n\nसराव: library उदाहरण Knob — servo move करा.",
+        title: "Sweep — कोड आणि गती",
+        content: "Servo एका टोकापासून दुसऱ्या टोकापर्यंत फिरवा. write(0)—डावीकडे, write(90)—मध्य, write(180)—उजवीकडे. delay(15) ने प्रत्येक पाऊल गतीला स्थिरता; जास्त speed → जॅमिंग. SG90 चा सामान्य torque; जास्त १०+ ग्रॅम load — servo ओढेल नाही.",
+        code: `#include <Servo.h>
+Servo s;
+void setup() { s.attach(9); }
+void loop() {
+  for (int a = 0; a <= 180; a++) {
+    s.write(a);
+    delay(15);
+  }
+  for (int a = 180; a >= 0; a--) {
+    s.write(a);
+    delay(15);
+  }
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "Sweep — कोड",
-        content: "Servo एका टोकापासून दुसऱ्या टोकापर्यंत फिरवा.\n\nकोड:\n\t#include <Servo.h>\n\tServo s;\n\tvoid setup() { s.attach(9); }\n\tvoid loop() {\n\t  for (int a = 0; a <= 180; a++) {\n\t    s.write(a);\n\t    delay(15);\n\t  }\n\t  for (int a = 180; a >= 0; a--) {\n\t    s.write(a);\n\t    delay(15);\n\t  }\n\t}\n\nतपशील:\n\t• write(0) — डावीकडे.\n\t• write(90) — मध्य.\n\t• write(180) — उजवीकडे.\n\nनोंद:\n\t• delay — प्रत्येक पाऊल गतीला स्थिरता.\n\t• जास्त speed → जॅमिंग होऊ शकते.\n\nसराव: delay बदलून गती चांगली समजण्यासाठी वापरा.",
+        title: "Automatic gate — प्रोजेक्ट",
+        content: "अडथळा दिसल्यावर gate उघडतो — ultrasonic/PIR sensor वापरा. भाग: servo, ultrasonic, मोठा बार. तर्क: dist < 30cm → servo 90° (उघडा), नाहीतर → 0° (बंद). Gate हलका ठेवा — नाहीतर servo त्रास; मोठा gate — metal gear servo + limit switch. विस्तार: manual override (button), status LED (open/close).",
+        code: `if (dist < 30) {
+  s.write(90);
+} else {
+  s.write(0);
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "प्रोजेक्ट — automatic gate",
-        content: "अडथळा दिसल्यावर gate उघडतो — PIR किंवा ultrasonic.\n\nभाग:\n\t• Servo, ultrasonic, मोठा बार.\n\nतर्क:\n\t• dist < 30cm → servo 90° (उघडा).\n\t• अन्यथा → servo 0° (बंद).\n\nकोड — भाग:\n\tif (dist < 30) {\n\t  s.write(90);\n\t} else {\n\t  s.write(0);\n\t}\n\nटीप:\n\t• gate हलका ठेवा — नाहीतर servo त्रास.\n\t• मोठा gate — metal gear servo/ servo + limit switch.\n\t• Opening delay — smooth फिरवणी.\n\nविस्तार:\n\t• Manual override — button.\n\t• Status LED — open/close.\n\nसराव: gate प्रोजेक्ट — ultrasonic + servo एकत्र करून चालवा.",
-      },
-      {
-        title: "PWM व servo — तपशील",
-        content: "Servo signal 50Hz PWM pulse असतो.\n\nPulse width:\n\t• 1ms ~ 0°.\n\t• 1.5ms ~ 90°.\n\t• 2ms ~ 180°.\n\nLibrary आत हेच करते:\n\t• write() — angle → pulse width.\n\t• म्हणून थेट PWM हाताळण्याऐवजी library सोपी.\n\nजर manual:\n\t• timer micros/second मोजावे.\n\t• Future precise — library वापरा.\n\nचेतना:\n\t• Serial servo — SG90 चा सामान्य torque.\n\t• जास्त १०+ ग्रॅम load — servo ओढेल नाही.\n\nसराव: different servo brands वर write() वर वाचन तपासा.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "Servo चे सहा मुद्दे:\n\n• position control — 0-180°.\n• library — attach/write.\n• Sweep — loop + delay.\n• potentiometer — manual angle.\n• Auto-gate — ultrasonic trigger.\n• PWM — pulse width द्वारे कोन.\n\nआजचे प्रॅक्टिस:\n\t०१. Sweep program चालवा.\n\t०२. Potentiometer ने servo control.\n\t०३. Auto-gate प्रोजेक्ट.\n\t०४. विविध angles वर servo accuracy तपासा.\n\nपुढील पाठ — display: LCD 16x2.",
+        title: "सारांश — servo motor",
+        content: "Servo: position control 0-180°; library attach/write; sweep = loop + delay; PWM pulse width द्वारे कोन. Auto-gate: ultrasonic trigger → servo. सराव: sweep program चालवा; potentiometer ने servo control; auto-gate प्रोजेक्ट; विविध angles वर accuracy तपासा.",
       },
     ],
     practiceQuestions: [
@@ -117,28 +180,51 @@ content: "ध्वनीची गती व pulse वेळ वापरून
     summary: "LCD 16x2 ची ओळख, I2C adapter wiring, LiquidCrystal_I2C library, सेन्सर डेटा दाखवणे, scroll/text format आणि decoration.",
     sections: [
       {
-        title: "LCD 16x2 — ओळख",
-        content: "LCD 16x2 — 16 columns, 2 rows character display.\n\nआकार:\n\t• 16 characters × 2 lines.\n\t• पिन मोठे — 16 pins (parallel).\n\t• I2C module सह फक्त 4 तारा.\n\nवापर:\n\t• Status, sensor readings, clocks.\n\t• Backlight — वाचनीयता.\n\nLCD मूलभूत:\n\t• RS, E, D4-D7.\n\t• VO — contrast (potentiometer ने).\n\t• LED+/LED− — backlight.\n\nम्हणून:\n\t• I2C module — connections कमी करतो.\n\t• म्हणून सर्वात सोपा मार्ग प्रोजेक्टसाठी.\n\nसराव: LCD बोर्डवर रोखून व पिन ओळखा.",
+        title: "LCD 16x2 — I2C ने जोडणी",
+        content: "LCD 16x2 — 16 columns × 2 rows character display. Direct parallel मध्ये 16 pins लागतात; I2C module सह फक्त 4 तारा. I2C LCD wiring: VCC→5V, GND→GND, SDA→A4, SCL→A5 (Uno; Mega 20/21; ESP8266 D1/D2). Common I2C address 0x27 किंवा 0x3F — I2C Scanner केवळ शोधून देतो. 5V logic — 3.3V boards सह level shifter आवश्यक.",
+        code: `#include <Wire.h>
+// I2C Scanner — address शोधा
+void setup() {
+  Wire.begin();
+  Serial.begin(9600);
+  for (byte addr = 1; addr < 127; addr++) {
+    Wire.beginTransmission(addr);
+    if (Wire.endTransmission() == 0)
+      Serial.println(addr, HEX);
+  }
+}`,
+        codeLanguage: "cpp",
+        output: `0x27`,
       },
       {
-        title: "I2C adapter — wiring",
-        content: "I2C LCD module फक्त 4 तारा वापरतो:\n\nVCC → 5V\nGND → GND\nSDA → A4\nSCL → A5\n\n(Arduino Uno — A4/A5; Mega — 20/21; ESP8266 — D1/D2.)\n\nतयारी:\n\t• I2C address शोधा — I2C Scanner केवळ.\n\t• Common 0x27 / 0x3F.\n\nटीप:\n\t• 5V logic — 3.3V boards सह level shifter.\n\t• पुल-अप resitors बोर्डवर.\n\nसराव: I2C scanner compile + scan करून address मिळवा.",
+        title: "LiquidCrystal_I2C library",
+        content: "LiquidCrystal_I2C library (Frank de Brabander) वापरा. lcd.init() — सुरुवात; lcd.backlight() — backlight चालू; setCursor(col, row) — स्थान नियंत्रण; print(text) — दाखवा; clear() — पुसा. Numeric: lcd.print(value) ने संख्या दाखवतो. नवीन update आधी clear करा — stale text टाळा; setCursor + print मध्ये spaces द्या (ओव्हरराइट).",
+        code: `#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+void setup() {
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Hello Marathi!");
+}
+void loop() {}`,
+        codeLanguage: "cpp",
+        output: `Hello Marathi!`,
       },
       {
-        title: "LiquidCrystal library",
-content: "LiquidCrystal_I2C library (by Frank de Brabander) वापरा.\n\nकोड:\n\t#include <LiquidCrystal_I2C.h>\n\tLiquidCrystal_I2C lcd(0x27, 16, 2);\n\tvoid setup() {\n\t  lcd.init();\n\t  lcd.backlight();\n\t  lcd.setCursor(0, 0);\n\t  lcd.print(\"Hello Marathi!\");\n\t}\n\tvoid loop() {}\n\nफंक्शन्स:\n\t• lcd.init() — सुरुवात.\n\t• setCursor(col, row) — स्थान.\n\t• print(text) — दाखवा.\n\t• clear() — पुसा.\n\nहळू:\n\t• print numeric — lcd.print(value).\n\t• print(value) — संख्या दाखवणे.\n\nसराव: Hello + दुसरे text दोनही rows वर दाखवा.",
+        title: "Sensor data display — scroll",
+        content: "Sensor वाचन LCD वर दाखवा: int val = analogRead(A0); lcd.setCursor(0,0); lcd.print(\"Light: \"); lcd.print(val); lcd.print(\"   \"); — spaces ने stale text overwrite. अनेक data: row 0 — एक sensor, row 1 — दुसरा. Scroll: lcd.autoscroll() ने आपोआप नवीन डावीकडे जाते; clear प्रत्येक वेळी. Format: setCursor ने spaces → center/right-align; fixed-width alignment.",
+        code: `int val = analogRead(A0);
+lcd.setCursor(0, 0);
+lcd.print("Light: ");
+lcd.print(val);
+lcd.print("   ");`,
+        codeLanguage: "cpp",
+        output: `Light: 512`,
       },
       {
-        title: "सेन्सर data दाखवणे",
-content: "Sensor वाचन LCD वर दाखवा — उदा. temperature/light.\n\nकोड — light sensor:\n\tint val = analogRead(A0);\n\tlcd.setCursor(0, 0);\n\tlcd.print(\"Light: \");\n\tlcd.print(val);\n\tlcd.print(\"   \");\n\nटीप:\n\t• नवीन update आधी clear — stale text.\n\t• setCursor + print मध्ये spaces (टेक्स्ट ओव्हरराइटसाठी).\n\t• numeric width — print(value) आधी append spaces.\n\nअनेक data:\n\t• row 0 — एक; row 1 — दुसरा.\n\t• Sensor read → show — लहान loop.\n\nसराव: LDR/thermistor २ value दोन rows वर दाखवा.",
-      },
-      {
-        title: "Scroll/format",
-        content: "Text scroll तसेच format नियंत्रण.\n\nscroll — उदा. long message:\n\tlcd.setCursor(col, row);\n\tlcd.print(message);\n\tखूप मजकूर — fps पेक्षा जास्त तर scroll.\n\nautoscroll():\n\t• आपोआप नवीन डावीकडे जाते.\n\t• घ्या दूर — clear प्रत्येक वेळी.\n\nformat:\n\t• मध्यवर्ती — setCursor ने spaces.\n\t• right-align — argument सोबत.\n\t• fixed-width — spaces संरेखन.\n\nस्थिर update:\n\t• same area overwrite — spaces.\n\t• LCD आत एकच स्थान — 16×2 = 32 characters.\n\nसराव: timer — सेकंद scroll करत चाललेला.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "LCD चे सहा मुद्दे:\n\n• 16x2 — 16 columns × 2 rows.\n• I2C — फक्त 4 तारा (A4/A5).\n• Scanner — address 0x27/0x3F.\n• Library — LiquidCrystal_I2C.\n• setCursor/print/clear — मुख्य फंक्शन्स.\n• स्पेस/ओव्हरराइट — stale text पुसण्यासाठी.\n\nआजचे प्रॅक्टिस:\n\t०१. I2C Scanner चालवा.\n\t०२. Hello दोन rows वर.\n\t०३. Sensor value display.\n\t०४. Scroll clock.\n\nपुढील पाठ — IR remote: टीव्ही रिमोट नियंत्रण.",
+        title: "सारांश — LCD display",
+        content: "LCD 16x2: 16 cols × 2 rows; I2C = 4 wires (A4/A5); Scanner → address 0x27/0x3F. Library: LiquidCrystal_I2C — init/setCursor/print/clear. सराव: I2C Scanner चालवा; Hello दोन rows वर; Sensor value display; Scroll clock.",
       },
     ],
     practiceQuestions: [
@@ -168,28 +254,50 @@ content: "Sensor वाचन LCD वर दाखवा — उदा. temperat
     summary: "IR remote कसे काम करते, IR receiver wiring, IRremote library ने codes वाचणे, remote ने LED control आणि multiple codes व्यवस्था.",
     sections: [
       {
-        title: "IR remote — कसे काम करते",
-        content: "IR remote प्रकाशाच्या pulse ने codes पाठवते.\n\nतंत्र:\n\t• LED — invisible IR प्रकाश.\n\t• 38kHz carrier — receiver ला स्पष्ट.\n\t• Data — pulse widths च्या गणनेतून.\n\nप्रोटोकॉल:\n\t• NEC, Sony, RC-5 असेच.\n\t• प्रत्येक बटण — unique 32-bit code.\n\nReceiver:\n\t• TSOP38238/VS1838B — IR प्रकाश सेन्स.\n\t• Digital output — decoded bits.\n\nवापर:\n\t• टीव्ही/AC remote प्रोजेक्टमध्ये.\n\t• TV-B-Gone नाही — नीट वापरा.\n\nसराव: remote च्या बटणांवर एकच प्रोटोकॉल आहे का बघा.",
+        title: "IR remote — ओळख आणि कार्यपद्धती",
+        content: "IR remote प्रकाशाच्या pulse ने codes पाठवते. IR LED — invisible प्रकाश; 38kHz carrier — receiver ला स्पष्ट; data — pulse widths च्या गणनेतून. Protocols: NEC, Sony, RC-5; प्रत्येक बटण — unique 32-bit code. Receiver: TSOP38238/VS1838B — IR प्रकाश सेन्स करून digital output देतो. वापर: TV/AC remote projects. IR range कमी ठेवून deliberate वापरा.",
       },
       {
-        title: "IR receiver wiring",
-        content: "IR receiver — 3 pins.\n\nजोडणी:\n\t• GND → GND.\n\t• VCC / VS → 5V.\n\t• OUT → digital pin (उदा. 11).\n\nचेतावणी:\n\t• मॉड्यूल — VCC/Signal/GND.\n\t• काही receiver + 3.3V सही — 5V निवडा.\n\nटीप:\n\t• शरीरा आपल्यापासून signal हवे.\n\t• Diffuse light — interference कमी.\n\nसराव: टीव्ही remote बॉक्सवर धरून वाचन होते का बघा.",
+        title: "IR receiver wiring + codes वाचणे",
+        content: "IR receiver 3 pins: GND→GND, VCC→5V, OUT→digital pin (11). 5V निवडा — 3.3V boards सही चालतो. IRremote library: enableIRIn() receiver चालू करतो; decode(&results) code आला का तपासतो; resume() पुन्हा तयार करतो. Serial Monitor मध्ये HEX code दिसतो — प्रत्येक बटण unique. Codes नोंदवा — पुढे comparison साठी.",
+        code: `#include <IRremote.h>
+const int RECV_PIN = 11;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+void setup() {
+  Serial.begin(9600);
+  irrecv.enableIRIn();
+}
+void loop() {
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value, HEX);
+    irrecv.resume();
+  }
+}`,
+        codeLanguage: "cpp",
+        output: `FFA25D
+FF629D
+FFE21D`,
       },
       {
-        title: "IRremote library — codes वाचणे",
-        content: "IRremote library — वाचून codes दाखवते.\n\nकोड (IRremote):\n\t#include <IRremote.h>\n\tconst int RECV_PIN = 11;\n\tIRrecv irrecv(RECV_PIN);\n\tdecode_results results;\n\tvoid setup() {\n\t  Serial.begin(9600);\n\t  irrecv.enableIRIn();\n\t}\n\tvoid loop() {\n\t  if (irrecv.decode(&results)) {\n\t    Serial.println(results.value, HEX);\n\t    irrecv.resume();\n\t  }\n\t}\n\nचरण:\n\t• enableIRIn() — receiver चालू.\n\t• decode(&results) — code आला?\n\t• resume() — पुन्हा तयार.\n\nSerial monitor मध्ये:\n\t• प्रत्येक बटण — वेगळा HEX code.\n\t• ते नोंदवा — पुढे तुलना.\n\nसराव: 5 बटणांचे codes नोंद करून ठेवा.",
+        title: "Remote ने LED control — प्रोजेक्ट",
+        content: "रिमोट बटण दाबल्यावर LED toggle: value compare + toggle. Switch case वापरून अनेक buttons गोंधळ नाही. Repeat codes — long press वर सारखे value; handle करावे. विस्तार: 3 LEDs + 3 buttons; brightness ±. दोन remote एकत्र वापरताना codes संघर्ष शक्य — वेगळे protocol/sender निवडा.",
+        code: `unsigned long ON_O = 0xFFA25D;
+void loop() {
+  if (irrecv.decode(&results)) {
+    unsigned long v = results.value;
+    if (v == ON_O) {
+      digitalWrite(LED, !digitalRead(LED));
+    }
+    irrecv.resume();
+  }
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "प्रोजेक्ट — remote ने LED",
-        content: "रिमोट बटण दाबल्यावर LED कंट्रोल करा.\n\nकोड:\n\tunsigned long ON_O=0xFFA25D;  // उदा. NEC\n\tvoid loop() {\n\t  if (irrecv.decode(&results)) {\n\t    unsigned long v = results.value;\n\t    if (v == ON_O) {\n\t      digitalWrite(LED, !digitalRead(LED));\n\t    }\n\t    irrecv.resume();\n\t  }\n\t}\n\nmodels:\n\t• SWITCH — toggle.\n\t• 1/2/3 — विविध LED.\n\t• Brightness — +/− इरादा.\n\nनोंद:\n\t• repeat codes — long press वर सारखे value.\n\t• switch case — अनेक buttons गोंधळ नाही.\n\nसराव: 3 LEDs + 3 बटण नियंत्रण करा.",
-      },
-      {
-        title: "दोन remote — code संघर्ष",
-        content: "विविध remote एकत्र वापरताना codes संघर्ष.\n\nसमस्या:\n\t• दोन remote सारखा protocol — संघर्ष शक्य.\n\t• TV remote — TV चा control मध्ये नका घेऊ.\n\nउपाय:\n\t• वेगळे protocol/sender निवडा.\n\t• Codes वर unique check.\n\nविस्तार संकल्पना:\n\t• appliance control — one remote अनेक devices.\n\t• Home automation बिट.\n\nटीप:\n\t• IR range — कमी ठेवून deliberate.\n\t• Blast — multiple LEDs distance.\n\nसराव: दुसरा remote वर code conflict नीट बघा.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "IR चे सहा मुद्दे:\n\n• काम — IR pulse codes.\n• Receiver wiring — OUT/5V/GND.\n• Library — IRremote.\n• Codes — HEX मध्ये नोंद.\n• LED control — button map.\n• संघर्ष — protocol/गोंधळ नीट सांभाळा.\n\nआजचे प्रॅक्टिस:\n\t०१. Codes दाखवणारा program.\n\t०२. एक LED toggle.\n\t०३. तीन LEDs + तीन buttons.\n\t०४. Protocol निरीक्षण.\n\nपुढील पाठ — motor driver: गती नियंत्रण.",
+        title: "सारांश — IR remote",
+        content: "IR: pulse codes ने data पाठवते; Receiver wiring — OUT/5V/GND; Library IRremote — decode()/resume(); Codes HEX मध्ये नोंद; LED control = button map. सराव: codes दाखवणारा program; एक LED toggle; तीन LEDs + तीन buttons; Protocol निरीक्षण.",
       },
     ],
     practiceQuestions: [
@@ -219,28 +327,54 @@ content: "Sensor वाचन LCD वर दाखवा — उदा. temperat
     summary: "Motor driver गरज, L298N wiring, PWM ने speed control, H-bridge direction, घरगुती fan प्रोजेक्ट आणि debugging टिप्स.",
     sections: [
       {
-        title: "Motor चालवण्याच्या गरजा",
-        content: "Arduino थेट motor चालवू शकत नाही.\n\nकारण:\n\t• Motor ला 100mA+ current लागते.\n\t• Arduino pin — 20-40mA.\n\t• Back-EMF — spikes Arduino खराब करतात.\n\nम्हणून driver/MOSFET:\n\t• Signal → power पूल.\n\t• Speed — PWM.\n\t• Direction — H-bridge.\n\nथ्री मोठ्या गोष्टी:\n\t• Current rating driver चा.\n\t• Flyback diodes.\n\t• जास्त भार — heatsink.\n\nसराव: आपल्या motor चा max current data sheet मध्ये शोधा.",
+        title: "Motor driver — गरज आणि L298N wiring",
+        content: "Arduino थेट motor चालवू शकत नाही — motor ला 100mA+ current; Arduino pin 20-40mA; back-EMF spikes खराब करतात. म्हणून driver/MOSFET: signal → power पूल; speed → PWM; direction → H-bridge. L298N — dual H-bridge module. Wiring: 5V→Arduino 5V, Motor power→VS (बाह्य 12V), GND→common GND, Enable A/B + IN1-IN4→Arduino pins. Common GND अनिवार्य.",
+        code: `// L298N → Arduino Uno
+// 5V   → 5V (logic)
+// GND  → GND (common)
+// ENA  → pin 9 (PWM)
+// IN1  → pin 8
+// IN2  → pin 7
+// Motor → OUT1/OUT2`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "L298N driver — wiring",
-        content: "L298N — classic dual H-bridge (sold module).\n\nजोडणी:\n\t• 5V → Arduino 5V (?)\t// लॉजिक 5V\n\t• Motor power → VS (उदा. 12V बाह्य).\n\t• GND → common GND Arduino सोबत.\n\t• Enable A/B + IN1-IN4 → Arduino pins.\n\nएका motor साठी:\n\t• IN1, IN2 — direction.\n\t• ENA (PWM) — speed.\n\nमहत्त्वाचे:\n\t• NOT थेट 5V pin वर — वेगळा power.\n\t• Common GND अनिवार्य.\n\nसराव: L298N module wiring आकृतीवरून नीट करा.",
+        title: "PWM speed + H-bridge direction",
+        content: "Speed: analogWrite(enA, 0-255) duty cycle ने — 255 = full. Enable pin PWM सक्षम; duty कमी → गती कमी. Slow PWM → motor झटके; smooth acceleration — ramp loop. Direction: IN1 HIGH + IN2 LOW = forward; IN1 LOW + IN2 HIGH = backward; दोन्ही LOW = free stop; दोन्ही HIGH = brake. IN1+IN2 एकत्र HIGH न ठेवा — short.",
+        code: `int enA = 9;
+int in1 = 8, in2 = 7;
+void setup() {
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+}
+void loop() {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(enA, 150);
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "PWM speed control",
-        content: "Speed — PWM duty cycle ने.\n\nकोड:\n\tint enA = 9;   // PWM\n\tint in1 = 8, in2 = 7;\n\tvoid setup() {\n\t  pinMode(enA, OUTPUT);\n\t  pinMode(in1, OUTPUT);\n\t  pinMode(in2, OUTPUT);\n\t}\n\tvoid loop() {\n\t  digitalWrite(in1, HIGH);\n\t  digitalWrite(in2, LOW);\n\t  analogWrite(enA, 150);   // 0-255\n\t}\n\nतपशील:\n\t• analogWrite 0-255 — 255 = full.\n\t• Enable pin PWM सक्षम.\n\t• duty कमी — गती कमी.\n\nटीप:\n\t• Slow PWM — motor गाणे/झटके.\n\t• Smooth acceleration — ramp loop.\n\nसराव: 60/120/240 वर वेगातील फरक मोजा.",
+        title: "घरगुती fan — प्रोजेक्ट",
+        content: "Arduino नियंत्रित fan: speed + direction. भाग: L298N, DC motor + fan blade, potentiometer (speed), button (direction). Speed: int sp = analogRead(A0) / 4; analogWrite(enA, sp). Direction toggle: button ने IN1/IN2 बदला. 12V motor — VS 12V बाह्य वीज; fan enclosure ठेवा; slow start — ramp up.",
+        code: `int sp = analogRead(A0) / 4;
+analogWrite(enA, sp);
+if (digitalRead(btn)) {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+} else {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+}`,
+        codeLanguage: "cpp",
+        output: ``,
       },
       {
-        title: "Direction — H-bridge",
-        content: "दिशा — IN1/IN2 कोण HIGH.\n\nForward:\n\t• IN1 HIGH, IN2 LOW.\n\nBackward:\n\t• IN1 LOW, IN2 HIGH.\n\nStop:\n\t• दोन्ही LOW — motor आला (free).\n\t• दोन्ही HIGH — brake.\n\nकोड — toggle:\n\tif (digitalRead(button)) {\n\t  digitalWrite(in1, LOW);\n\t  digitalWrite(in2, HIGH);\n\t} else {\n\t  digitalWrite(in1, HIGH);\n\t  digitalWrite(in2, LOW);\n\t}\n\nदोन्हीमध्ये नको:\n\t• IN1 HIGH + IN2 HIGH न ठेवा — short.\n\nसराव: button ने direction toggle प्रोजेक्ट करा.",
-      },
-      {
-        title: "प्रोजेक्ट — घरगुती fan",
-        content: "Arduino नियंत्रित fan — speed + direction.\n\nभाग:\n\t• L298N, मोठा DC motor + fan blade.\n\t• Potentiometer — speed.\n\t• Button — direction.\n\nकोड — speed by pot:\n\tint sp = analogRead(A0) / 4;   // 0-255\n\tanalogWrite(enA, sp);\n\n+ direction toggle:\n\tif (digitalRead(btn)) {…}\n\nटीप:\n\t• 12V motor — VS 12V बाह्य वीज.\n\t• fan आघात नको — enclosure.\n\t• slow start — ramp up सहज.\n\nसराव: potentiometer + button सह dashboard करा.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "Motor driver चे सहा मुद्दे:\n\n• गरज — Arduino पासून motor चालणार नाही.\n• L298N — dual H-bridge module.\n• Wiring — IN/Enable + बाह्य power.\n• Speed — analogWrite(en, 0-255).\n• Direction — IN1/IN2 logic.\n• प्रोजेक्ट — pot + button fan.\n\nआजचे प्रॅक्टिस:\n\t०१. लहान motor पूल वर चालवा.\n\t०२. Speed levels तपासा.\n\t०३. Direction toggle.\n\t०४. Fan प्रोजेक्ट एकत्र करा.\n\nपुढील पाठ — IoT: ESP8266/ESP32 ओळख.",
+        title: "सारांश — motor driver",
+        content: "Motor driver: Arduino motor चालवू शकत नाही (current/back-EMF). L298N = dual H-bridge; wiring: IN/Enable + बाह्य power. Speed: analogWrite(en, 0-255). Direction: IN1/IN2 logic. सराव: लहान motor पूल वर चालवा; Speed levels तपासा; Direction toggle; Fan प्रोजेक्ट एकत्र करा.",
       },
     ],
     practiceQuestions: [
