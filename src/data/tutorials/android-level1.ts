@@ -17,43 +17,39 @@ export const androidLevel1: Tutorial[] = [
     sections: [
       {
         title: "Android म्हणजे काय?",
-        content: "Android म्हणजे एक ऑपरेटिंग सिस्टम (OS) — म्हणजेच फोन चालवणारा मुख्य प्रोग्राम. जशी तुमच्या संगणकावर Windows चालते, तशी तुमच्या फोनवर Android चालते.\n\nAndroid असंख्य कंपन्यांच्या फोनवर चालते — Samsung, Xiaomi, Motorola, OnePlus, Vivo, Realme अशा. ही सगळी वेगवेगळी दिसतात, पण आतला मेंदू (kernel व सिस्टम) मोठ्या प्रमाणात सारखाच असतो.\n\nAndroid चा पाया Linux नावाच्या open-source kernel वर आहे. म्हणजेच तुम्हाला तो अभ्यासता येईल आणि अनेक कंपन्या त्यावर आपल्या सुविधा बनवतात.\n\nसोप्या भाषेत: Android म्हणजे फोनच्या hardware (screen, touch, camera, battery) आणि apps (WhatsApp, YouTube) यांच्यामधला पूल. तुम्ही स्क्रीनवर बोट ठेवता तेव्हा Android तो स्पर्श समजतो, तो app ला सांगतो, आणि app ने जे हवे ते घडते.",
+        content: "Android म्हणजे एक ऑपरेटिंग सिस्टम (OS) — फोन चालवणारा मुख्य प्रोग्राम. Windows संगणकावर चालतो तशी Android फोनवर चालते.\n\nSamsung, Xiaomi, Motorola, OnePlus, Vivo, Realme — ही सगळी वेगवेगळी दिसतात, पण आतला मेंदू (kernel व सिस्टम) मोठ्या प्रमाणात सारखाच असतो.\n\nAndroid चा पाया Linux नावाच्या open-source kernel वर आहे. सोप्या भाषेत: Android म्हणजे फोनच्या hardware आणि apps यांच्यामधला पूल.",
       },
       {
         title: "Android कुठे कुठे चालतो?",
-        content: "Android फक्त फोनमध्येच नाही — अनेक जागी चालतो:\n\n• Smartphone आणि tablet — सगळ्यात सामान्य.\n• Smart TV — बऱ्याच TVs वर Android चालते.\n• Smart watch — Wear OS हे Android च्या सुविधांवर बनलेले.\n• Android Auto — गाडीतील display साठी.\n• TV boxes, kiosks, digital signages.\n• Embedded devices — उदा. मशीन्स, meters.\n\nही विविधता विकासकांना एकच skillset अनेक जागी वापरण्याची संधी देते.\n\nहे सगळे devices वेगवेगळ्या screens आणि capabilities असतात — म्हणूनच app बनवताना डिझाइन लवचिक (flexible) ठेवावं. लहान स्क्रीनवर चालतं ते टीव्हीवर जसेच्या तसं नाही चालत.\n\nया पाठात आपण फोनवरच लक्ष केंद्रित करू — कारण आज बहुतेक सगळ्यांच्या हातात फोन असतो आणि तोच सगळ्यात सोपी प्रयोगशाळा आहे.",
+        content: "Android फक्त फोनमध्येच नाही — अनेक जागी चालतो:\n\n• Smartphone आणि tablet — सगळ्यात सामान्य\n• Smart TV — बऱ्याच TVs वर Android चालते\n• Smart watch — Wear OS, Android च्या सुविधांवर बनलेले\n• Android Auto — गाडीतील display साठी\n• TV boxes, kiosks, digital signages, embedded devices\n\nही विविधता विकासकांना एकच skillset अनेक जागी वापरण्याची संधी देते. या पाठात आपण फोनवरच लक्ष केंद्रित करू — आज बहुतेक सगळ्यांच्या हातात फोन असतो.",
       },
       {
         title: "ऑपरेटिंग सिस्टम कशी काम करते — थर",
-        content: "Android समजण्यासाठी बहुस्तर (layered) रचना योग्य:\n\nथर १ — Kernel (पाया): Linux kernel थेट hardware शी बोलतो — battery levels, touch, camera, wifi.\n\nथर २ — System libraries: विविध तयार कोडसंच — graphics निर्मिती, sound, video decode.\n\nथर ३ — Android Runtime (ART): तुमचा app चालवणारा इंजिन. प्रत्येक app आपल्या वेगळ्या घरात (sandbox) चालतो, म्हणून एक खराब app संपूर्ण सिस्टम अडवत नाही.\n\nथर ४ — Application framework: सामान्य services — notifications, dialogs, app switching.\n\nथर ५ — Apps: तुम्ही install केलेल्या apps.\n\nहा थर आणि sandbox हा Android च्या सुरक्षिततेचा गाभा आहे. एका app ला दुसऱ्या app चा data मिळू नये हे तत्त्वच सुरक्षेचा पाया आहे.\n\nतुमचं आजचं शिकणं म्हणजे हे भाग ओळखणं — मग apps बनवणं सोपं होतं.",
+        content: "Android समजण्यासाठी बहुस्तर (layered) रचना:\n\nथर १ — Kernel (पाया): Linux kernel थेट hardware शी बोलतो — battery, touch, camera, wifi.\n\nथर २ — System libraries: graphics, sound, video decode यासाठी तयार कोडसंच.\n\nथर ३ — Android Runtime (ART): app चालवणारा इंजिन. प्रत्येक app आपल्या वेगळ्या sandbox मध्ये चालतो, म्हणून एक खराब app सिस्टम अडवत नाही.\n\nथर ४ — Application framework: notifications, dialogs, app switching सारख्या services.\n\nथर ५ — Apps: तुम्ही install केलेल्या apps.",
       },
       {
-        title: "Apps म्हणजे काय?",
-        content: "App म्हणजे एक लहान प्रोग्राम जो विशिष्ट काम करतो — गणित, संगीत, messages, map. Apps दोन प्रकारे वापरल्या जातात:\n\n1) फोनवर install — या apps चे कोड फोनच्या memory मध्ये असतं.\n2) Browser मध्ये चालणाऱ्या (web apps) — या server वर असतात.\n\nAndroid phone वरील apps खास OS द्वारे चालवल्या जातात; त्यांचा कोड उच्च-स्तरीय भाषांतून Android ला समजणाऱ्या format मध्ये compile होतो.\n\nमहत्त्वाची गोष्ट: तुम्ही खूप सोपे apps सुद्धा बनवू शकता — design व logic या दोन गोष्टी समजल्या की सुरुवात होते. आपण या series मध्ये App Inventor ने बिना कोड असे apps बनवणार आहोत.\n\nApp बनवण्याआधी लक्षात ठेवा: app म्हणजे फक्त screen नाही — त्यामागची वागणूक (logic) हीच खरी app आहे.",
-      },
-      {
-        title: "APK म्हणजे काय?",
-        content: "APK (Android Package Kit) म्हणजे app चा संपूर्ण पॅक — एक फाईल ज्यामध्ये app चालवण्यासाठी लागणारं सगळं सामावलेलं:\n\n• Compiled code.\n• Resources — images, icons, layouts.\n• AndroidManifest.xml — app चे नाव, permissions, activity list.\n• Digital signature — developer ने sign केलेले; हे सिद्ध करते की पॅक अधिकृत आहे.\n\nफोनवर install कशी होते? Play Store वरून app डाउनलोड; किंवा APK फाईल थेट install (side-load).\n\nसुरक्षेचा नियम: APK अधिकृत आणि signed असली पाहिजे; अनधिकृत स्रोतांचा APK install करताना काळजी घ्यावी. हेच तुम्हाला android-permissions पाठात सखोल कळेल.\n\nआतासाठी एकच लक्षात ठेवा: APK हा आपल्या app चा बंदिस्त बॉक्स — हा बॉक्स तयार करणे आपण series मध्ये शिकणार आहोत.",
+        title: "Apps आणि APK",
+        content: "App म्हणजे विशिष्ट काम करणारा लहान प्रोग्राम. Apps दोन प्रकारे वापरल्या जातात: फोनवर install केलेले किंवा browser मधील web apps. फोनवरील apps OS द्वारे चालवल्या जातात; त्यांचा कोड high-level भाषांतून Android format मध्ये compile होतो.\n\nAPK (Android Package Kit) म्हणजे app चा संपूर्ण पॅक:\n\n• Compiled code.\n• Resources — images, icons, layouts.\n• AndroidManifest.xml — app चे नाव, permissions, activity list.\n• Digital signature — developer ने sign केलेले.\n\nPlay Store वरून app download होतो; किंवा APK थेट install (side-load). सुरक्षेचा नियम: APK अधिकृत आणि signed असली पाहिजे.",
       },
       {
         title: "Google Play Store",
-        content: "Play Store हा Android साठी Google चा अधिकृत app store — लाखो apps install करण्याचा सुरक्षित मार्ग.\n\nPlay Store कशी काळजी घेते?\n\n• Apps scan: प्रत्येक app Play Protect, install आधी आणि मागेही तपासते.\n• Developer verification: app publish करणाऱ्याची ओळख check होते.\n• Rating आणि reviews: वापरकर्त्यांच्या अनुभवानुसार निर्णय घेता येतो.\n• Updates: app ची नवी आवृत्ती स्वयंचलित install होते.\n\nPlay Store मध्ये दोन मोठे वर्ग:\n\n• Free apps — मोफत; काहींमध्ये ad किंवा in-app purchase.\n• Paid apps — सशुल्क.\n\nपण Play Store वरील सगळी apps सुरक्षितच असे नाही — नवीन app नेमकं काय मागतो (permissions) हे पाहणेच आपल्याला पुढे शिकवते.\n\nही संकल्पना समजली की तुम्ही अर्धे सुरक्षित. बाकीचा भाग म्हणजे permissions — कोणती app किती मागते — हे आपण पुढील पाठात बघतो.",
+        content: "Play Store हा Android साठी Google चा अधिकृत app store — लाखो apps install करण्याचा सुरक्षित मार्ग.\n\nPlay Protect: प्रत्येक app scan करते (install आधी आणि मागेही). Developer verification: app publish करणाऱ्याची ओळख check. Updates: app ची नवी आवृत्ती स्वयंचलित install.\n\nPlay Store मध्ये Free (मोफत) आणि Paid (सशुल्क) apps. पण सगळी apps सुरक्षितच असे नाही — app ने काय मागतो (permissions) हे पाहणे आपल्याला पुढे शिकवते.",
       },
       {
-        title: "तुमचा फोन व storage",
-        content: "फोनमध्ये दोन प्रकारची memory:\n\n1) RAM — तात्पुरती, काम करण्यासाठी; फोन बंद केला की रिकामी. अधिक RAM = एकावेळी अधिक apps चालतात.\n\n2) Internal storage — कायमस्वरूपी; apps, फोटो, files येथे राहतात.\n\nअनेक फोनवर आणखी external storage (SD card) असते.\n\nApps वापरताना काय व्यापतं?\n\t• App size — install केलेल्या app चे आकार.\n\t• Cache — तात्पुरत्या फाईल्स गतीसाठी; खूप मोठा cache झाल्यास storage भरतं.\n\t• App data — login, messages, settings.\n\nफोन भरल्यावर काय करायचं? File Manager ने मोठ्या फाईल्स शोधा; cache साफ करा; अनावश्यक apps uninstall करा.\n\nहे सगळं समजलं की app बनवताना नियोजन सोपं होतं — तुमच्या app ला किती storage लागेल, कॅशे किती, काय काय save करायचं हे ठरवता येते.",
+        title: "फोन व storage",
+        content: "फोनमध्ये दोन प्रकारची memory:\n\n१) RAM — तात्पुरती, फोन बंद केला की रिकामी. अधिक RAM = एकावेळी अधिक apps चालतात.\n२) Internal storage — कायमस्वरूपी; apps, फोटो, files येथे राहतात. अनेक फोनवर external storage (SD card) असते.\n\nApps वापरताना: App size, Cache (तात्पुरत्या फाईल्स गतीसाठी), App data (login, messages, settings). फोन भरल्यावर: File Manager ने मोठ्या फाईल्स शोधा, cache साफ करा, अनावश्यक apps uninstall करा.",
       },
       {
         title: "Android आवृत्त्यांची कहाणी",
-        content: "Android च्या प्रत्येक आवृत्तीला एक नाव होतं — अक्षरांतून:\n\n1.5 Cupcake, 1.6 Donut, 2.x Eclair/Froyo/Gingerbread, 3.x Honeycomb, 4.0 Ice Cream, KitKat (4.4), Lollipop (5), Marshmallow (6) — येथून runtime permission आली — Nougat (7), Oreo (8), Pie (9), 10, 11, 12/12L, 13, 14, 15…\n\nमहत्त्वाचे टप्पे:\n\n• Android 5 — Material Design.\n• Android 6 — runtime permissions (install वेळी सगळ्या permissions द्याव्या लागत नाहीत).\n• Android 10+ — dark theme, gestures.\n• Android 12+ — Material You, privacy indicators.\n\nप्रत्येक आवृत्तीला एक API level असतो (उदा. Android 15 = API 35). विकासक या API नुसार apps बनवतात — min API, target API हे शब्द पुढे कळतील.\n\nआज 99% फोनवर आधुनिक Android चालतो. हे सर्व लक्षात ठेवणं आवश्यक नाही — पण टप्पे कळले की software updates च्या चर्चा समजतील.",
+        content: "Android च्या प्रत्येक आवृत्तीला नाव — अक्षरांतून: Cupcake, Donut, Eclair, Froyo, Gingerbread, Honeycomb, Ice Cream, KitKat, Lollipop, Marshmallow (runtime permissions), Nougat, Oreo, Pie, 10, 11, 12, 13, 14, 15…\n\nमहत्त्वाचे टप्पे: Android 5 — Material Design; Android 6 — runtime permissions; Android 10+ — dark theme, gestures; Android 12+ — Material You, privacy indicators.\n\nप्रत्येक आवृत्तीला API level (Android 15 = API 35). विकासक या API नुसार apps बनवतात — min API, target API हे शब्द पुढे कळतील.",
       },
       {
         title: "Open source — AOSP",
-        content: "Android चा गाभा open-source आहे — त्याची source code AOSP (Android Open Source Project) म्हणून सार्वजनिक आहे.\n\nयाचा अर्थ:\n\n• कोणीही कोड वाचू शकतो.\n• कंपन्या तो वापरून आपले flavor बनवतात — Samsung One UI, Xiaomi HyperOS, stock Google. हे सगळे Android आहेत.\n\nदुसरीकडे Google च्या Play services व Google app open-source नसतात — म्हणून बहुतांश फोन Google certified version वापरतात.\n\nविकासकाला याचा अर्थ काय?\n\nApp Inventor मध्ये तयार केलेले apps जवळजवळ सर्व Android फोनवर चालतात, निर्माता कोणीही असो. हीच open-source ची ताकद.\n\nआपण App Inventor मध्ये apps बनवणार आहोत — हे कोणत्याही browser मधून चालते.",
+        content: "Android चा गाभा open-source आहे — AOSP (Android Open Source Project) म्हणून सार्वजनिक. कोणीही कोड वाचू शकतो; कंपन्या flavor बनवतात — Samsung One UI, Xiaomi HyperOS, stock Google. हे सगळे Android आहेत.\n\nविकासकाला: App Inventor मध्ये तयार apps जवळजवळ सर्व Android फोनवर चालतात, निर्माता कोणीही असो. हीच open-source ची ताकद.",
       },
       {
-        title: "आजचा सारांश",
-        content: "Android = फोनची ऑपरेटिंग सिस्टम, Linux kernel वर. apps हे लहान प्रोग्राम, APK मध्ये पॅक होणारे. Play Store हे सुरक्षित स्टोअर. फोनमध्ये RAM आणि internal storage असतो. प्रत्येक आवृत्तीने नवी वैशिष्ट्ये आणली.\n\nपुढच्या पाठात आपण MIT App Inventor हे साधन बघणार आहोत — ज्याने browser मधून, बिना कोड, तुमचा पहिला Android app बनवणार आहोत.\n\nआजचे प्रॅक्टिस:\n\t०१. तुमच्या फोनमधील Settings → About phone मध्ये Android आवृत्ती शोधा.\n\t०२. तुमच्या फोनमधील storage मध्ये कोणते files व apps जास्त जागा घेतात ते पहा.\n\t०३. एका app ची माहिती उघडून किती storage व RAM घेतो ते पहा.",
+        title: "सारांश",
+        content: "Android = फोनची OS, Linux kernel वर. Apps हे APK मध्ये पॅक. Play Store हे सुरक्षित स्टोअर. RAM आणि storage असतो. प्रत्येक आवृत्तीने नवी वैशिष्ट्ये.\n\nपुढच्या पाठात MIT App Inventor — browser मधून, बिना कोड, तुमचा पहिला Android app.\n\nPractice: Settings → About phone मध्ये Android आवृत्ती शोधा. Storage मध्ये कोणते files व apps जास्त जागा घेतात ते पहा. एका app ची माहिती उघडून storage व RAM पहा.",
       },
     ],
     practiceQuestions: [
@@ -92,7 +88,7 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "खाते तयार करा व लॉगिन करा",
-        content: "पायरी १ — Browser मध्ये जा: ai2.appinventor.mit.edu\n\nपायरी २ — उजवीकडे Create apps! किंवा Login बटण दिसेल. ते दाबा. Google account ने login होईल.\n\nपायरी ३ — पहिल्यांदा login केल्यावर Terms of Service स्वीकारा.\n\nApp Inventor तुमचे projects याच account मध्ये जतन करते. नंतर तुम्हाला dashboard दिसेल — तुमच्या projects ची यादी.\n\nहा screen मध्ये पहा:\n\t• My Projects — तुमचे बनवलेले.\n\t• Start new project — नवीन project सुरू करण्यासाठी.\n\t• Tutorials — मदत करणारे.\n\nकाही वेळा परवानगी किंवा खात्री विचारली जाते — नुसतं Continue दाबा.\n\nआता तुम्ही आत आहात!",
+        content: "पायरी १ — Browser मध्ये जा: ai2.appinventor.mit.edu\nपायरी २ — Create apps! बटण दाबा. Google account ने login होईल.\nपायरी ३ — पहिल्यांदा Terms of Service स्वीकारा.\n\nApp Inventor तुमचे projects account मध्ये जतन करते. Dashboard वर My Projects, Start new project, Tutorials दिसतात.\n\nकाही वेळा परवानगी विचारली जाते — नुसतं Continue दाबा.",
       },
       {
         title: "नवीन project सुरू करणे",
@@ -100,19 +96,19 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "Designer विरुद्ध Blocks — दोन खिडक्या",
-        content: "App Inventor चे TWO views:\n\n१) Designer view — जिथे तुम्ही app चे दिसण्याचे (UI) ठरवता — buttons, labels, images ठेवता. खिडकीतील महत्त्वाच्या जागा:\n\n\t• Palette (डावीकडे) — घटकांची यादी.\n\t• Viewer (मध्ये) — तुमचा screen प्रत्यक्ष.\n\t• Components (उजवीकडे) — ठेवलेले घटक.\n\t• Properties (उजवीकडे खाली) — निवडलेल्या घटकाचे गुणधर्म.\n\n२) Blocks view — वरील बटण Blocks दाबा. येथे logic जोडता येते — blocks च्या मदतीने.\n\nBlocks रंगांनी विभागलेले (Control=निळा, Math=हिरवा, Text=पिवळा). ते एकमेकांत drag करून puzzle सारखे बसवतात.\n\nतीन नियम:\n\t• Block जागी बसल्यावर त्याचा आवाज येतो.\n\t• लहान-लहान बदल करा, मग test करा.\n\t• चुकल्यास block काढून पुन्हा जोडा.",
+        content: "App Inventor चे TWO views:\n\n१) Designer view — UI ठरवता: buttons, labels, images ठेवता. Palette (डावीकडे) — घटकांची यादी; Viewer (मध्ये) — screen; Components (उजवी) — ठेवलेले; Properties (खाली) — गुणधर्म.\n\n२) Blocks view — Blocks बटण दाबा. येथे logic जोडता येते. Blocks रंगांनी विभागलेले (Control=निळा, Math=हिरवा, Text=पिवळा). ते puzzle सारखे बसवतात.\n\nनियम: Block जागी बसल्यावर आवाज येतो. लहान-लहान बदल करा, मग test करा.",
       },
       {
         title: "Palette, Components tree व Properties",
-        content: "उदाहरण: Label + Button ठेवूया.\n\n• Palette मध्ये User Interface उघडा → Button घटक drag करा Viewer मध्ये.\n• Label सुद्धा drag करा.\n• Components tree मध्ये ते दिसतात — येथून घटक निवडा.\n\nProperties (उजवीकडे):\n\t• Text — बटणावरचा मजकूर (उदा. Press Me).\n\t• BackgroundColor — रंग.\n\t• Width / Height — px किंवा Fill parent.\n\t• FontSize — अक्षराचा आकार.\n\t• Visible — लपवणे/दाखवणे (logical नियंत्रणासाठी उपयोगी).\n\nProperty फक्त निवडलेल्या component वरच लागू होते — कोण निवडला आहे ते Components tree मध्ये बघा.\n\nआता सर्वात महत्त्वाचा विचार: Designer मध्येच app चे बहुतांश काम होते — म्हणूनच ते नीट एक्सप्लोर करा.",
+        content: "Palette मध्ये User Interface उघडा → Button घटक drag करा Viewer मध्ये. Label सुद्धा drag करा. Components tree मध्ये ते दिसतात.\n\nProperties (उजवीकडे):\n\t• Text — बटणावरचा मजकूर (उदा. Press Me).\n\t• BackgroundColor — रंग.\n\t• Width / Height — px किंवा Fill parent.\n\t• FontSize — अक्षराचा आकार.\n\t• Visible — लपवणे/दाखवणे.\n\nProperty फक्त निवडलेल्या component वरच लागू होते — कोण निवडला आहे Components tree मध्ये बघा.",
       },
       {
         title: "MIT AI2 Companion — फोनवर live preview",
-        content: "तुमची रचना फोनवर प्रत्यक्ष कशी दिसते हे बघण्यासाठी Companion हा उत्तम मार्ग:\n\n१) फोनवर Play Store वरून MIT AI2 Companion install करा.\n२) browser मधील Designer मध्ये Connect मेनू उघडा.\n३) AI Companion निवडा → QR कोड दिसेल.\n४) फोनवर Companion app उघडा → Scan QR code → स्कॅन करा.\n५) फोन आणि browser दोन्ही एकाच WiFi वर असावे लागते.\n\nफोन connection अडल्यास:\n\t• दोन्ही एकाच network वर ठेवा.\n\t• Companion app अपडेट असू द्या.\n\t• कधीकधी QR पुन्हा scan करा.\n\nहा live preview फायदा — तुम्ही design बदलताच फोनवर दिसते! हेच शिकण्याची ताकद.\n\nकधीकधी Reset connection किंवा रिट्राय लागू शकतो — गार्हाणे नको.",
+        content: "फोनवर Play Store वरून MIT AI2 Companion install करा. browser मध्ये Connect → AI Companion → QR कोड दिसेल. फोनवर Companion app उघडा → Scan QR code. दोन्ही एकाच WiFi वर असावे लागते.\n\nConnection अडल्यास: दोन्ही एकाच network वर ठेवा, Companion app अपडेट असू द्या, कधीकधी QR पुन्हा scan करा.\n\nहा live preview फायदा — design बदलताच फोनवर दिसते! हेच शिकण्याची ताकद.",
       },
       {
         title: "पहिला छोटा अॅप — हॅलो बटण",
-        content: "आता काहीतरी अर्थपूर्ण बनवूया: Label + Button = हॅलो! app\n\nDesigner:\n\t• Label ठेवा — Text = 'तू क्लिक केलेस!' FontSize=24, केंद्र.\n\t• Button ठेवा — Text = 'दाबा', मोठा.\n\t• Properties मधून Screen1.Title द्या — HelloApp.\n\nBlocks:\n\t१) Blocks view उघडा.\n\t२) Button1 चा when Button1.Click block drug करा.\n\t३) त्यात Label1 चा set Label1.Text to block ठेवा.\n\t४) Text 'दाबले!' लिहा.\n\nआता Connect → AI Companion → फोनवर बटण दाबा — लेबल बदलले! वाटतं कसलं तरी चमत्कार, पण तुम्ही बनवले!\n\nहा pattern — event + change — हेच बहुतेक apps चे मूलभूत आहे. आता दुसऱं बटण जोडा — Reset — जे लेबल रिकामे करते.",
+        content: "Label + Button = हॅलो! app बनवूया.\n\nDesigner: Label ठेवा — Text = 'तू क्लिक केलेस!' FontSize=24, केंद्र. Button ठेवा — Text = 'दाबा', मोठा. Screen1.Title द्या — HelloApp.\n\nBlocks: Button1 चा when Button1.Click block drag करा. त्यात Label1 चा set Label1.Text to block ठेवा. Text 'दाबले!' लिहा.\n\nConnect → AI Companion → फोनवर बटण दाबा — लेबल बदलले! हा pattern — event + change — हेच बहुतेक apps चे मूलभूत आहे.\n\nReset बटण जोडा जे लेबल रिकामे करते.",
       },
       {
         title: "परवानग्या व सवयी (शिकण्याच्या)",
@@ -152,11 +148,11 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "Button — सर्वात महत्त्वाचा घटक",
-        content: "Button हा एक सार्वत्रिक घटक 'press करा आणि घडू दे' यासाठी. वापरकर्ता त्यावर टॅप करतो आणि कोडमध्ये event घडतो.\n\nProperties:\n\t• Text — बटणावर काय दिसेल.\n\t• BackgroundColor — रंग.\n\t• Shape — rounded, rectangle, oval.\n\t• Enabled — true असेल तर दाबता येतो; false असेल तर बटण निष्क्रिय (धूसर) दिसते.\n\nEvents:\n\t• when Button.Click — टॅप झाल्यावर block चालतो.\n\t• when Button.LongClick — जास्त वेळ दाबल्यावर.\n\t• when Button.TouchDown / TouchUp — बोट ठेवल्यावर/उचलल्यावर.\n\nUse करा: उदा. when Button.Click do set Label.Text to 'धन्यवाद!'\n\nबटणाची शक्ती: वापरकर्ता आणि logic यांच्यातला दुवा. बटण नसेल तर app मध्ये वापरकर्त्याचा सहभागच नसतो.\n\nआत्ताच सराव: दोन बटणे जोडा आणि प्रत्येक block वेगळे काम करायला सांगा.",
+        content: "Button हा 'press करा आणि घडू दे' घटक. वापरकर्ता टॅप करतो, event घडतो.\n\nProperties: Text, BackgroundColor, Shape (rounded/rectangle/oval), Enabled (false = निष्क्रिय).\n\nEvents: when Button.Click (टॅप), when Button.LongClick (जास्त वेळ), when Button.TouchDown/TouchUp.\n\nUse: when Button.Click do set Label.Text to 'धन्यवाद!'\n\nबटणाची शक्ती: वापरकर्ता आणि logic यांच्यातला दुवा. बटण नसेल तर app मध्ये वापरकर्त्याचा सहभागच नसतो.",
       },
       {
         title: "Label आणि TextBox — सूचना व input",
-        content: "Label — फक्त दाखवण्यासाठी; TextBox — वापरकर्त्याने लिहिलेलं घेण्यासाठी.\n\nLabel च्या Properties:\n\t• Text — दाखवलेला मजकूर.\n\t• TextColor / BackgroundColor.\n\t• FontBold, FontSize.\n\t• Visible — false केले तर दिसत नाही.\n\t• TextAlignment — डावीकडे, केंद्र वगैरे.\n\nTextBox — user input.\n\t• Hint — रिकामे असताना दिसणारा संकेत मजकूर (उदा. नाव लिहा).\n\t• Text — सध्याचा लिहिलेला मजकूर.\n\t• NumbersOnly — फक्त अंक चालतील.\n\t• Password — लिहिलेला मजकूर लपविलेला दिसतो.\n\t• Multiline — एकापेक्षा अधिक ओळी.\n\nसूचना देणाऱ्या screen मध्ये अनेकदा label + textbox हे जोडी असतात: प्रश्न (label) → उत्तर (textbox).\n\nपुढे calculator मध्ये TextBox वापराल (NumbersOnly with TextBox) — हीच घटकांची आधारशिला.",
+        content: "Label — फक्त दाखवण्यासाठी; TextBox — वापरकर्त्याने लिहिलेलं घेण्यासाठी.\n\nLabel Properties: Text, TextColor, FontBold, FontSize, Visible, TextAlignment.\nTextBox Properties: Hint (रिकामे असताना संकेत), Text, NumbersOnly, Password, Multiline.\n\nLabel + TextBox हे जोडी असतात: प्रश्न (label) → उत्तर (textbox). Calculator मध्ये TextBox (NumbersOnly) वापराल.",
       },
       {
         title: "Layouts — Horizontal, Vertical, Table",
@@ -168,7 +164,7 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "Non-visible घटक — Notifier, Clock, TinyDB",
-        content: "हे घटक दिसत नाहीत, पण app ची ताकद येथेच आहे.\n\n• Notifier — मेसेज/तक्रार/प्रश्न दाखवतो:\n\t• ShowAlert — खालून झटकून.\n\t• ShowMessageDialog — बटणांसह डायलॉग.\n\t• ShowChooseDialog — दोन पर्यायांसह (हो/नको).\n• Clock — वेळा/timer:\n\t• TimerInterval (ms) — किती वेळाने Timer event.\n\t• when Clock.Timer — प्रत्येक interval नंतर block चालतो.\n\t• कालगणना, stopwatch app साठी.\n• TinyDB — लहान डेटाबेस:\n\t• StoreValue — मूल्य जतन; GetValue — परत मिळवा.\n\t• App बंद केल्यावरही data राहतो.\n\tHigh score, settings साठी.\n• Sound — sound play: source audio file, Play/Vibrate.\n• AccelerometerSensor — फोन हलवणे ओळखतो; Shaking event.\n\nNon-visible घटक Components tree मध्ये दिसतात, पण viewer मध्ये नाही — हे लक्षात ठेवा; अनेकांना ते गहाळ वाटतं.\n\nTinyDB विशेष उपयोगी असेल quiz app मध्ये high score साठी.",
+        content: "हे घटक दिसत नाहीत, पण app ची ताकद येथेच आहे.\n\n• Notifier — ShowAlert, ShowMessageDialog, ShowChooseDialog.\n• Clock — TimerInterval (ms) ने Timer event; कालगणना, stopwatch साठी.\n• TinyDB — StoreValue/GetValue; app बंद केल्यावरही data राहतो (high score, settings).\n• Sound — Play/Vibrate. AccelerometerSensor — फोन हलवणे ओळखतो.\n\nNon-visible घटक Components tree मध्ये दिसतात, पण viewer मध्ये नाही.",
       },
       {
         title: "Events विरुद्ध Properties — संवादाची भाषा",
@@ -176,11 +172,11 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "Blocks — Variables (चल)",
-        content: "Variables = app च्या memory मधील नाव असलेले बॉक्स. त्यामध्ये संख्या, मजकूर किंवा यादी साठवता येते.\n\nBlocks:\n\t• initialize global <नाव> to <मूल्य> — सुरुवातीचे मूल्य.\n\t• set global <नाव> to <नवीन मूल्य> — बदल.\n\t• get global <नाव> — मूल्य वापर.\n\nउदा. score variable:\n\tinitialize global score to 0\n\twhen Button1.Click → set global score to (get global score + 1)\n\t→ set Label1.Text to (join 'Score: ' (get global score))\n\nमहत्त्वाचे:\n\t• Variables Blocks विभागात आहेत.\n\t• नाव अर्थपूर्ण द्या — score, count, questionIndex.\n\t• प्रत्येक variable चा उद्देश स्पष्ट ठेवा.\n\nVariables शिवाय interesting app बनत नाही. Calculator आणि quiz दोन्ही मध्ये variables वापरणार — हीच त्यांची सुरुवात.",
+        content: "Variables = app च्या memory मधील नाव असलेले बॉक्स. संख्या, मजकूर किंवा यादी साठवता येते.\n\nBlocks:\n\t• initialize global <नाव> to <मूल्य> — सुरुवातीचे मूल्य.\n\t• set global <नाव> to <नवीन मूल्य> — बदल.\n\t• get global <नाव> — मूल्य वापर.\n\nउदा. score variable:\n\tinitialize global score to 0\n\twhen Button1.Click → set global score to (get global score + 1)\n\t→ set Label1.Text to (join 'Score: ' (get global score))\n\nVariables Blocks विभागात आहेत. नाव अर्थपूर्ण द्या — score, count, questionIndex.",
       },
       {
         title: "Blocks — Conditions आणि Loops",
-        content: "Conditional (जर-तर) आणि loops — logic ची भाषा:\n\nCondition:\n\t• if <condition> then ... else ... — शाखा निर्धारण.\n\t• कंडिशनचे blocks: =, ≠, >, <, and/or, not.\n\tउदा. if (get global score > 10) then set Label... else set Label...\n\nLoops:\n\t• for each (number from 1 to 10) — नियत संख्येच्या वेळा.\n\t• for each (item in list) — list च्या प्रत्येक item साठी block चालवा.\n\t• while (condition) — जोपर्यंत condition खरे तोपर्यंत repeat.\n\nजागरूकता: infinite loop मुळे app अडकू शकते — लूप व्यवस्थित नियंत्रित ठेवा, TimerInterval लहान ठेवा.\n\nयांचा उपयोग: quiz app — उत्तर तपासणी condition ने; यादी फिरवणे loop ने.\n\nहा पाठ भारी वाटतो पण सोपा आहे — प्रत्येक block सराव करा. हा पाठ संपल्यावर तुम्ही कोणताही app बनवू शकता.",
+        content: "Condition (जर-तर):\n\t• if <condition> then ... else ...\n\t• blocks: =, ≠, >, <, and/or, not.\n\tउदा. if (get global score > 10) then set Label... else set Label...\n\nLoops:\n\t• for each (number from 1 to 10) — नियत संख्येच्या वेळा.\n\t• for each (item in list) — list च्या प्रत्येक item साठी.\n\t• while (condition) — जोपर्यंत condition खरे.\n\nजागरूकता: infinite loop मुळे app अडकू शकते — लूप व्यवस्थित नियंत्रित ठेवा.\n\nयांचा उपयोग: quiz app — उत्तर तपासणी condition ने; यादी फिरवणे loop ने.",
       },
       {
         title: "सारांश — आज काय शिकलो",
@@ -216,23 +212,23 @@ export const androidLevel1: Tutorial[] = [
     sections: [
       {
         title: "कॅल्क्युलेटर — पहिला खरा आराखडा",
-        content: "आपण एक साधा पण पूर्ण कॅल्क्युलेटर बनवणार आहोत — जसे तुमच्या फोनच्या मध्ये असतो. App म्हणजे components आणि logic ची जोड — आता दोन्ही लागणार.\n\nFeature list (आधी ठरवा):\n\t• Display — मोठा Label.\n\t• अंक 0-9.\n\t• दशांश बिंदू.\n\t• ऑपरेटर + − × ÷.\n\t• बरोबर (=) बटण.\n\t• C (क्लिअर) आणि ⌫ (एक अंक मागे).\n\nइतकंच. पहिला app सोपा ठेवा; जास्त features गुंतागुंत वाढवतात.\n\nआर्किटेक्चर: तीन global variables — firstNumber, operator, displayText. प्रत्येक अंक दाबल्यावर displayText ला जोडला जातो. ऑपरेटर दाबला की firstNumber मध्ये current display ची संख्या साठवतो. = दाबल्यावर गणना होते.\n\nहा आराखडा आधी कागदावर काढा — मगच बनवा.",
+        content: "साधा पण पूर्ण कॅल्क्युलेटर बनवणार आहोत.\n\nFeatures: Display (मोठा Label), अंक 0-9, दशांश बिंदू, + − × ÷, = बटण, C (क्लिअर), ⌫ (एक अंक मागे).\n\nArchitecture: तीन global variables — firstNumber, operator, displayText. प्रत्येक अंक दाबल्यावर displayText ला जोडला जातो. ऑपरेटर दाबला की firstNumber मध्ये current display ची संख्या साठवतो. = दाबल्यावर गणना होते.",
       },
       {
         title: "Design — display आणि नंबरपॅड",
-        content: "Designer मध्ये screen तयार करा:\n\n१) Screen1.Title = 'Calculator'\n\n२) Display: Label1 — मोठा, Text = '0', FontSize = 40, TextAlignment = 2 (उजवीकडे), Width = Fill parent.\n\n३) Layout:\n\t• Row1 Horizontal: C, ⌫, ÷, ×\n\t• Row2 Horizontal: −, +, =, (रिकामा)\n\t• Row3-5 TableArrangement: 7 8 9 / 4 5 6 / 1 2 3\n\t• Row6: 0, ., =\n\nComponents tree मध्ये arrangements योग्य क्रमाने असावेत.\n\nप्रत्येक बटणाला साधे styling — Shape rounded, BorderWidth 1, FontSize 24.\n\nसगळी बटणे भरलेली दिसतील — हे खरे आहे; arrangement ची रचना व्यवस्थित तपासा.",
+        content: "Designer मध्ये: Screen1.Title = 'Calculator'.\n\nDisplay: Label1 — Text = '0', FontSize = 40, TextAlignment = 2 (उजवीकडे), Width = Fill parent.\n\nLayout:\n\t• Row1 Horizontal: C, ⌫, ÷, ×\n\t• Row2 Horizontal: −, +, =\n\t• TableArrangement: 7 8 9 / 4 5 6 / 1 2 3 / 0 . =\n\t• प्रत्येक बटणाला: Shape rounded, FontSize 24.",
       },
       {
         title: "अंकांची बटणे — display वर लिहा",
-        content: "आता blocks. सर्वांत आधी अंक बटणांसाठी एक procedure:\n\n\tto appendDigit digit\n\t   set global displayText to join get global displayText, digit\n\t   set Label1.Text to get global displayText\n\nपण display मध्ये सुरुवाती '0' असेल तर '0' च्या पुढे अंक जोडणे चुकीचे — म्हणून: जर displayText '0' असेल तर नवं displayText = digit, नाहीतर जोडा.\n\n\tif displayText == '0' then set global displayText to digit\n\telse set global displayText to join displayText, digit\n\nहे procedure बनवल्यावर प्रत्येक बटण block:\n\twhen Button1.Click do call appendDigit '1'\n\twhen Button2.Click do call appendDigit '2'\nइत्यादी.\n\nएकच procedure सर्व अंकांसाठी पुन्हा वापरता — हेच code reusability ची पहिली पायरी.\n\nसराव: procedure बनवून 0-9 च्या बटणांना जोडा — आता screen चालवल्यास अंक टाईप होतात!",
+        content: "Procedure appendDigit:\n\tif displayText == '0' then set global displayText to digit\n\telse set global displayText to join displayText, digit\n\tset Label1.Text to get global displayText\n\nप्रत्येक बटणावर: when Button.Click do call appendDigit '1' इत्यादी.\n\nएकच procedure सर्व अंकांसाठी — हेच code reusability ची पहिली पायरी.",
       },
       {
         title: "ऑपरेटर ठेवणे — variables चा प्राण",
-        content: "जेव्हा + किंवा − दाबलं जाईल, तेव्हा current display value आणि operator लक्षात ठेवायचे:\n\n\tinitialize global firstNumber to 0\n\tinitialize global operator to ''\n\nprocedure storeOperator op:\n\t   set global firstNumber to (number of displayText)\n\t   set global operator to op\n\t   set global displayText to '0'\n\t   set Label1.Text to '0'\n\nfirstNumber मध्ये displayText मधील संख्या number block वापरून साठवा:\n\tउदा. display = '123', तर number 123 साठवला जातो.\n\nऑपरेटरच्या चारही बटणवर एकच procedure call करा: call storeOperator '+', call storeOperator '−' इत्यादी.\n\nअशाने दुसरा अंक टाईप करताना display रिकामा दिसतो — पण तो नवीन नंबरच्या तयारीसाठी आहे.",
+        content: "+ किंवा − दाबल्यावर current display value आणि operator लक्षात ठेवायचे:\n\nprocedure storeOperator op:\n\tset global firstNumber to (number of displayText)\n\tset global operator to op\n\tset global displayText to '0'\n\tset Label1.Text to '0'\n\nप्रत्येक ऑपरेटर बटणावर call storeOperator '+', call storeOperator '−' इत्यादी. दुसरा अंक टाईप करताना display रिकामा दिसतो — नवीन नंबरच्या तयारीसाठी.",
       },
       {
         title: "गणनाचा गाभा — procedure calculate",
-        content: "बरोबर (=) दाबल्यावर गणना. procedure:\n\n\tto calculate\n\t    set global secondNumber to number of current display\n\t    if operator == '+' then set global result to firstNumber + secondNumber\n\t    else if operator == '−' then set global result to firstNumber − secondNumber\n\t    else if operator == '×' then set global result to firstNumber × secondNumber\n\t    else if operator == '÷' then set global result to firstNumber ÷ secondNumber\n\t    set Label1.Text to result\n\t    set global displayText to result\n\t    set global firstNumber to result   (chain गणनेसाठी)\n\nमहत्त्व: operator रिकामा असल्यास (पहिल्यांदा = दाबल्यावर) गणना होऊ नये:\n\n\tif operator != '' then ... केवळ तेव्हाच गणना करा.\n\nहे condition महत्त्वाचे — नाहीतर पहिल्यांदाच = दाबल्यावर गणना चुकीची होईल.\n\nनंतर operator = '' करा आणि displayText बाजूही reset करा — जेणेकरून chain गणना चालेल (5 + 3 = 8, मग + 2 = 10).",
+        content: "= दाबल्यावर गणना:\n\nprocedure calculate:\n\tset global secondNumber to number of current display\n\tif operator == '+' then set global result to firstNumber + secondNumber\n\telse if operator == '−' then result = firstNumber − secondNumber\n\telse if operator == '×' then result = firstNumber × secondNumber\n\telse if operator == '÷' then result = firstNumber ÷ secondNumber\n\tset Label1.Text to result; displayText = result; firstNumber = result\n\nमहत्त्व: if operator != '' then ... केवळ तेव्हाच गणना करा. operator = '' करा — chain गणना चालेल (5 + 3 = 8, मग + 2 = 10).",
       },
       {
         title: "दशांश बिंदू आणि शून्य",
@@ -240,15 +236,15 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "C आणि ⌫ — सुधारणा",
-        content: "C (क्लिअर): सगळं reset:\n\tinitialize global firstNumber to 0\n\tset global operator to ''\n\tset global displayText to '0'\n\tset Label1.Text to '0'\n\nएकच procedure clearAll बनवा आणि C बटणावर call करा.\n\n⌫ (एक अंक मागे):\n\tजर displayText ची लांबी 1 असेल तर displayText = '0'\n\tनाहीतर displayText = मागील सगळ्या वगळून (substring 1 ते length−1)\n\n\tsubstring block: Text.Copy, start=1, end=length−1 (App Inventor 1-आधारित).\n\nयासाठी Text length आणि substring blocks आहेत. उदा. display '123' → '12' → '1' → '0'.\n\nहे दोन बटणे usability वाढवतात — चुकलं तर सुधारता येते.",
+        content: "C (क्लिअर): firstNumber = 0, operator = '', displayText = '0', Label1.Text = '0'. एकच procedure clearAll बनवा.\n\n⌫ (एक अंक मागे): जर displayText ची लांबी 1 असेल तर '0', नाहीतर substring 1 ते length−1. उदा. '123' → '12' → '1' → '0'.\n\nयासाठी Text length आणि substring blocks आहेत — usability वाढवतात.",
       },
       {
         title: "शून्याने भागाकार आणि इतर त्रुटी",
-        content: "÷ 0 करताना गणित जुळत नाही — crash ऐवजी Notifier ने सुंदर संदेश:\n\n\tcalculate मध्ये operator ÷ असेल आणि secondNumber == 0 तर:\n\t   call Notifier1.ShowAlert 'शून्याने भागाकार शक्य नाही'\n\t   (गणना रद्द; displayText जसाच्या तसा)\n\nयासाठी एक Notifier घटक जोडा (non-visible).\n\nइतर संभाव्य त्रुटी:\n\t• ऑपरेटर निवडल्याशिवाय = दाबले — condition ने prevent करा.\n\t• display रिकामा — displayText '0' या नियमाने सांभाळा.\n\t• मोठा परिणाम — App Inventor मोठ्या संख्याही handle करतो.\n\nत्रुटी नियंत्रण (error handling) हे professional app चे वैशिष्ट्य. Crash ऐवजी हा सुंदर संदेश.",
+        content: "÷ 0 करताना Notifier ने सुंदर संदेश:\n\ncalculate मध्ये: if operator == '÷' and secondNumber == 0 then call Notifier1.ShowAlert 'शून्याने भागाकार शक्य नाही' (गणना रद्द).\n\nNon-visible Notifier घटक जोडा. इतर त्रुटी: ऑपरेटर निवडल्याशिवाय = दाबले — condition ने prevent; display रिकामा — '0' नियमाने; मोठा परिणाम — App Inventor handle करतो.\n\nत्रुटी नियंत्रण (error handling) हे professional app चे वैशिष्ट्य.",
       },
       {
         title: "टेस्टिंग — प्रत्येक बटण तपासा",
-        content: "App बनवल्यावर प्रत्येक function तपासा:\n\n\tTest cases:\n\t• 1 + 2 = 3\n\t• 9 − 7 = 2\n\t• 4 × 5 = 20\n\t• 10 ÷ 2 = 5\n\t• 0.5 + 0.5 = 1\n\t• 7 ÷ 0 → error message\n\t• 9 − 10 = −1 (ऋण — ठीक?)\n\t• chain: 5 + 3 = 8, + 2 = 10\n\t• 00, 05 सारखे नंबर — display नीट?\n\nयातून बग आढळल्यास:\n\t• कोणता टप्पा चुकला ते पहा — घटना आणि test case यांच्याशी जुळवा.\n\t• तात्पुरता label लावून variable value दाखवा.\n\nहे टेस्टिंग नियमित करा — हीच डेव्हलपरची सवय.",
+        content: "App बनवल्यावर प्रत्येक function तपासा:\n\n\t• 1 + 2 = 3\n\t• 9 − 7 = 2\n\t• 4 × 5 = 20\n\t• 10 ÷ 2 = 5\n\t• 0.5 + 0.5 = 1\n\t• 7 ÷ 0 → error message\n\t• chain: 5 + 3 = 8, + 2 = 10\n\t• 00, 05 सारखे नंबर — display नीट?\n\nबग आढळल्यास: कोणता टप्पा चुकला ते पहा, तात्पुरता label लावून variable value दाखवा. हे टेस्टिंग नियमित करा — हीच डेव्हलपरची सवय.",
       },
       {
         title: "सारांश आणि पुढे",
@@ -288,7 +284,7 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "प्रश्नांची यादी — Lists आणि blocks",
-        content: "प्रश्न एका list मध्ये ठेवा — प्रत्येक प्रश्न स्वतःची list (question, correct answer, option1, option2, option3):\n\n\tinitialize global questions to\n\t  list (\n\t    list ('Android कोणत्या kernel वर?', 'Linux', 'Windows', 'macOS', 'iOS'),\n\t    list ('APK म्हणजे काय?', 'पॅक', 'फोटो', 'भाषा', 'Browser'),\n\t    list ('Play Store कोणाचा?', 'Google', 'Apple', 'Microsoft', 'Samsung')\n\t  )\n\nदुसऱं महत्त्वाचं: current question चा index — currentIndex variable, 1 पासून.\n\n\tinitialize global currentIndex to 1\n\nएक procedure showQuestion:\n\t\tset Label1.Text to item at currentIndex of questions मधील पहिल्या item\n\t\tपर्याय बटणांवर योग्य उत्तर आणि बाकी items ठेवा (आधी तुम्ही ठरवलेल्या क्रमाने)\n\nहे झालं की screen कसं जिवंत होतं ते पहा.",
+        content: "प्रश्न एका list मध्ये ठेवा — प्रत्येक प्रश्न स्वतःची list:\n\n\tinitialize global questions to list (\n\t  list ('Android कोणत्या kernel वर?', 'Linux', 'Windows', 'macOS', 'iOS'),\n\t  list ('APK म्हणजे काय?', 'पॅक', 'फोटो', 'भाषा', 'Browser'),\n\t  list ('Play Store कोणाचा?', 'Google', 'Apple', 'Microsoft', 'Samsung')\n\t)\n\nदुसऱं: currentIndex variable, 1 पासून. procedure showQuestion: Label1.Text = item at currentIndex of questions मधील पहिल्या item; पर्याय बटणांवर योग्य उत्तर आणि बाकी items ठेवा.",
       },
       {
         title: "प्रश्न screen — UI तयार करा",
@@ -296,15 +292,15 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "उत्तर तपासणे — conditions",
-        content: "जेव्हा वापरकर्ता एक पर्याय दाबतो, तेव्हा बरोबर की चूक तपासा.\n\nसर्वात सोपा approach: प्रत्येक पर्याय बटण block:\n\n\twhen Option1.Click → call checkAnswer 'Linux'  (त्या पर्यायाचे नाव)\n\nprocedure checkAnswer selected:\n\t   set correctAnswer to item 2 of (item currentIndex of questions)\n\t   if selected == correctAnswer then\n\t       increment score\n\t       set Label2.Text to 'बरोबर!'\n\t   else\n\t       set Label2.Text to join 'चूक! उत्तर: ' correctAnswer\n\t   (पर्याय बटणे disable करा — enabled=false — दुबार निवड होऊ नये)\n\nVariable score:\n\tinitialize global score to 0\n\nहे feedback महत्त्वाचे — वापरकर्त्याला लगेच कळतं की उत्तर बरोबर की चूक.",
+        content: "जेव्हा वापरकर्ता पर्याय दाबतो, बरोबर की चूक तपासा.\n\nप्रत्येक पर्याय बटण: when Option1.Click → call checkAnswer 'Linux'.\n\nprocedure checkAnswer selected:\n\tset correctAnswer to item 2 of (item currentIndex of questions)\n\tif selected == correctAnswer then increment score; Label2.Text = 'बरोबर!'\n\telse Label2.Text = join 'चूक! उत्तर: ' correctAnswer\n\t(पर्याय बटणे disable — enabled=false)\n\nVariable score: initialize global score to 0. हे feedback वापरकर्त्याला लगेच कळवते.",
       },
       {
         title: "पुढील बटण — प्रगती",
-        content: "पुढील दाबल्यावर:\n\t• currentIndex + 1\n\t• जर शेवट असेल तर Result screen उघडा\n\t• नाहीतर नवा प्रश्न दाखवा\n\n\twhen NextButton.Click\n\t   if currentIndex < length of questions then\n\t       set global currentIndex to currentIndex + 1\n\t       call showQuestion\n\t       set Label2.Text to ''\n\t       (पर्याय बटणे पुन्हा enabled करा)\n\t   else\n\t       open another screen Screen3 with start value (get global score)\n\nOpen another screen block 'Control' मध्ये आहे — Screen3 चे नाव द्या; value सोबत पाठवण्यासाठी with start value block.\n\nहा संपूर्ण प्रवाह नियंत्रण — हेच screens चे योग्य व्यवस्थापन.",
+        content: "पुढील दाबल्यावर:\n\n\twhen NextButton.Click\n\t  if currentIndex < length of questions then\n\t    set global currentIndex to currentIndex + 1\n\t    call showQuestion; Label2.Text = ''\n\t    (पर्याय बटणे पुन्हा enabled)\n\t  else open another screen Screen3 with start value (get global score)\n\nOpen another screen block 'Control' मध्ये — value सोबत पाठवण्यासाठी with start value block.",
       },
       {
         title: "निकाल screen — स्कोअर पाठवा",
-        content: "Screen3 (निकाल) मध्ये ठेवा:\n\t• Label1 — 'तुमचा स्कोअर:'\n\t• Label2 — मोठा, स्कोअर आकडा.\n\t• Label3 — प्रशंसा ('उत्कृष्ट!' / 'सुधारा').\n\t• Button1 — 'पुन्हा खेळा' → Screen1 वर परत.\n\nscreen दरम्यान मूल्य पाठवणे:\n\tScreen2 मध्ये: open another screen Screen3 with start value (get global score)\n\tScreen3 मध्ये: when Screen3.Initialize → get start value → Label2.Text मध्ये ठेवा\n\nनंतर Label3 condition वर:\n\tif score == total then 'परिपूर्ण!'\n\telse if score > half then 'चांगलं प्रयत्न!'\n\telse 'पुन्हा प्रयत्न करा'\n\nहा screens चा दुवा शिकवतो — blocks च्या साहाय्याने मूल्ये एका screen वरून दुसऱ्यात.",
+        content: "Screen3 मध्ये: Label1 — 'तुमचा स्कोअर:', Label2 — स्कोअर आकडा, Label3 — प्रशंसा, Button1 — 'पुन्हा खेळा' → Screen1.\n\nscreen दरम्यान मूल्य पाठवणे: Screen2 → open another screen Screen3 with start value score. Screen3.Initialize → get start value → Label2.\n\nLabel3 condition: if score == total then 'परिपूर्ण!' else if score > half then 'चांगलं!' else 'पुन्हा प्रयत्न करा'. हा screens चा दुवा — blocks ने मूल्ये एका screen वरून दुसऱ्यात.",
       },
       {
         title: "TinyDB — high score जतन करा",
