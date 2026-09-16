@@ -13,47 +13,86 @@ export const pythonLevel8: Tutorial[] = [
     minutes: 14,
     summary: "match statement ने switch सारखे नियंत्रण; patterns, guards, OR.",
     sections: [
-      { title: "1. परिचय", content: "match हे Python 3.10+ मधील बलवान statement.\n\nहे switch/case सारखे दिसते.\n\nmatch x: असे लिहितात.\n\nप्रत्येक शक्यता case मध्ये.\n\nआधीच्या if-elif साखळीपेक्षा सुबक.\nPython 3.10 पासून उत्तम statement.\nPython 3.10 पासून अनुभव घ्या.\nPython 3.10 पासून आज शिका.\nPython 3.10 पासून धडा लक्षात.\nPython 3.10 पासून स्पष्ट करते.\nPython 3.10 पासून चालवून पहा.\nPython 3.10 पासून सराव करा.\nPython 3.10 पासून धडा लक्षात.\nPython 3.10 पासून स्पष्ट करते.\nPython 3.10 पासून चालवून पहा.\nPython 3.10 पासून सराव करा.\nPython 3.10 पासून verify करा.\nPython 3.10 पासून अचूक निकाल.\nPython 3.10 पासून मराठीत समज.\nPython 3.10 पासून मराठीत समज.\nPython 3.10 पासून उत्तम statement.\nPython 3.10 पासून अनुभव घ्या.\nPython 3.10 पासून आज शिका.\nPython 3.10 पासून धडा लक्षात.\nPython 3.10 पासून स्पष्ट करते.\nPython 3.10 पासून चालवून पहा.", code: `x = 2
+      {
+        title: "match statement म्हणजे काय?",
+        content: "match हा Python 3.10 मध्ये जोडलेला statement आहे. switch/case असलेल्या इतर भाषा वापरणाऱ्यांना हे लगेच ओळखता येते: match x: नंतर प्रत्येक शक्यता case मध्ये लिहिली जाते.\n\nकाम कसं होतं? Python x चं मूल्य घेतो आणि case ची मूल्ये वरून खाली तपासतो. जो पहिला case जुळेल त्याचा block चालतो आणि match संपतो. इथे x = 2 असल्याने case 2 जुळतो आणि 'दोन' छापतो. if-elif ची साखळी अवघड व्हायला लागते तेव्हा ही रचना किती सुबक दिसते ते लक्षात येतं.\n\ncase मधला कोड match च्या खाली इंडेंटेशनसह लिहिला जातो — इथेही इंडेंटेशन अर्थपूर्ण आहे.",
+        code: `x = 2
 match x:
     case 1:
         print("एक")
     case 2:
-        print("दोन")`, output: "दोन", codeLanguage: "python" },
-      { title: "2. मूल्य सामने", content: "प्रत्येक case एक मूल्य तपासते.\n\nजुळले तर तो block चालतो.\n\ncase _: म्हणजे इतर कोणतीही स्थिती.\n\nशेवटचा default सारखा ठेवतात.\n\nसंख्यांसोबत string देखील उपयुक्त.", code: `विषय = "भौतिकशास्त्र"
+        print("दोन")`,
+        codeLanguage: "python",
+        output: `दोन`,
+      },
+      {
+        title: "मूल्य सामने आणि case _:",
+        content: "प्रत्येक case एक मूल्य तपासतो — संख्या, मजकूर किंवा काहीही. जुळलेला case चालतो; पुढचे सोडले जातात.\n\ncase _: हा wildcard किंवा default आहे — म्हणजे 'वरील कोणतेही न जुळल्यास हा'. तो शेवटी ठेवतात; तो निवडला गेला म्हणजे मागचे कोणतेही case जुळले नव्हते हे समजतं. इथे विषय हा मजकूर आहे आणि case \"भौतिकशास्त्र\" जुळतो. मजकुराच्या निवडीसारख्या कामांमध्ये हे if-elif पेक्षा जास्त वाचता येण्यासारखं ठरतं.",
+        code: `विषय = "भौतिकशास्त्र"
 match विषय:
     case "गणित":
         print("गणित विषय")
     case "भौतिकशास्त्र":
         print("भौतिकशास्त्र विषय")
     case _:
-        print("इतर")`, output: "भौतिकशास्त्र विषय", codeLanguage: "python" },
-      { title: "3. रचना (Patterns)", content: "फक्त मूल्य नाही तर रचना सामने करता येते.\n\ncase [a, b]: list unpacking.\n\ncase (x, y): tuple unpacking.\n\nobject ची खोली देखील तपासता.\n\nहे data structure वेगळे करण्यासाठी सर्वोत्तम.", code: `point = (3, 4)
+        print("इतर")`,
+        codeLanguage: "python",
+        output: `भौतिकशास्त्र विषय`,
+      },
+      {
+        title: "रचना सामने (structural patterns)",
+        content: "match ची खरी ताकद म्हणजे फक्त मूल्य नाही तर data structure ची रचना तपासता येते. case (x, y): असल्यास tuple चे दोन्ही घटक एकत्र सामने होतात — आणि जुळल्यावर ते घटक नावाच्या व्हेरिएबलमध्ये खेचले जातात. list साठी case [a, b]: अशी तपासणी होते.\n\nइथे point = (3, 4) आहे; case (0, 0) जुळत नाही, म्हणून case (x, y) जुळतो आणि x=3, y=4 बांधले जातात. छोट्या text records किंवा API प्रतिसादातील रचना वेगळे करण्यासाठी हे सर्वोत्तम साधन आहे — object च्या attributes ची खोली तपासणारे patterns देखील लिहिता येतात.",
+        code: `point = (3, 4)
 match point:
     case (0, 0):
         print("मूळ बिंदू")
     case (x, y):
-        print(f"x={x}, y={y}")`, output: "x=3, y=4", codeLanguage: "python" },
-      { title: "4. Guards", content: "guard म्हणजे अतिरिक्त अट.\n\ncase x if अट: असे लिहितात.\n\ncase मध्ये pattern आणि condition दोन्ही.\n\nअट खरी असली तरच case निवडतो.\n\nजास्त काळजीपूर्वक नियंत्रण.", code: `num = 15
+        print(f"x={x}, y={y}")`,
+        codeLanguage: "python",
+        output: `x=3, y=4`,
+      },
+      {
+        title: "Guards: अटीप्रमाणे निवड",
+        content: "Guard म्हणजे case मध्ये जोडलेली अतिरिक्त अट. case n if n > 10: असे लिहिल्यास pattern जुळल्यानंतरही अट खरी असली तरच तो case निवडला जातो.\n\nइथे num = 15 आहे. पहिला case n ला 15 बांधतो; अट n > 10 म्हणजे 15 > 10 खरी असल्याने तो case निवडला जातो आणि 'मोठा' छापते. दुसरा case n कोणतेही मूल्य स्विकारतो, पण त्याला संधीच मिळत नाही. अट फक्त pattern जुळल्यानंतरच तपासली जाते — हा क्रम लक्षात ठेवा.",
+        code: `num = 15
 match num:
     case n if n > 10:
         print("मोठा")
     case n:
-        print("छोटा")`, output: "मोठा", codeLanguage: "python" },
-      { title: "5. OR सामने", content: "case 1 | 2: म्हणजे 1 किंवा 2.\n\n| चिन्ह म्हणजे किंवा.\n\nduplicate logic टाळते.\n\nसमान उपचार असलेल्या मूल्यांसाठी.", code: `d = 5
+        print("छोटा")`,
+        codeLanguage: "python",
+        output: `मोठा`,
+      },
+      {
+        title: "एकच case, अनेक मूल्ये (|)",
+        content: "एकाच case मध्ये अनेक मूल्ये | ने जोडता येतात: case 1 | 2 | 3: म्हणजे 1, 2 किंवा 3. | हे 'किंवा' सूचित करते.\n\nसमान उपचार असलेल्या मूल्यांसाठी हे लिहिणं सोपे आहे; अन्यथा तोच कोड तीन वेळा लिहावा लागला असता. d = 5 असल्याने case 4 | 5 | 6 जुळतो आणि 'मध्यम' छापता येतो — duplicate logic टाळण्याचा हा सोपा मार्ग आहे.",
+        code: `d = 5
 match d:
     case 1 | 2 | 3:
         print("छोटा")
     case 4 | 5 | 6:
-        print("मध्यम")`, output: "मध्यम", codeLanguage: "python" },
-      { title: "6. व्यवहारी वापर", content: "menu आणि command हाताळण्यासाठी उत्तम.\n\nस्पष्ट आणि वाचनीय.\n\ncase _: ने अज्ञात निवड सापडते.\n\nif-elif चा त्रास नाही.\n\nAPI responses मध्ये देखील वापर.", code: `आदेश = "रन"
+        print("मध्यम")`,
+        codeLanguage: "python",
+        output: `मध्यम`,
+      },
+      {
+        title: "Menu आणि commands मध्ये वापर",
+        content: "Menu, आदेश (commands) आणि API चे responses यासारख्या ठिकाणी match खूप उपयोगी ठरतो. प्रत्येक शक्यता एका case मध्ये स्पष्ट दिसते आणि case _: ने अज्ञात निवड जपली जाते.\n\nइथे आदेश = \"रन\" मुळे 'कोड चालू' येते. जर आदेश काहीही अन्य असता तर case _: चा block चालला असता. अशा नियंत्रणात if-elif ची नेस्टेड साखळी नाहीशी होते — प्रत्येक निवड एका ओळीत दिसते, विशेषतः API उत्तरावरून कृती ठरवताना हीच पद्धत वापरली जाते.",
+        code: `आदेश = "रन"
 match आदेश:
     case "रन":
         print("कोड चालू")
     case "स्टॉप":
         print("कोड थांबले")
     case _:
-        print("अज्ञात")`, output: "कोड चालू", codeLanguage: "python" },
-      { title: "Mini Project", content: "ATM मेन्यू तयार करा:\n\ncase ने चार पर्याय हाताळा.\n\ndefault पर्याय देखील ठेवा.", code: `निवड = 2
+        print("अज्ञात")`,
+        codeLanguage: "python",
+        output: `कोड चालू`,
+      },
+      {
+        title: "Mini Project: ATM मेन्यू",
+        content: "चार पर्याय असलेला ATM मेन्यू match ने बनवतो. निवड या व्हेरिएबलमध्ये वापरकर्त्याची निवड असते — इथे उदाहरणासाठी 2 घेतले आहे.\n\ncase 1: पैसे काढणे; case 2: शिल्लक तपासणे; case 3: पैसे जमा करणे; आणि बाकी कोणताही क्रमांक आला तर case _: मध्ये 'अवैध निवड' दाखवतो. निवड = 2 असल्याने output मध्ये 'शिल्लक तपासा' येते. अशाप्रकारे संपूर्ण menu एकाच match statement मध्ये बसवता येतो.",
+        code: `निवड = 2
 match निवड:
     case 1:
         print("पैसे काढा")
@@ -62,7 +101,10 @@ match निवड:
     case 3:
         print("पैसे जमा")
     case _:
-        print("अवैध निवड")`, output: "शिल्लक तपासा", codeLanguage: "python" },
+        print("अवैध निवड")`,
+        codeLanguage: "python",
+        output: `शिल्लक तपासा`,
+      },
     ],
     practiceQuestions: [
       "match statement कसे वापरायचे?",
@@ -99,20 +141,37 @@ match d:
     minutes: 14,
     summary: "with statement ने resources आपोआप बंद; __enter__/__exit__ आणि contextlib.",
     sections: [
-      { title: "1. परिचय", content: "with म्हणजे resource ची काळजी घेण्याची सोपी पद्धत.\n\nफायली, लॉक, connections.\n\nवापरल्यावर आपोआप बंद होतात.\n\ntry-finally लिहिण्याचा त्रास नाही.\n\nसुरक्षित कोडसाठी आधारस्तंभ.", code: `from io import StringIO
+      {
+        title: "with म्हणजे काय?",
+        content: "फाईल, लॉक, network connection यांसारख्या resources ला वापरल्यावर बंद करणे आवश्यक असते; नाही केले तर data गळतो. with statement ही जबाबदारी स्वतः घेतो — block संपला की resource आपोआप बंद होतो. try-finally मध्ये किती व्यवस्थित finally असे लिहावे लागते ते इथे नाहीसे होते.\n\nइथे StringIO हा memory मधील मजकूर buffer आहे. with block मध्ये s.write('आतून लिहिले') ने मजकूर बसतो आणि नंतर getvalue() ने तो परत मिळतो. फाईल handle गळती ही दीर्घ चालणाऱ्या programs ची नेहमीची समस्या असते; resources आपोआप बंद होण्यासाठी with ही Python मधील ठरलेली पद्धत आहे.",
+        code: `from io import StringIO
 with StringIO() as s:
     s.write("आतून लिहिले")
     txt = s.getvalue()
-print(txt)`, output: "आतून लिहिले", codeLanguage: "python" },
-      { title: "2. __enter__ आणि __exit__", content: "context manager दोन पद्धतींनी बनवतात.\n\n__enter__ राऱ्यावर चालते.\n\n__exit__ शेवटी बंद करते.\n\nआधी सुरूवात, नंतर शेवट.\n\nस्वतःचा manager लिहिता येतो.\n__enter__ चालवतो क्रम.\n__exit__ चालवतो क्रम.\n__enter__ चालवतो क्रम.\n__enter__ अचूक क्रम.\n__exit__ चालवतो क्रम.\n__exit__ अचूक क्रम.\n__enter__ अचूक क्रम.\n__enter__ चालवतो क्रम.\n__exit__ अचूक क्रम.\n__exit__ चालवतो क्रम.", code: `class Log:
+print(txt)`,
+        codeLanguage: "python",
+        output: `आतून लिहिले`,
+      },
+      {
+        title: "__enter__ आणि __exit__",
+        content: "स्वतःचा context manager बनवण्यासाठी दोन पद्धती लागतात. __enter__: with block चालू होत असताना एकदा चालतो आणि as ने मिळणारे मूल्य परत करतो. __exit__: block संपल्यावर चालतो — काम सामान्यपणे संपले तरी किंवा चूक झाली तरीही, दोन्ही प्रसंगी.\n\nLog वर्गाने पाहू: with Log(): मध्ये 'सुरू' छापले जाते, block मधला 'मध्ये' मुद्रित होतो आणि block संपल्यावर __exit__ मधून 'शेवट' छापते. हीच सुरू/शेवट जोडी प्रत्येक resource सोबत आपोआप काम करते — बाहेरचा कोड त्यात लुडबूड करत नाही.",
+        code: `class Log:
     def __enter__(self):
         print("सुरू")
         return self
     def __exit__(self, *a):
         print("शेवट")
 with Log():
-    print("मध्ये")`, output: "सुरू\nमध्ये\nशेवट", codeLanguage: "python" },
-      { title: "3. चूक हाताळणे", content: "__exit__ मध्ये चूक शोधता येते.\n\nexc_type मध्ये चूकीचा प्रकार.\n\nTrue परत केले तर चूक गिळली जाते.\n\nनेहमी नंतर cleanup होते.\n\nफायलींची गळती थांबते.\nexc_type नियंत्रित करते.\nexc_type नियंत्रित करते.\nexc_type अचूक हाताळणी.\nexc_type अचूक हाताळणी.\nexc_type नियंत्रित करते.", code: `class Safe:
+    print("मध्ये")`,
+        codeLanguage: "python",
+        output: `सुरू
+मध्ये
+शेवट`,
+      },
+      {
+        title: "चूक हाताळणे (__exit__)",
+        content: "__exit__ ला three गोष्टी मिळतात: चुकीचा प्रकार (exception type), तिचे मूल्य आणि traceback. त्यामुळे block मध्ये काही चूक झाली तरी आपल्याला ती समजते.\n\n__exit__ ने True परत केले तर ती चूक 'गिळली' जाते — म्हणजे ती बाहेर पसरत नाही. False (किंवा None) परत केले तर चूक नेहमीप्रमाणे वर पोहोचते. इथे Safe च्या __exit__ मध्ये चूक प्रकार छापून True परत केले, त्यामुळे ValueError झाला तरी तो दिलासा झाला नाही.\n\nलक्षात ठेवा: True परत करणे धोकादायक आहे; ती चूक दडपल्यास कोड का थांबला हे कळत नाही. सामान्य वापरात चूक दाबायची असेल तरच ते करावे.",
+        code: `class Safe:
     def __enter__(self):
         return self
     def __exit__(self, t, exc, tb):
@@ -120,26 +179,52 @@ with Log():
             print("चूक प्रकार:", t.__name__)
         return True
 with Safe():
-    raise ValueError("जाणूनबुजून")`, output: "चूक प्रकार: ValueError", codeLanguage: "python" },
-      { title: "4. contextlib.contextmanager", content: "generator ने सोपा manager.\n\n@contextmanager सजावट लावतात.\n\nyield च्या आधी सुरूवात, नंतर शेवट.\n\nकमी कोड, स्पष्ट तर्क.\n\nछोट्या कामांसाठी उत्तम.\ncontextlib सोपे करते.\n@contextmanager सोपे करते.\ncontextlib सोपे करते.\ncontextlib अचूक प्रवाह.\n@contextmanager सोपे करते.\n@contextmanager अचूक प्रवाह.\ncontextlib अचूक प्रवाह.\ncontextlib सोपे करते.\n@contextmanager अचूक प्रवाह.\n@contextmanager सोपे करते.", code: `from contextlib import contextmanager
+    raise ValueError("जाणूनबुजून")`,
+        codeLanguage: "python",
+        output: `चूक प्रकार: ValueError`,
+      },
+      {
+        title: "contextmanager सजावट",
+        content: "अनेक वेळा संपूर्ण वर्ग लिहिण्याची गरज नसते. contextlib मधील @contextmanager सजावटीने तयार केलेला generator function पुरेसा आहे. yield च्या आधीचा भाग __enter__ सारखा आणि नंतरचा भाग __exit__ सारखा चालतो.\n\nvyavahar() मध्ये 'उघडले' छापले जाते, yield ने नियंत्रण block ला दिले जाते, block मधला 'काम चालू' मुद्रित होतो आणि शेवटी 'बंद केले' छापले जाते. छोट्या-मध्यम कामांसाठी ही पद्धत खूपच कमी कोड मागते आणि प्रवाह स्पष्ट दिसतो.",
+        code: `from contextlib import contextmanager
 @contextmanager
 def vyavahar():
     print("उघडले")
     yield
     print("बंद केले")
 with vyavahar():
-    print("काम चालू")`, output: "उघडले\nकाम चालू\nबंद केले", codeLanguage: "python" },
-      { title: "5. फायली", content: "फायलींसोबत with अनिवार्य.\n\nवाचनासाठी open(p) तर लेखनासाठी open(p, \"w\").\n\nwith संपल्यावर फाईल बंद.\n\nmemory सुरक्षित.\n\nवाचणे आणि लिहिणे दोन्ही.", code: `import tempfile, os
+    print("काम चालू")`,
+        codeLanguage: "python",
+        output: `उघडले
+काम चालू
+बंद केले`,
+      },
+      {
+        title: "फायलींसोबत with",
+        content: "फाईल वाचन-लेखन हा with चा सर्वात सामान्य वापर आहे. open() फाईल उघडते आणि with block संपल्यावर close() आपोआप होतो — म्हणून close लिहायची आठवण ठेवणे याची गरजच उरत नाही.\n\nइथे tempfile.gettempdir() मधील demo_v8.txt मध्ये 'मराठी' लिहिले आणि नंतर तीच फाईल वाचून छापली. लेखनासाठी open(p, \"w\") आणि वाचनासाठी open(p) — दोन्ही with ने व्यवस्थित बंद होतात. handle गळती संपते आणि memory सुरक्षित राहते.",
+        code: `import tempfile, os
 p = os.path.join(tempfile.gettempdir(), "demo_v8.txt")
 with open(p, "w") as f:
     f.write("मराठी")
 with open(p) as f:
-    print(f.read())`, output: "मराठी", codeLanguage: "python" },
-      { title: "6. लॉक आणि डेटाबेस", content: "thread साठी Lock देखील with ने.\n\nकी डेटाबेस transaction.\n\nसुरुवात आणि शेवट नेहमी जोडीने.\n\nrace condition टाळते.\n\nजोखीम कमी करते.\nthreading.Lock संरक्षण देतो.\nthreading.Lock संरक्षण देतो.\nthreading.Lock संरक्षण देतो.", code: `import threading
+    print(f.read())`,
+        codeLanguage: "python",
+        output: `मराठी`,
+      },
+      {
+        title: "लॉक आणि database transaction",
+        content: "threading.Lock हा देखील context manager protocol पाळतो. with lock: block मध्ये thread सुरक्षितपणे काम करतो आणि block बाहेर पडल्यावर lock आपोआप सोडला जातो. मॅन्युअल acquire()/release() मध्ये release विसरल्यास deadlock होऊ शकतो — with हा धोका काढतो.\n\nत्याचप्रमाणे डेटाबेस transaction ची सुरूवात आणि शेवट हा देखील जोडीचा काम आहे. 'सुरूवात आणि शेवट नेहमी जोडीने' या तत्त्वाने जे काही जोडीत चालते तिथे सर्वत्र with लागू होतो — race condition टाळण्याची हीच खात्री असते.",
+        code: `import threading
 lock = threading.Lock()
 with lock:
-    print("सुरक्षित क्षेत्र")`, output: "सुरक्षित क्षेत्र", codeLanguage: "python" },
-      { title: "Mini Project", content: "खाते व्यवहार असा लिहा:\n\n__enter__ ने सुरूवात, __exit__ ने शेवट.\n\nबदल block मध्ये ठेवा.", code: `class Transaction:
+    print("सुरक्षित क्षेत्र")`,
+        codeLanguage: "python",
+        output: `सुरक्षित क्षेत्र`,
+      },
+      {
+        title: "Mini Project: खाते व्यवहार",
+        content: "खाते व्यवहाराची सुरूवात-शेवट with ने सांभाळतो. __enter__ 'खाते उघडले' छापून स्वतःला परत करतो; मधला block 'रक्कम बदलली' नोंदवतो; आणि __exit__ शेवटी 'खाते बंद' छापतो.\n\nTransaction वर्गातील output क्रम: खाते उघडले → रक्कम बदलली → खाते बंद. याच रचनेत database transaction ठेवल्यास अपयशाच्या वेळी अपूर्ण बदल झाल्याची स्थिती टाळता येते — एकतर संपूर्ण काम होते, किंवा काहीच होत नाही.",
+        code: `class Transaction:
     def __enter__(self):
         print("खाते उघडले")
         return self
@@ -147,7 +232,12 @@ with lock:
         print("खाते बंद")
         return True
 with Transaction():
-    print("रक्कम बदलली")`, output: "खाते उघडले\nरक्कम बदलली\nखाते बंद", codeLanguage: "python" },
+    print("रक्कम बदलली")`,
+        codeLanguage: "python",
+        output: `खाते उघडले
+रक्कम बदलली
+खाते बंद`,
+      },
     ],
     practiceQuestions: [
       "with statement कशासाठी?",
@@ -182,36 +272,78 @@ with Transaction():
     minutes: 14,
     summary: "hints ने प्रकार स्पष्ट; annotations, Optional, TypedDict.",
     sections: [
-      { title: "1. परिचय", content: "type hint म्हणजे प्रकाराची खूण.\n\ndef f(x: int) -> str: असे लिहितात.\n\nहे runtime मध्ये अंमलात येत नाही.\n\nसाधने (editors) चुका उचलतात.\n\nस्पष्ट दस्तऐवज म्हणून काम.", code: `def दुप्पट(x: int) -> int:
+      {
+        title: "परिचय",
+        content: "type hint म्हणजे प्रकाराची खूण. def f(x: int) -> str: असे लिहितात. हे runtime मध्ये अंमलात येत नाही; साधने (editors) चुका उचलतात आणि स्पष्ट दस्तऐवज म्हणून काम करते.",
+        code: `def दुप्पट(x: int) -> int:
     return x * 2
-print(दुप्पट(4))`, output: "8", codeLanguage: "python" },
-      { title: "2. संग्रह प्रकार", content: "list[int] म्हणजे int ची list.\n\ndict[str, int] म्हणजे की-मूल्य.\n\nउदाहरण marks table.\n\nसहकार्यासाठी महत्त्वाचे.\nlist[int] अनुभव घ्या.\nlist[int] मराठीत सोपे.\nlist[int] आज वापरा.\nlist[int] धडा समजतो.\nlist[int] रचना देतो.\nlist[int] verify करा.\nlist[int] चालवून पहा.\nlist[int] धडा समजतो.\nlist[int] रचना देतो.\nlist[int] verify करा.\nlist[int] चालवून पहा.\nlist[int] स्पष्ट दिसते.\nlist[int] सराव करा.\nlist[int] अचूक संग्रह.\nlist[int] अचूक संग्रह.\nlist[int] अनुभव घ्या.\nlist[int] मराठीत सोपे.\nlist[int] आज वापरा.\nlist[int] धडा समजतो.\nlist[int] रचना देतो.\nlist[int] verify करा.", code: `marks: dict[str, int] = {"वेद": 85, "मीरा": 90}
-print(sum(marks.values()))`, output: "175", codeLanguage: "python" },
-      { title: "3. __annotations__", content: "प्रकार माहिती __annotations__ मध्ये.\n\ndict म्हणून उपलब्ध.\n\nसाधने वापरतात.\n\nही माहिती introspection ने बघता.\n__annotations__ नोंद देतात.\n__annotations__ नोंद देतात.\n__annotations__ अचूक नोंद.\nintrospection नोंद देतात.\nintrospection नोंद देतात.\n__annotations__ अचूक नोंद.\n__annotations__ नोंद देतात.", code: `def stale(x: int, y: str) -> bool:
+print(दुप्पट(4))`,
+        codeLanguage: "python",
+        output: `8`,
+      },
+      {
+        title: "संग्रह प्रकार",
+        content: "list[int] म्हणजे int ची list; dict[str, int] म्हणजे की-मूल्य जोडी. उदाहरणार्थ marks table वापरून पहा. सहकार्यासाठी महत्त्वाचे — संग्रह प्रकार लिहिणे editor ला स्पष्ट सूचना देते.",
+        code: `marks: dict[str, int] = {"वेद": 85, "मीरा": 90}
+print(sum(marks.values()))`,
+        codeLanguage: "python",
+        output: `175`,
+      },
+      {
+        title: "__annotations__",
+        content: "प्रकार माहिती __annotations__ dict मध्ये उपलब्ध असते. साधने (IDE) या माहितीवरून चुका शोधतात. introspection ने तपासता येते.",
+        code: `def stale(x: int, y: str) -> bool:
     return True
 a = stale.__annotations__
-print(a["x"])`, output: "<class 'int'>", codeLanguage: "python" },
-      { title: "4. Optional आणि Union", content: "Optional म्हणजे मूल्य किंवा None.\n\nनाव कधीही None असू शकेल.\n\ndef नाव(n: Optional[str] = None).\n\nUnion म्हणजे एकापेक्षा प्रकार.\n\nसुरक्षित defaults.\nOptional लवचिक बनवतो.\nOptional लवचिक बनवतो.\nOptional अचूक वापर.\nOptional अचूक वापर.\nOptional लवचिक बनवतो.", code: `from typing import Optional
+print(a["x"])`,
+        codeLanguage: "python",
+        output: `<class 'int'>`,
+      },
+      {
+        title: "Optional आणि Union",
+        content: "Optional म्हणजे मूल्य किंवा None — नाव कधीही None असू शकेल. Union म्हणजे एकापेक्षा जास्त प्रकार. सुरक्षित defaults ठेवता येतात.",
+        code: `from typing import Optional
 def नाव(n: Optional[str] = None) -> str:
     return n or "अनाम"
-print(नाव())`, output: "अनाम", codeLanguage: "python" },
-      { title: "5. TypeAlias", content: "लांब प्रकारांना नाव देता.\n\nVekta: TypeAlias = list[float].\n\nवाचनीयता वाढते.\n\nएकदा निर्माण करा, अनेकदा वापरा.\nTypeAlias सुबक ठेवतो.\nTypeAlias सुबक ठेवतो.\nTypeAlias अचूक alias.\nTypeAlias अचूक alias.\nTypeAlias सुबक ठेवतो.", code: `from typing import TypeAlias
+print(नाव())`,
+        codeLanguage: "python",
+        output: `अनाम`,
+      },
+      {
+        title: "TypeAlias",
+        content: "लांब प्रकारांना नाव देता येते — Vekta: TypeAlias = list[float]. वाचनीयता वाढते; एकदा निर्माण करा, अनेकदा वापरा.",
+        code: `from typing import TypeAlias
 Vekta: TypeAlias = list[float]
 def बेरीज(v: Vekta) -> float:
     return sum(v)
-print(बेरीज([1.5, 2.5]))`, output: "4.0", codeLanguage: "python" },
-      { title: "6. TypedDict", content: "dict ची रचना स्पष्ट करते.\n\nकुठले key चा प्रकार कोणता.\n\nडेटा record मध्ये वापर.\n\nruntime मध्ये तेच dict राहते.\nTypedDict रचना स्पष्ट करतो.\nTypedDict रचना स्पष्ट करतो.\nTypedDict अचूक मॅप.\nTypedDict अचूक मॅप.\nTypedDict रचना स्पष्ट करतो.", code: `from typing import TypedDict
+print(बेरीज([1.5, 2.5]))`,
+        codeLanguage: "python",
+        output: `4.0`,
+      },
+      {
+        title: "TypedDict",
+        content: "dict ची रचना स्पष्ट करते — कुठले key चा प्रकार कोणता. डेटा record मध्ये वापर; runtime मध्ये तेच dict राहते.",
+        code: `from typing import TypedDict
 class Vidya(TypedDict):
     नाव: str
     गुण: int
 v: Vidya = {"नाव": "अदिती", "गुण": 88}
-print(f"{v['नाव']} यांना {v['गुण']} गुण")`, output: "अदिती यांना 88 गुण", codeLanguage: "python" },
-      { title: "Mini Project", content: "विद्यार्थी नोंदी टाइप करा:\n\nTypedDict ने इनपुट, def ने प्रकार.", code: `from typing import TypedDict, List
+print(f"{v['नाव']} यांना {v['गुण']} गुण")`,
+        codeLanguage: "python",
+        output: `अदिती यांना 88 गुण`,
+      },
+      {
+        title: "Mini Project",
+        content: "विद्यार्थी नोंदी टाइप करा — TypedDict ने इनपुट, def ने प्रकार.",
+        code: `from typing import TypedDict, List
 class Marks(TypedDict):
     नाव: str
     गुण: List[int]
 m: Marks = {"नाव": "राहुल", "गुण": [80, 90]}
-print(m["नाव"], sum(m["गुण"]))`, output: "राहुल 170", codeLanguage: "python" },
+print(m["नाव"], sum(m["गुण"]))`,
+        codeLanguage: "python",
+        output: `राहुल 170`,
+      },
     ],
     practiceQuestions: [
       "type hint काय देतात?",
@@ -247,27 +379,70 @@ print(वय(40))`,
     minutes: 14,
     summary: "XML पार्सिंग, bytes, struct, base64; फाईल हाताळणी.",
     sections: [
-      { title: "1. परिचय", content: "मजकुरासोबतच XML आणि binary फायली.\n\nXML म्हणजे structure मध्ये डेटा.\n\nbinary म्हणजे bytes मध्ये.\n\nदोन्ही software मध्ये सर्वत्र.\n\nमाहिती ठेवण्याच्या इतर पद्धती.\nxml.etree अचूक डेटा.\nxml.etree समजते रचना.\nxml.etree अचूक डेटा.\nxml.etree अचूक डेटा.", code: `b = "मराठी".encode("utf-8")
-print(len(b))`, output: "15", codeLanguage: "python" },
-      { title: "2. Binary write/read", content: "struct ने संख्यांच्या bytes तयार होतात.\n\npack म्हणजे bytes मध्ये बदल.\n\nunpack म्हणजे परत संख्या.\n\ndata सुबक आणि कॉम्पॅक्ट.\n\nफॉरमॅट्स जसे \"ii\".", code: `import struct
+      {
+        title: "परिचय",
+        content: "मजकुरासोबतच XML आणि binary फायली. XML म्हणजे structure मध्ये डेटा; binary म्हणजे bytes मध्ये. दोन्ही software मध्ये सर्वत्र वापरल्या जातात.",
+        code: `b = "मराठी".encode("utf-8")
+print(len(b))`,
+        codeLanguage: "python",
+        output: `15`,
+      },
+      {
+        title: "Binary write/read",
+        content: "struct ने संख्यांच्या bytes तयार होतात. pack म्हणजे bytes मध्ये बदल; unpack म्हणजे परत संख्या. data सुबक आणि कॉम्पॅक्ट — फॉरमॅट्स जसे \"ii\" वापरतात.",
+        code: `import struct
 data = struct.pack("ii", 7, 8)
-print(struct.unpack("ii", data))`, output: "(7, 8)", codeLanguage: "python" },
-      { title: "3. XML पार्सिंग", content: "ElementTree ने XML सोपे.\n\nfromstring ने string वाचतो.\n\nfind ने मूल शोधतो.\n\n.text ने मजकूर मिळतो.\n\nसंगणकांची देवाणघेवाण.\nElementTree काढते डेटा.\nfromstring काढते डेटा.\nElementTree काढते डेटा.\nElementTree अचूक पार्सिंग.\nfromstring काढते डेटा.\nfromstring अचूक पार्सिंग.\nfromstring अचूक पार्सिंग.\nElementTree अचूक पार्सिंग.\nElementTree काढते डेटा.", code: `import xml.etree.ElementTree as ET
+print(struct.unpack("ii", data))`,
+        codeLanguage: "python",
+        output: `(7, 8)`,
+      },
+      {
+        title: "XML पार्सिंग",
+        content: "ElementTree ने XML सोपे. fromstring ने string वाचतो; find ने मूल शोधतो; .text ने मजकूर मिळतो. संगणकांची देवाणघेवाण.",
+        code: `import xml.etree.ElementTree as ET
 root = ET.fromstring("<व्यक्ती><नाव>वेद</नाव></व्यक्ती>")
-print(root.find("नाव").text)`, output: "वेद", codeLanguage: "python" },
-      { title: "4. Attributes आणि iterate", content: "XML मध्ये attributes असतात.\n\nget(\"toc\") ने मूल्य.\n\nमुले iterate करता.\n\nlist(root) ने सर्व मुले.\n\nगणना आणि फिल्टर.", code: `import xml.etree.ElementTree as ET
+print(root.find("नाव").text)`,
+        codeLanguage: "python",
+        output: `वेद`,
+      },
+      {
+        title: "Attributes आणि iterate",
+        content: "XML मध्ये attributes असतात — get(\"toc\") ने मूल्य मिळतो. मुले iterate करता येतात; list(root) ने सर्व मुले मिळतात. गणना आणि फिल्टर.",
+        code: `import xml.etree.ElementTree as ET
 root = ET.fromstring("<वर्ग><च toc='1'/><च toc='2'/></वर्ग>")
-print([c.get("toc") for c in root])`, output: "['1', '2']", codeLanguage: "python" },
-      { title: "5. bytearray आणि bytes", content: "bytes न बदलता येतात.\n\nbytearray बदलता येते.\n\nmemoryview खूप मोठ्या डेटासाठी.\n\nnetwork आणि files मध्ये bytes.\n\nएका रूपात दुसऱ्या मध्ये.\nbytearray बदल घडवते.\nपरिवर्तन बदल घडवते.\nbytearray बदल घडवते.\nbytearray अचूक हाताळणी.\nपरिवर्तन बदल घडवते.\nपरिवर्तन अचूक हाताळणी.\nmemoryview बदल घडवते.\nपरिवर्तन अचूक हाताळणी.\nmemoryview बदल घडवते.\nbytearray अचूक हाताळणी.\nbytearray बदल घडवते.", code: `ba = bytearray([65, 66, 67])
-print(bytes(ba))`, output: "b'ABC'", codeLanguage: "python" },
-      { title: "6. base64", content: "binary डेटा मजकुरात बदलते.\n\nemail, JSON मध्ये ठेवता.\n\nb64encode ने बदल, b64decode ने परत.\n\nडेटा सुरक्षित ठेवणे नाही, फक्त रूप.", code: `import base64
+print([c.get("toc") for c in root])`,
+        codeLanguage: "python",
+        output: `['1', '2']`,
+      },
+      {
+        title: "bytearray आणि bytes",
+        content: "bytes न बदलता येतात; bytearray बदलता येते. memoryview खूप मोठ्या डेटासाठी. network आणि files मध्ये bytes एका रूपात दुसऱ्या मध्ये बदलतात.",
+        code: `ba = bytearray([65, 66, 67])
+print(bytes(ba))`,
+        codeLanguage: "python",
+        output: `b'ABC'`,
+      },
+      {
+        title: "base64",
+        content: "binary डेटा मजकुरात बदलते — email, JSON मध्ये ठेवता येते. b64encode ने बदल, b64decode ने परत. डेटा सुरक्षित ठेवत नाही, फक्त रूप बदलते.",
+        code: `import base64
 e = base64.b64encode(b"hello")
-print(base64.b64decode(e) == b"hello")`, output: "True", codeLanguage: "python" },
-      { title: "Mini Project", content: "XML गणना + binary लांबी:\n\nXML च्या मुलांची गणना.\n\nbinary लांबी मोजा.", code: `import xml.etree.ElementTree as ET
+print(base64.b64decode(e) == b"hello")`,
+        codeLanguage: "python",
+        output: `True`,
+      },
+      {
+        title: "Mini Project",
+        content: "XML गणना + binary लांबी: XML च्या मुलांची गणना करा; binary लांबी मोजा.",
+        code: `import xml.etree.ElementTree as ET
 root = ET.fromstring("<ताळा><मद/><मद/><मद/></ताळा>")
 print(len(list(root)))
 b = "गणित".encode("utf-8")
-print(len(b))`, output: "3\n12", codeLanguage: "python" },
+print(len(b))`,
+        codeLanguage: "python",
+        output: `3
+12`,
+      },
     ],
     practiceQuestions: [
       "XML कशासाठी?",
@@ -302,41 +477,84 @@ r = ET.fromstring("<पॉप><नाव/></पॉप>")`,
     minutes: 14,
     summary: "sqlite3 ने table, CRUD, parametrized queries, aggregation.",
     sections: [
-      { title: "1. परिचय", content: "डेटाबेस म्हणजे व्यवस्थित डेटा.\n\nSQLite फाईल-आधारित डेटाबेस.\n\npython मध्ये sqlite3 समाविष्ट.\n\n:memory: ने RAM मध्ये तात्काळ.\n\nशिकण्यासाठी उत्तम.", code: `import sqlite3
+      {
+        title: "परिचय",
+        content: "डेटाबेस म्हणजे व्यवस्थित डेटा — SQLite फाईल-आधारित डेटाबेस; python मध्ये sqlite3 समाविष्ट. :memory: ने RAM मध्ये तात्काळ.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
-print(con.total_changes)`, output: "0", codeLanguage: "python" },
-      { title: "2. Table तयार करणे", content: "कॉलम आणि प्रकार ठरवतात.\n\nTEXT मजकूर, INT संख्या.\n\nप्रत्येक रांग नोंद.\n\nसुरुवातीला साधी रचना.", code: `import sqlite3
+print(con.total_changes)`,
+        codeLanguage: "python",
+        output: `0`,
+      },
+      {
+        title: "Table तयार करणे",
+        content: "कॉलम आणि प्रकार ठरवतात — TEXT मजकूर, INT संख्या. प्रत्येक रांग नोंद; सुरुवातीला साधी रचना.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
 con.execute("CREATE TABLE विद्यार्थी(नाव TEXT, गुण INT)")
-print([r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")])`, output: "['विद्यार्थी']", codeLanguage: "python" },
-      { title: "3. INSERT आणि SELECT", content: "INSERT ने रांगा जोडतो.\n\nexecutemany ने अनेक एकत्र.\n\nSELECT ने वाचता.\n\nORDER BY ने लागण क्रम.\n\nहे core वाचन-लेखन.", code: `import sqlite3
+print([r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")])`,
+        codeLanguage: "python",
+        output: `['विद्यार्थी']`,
+      },
+      {
+        title: "INSERT आणि SELECT",
+        content: "INSERT ने रांगा जोडतो; executemany ने अनेक एकत्र. SELECT ने वाचता; ORDER BY ने लागण क्रम. हे core वाचन-लेखन.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
 con.execute("CREATE TABLE विद्यार्थी(नाव TEXT, गुण INT)")
 con.executemany("INSERT INTO विद्यार्थी VALUES (?, ?)", [("मीरा", 90), ("वेद", 85)])
 for r in con.execute("SELECT नाव, गुण FROM विद्यार्थी ORDER BY गुण DESC"):
-    print(r)`, output: "('मीरा', 90)\n('वेद', 85)", codeLanguage: "python" },
-      { title: "4. Parametrized queries", content: "? placeholders सुरक्षित असतात.\n\nवापरकर्त्याच्या डेटाला अडवतात.\n\nSQL injection थांबते.\n\nstring जोडण्यापेक्षा नेहमी ?.\n\nसुरक्षिततेचा मूल नियम.\nparameterized सुरक्षित करते.\nparameterized सुरक्षित करते.\nparameterized अचूक सुरक्षा.\nparameterized अचूक सुरक्षा.\nparameterized सुरक्षित करते.", code: `import sqlite3
+    print(r)`,
+        codeLanguage: "python",
+        output: `('मीरा', 90)
+('वेद', 85)`,
+      },
+      {
+        title: "Parametrized queries",
+        content: "? placeholders सुरक्षित असतात — वापरकर्त्याच्या डेटाला अडवतात; SQL injection थांबते. string जोडण्यापेक्षा नेहमी ? वापरा.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
 con.execute("CREATE TABLE t(नाव TEXT)")
 con.execute("INSERT INTO t VALUES (?)", ("ओम",))
-print(con.execute("SELECT * FROM t WHERE नाव=?", ("ओम",)).fetchall())`, output: "[('ओम',)]", codeLanguage: "python" },
-      { title: "5. UPDATE आणि DELETE", content: "UPDATE ने मूल्य बदलते.\n\nDELETE ने रांगा निघतात.\n\nWHERE ने फक्त लक्ष्य.\n\nचुका रोखण्यासाठी प्रत्येक वेळी WHERE.", code: `import sqlite3
+print(con.execute("SELECT * FROM t WHERE नाव=?", ("ओम",)).fetchall())`,
+        codeLanguage: "python",
+        output: `[('ओम',)]`,
+      },
+      {
+        title: "UPDATE आणि DELETE",
+        content: "UPDATE ने मूल्य बदलते; DELETE ने रांगा निघतात. WHERE ने फक्त लक्ष्य — चुका रोखण्यासाठी प्रत्येक वेळी WHERE.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
 con.execute("CREATE TABLE t(g INT)")
 con.executemany("INSERT INTO t VALUES (?)", [(5,), (9,)])
 con.execute("UPDATE t SET g = g + 1 WHERE g = 5")
-print(list(con.execute("SELECT g FROM t ORDER BY g")))`, output: "[(6,), (9,)]", codeLanguage: "python" },
-      { title: "6. Aggregates", content: "SUM, COUNT, AVG सारखी गणना.\n\nडेटाबेसच आकडे मोजतो.\n\nfetchone ने एक परिणाम.\n\nजलद आणि शक्तिशाली.\n\nअहवालांसाठी उत्तम.\nAggregates मोजते अचूक.\nAggregates मोजते अचूक.\nAggregates अचूक आकडा.\nAggregates अचूक आकडा.\nAggregates मोजते अचूक.", code: `import sqlite3
+print(list(con.execute("SELECT g FROM t ORDER BY g")))`,
+        codeLanguage: "python",
+        output: `[(6,), (9,)]`,
+      },
+      {
+        title: "Aggregates",
+        content: "SUM, COUNT, AVG सारखी गणना — डेटाबेसच आकडे मोजतो. fetchone ने एक परिणाम. जलद आणि शक्तिशाली, अहवालांसाठी उत्तम.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
 con.execute("CREATE TABLE t(v INT)")
 con.executemany("INSERT INTO t VALUES (?)", [(10,), (20,), (30,)])
-print(con.execute("SELECT SUM(v), COUNT(*) FROM t").fetchone())`, output: "(60, 3)", codeLanguage: "python" },
-      { title: "Mini Project", content: "गुणांचा डेटाबेस:\n\nनोंदी घाला, सर्वोच्च शोधा.\n\nORDER BY DESC LIMIT 1.", code: `import sqlite3
+print(con.execute("SELECT SUM(v), COUNT(*) FROM t").fetchone())`,
+        codeLanguage: "python",
+        output: `(60, 3)`,
+      },
+      {
+        title: "Mini Project",
+        content: "गुणांचा डेटाबेस — नोंदी घाला, सर्वोच्च शोधा. ORDER BY DESC LIMIT 1.",
+        code: `import sqlite3
 con = sqlite3.connect(":memory:")
 con.execute("CREATE TABLE गुण(नाव TEXT, m INT)")
 con.executemany("INSERT INTO गुण VALUES (?, ?)", [("अदिती", 95), ("रोहन", 88), ("स्वरा", 92)])
 नाव, म = con.execute("SELECT नाव, m FROM गुण ORDER BY m DESC LIMIT 1").fetchone()
-print(f"{नाव}: {म}")`, output: "अदिती: 95", codeLanguage: "python" },
+print(f"{नाव}: {म}")`,
+        codeLanguage: "python",
+        output: `अदिती: 95`,
+      },
     ],
     practiceQuestions: [
       "sqlite3 कशासाठी?",
@@ -374,39 +592,78 @@ print(con.execute("SELECT v FROM m").fetchall())`,
     minutes: 14,
     summary: "Flask ने routes, dynamic URLs, methods, JSON.",
     sections: [
-      { title: "1. परिचय", content: "Flask ही हलकी web framework.\n\nछोट्या ते मध्यम apps साठी.\n\nपायथनमध्ये web server बनवते.\n\nDjango ही मोठी framework; Flask साधी.", code: `from flask import Flask
+      {
+        title: "परिचय",
+        content: "Flask ही हलकी web framework — छोट्या ते मध्यम apps साठी. पायथनमध्ये web server बनवते. Django ही मोठी framework; Flask साधी.",
+        code: `from flask import Flask
 app = Flask(__name__)
-print(type(app).__name__)`, output: "Flask", codeLanguage: "python" },
-      { title: "2. Routes", content: "@app.route(\"/\") ने पत्ता.\n\nखालील function प्रतिसाद देतो.\n\nview function म्हणतात.\n\nब्राउझरला मजकूर मिळतो.\n\nसर्वात सोपा web page.\n@app.route जोडतो मार्ग.\n@app.route जोडतो मार्ग.\n@app.route अचूक पेजे.\n@app.route अचूक पेजे.\n@app.route जोडतो मार्ग.", code: `from flask import Flask
+print(type(app).__name__)`,
+        codeLanguage: "python",
+        output: `Flask`,
+      },
+      {
+        title: "Routes",
+        content: "@app.route(\"/\") ने पत्ता ठरवतो; खालील function प्रतिसाद देतो — याला view function म्हणतात. ब्राउझरला मजकूर मिळतो.",
+        code: `from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def home():
     return "नमस्कार"
-print(home())`, output: "नमस्कार", codeLanguage: "python" },
-      { title: "3. Dynamic URLs", content: "<name> म्हणजे बदलते मूल्य.\n\n\"<int:x>\" फक्त संख्या.\n\nURL मधून आकडा webserver ला.\n\nप्रत्येक विनंतीला वेगळे मूल्य.\n\nव्यक्तिगत पाने तयार.", code: `from flask import Flask
+print(home())`,
+        codeLanguage: "python",
+        output: `नमस्कार`,
+      },
+      {
+        title: "Dynamic URLs",
+        content: "<name> म्हणजे बदलते मूल्य; \"<int:x>\" फक्त संख्या. URL मधून आकडा webserver ला मिळतो — प्रत्येक विनंतीला वेगळे मूल्य, व्यक्तिगत पाने तयार.",
+        code: `from flask import Flask
 app = Flask(__name__)
 @app.route("/गुण/<int:score>")
 def score(score):
     return f"तुमचे गुण: {score}"
-print(score(92))`, output: "तुमचे गुण: 92", codeLanguage: "python" },
-      { title: "4. Methods", content: "GET वाचतो, POST नोंदवतो.\n\nmethods list मध्ये परवाने.\n\nform पाठवण्यासाठी POST.\n\nयोग्य method योग्य कामासाठी.", code: `from flask import Flask
+print(score(92))`,
+        codeLanguage: "python",
+        output: `तुमचे गुण: 92`,
+      },
+      {
+        title: "Methods",
+        content: "GET वाचतो, POST नोंदवतो. methods list मध्ये परवाने दिले जातात. form पाठवण्यासाठी POST — योग्य method योग्य कामासाठी.",
+        code: `from flask import Flask
 app = Flask(__name__)
 @app.route("/x", methods=["GET", "POST"])
 def x():
     return "1"
 rules = [r for r in app.url_map.iter_rules() if r.endpoint == "x"][0]
-print("GET" in rules.methods and "POST" in rules.methods)`, output: "True", codeLanguage: "python" },
-      { title: "5. JSON प्रतिसाद", content: "api साठी jsonify.\n\ndict मध्ये डेटा.\n\nब्राउझर/अॅपला JSON.\n\nएकाच आकारात डेटा.\n\nआधुनिक सिस्टमचा भाषा.", code: `from flask import Flask, jsonify
+print("GET" in rules.methods and "POST" in rules.methods)`,
+        codeLanguage: "python",
+        output: `True`,
+      },
+      {
+        title: "JSON प्रतिसाद",
+        content: "API साठी jsonify वापरतात — dict मध्ये डेटा भरून ब्राउझर/अॅपला JSON मिळतो. आधुनिक सिस्टमची भाषा.",
+        code: `from flask import Flask, jsonify
 app = Flask(__name__)
 @app.route("/api")
 def api():
     return jsonify(nama="मराठी", level=8)
 with app.app_context():
-    print(api().get_json() == {"nama": "मराठी", "level": 8})`, output: "True", codeLanguage: "python" },
-      { title: "6. टेम्पलेट", content: "template मध्ये HTML आणि data.\n\nपृष्ठाची रचना वेगळी.\n\nफक्त जागतिक data बदलतो.\n\nस्वच्छ वेगळेपणा.\n\nउदाहरणाद्वारे कल्पना.\nटेम्पलेट सुबक बनवतो.\nrender_template सुबक बनवतो.\nटेम्पलेट सुबक बनवतो.\nटेम्पलेट अचूक पेजे.\nrender_template सुबक बनवतो.\nrender_template अचूक पेजे.\nrender_template अचूक पेजे.\nटेम्पलेट अचूक पेजे.\nटेम्पलेट सुबक बनवतो.", code: `नम = "आरोही"
+    print(api().get_json() == {"nama": "मराठी", "level": 8})`,
+        codeLanguage: "python",
+        output: `True`,
+      },
+      {
+        title: "टेम्पलेट",
+        content: "टेम्पलेट मध्ये HTML आणि data वेगळे असतात — पृष्ठाची रचना वेगळी, फक्त जागतिक data बदलतो. render_template ने स्वच्छ वेगळेपणा.",
+        code: `नम = "आरोही"
 पृष्ठ = f"<h1>नमस्कार {नम}</h1>"
-print(पृष्ठ)`, output: "<h1>नमस्कार आरोही</h1>", codeLanguage: "python" },
-      { title: "Mini Project", content: "दोन पानांची mini site:\n\n/home आणि /about.\n\nप्रत्येकाला वेगळा मजकूर.", code: `from flask import Flask
+print(पृष्ठ)`,
+        codeLanguage: "python",
+        output: `<h1>नमस्कार आरोही</h1>`,
+      },
+      {
+        title: "Mini Project",
+        content: "दोन पानांची mini site — /home आणि /about. प्रत्येकाला वेगळा मजकूर.",
+        code: `from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def home():
@@ -414,7 +671,10 @@ def home():
 @app.route("/about")
 def about():
     return "बद्दल"
-print(home(), about())`, output: "होम बद्दल", codeLanguage: "python" },
+print(home(), about())`,
+        codeLanguage: "python",
+        output: `होम बद्दल`,
+      },
     ],
     practiceQuestions: [
       "Flask कशासाठी?",
@@ -453,45 +713,84 @@ print(marks(50))`,
     minutes: 14,
     summary: "FastAPI ने routes, params, status, body; REST आणि auth संकल्पना.",
     sections: [
-      { title: "1. परिचय", content: "REST म्हणजे API तयार करण्याची पद्धत.\n\nFastAPI आधुनिक framework.\n\nस्वयंचलित documentation.\n\ntype hints वापरते.\n\nwebby सेवांसाठी सर्वोत्तम.", code: `from fastapi import FastAPI
+      {
+        title: "परिचय",
+        content: "REST म्हणजे API तयार करण्याची पद्धत. FastAPI आधुनिक framework — स्वयंचलित documentation, type hints वापरते. webby सेवांसाठी सर्वोत्तम.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
-print(type(app).__name__)`, output: "FastAPI", codeLanguage: "python" },
-      { title: "2. GET route", content: "@app.get(\"/हेलो\") ने वाचन.\n\nasync function ने प्रतिसाद.\n\ndict परत केले कि JSON.\n\npassword auth संकल्पना नंतर.\n@app.get देतो डेटा.\n@app.get देतो डेटा.\n@app.get अचूक response.\n@app.get अचूक response.", code: `from fastapi import FastAPI
+print(type(app).__name__)`,
+        codeLanguage: "python",
+        output: `FastAPI`,
+      },
+      {
+        title: "GET route",
+        content: "@app.get(\"/हेलो\") ने वाचन route; async function ने प्रतिसाद. dict परत केले कि JSON मिळते.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
 @app.get("/हेलो")
 async def hello():
     return {"sha": "नमस्कार"}
 import asyncio
-print(asyncio.run(hello()))`, output: "{'sha': 'नमस्कार'}", codeLanguage: "python" },
-      { title: "3. Path parameters", content: "URL मध्ये <score> सारखे.\n\ntype hint int प्रमाणित करते.\n\nचुकीचा प्रकार 422 error.\n\nस्पष्ट आणि सुरक्षित.\n\nAPI डिझाइनचा आधार.", code: `from fastapi import FastAPI
+print(asyncio.run(hello()))`,
+        codeLanguage: "python",
+        output: `{'sha': 'नमस्कार'}`,
+      },
+      {
+        title: "Path parameters",
+        content: "URL मध्ये <score> सारखे placeholders. type hint int प्रमाणित करते — चुकीचा प्रकार 422 error. स्पष्ट आणि सुरक्षित.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
 @app.get("/गुण/{score}")
 async def score(score: int):
     return {"गुण": score}
 import asyncio
-print(asyncio.run(score(88)))`, output: "{'गुण': 88}", codeLanguage: "python" },
-      { title: "4. Query parameters", content: "?q= मधील values.\n\nफिल्टर करण्यासाठी.\n\nsearch API सारखे.\n\nquery default असू शकते.\n? mark अनुभव घ्या.\n? mark मराठीत सोपे.\n? mark आज वापरा.\n? mark धडा समजतो.\n? mark लवचिक करतो.\n? mark verify करा.\n? mark चालवून पहा.\n? mark धडा समजतो.\n? mark लवचिक करतो.\n? mark verify करा.\n? mark चालवून पहा.\n? mark स्पष्ट दिसतो.\n? mark सराव करा.\n? mark अचूक फिल्टर.\n? mark चालवून पहा.\n? mark स्पष्ट दिसतो.\n? mark सराव करा.\n? mark अचूक फिल्टर.\n? mark अनुभव घ्या.\n? mark मराठीत सोपे.\n? mark आज वापरा.", code: `from fastapi import FastAPI
+print(asyncio.run(score(88)))`,
+        codeLanguage: "python",
+        output: `{'गुण': 88}`,
+      },
+      {
+        title: "Query parameters",
+        content: "?q= मधील values फिल्टर करण्यासाठी — search API सारखे. query default असू शकते.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
 @app.get("/search")
 async def search(q: str = "सर्व"):
     return {"q": q}
 import asyncio
-print(asyncio.run(search()))`, output: "{'q': 'सर्व'}", codeLanguage: "python" },
-      { title: "5. Status codes", content: "HTTP status ठरवतात.\n\n200 यश, 404 नाही सापडला.\n\n401 अनधिकृत, 403 निषिद्ध.\n\nstatus_code parameter.\n\nAPI documentation महत्त्वाची.", code: `from fastapi import FastAPI
+print(asyncio.run(search()))`,
+        codeLanguage: "python",
+        output: `{'q': 'सर्व'}`,
+      },
+      {
+        title: "Status codes",
+        content: "HTTP status ठरवतात — 200 यश, 404 नाही सापडला, 401 अनधिकृत, 403 निषिद्ध. status_code parameter ने सेट करतात.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
 @app.get("/ok", status_code=200)
 async def ok():
     return {"st": "ठीक"}
 r = [ro for ro in app.routes if getattr(ro, "path", "") == "/ok"][0]
-print(r.status_code)`, output: "200", codeLanguage: "python" },
-      { title: "6. POST आणि Auth", content: "POST ने नोंदवतो.\n\nbody मध्ये data.\n\nauth म्हणजे ओळख पडताळणी.\n\ntoken ने वापरकर्ता सिद्ध.\n\ndict ने सोपे उदाहरण.\n@app.post साठवतो नोंदी.\n@app.post साठवतो नोंदी.\n@app.post अचूक संग्रह.\n@app.post अचूक संग्रह.", code: `from fastapi import FastAPI
+print(r.status_code)`,
+        codeLanguage: "python",
+        output: `200`,
+      },
+      {
+        title: "POST आणि Auth",
+        content: "POST ने नोंदवतो — body मध्ये data. auth म्हणजे ओळख पडताळणी; token ने वापरकर्ता सिद्ध. dict ने सोपे उदाहरण.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
 @app.post("/माल")
 async def add(m: dict):
     return m["नाव"]
 import asyncio
-print(asyncio.run(add({"नाव": "कलम"})))`, output: "कलम", codeLanguage: "python" },
-      { title: "Mini Project", content: "दोन endpoints:\n\n/a आणि /b दोन data मूल्ये.\n\nपथा sorted छापा.", code: `from fastapi import FastAPI
+print(asyncio.run(add({"नाव": "कलम"})))`,
+        codeLanguage: "python",
+        output: `कलम`,
+      },
+      {
+        title: "Mini Project",
+        content: "दोन endpoints: /a आणि /b दोन data मूल्ये. paths sorted छापा.",
+        code: `from fastapi import FastAPI
 app = FastAPI()
 @app.get("/a")
 async def a():
@@ -500,7 +799,10 @@ async def a():
 async def b():
     return {"z": 2}
 paths = [r.path for r in app.routes if r.path in ("/a", "/b")]
-print(sorted(paths))`, output: "['/a', '/b']", codeLanguage: "python" },
+print(sorted(paths))`,
+        codeLanguage: "python",
+        output: `['/a', '/b']`,
+      },
     ],
     practiceQuestions: [
       "REST म्हणजे?",
@@ -542,29 +844,71 @@ print(asyncio.run(main()))`,
     minutes: 14,
     summary: "numpy stats, filtering, reshape; CSV वाचन; pandas संकल्पना.",
     sections: [
-      { title: "1. परिचय", content: "डेटा विश्लेषण म्हणजे आकड्यांत अर्थ.\n\nnumpy सध्या स्थापित.\n\nवेगवान गणना.\n\npandas तक्ते पण numpy वरील.\n\nCSV ही सारणी रूप.", code: `import numpy as np
+      {
+        title: "परिचय",
+        content: "डेटा विश्लेषण म्हणजे आकड्यांत अर्थ. numpy सध्या स्थापित, वेगवान गणना. pandas तक्ते पण numpy वरील. CSV ही सारणी रूप.",
+        code: `import numpy as np
 a = np.array([1, 2, 3])
-print(a.sum())`, output: "6", codeLanguage: "python" },
-      { title: "2. सांख्यिकी", content: "mean सरासरी, std विचलन.\n\nमोजमाप ते किती विखुरले.\n\nगुणांचा अभ्यास.\n\nround ने स्वच्छ output.\n\nनिर्णयासाठी आधार.\nसांख्यिकी सांगते आकडा.\nसांख्यिकी सांगते आकडा.\nसांख्यिकी अचूक सरासरी.\nसांख्यिकी अचूक सरासरी.\nसांख्यिकी सांगते आकडा.", code: `import numpy as np
+print(a.sum())`,
+        codeLanguage: "python",
+        output: `6`,
+      },
+      {
+        title: "सांख्यिकी",
+        content: "mean सरासरी, std विचलन — मोजमाप ते किती विखुरले. गुणांचा अभ्यास; round ने स्वच्छ output, निर्णयासाठी आधार.",
+        code: `import numpy as np
 m = np.array([70, 85, 90, 75])
-print(round(float(m.mean()), 1))`, output: "80.0", codeLanguage: "python" },
-      { title: "3. फिल्टर आणि निवड", content: "a[a > 10] ने अट.\n\nफक्त दिलेल्या निकषांचे डेटा.\n\nमोठ्या सारण्यांतून छोटा कळस.\n\nquick insight.\nफिल्टर निवडते घटक.\na[a > 5] अनुभव घ्या.\na[a > 5] मराठीत सोपे.\na[a > 5] आज वापरा.\na[a > 5] धडा समजतो.\na[a > 5] निवडते घटक.\na[a > 5] verify करा.\na[a > 5] चालवून पहा.\nफिल्टर निवडते घटक.\nफिल्टर अचूक फिल्टर.\na[a > 5] धडा समजतो.\na[a > 5] निवडते घटक.\na[a > 5] verify करा.\na[a > 5] चालवून पहा.\na[a > 5] स्पष्ट दिसतो.\na[a > 5] सराव करा.\na[a > 5] अचूक फिल्टर.\na[a > 5] चालवून पहा.\na[a > 5] स्पष्ट दिसतो.\na[a > 5] सराव करा.\na[a > 5] अचूक फिल्टर.\na[a > 5] अनुभव घ्या.\na[a > 5] मराठीत सोपे.\na[a > 5] आज वापरा.\nफिल्टर अचूक फिल्टर.\nफिल्टर निवडते घटक.", code: `import numpy as np
+print(round(float(m.mean()), 1))`,
+        codeLanguage: "python",
+        output: `80.0`,
+      },
+      {
+        title: "फिल्टर आणि निवड",
+        content: "a[a > 10] ने अट — फक्त दिलेल्या निकषांचे डेटा मिळतात. मोठ्या सारण्यांतून छोटा कळस, quick insight.",
+        code: `import numpy as np
 a = np.array([5, 12, 8, 20])
-print(a[a > 10].tolist())`, output: "[12, 20]", codeLanguage: "python" },
-      { title: "4. reshape", content: "डेटाला आकार द्या.\n\nreshape(2, 3) ने table.\n\naxis ने दिशेने बेरीज.\n\nimage pixels सारखे.\n\nलवचिक रचना.\nnp.reshape अचूक आकार.\n-1 वापरणे स्पष्ट होते.\n-1 वापरणे सराव करा.\n-1 वापरणे अचूक आकार.\n-1 वापरणे अनुभव घ्या.\n-1 वापरणे मराठीत सोपे.\n-1 वापरणे आज वापरा.\n-1 वापरणे धडा समजतो.\nreshape आकार देतो.\nreshape आकार देतो.\nreshape अचूक आकार.\nnp.reshape आकार देतो.\nnp.reshape अचूक आकार.\n-1 वापरणे धडा समजतो.\n-1 वापरणे आकार देतो.\n-1 वापरणे verify करा.\n-1 वापरणे चालवून पहा.\n-1 वापरणे स्पष्ट होते.\n-1 वापरणे सराव करा.\n-1 वापरणे अचूक आकार.\nnp.reshape अचूक आकार.\n-1 वापरणे चालवून पहा.\n-1 वापरणे स्पष्ट होते.\n-1 वापरणे सराव करा.\n-1 वापरणे अचूक आकार.\n-1 वापरणे अनुभव घ्या.\n-1 वापरणे मराठीत सोपे.\n-1 वापरणे आज वापरा.\n-1 वापरणे अचूक आकार.\n-1 वापरणे अनुभव घ्या.\n-1 वापरणे मराठीत सोपे.\n-1 वापरणे आज वापरा.\n-1 वापरणे धडा समजतो.\n-1 वापरणे आकार देतो.\n-1 वापरणे verify करा.\nreshape अचूक आकार.\nreshape आकार देतो.", code: `import numpy as np
-print(np.arange(6).reshape(2, 3).sum(axis=1).tolist())`, output: "[3, 12]", codeLanguage: "python" },
-      { title: "5. CSV वाचन", content: "गुणांच्या आकड्यांचा बेरीज.\n\ntable डेटासाठी CSV मानक.", code: `import csv, io
-data = io.StringIO("नाव,गुण\\nमीरा,90\\nवेद,85\\n")
+print(a[a > 10].tolist())`,
+        codeLanguage: "python",
+        output: `[12, 20]`,
+      },
+      {
+        title: "reshape",
+        content: "डेटाला आकार द्या — reshape(2, 3) ने table. axis ने दिशेने बेरीज. -1 वापरल्यास Python स्वतः मोजतो — image pixels सारखे लवचिक.",
+        code: `import numpy as np
+print(np.arange(6).reshape(2, 3).sum(axis=1).tolist())`,
+        codeLanguage: "python",
+        output: `[3, 12]`,
+      },
+      {
+        title: "CSV वाचन",
+        content: "गुणांच्या आकड्यांचा बेरीज — table डेटासाठी CSV मानक.",
+        code: `import csv, io
+data = io.StringIO("नाव,गुण\nमीरा,90\nवेद,85\n")
 rows = list(csv.DictReader(data))
-print(sum(int(r["गुण"]) for r in rows))`, output: "175", codeLanguage: "python" },
-      { title: "6. Pandas संकल्पना", content: "pandas मध्ये DataFrame हा तक्ता.\n\npip install pandas.\n\n.numpy सोबत सुसंगत.\n\nयेथे numpy ने मूल तर्क.\n\nपुढची पायरी pandas.", code: `import numpy as np
+print(sum(int(r["गुण"]) for r in rows))`,
+        codeLanguage: "python",
+        output: `175`,
+      },
+      {
+        title: "Pandas संकल्पना",
+        content: "pandas मध्ये DataFrame हा तक्ता — pip install pandas. numpy सोबत सुसंगत. येथे numpy ने मूळ तर्क; पुढची पायरी pandas.",
+        code: `import numpy as np
 गुण = np.array([90, 85, 92])
-print(f"सरासरी: {गुण.mean():.1f}")`, output: "सरासरी: 89.0", codeLanguage: "python" },
-      { title: "Mini Project", content: "सुसंगतता तपासा:\n\nसरासरी आणि विचलन.\n\nकोणता डेटा अधिक स्थिर.", code: `import numpy as np
+print(f"सरासरी: {गुण.mean():.1f}")`,
+        codeLanguage: "python",
+        output: `सरासरी: 89.0`,
+      },
+      {
+        title: "Mini Project",
+        content: "सुसंगतता तपासा — सरासरी आणि विचलन काढा. कोणता डेटा अधिक स्थिर?",
+        code: `import numpy as np
 scores = np.array([4, 8, 6, 10])
 avg = float(scores.mean())
 dev = float(scores.std())
-print(f"avg={avg:.2f} std={dev:.2f}")`, output: "avg=7.00 std=2.24", codeLanguage: "python" },
+print(f"avg={avg:.2f} std={dev:.2f}")`,
+        codeLanguage: "python",
+        output: `avg=7.00 std=2.24`,
+      },
     ],
     practiceQuestions: [
       "numpy कशासाठी?",
@@ -600,40 +944,82 @@ print(float(m.mean()))`,
     minutes: 14,
     summary: "सरळ regression, loss, predictions; sklearn/पूर्ण AI stack संकल्पना.",
     sections: [
-      { title: "1. परिचय", content: "नमुन्यांवरून प्रतिसाद.\n\nपर्यवेक्षित शिक्षण = labeled example.\n\nआकडे numeric मध्ये.\n\nnumpy आधारभूत साधन.", code: `import numpy as np
+      {
+        title: "परिचय",
+        content: "नमुन्यांवरून प्रतिसाद — पर्यवेक्षित शिक्षण = labeled example. आकडे numeric मध्ये; numpy आधारभूत साधन.",
+        code: `import numpy as np
 X = np.array([1, 2, 3, 4])
 y = np.array([2, 4, 6, 8])
-print(np.corrcoef(X, y)[0, 1].round(2))`, output: "1.0", codeLanguage: "python" },
-      { title: "2. चूक/possession (loss)", content: "model भविष्यवाणी वि खरे.\n\nMSE म्हणजे सरासरी वर्ग चूक.\n\nलहान loss म्हणजे चांगले.\n\nहेच प्रशिक्षणाचे गणित.\n\nसगळे algorithms हेच करतात.", code: `import numpy as np
+print(np.corrcoef(X, y)[0, 1].round(2))`,
+        codeLanguage: "python",
+        output: `1.0`,
+      },
+      {
+        title: "loss (चूक)",
+        content: "model भविष्यवाणी वि खरे — MSE म्हणजे सरासरी वर्ग चूक. लहान loss म्हणजे चांगले; हेच प्रशिक्षणाचे गणित.",
+        code: `import numpy as np
 y = np.array([2, 4, 6, 8])
 p = np.array([2, 5, 6, 9])
-print(round(float(np.mean((y - p) ** 2)), 2))`, output: "0.5", codeLanguage: "python" },
-      { title: "3. सरळ रेखा नियम", content: "मूळ कल्पना रेखा m*x + b.\n\nदोन आकडे शिकायचे: slope, intercept.\n\nnormal equation ने थेट.\n\nX.T @ X म्हणजे गुणाकार.\n\npinv ने स्थिर solution.", code: `import numpy as np
+print(round(float(np.mean((y - p) ** 2)), 2))`,
+        codeLanguage: "python",
+        output: `0.5`,
+      },
+      {
+        title: "सरळ रेखा नियम",
+        content: "मूळ कल्पना रेखा m*x + b — दोन आकडे शिकायचे: slope, intercept. normal equation ने थेट; pinv ने स्थिर solution.",
+        code: `import numpy as np
 X = np.array([[1], [2], [3], [4]])
 y = np.array([2, 4, 6, 8])
 w = np.linalg.pinv(X) @ y
-print(round(float(w[0]), 3))`, output: "2.0", codeLanguage: "python" },
-      { title: "4. bias जोडणे", content: "एकाच कॉलममध्ये 1 घाला.\n\nमग slope आणि intercept दोन्ही.\n\nb, m = w.\n\nअधिक अचूक मॉडेल.\n\nअधिक विनम्र गणित.\nnp.hstack अचूक गणना.\nnp.hstack दुरुस्त करतो.\nnp.hstack अचूक गणना.\nnp.hstack अचूक गणना.", code: `import numpy as np
+print(round(float(w[0]), 3))`,
+        codeLanguage: "python",
+        output: `2.0`,
+      },
+      {
+        title: "bias जोडणे",
+        content: "एकाच कॉलममध्ये 1 घाला — मग slope आणि intercept दोन्ही मिळतात. b, m = w. np.hstack अधिक अचूक मॉडेल.",
+        code: `import numpy as np
 X = np.array([[1], [2], [3]])
 y = np.array([3, 5, 7])
 A = np.hstack([np.ones((3, 1)), X])
 w = np.linalg.pinv(A) @ y
-print(round(float(w[1]), 3))`, output: "2.0", codeLanguage: "python" },
-      { title: "5. वर्गीकरण संकल्पना", content: "वर्गीकरण म्हणजे गट ठरवणे.\n\nपास/फेल सारखे थ्रेशोल्ड.\n\n>= 50 True.\n\nurl सोपे example.\nवर्गीकरण ठरवतो वर्ग.\nवर्गीकरण ठरवतो वर्ग.\nवर्गीकरण अचूक वर्ग.\nवर्गीकरण अचूक वर्ग.\nवर्गीकरण ठरवतो वर्ग.", code: `import numpy as np
+print(round(float(w[1]), 3))`,
+        codeLanguage: "python",
+        output: `2.0`,
+      },
+      {
+        title: "वर्गीकरण संकल्पना",
+        content: "वर्गीकरण म्हणजे गट ठरवणे — पास/फेल सारखे थ्रेशोल्ड. >= 50 True.",
+        code: `import numpy as np
 प्रति = np.array([55, 80, 40, 90])
 पास = प्रति >= 50
-print(पास.tolist())`, output: "[True, True, False, True]", codeLanguage: "python" },
-      { title: "6. मोठा AI stack", content: "sklearn मध्ये तयार algorithms.\n\npytorch/tensorflow मध्ये neural nets.\n\ntransformers मध्ये language models.\n\nLLM हे खूप मोठे model.\n\nGGUF फॉरमॅटमध्ये small files.\ntransformers अचूक समज.\nscikit-learn देतो दिशा.\nPyTorch देतो दिशा.\nscikit-learn देतो दिशा.\nscikit-learn अचूक समज.\nPyTorch देतो दिशा.\nPyTorch अचूक समज.\ntransformers देतो दिशा.\ntransformers अचूक समज.\nPyTorch अचूक समज.\ntransformers अचूक समज.\nscikit-learn अचूक समज.\nscikit-learn देतो दिशा.", code: `import numpy as np
+print(पास.tolist())`,
+        codeLanguage: "python",
+        output: `[True, True, False, True]`,
+      },
+      {
+        title: "मोठा AI stack",
+        content: "sklearn मध्ये तयार algorithms; pytorch/tensorflow मध्ये neural nets; transformers मध्ये language models. LLM हे खूप मोठे model — GGUF फॉरमॅटमध्ये small files.",
+        code: `import numpy as np
 X = np.array([1, 2, 3, 4, 5, 6])
 पहिले = X[:4]
 नंतर = X[4:]
-print(len(पहिले), len(नंतर))`, output: "4 2", codeLanguage: "python" },
-      { title: "Mini Project", content: "रेखा शोधा:\n\ny = m*x + b मध्ये दोन्ही.\n\nround ने स्वच्छ output.", code: `import numpy as np
+print(len(पहिले), len(नंतर))`,
+        codeLanguage: "python",
+        output: `4 2`,
+      },
+      {
+        title: "Mini Project",
+        content: "रेखा शोधा — y = m*x + b मध्ये दोन्ही काढा; round ने स्वच्छ output.",
+        code: `import numpy as np
 X = np.array([1, 2, 3, 4, 5])
 y = np.array([5, 7, 9, 11, 13])
 A = np.hstack([np.ones((5, 1)), X.reshape(-1, 1)])
 b, m = np.linalg.pinv(A) @ y
-print(f"y = {round(float(m), 2)}x + {round(float(b), 2)}")`, output: "y = 2.0x + 3.0", codeLanguage: "python" },
+print(f"y = {round(float(m), 2)}x + {round(float(b), 2)}")`,
+        codeLanguage: "python",
+        output: `y = 2.0x + 3.0`,
+      },
     ],
     practiceQuestions: [
       "ML म्हणजे?",
@@ -669,9 +1055,18 @@ print(list(s >= 60))`,
     minutes: 14,
     summary: "localhost TCP/UDP sockets, byte पाठवणे; TCP/UDP/DNS संकल्पना.",
     sections: [
-      { title: "1. परिचय", content: "sockets ने संगणकांत संवाद.\n\nदोन पैलू: server आणि client.\n\nTCP विश्वसनीय, UDP जलद.\n\nIP पत्ता ओळख.\n\nसर्व network इथेच.", code: `import socket
-print(socket.SOCK_STREAM)`, output: "1", codeLanguage: "python" },
-      { title: "2. TCP server+client", content: "server bind करून listen.\n\nclient connect करून send.\n\n127.0.0.1 म्हणजे localhost.\n\nपोर्ट 0 आपोआप.\n\nbytes मध्येच डेटा.\n127.0.0.1 स्पष्ट दिसते.\n127.0.0.1 सराव करा.\n127.0.0.1 अचूक क्रम.\n127.0.0.1 अनुभव घ्या.\n127.0.0.1 मराठीत सोपे.\n127.0.0.1 आज वापरा.\n127.0.0.1 धडा समजतो.\n127.0.0.1 अनुभव घ्या.\n127.0.0.1 मराठीत सोपे.\n127.0.0.1 आज वापरा.\n127.0.0.1 धडा समजतो.\n127.0.0.1 घडवते संवाद.\n127.0.0.1 verify करा.\n127.0.0.1 चालवून पहा.\n127.0.0.1 चालवून पहा.\n127.0.0.1 स्पष्ट दिसते.\n127.0.0.1 सराव करा.\n127.0.0.1 अचूक क्रम.\n127.0.0.1 अनुभव घ्या.\n127.0.0.1 मराठीत सोपे.\n127.0.0.1 आज वापरा.\n127.0.0.1 अचूक क्रम.\n127.0.0.1 अनुभव घ्या.\n127.0.0.1 मराठीत सोपे.\n127.0.0.1 आज वापरा.\n127.0.0.1 धडा समजतो.\n127.0.0.1 घडवते संवाद.\n127.0.0.1 verify करा.", code: `import socket, threading
+      {
+        title: "परिचय",
+        content: "sockets ने संगणकांत संवाद — दोन पैलू: server आणि client. TCP विश्वसनीय, UDP जलद. IP पत्ता ओळख.",
+        code: `import socket
+print(socket.SOCK_STREAM)`,
+        codeLanguage: "python",
+        output: `1`,
+      },
+      {
+        title: "TCP server+client",
+        content: "server bind करून listen; client connect करून send. 127.0.0.1 म्हणजे localhost; पोर्ट 0 आपोआप. bytes मध्येच डेटा.",
+        code: `import socket, threading
 sv = socket.socket()
 sv.bind(("127.0.0.1", 0))
 port = sv.getsockname()[1]
@@ -686,22 +1081,52 @@ cl.connect(("127.0.0.1", port))
 cl.sendall("नमस्कार".encode("utf-8"))
 cl.close()
 t.join()
-sv.close()`, output: "प्राप्त: नमस्कार", codeLanguage: "python" },
-      { title: "3. IP पत्ता", content: "inet_aton ने bytes मध्ये.\n\ngethostbyname ने पत्ता.\n\nlocalhost नेहमी 127.0.0.1.\n\nनेटवर्क नसतानाही स्थिर.\n\nपत्ता प्रणालीची माहिती.\n127.0.0.1 स्वतः अनुभव घ्या.\n127.0.0.1 स्वतः मराठीत सोपे.\n127.0.0.1 स्वतः आज वापरा.\n127.0.0.1 स्वतः धडा समजतो.\n127.0.0.1 स्वतः ओळखतो device.\n127.0.0.1 स्वतः verify करा.\n127.0.0.1 स्वतः चालवून पहा.\n192.168 नेट अनुभव घ्या.\n192.168 नेट मराठीत सोपे.\n192.168 नेट आज वापरा.\n192.168 नेट धडा समजतो.\n192.168 नेट ओळखतो device.\n192.168 नेट verify करा.\n192.168 नेट चालवून पहा.\n127.0.0.1 स्वतः धडा समजतो.\n127.0.0.1 स्वतः ओळखतो device.\n127.0.0.1 स्वतः verify करा.\n127.0.0.1 स्वतः चालवून पहा.\n127.0.0.1 स्वतः स्पष्ट होते.\n127.0.0.1 स्वतः सराव करा.\n127.0.0.1 स्वतः अचूक पत्ता.\n192.168 नेट धडा समजतो.\n192.168 नेट ओळखतो device.\n192.168 नेट verify करा.\n192.168 नेट चालवून पहा.\n192.168 नेट स्पष्ट होते.\n192.168 नेट सराव करा.\n192.168 नेट अचूक पत्ता.\n192.168 नेट चालवून पहा.\n192.168 नेट स्पष्ट होते.\n192.168 नेट सराव करा.\n192.168 नेट अचूक पत्ता.\n192.168 नेट अनुभव घ्या.\n192.168 नेट मराठीत सोपे.\n192.168 नेट आज वापरा.\n127.0.0.1 स्वतः अचूक पत्ता.\n127.0.0.1 स्वतः अनुभव घ्या.\n127.0.0.1 स्वतः मराठीत सोपे.\n127.0.0.1 स्वतः आज वापरा.\n127.0.0.1 स्वतः धडा समजतो.\n127.0.0.1 स्वतः ओळखतो device.\n127.0.0.1 स्वतः verify करा.", code: `import socket
-print(socket.inet_aton("127.0.0.1").hex())`, output: "7f000001", codeLanguage: "python" },
-      { title: "4. UDP datagram", content: "UDP मध्ये संदेश थेट.\n\nsendto ने लक्ष्य आणि डेटा.\n\nrecvfrom ने परत.\n\nकमी गुरुत्व, पण जलद.\n\nव्हिडिओ कॉल सारखे.", code: `import socket
+sv.close()`,
+        codeLanguage: "python",
+        output: `प्राप्त: नमस्कार`,
+      },
+      {
+        title: "IP पत्ता",
+        content: "inet_aton ने bytes मध्ये; gethostbyname ने पत्ता. localhost नेहमी 127.0.0.1 — नेटवर्क नसतानाही स्थिर.",
+        code: `import socket
+print(socket.inet_aton("127.0.0.1").hex())`,
+        codeLanguage: "python",
+        output: `7f000001`,
+      },
+      {
+        title: "UDP datagram",
+        content: "UDP मध्ये संदेश थेट — sendto ने लक्ष्य आणि डेटा, recvfrom ने परत. कमी गुरुत्व, पण जलद; व्हिडिओ कॉल सारखे.",
+        code: `import socket
 udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp.bind(("127.0.0.1", 0))
 port = udp.getsockname()[1]
 udp.sendto(b"hi", ("127.0.0.1", port))
 data, _ = udp.recvfrom(10)
 print(data.decode())
-udp.close()`, output: "hi", codeLanguage: "python" },
-      { title: "5. प्रोटोकॉल संख्या", content: "IPPROTO_TCP ही संख्या 6.\n\nIPPROTO_UDP ही 17.\n\nप्रोटोकॉल नियमांचा संच.\n\nडेटा कसा जावा.\n\nTCP/UDP वेगळे नियम.", code: `import socket
-print((socket.IPPROTO_TCP, socket.IPPROTO_UDP))`, output: "(6, 17)", codeLanguage: "python" },
-      { title: "6. DNS आणि hostname", content: "gethostbyname नाव -> पत्ता.\n\nlocalhost वर नेटवर्क लागत नाही.\n\nनावांनी लक्षात ठेवू.\n\nIP भाषा संगणकाची.\nsocket.gethostbyname देतो IP.\nsocket.gethostbyname देतो IP.\nsocket.gethostbyname अचूक lookup.\nsocket.gethostbyname अचूक lookup.", code: `import socket
-print(socket.gethostbyname("localhost"))`, output: "127.0.0.1", codeLanguage: "python" },
-      { title: "Mini Project", content: "echo server:\n\nclient पाठवो, server परत.\n\nएकाच फेरीत पूर्ण.", code: `import socket
+udp.close()`,
+        codeLanguage: "python",
+        output: `hi`,
+      },
+      {
+        title: "प्रोटोकॉल संख्या",
+        content: "IPPROTO_TCP ही संख्या 6; IPPROTO_UDP ही 17. प्रोटोकॉल म्हणजे नियमांचा संच — डेटा कसा जावा.",
+        code: `import socket
+print((socket.IPPROTO_TCP, socket.IPPROTO_UDP))`,
+        codeLanguage: "python",
+        output: `(6, 17)`,
+      },
+      {
+        title: "DNS आणि hostname",
+        content: "gethostbyname नाव -> पत्ता. localhost वर नेटवर्क लागत नाही — नावांनी लक्षात ठेवू; IP भाषा संगणकाची.",
+        code: `import socket
+print(socket.gethostbyname("localhost"))`,
+        codeLanguage: "python",
+        output: `127.0.0.1`,
+      },
+      {
+        title: "Mini Project",
+        content: "echo server — client पाठवो, server परत. एकाच फेरीत पूर्ण.",
+        code: `import socket
 sv = socket.socket()
 sv.bind(("127.0.0.1", 0))
 port = sv.getsockname()[1]
@@ -714,7 +1139,10 @@ c.sendall(c.recv(100))
 print(cl.recv(100).decode())
 cl.close()
 c.close()
-sv.close()`, output: "echo", codeLanguage: "python" },
+sv.close()`,
+        codeLanguage: "python",
+        output: `echo`,
+      },
     ],
     practiceQuestions: [
       "TCP वि UDP?",
@@ -755,20 +1183,47 @@ u.close()`,
     minutes: 14,
     summary: "hashlib, base64, XOR, salted hash, self-hosted port scan.",
     sections: [
-      { title: "1. परिचय", content: "सुरक्षा म्हणजे डेटा संरक्षित.\n\nहॅश एकाच दिशेने.\n\ning केल्यावर उलट नाही.\n\nencryption उलट करता येते.\n\nदोन्ही वेगळे तंत्र.", code: `import hashlib
-print(hashlib.sha256(b"abc").hexdigest()[:16])`, output: "ba7816bf8f01cfea", codeLanguage: "python" },
-      { title: "2. base64", content: "मजकुरात binary.\n\nb64encode ने बदल.\n\nखालील 64 चिन्हे.\n\nडेटा हस्तांतरासाठी.\n\nencryption नाही, फक्त रूप.", code: `import base64
+      {
+        title: "परिचय",
+        content: "सुरक्षा म्हणजे डेटा संरक्षित. हॅश एकाच दिशेने — ing केल्यावर उलट नाही; encryption उलट करता येते. दोन्ही वेगळे तंत्र.",
+        code: `import hashlib
+print(hashlib.sha256(b"abc").hexdigest()[:16])`,
+        codeLanguage: "python",
+        output: `ba7816bf8f01cfea`,
+      },
+      {
+        title: "base64",
+        content: "मजकुरात binary बदलते — b64encode ने बदल; खालील 64 चिन्हे. डेटा हस्तांतरासाठी; encryption नाही, फक्त रूप.",
+        code: `import base64
 s = base64.b64encode(b"secure")
-print(s.decode())`, output: "c2VjdXJl", codeLanguage: "python" },
-      { title: "3. XOR साधा cipher", content: "XOR ने bytes बदलतात.\n\nदोनदा लावल्यास परत मूळ.\n\nशिकण्यासाठी चांगला.\n\nसाधी encryption कल्पना.", code: `def xor(a, b):
+print(s.decode())`,
+        codeLanguage: "python",
+        output: `c2VjdXJl`,
+      },
+      {
+        title: "XOR साधा cipher",
+        content: "XOR ने bytes बदलतात — दोनदा लावल्यास परत मूळ. शिकण्यासाठी चांगला; साधी encryption कल्पना.",
+        code: `def xor(a, b):
     return bytes(x ^ y for x, y in zip(a, b))
 msg = b"om"
-k = b"\\x41\\x42"
-print(xor(xor(msg, k), k) == msg)`, output: "True", codeLanguage: "python" },
-      { title: "4. Salted hash", content: "salt म्हणजे अतिरिक्त मीठ.\n\nदोन लोकांचा समान पाणी उलट.\n\npassword storage मध्ये महत्त्व.\n\nhexdigest लांबी 64.", code: `import hashlib
+k = b"\x41\x42"
+print(xor(xor(msg, k), k) == msg)`,
+        codeLanguage: "python",
+        output: `True`,
+      },
+      {
+        title: "Salted hash",
+        content: "salt म्हणजे अतिरिक्त मीठ — दोन लोकांचा समान पाणी उलट. password storage मध्ये महत्त्वाचे; hexdigest लांबी 64.",
+        code: `import hashlib
 s = hashlib.sha256(b"salt" + b"om").hexdigest()
-print(len(s))`, output: "64", codeLanguage: "python" },
-      { title: "5. Port scan (स्वयं-होस्ट)", content: "port scan माहिती देतो.\n\nस्वतःच्या server वर तपासा.\n\nopen म्हणजे सेवा उपलब्ध.\n\nबंद पोर्ट refused.\n\nचाचणीसाठी सुरक्षित.\nस्वयं-होस्ट तपासतो पोर्ट.\nsocket.connect_ex तपासतो पोर्ट.\nस्वयं-होस्ट तपासतो पोर्ट.\nsocket.connect_ex तपासतो पोर्ट.\nस्वयं-होस्ट तपासतो पोर्ट.", code: `import socket
+print(len(s))`,
+        codeLanguage: "python",
+        output: `64`,
+      },
+      {
+        title: "Port scan (स्वयं-होस्ट)",
+        content: "port scan माहिती देतो — स्वतःच्या server वर तपासा. open म्हणजे सेवा उपलब्ध; बंद पोर्ट refused. चाचणीसाठी सुरक्षित.",
+        code: `import socket
 sv = socket.socket()
 sv.bind(("127.0.0.1", 0))
 port = sv.getsockname()[1]
@@ -779,14 +1234,30 @@ try:
     c.close()
 except OSError:
     print("port closed")
-sv.close()`, output: "port open", codeLanguage: "python" },
-      { title: "6. सुरक्षित तुलना", content: "hmac.compare_digest समानता.\n\nवेळेच्या हल्ल्याला अडवते.\n\nहॅश तुलना धोकादायक.\n\npassword check साठी योग्य.\n\nन दाखवता तपासा.\nhmac.compare_digest संरक्षण देतो.\nhmac.compare_digest संरक्षण देतो.\nhmac.compare_digest अचूक तुलना.\nhmac.compare_digest अचूक तुलना.\nhmac.compare_digest संरक्षण देतो.", code: `import hmac, hashlib
+sv.close()`,
+        codeLanguage: "python",
+        output: `port open`,
+      },
+      {
+        title: "सुरक्षित तुलना",
+        content: "hmac.compare_digest समानता — वेळेच्या हल्ल्याला अडवते. हॅश तुलना धोकादायक; password check साठी योग्य.",
+        code: `import hmac, hashlib
 a = hashlib.sha256(b"om").digest()
 b = hashlib.sha256(b"om").digest()
-print(hmac.compare_digest(a, b))`, output: "True", codeLanguage: "python" },
-      { title: "Mini Project", content: "फिंगरप्रिंट:\n\nmd5 तपासा, base64 करा.\n\nदोन्हींचा स्थिर output.", code: `import hashlib, base64
+print(hmac.compare_digest(a, b))`,
+        codeLanguage: "python",
+        output: `True`,
+      },
+      {
+        title: "Mini Project",
+        content: "फिंगरप्रिंट — md5 तपासा, base64 करा. दोन्हींचा स्थिर output.",
+        code: `import hashlib, base64
 print(hashlib.md5(b"").hexdigest())
-print(base64.b64encode(b"demo").decode())`, output: "d41d8cd98f00b204e9800998ecf8427e\nZGVtbw==", codeLanguage: "python" },
+print(base64.b64encode(b"demo").decode())`,
+        codeLanguage: "python",
+        output: `d41d8cd98f00b204e9800998ecf8427e
+ZGVtbw==`,
+      },
     ],
     practiceQuestions: [
       "हॅश म्हणजे?",
@@ -821,14 +1292,23 @@ print(hashlib.sha256(b"demo").hexdigest()[:8])`,
     minutes: 14,
     summary: "widget मॉडेल, layout, events; Tkinter/PyQt संकल्पना.",
     sections: [
-      { title: "1. परिचय", content: "GUI म्हणजे दृश्य app.\n\nTkinter अंगभूत GUI toolkit.\n\nहे Termux वर नाही (desktop आवश्यक).\n\nwidget म्हणजे घटक.\n\nLabel, Button, Entry सारखे.", code: `class Labelca:
+      {
+        title: "GUI म्हणजे काय?",
+        content: "GUI म्हणजे दृश्य app — Tkinter अंगभूत GUI toolkit. हे Termux वर नाही (desktop आवश्यक). widget म्हणजे घटक — Label, Button, Entry सारखे.",
+        code: `class Labelca:
     def __init__(self, t):
         self.t = t
     def montra(self):
         return f"<Label>{self.t}</Label>"
 फ = Labelca("नमस्कार")
-print(फ.montra())`, output: "<Label>नमस्कार</Label>", codeLanguage: "python" },
-      { title: "2. widget ट्री", content: "खिडकीत widget मुले असतात.\n\nपालक-मूल संबंध.\n\nरूट ही मुख्य खिडकी.\n\nरचना झाडासारखी.\n\nमॉडेल ने शिकायचे.", code: `class मूल:
+print(फ.montra())`,
+        codeLanguage: "python",
+        output: `<Label>नमस्कार</Label>`,
+      },
+      {
+        title: "widget ट्री",
+        content: "खिडकीत widget मुले असतात — पालक-मूल संबंध. रूट ही मुख्य खिडकी; रचना झाडासारखी.",
+        code: `class मूल:
     def __init__(self, न, पालक=None):
         self.न = न
         self.पालक = पालक
@@ -838,27 +1318,68 @@ print(फ.montra())`, output: "<Label>नमस्कार</Label>", codeLangua
     def दाखवा(self, d=0):
         out = "  " * d + self.न
         for m in self.मुले:
-            out += "\\n" + m.दाखवा(d + 1)
+            out += "\n" + m.दाखवा(d + 1)
         return out
 रूट = मूल("रूट")
 बटण = मूल("Button", रूट)
 लेबल = मूल("Label", रूट)
-print(रूट.दाखवा())`, output: "रूट\n  Button\n  Label", codeLanguage: "python" },
-      { title: "3. Layout", content: "widgets ठिकाणी लावले.\n\npack ने क्रमाने खाली.\n\ngrid ने सारणी.\n\nplace ने नक्की जागा.\n\nसुबक डिझाइनसाठी.\n\n order महत्त्वाचा.", code: `order = ["नाव", "गुण", "पाठवा"]
-print(" -> ".join(order))`, output: "नाव -> गुण -> पाठवा", codeLanguage: "python" },
-      { title: "4. Events", content: "क्लिक म्हणजे event.\n\nfunction callback म्हणून.\n\nदाबल्यावर function चालते.\n\nUI प्रतिसाद.\n\nआधी function, नंतर वायर.", code: `def क्लिक():
+print(रूट.दाखवा())`,
+        codeLanguage: "python",
+        output: `रूट
+  Button
+  Label`,
+      },
+      {
+        title: "Layout",
+        content: "widgets ठिकाणी लावले — pack ने क्रमाने खाली, grid ने सारणी, place ने नक्की जागा. सुबक डिझाइनसाठी order महत्त्वाचा.",
+        code: `order = ["नाव", "गुण", "पाठवा"]
+print(" -> ".join(order))`,
+        codeLanguage: "python",
+        output: `नाव -> गुण -> पाठवा`,
+      },
+      {
+        title: "Events",
+        content: "क्लिक म्हणजे event — function callback म्हणून. दाबल्यावर function चालते; UI प्रतिसाद.",
+        code: `def क्लिक():
     return "दाबले"
 बटण = क्लिक
-print(बटण())`, output: "दाबले", codeLanguage: "python" },
-      { title: "5. Form रचना", content: "लॉगिन फॉर्म मध्ये input.\n\nEntry मजकूर, secret\times पासवर्ड.\n\nButton पाठवणे.\n\nस्वच्छ क्रम.\n\nमॉडेल मध्ये क्रम.", code: `फॉर्म = [("नाव", "input"), ("पासवर्ड", "input_secret"), ("लॉगिन", "button")]
+print(बटण())`,
+        codeLanguage: "python",
+        output: `दाबले`,
+      },
+      {
+        title: "Form रचना",
+        content: "लॉगिन फॉर्म मध्ये input — Entry मजकूर, secret* पासवर्ड, Button पाठवणे. स्वच्छ क्रम.",
+        code: `फॉर्म = [("नाव", "input"), ("पासवर्ड", "input_secret"), ("लॉगिन", "button")]
 for f in फॉर्म:
-    print(f"{f[0]}: {f[1]}")`, output: "नाव: input\nपासवर्ड: input_secret\nलॉगिन: button", codeLanguage: "python" },
-      { title: "6. PyQt आणि आधुनिक", content: "PyQt दुसरी popular toolkit.\n\nदोन्हीचा concept पालक-मूल.\n\nजास्त साधने Tkinter मध्ये.\n\nक्लास आणि widgets.\n\nइथे मॉडेल ने शिकणे.\nQtWidgets पुढे घेऊन जातो.\nQtWidgets पुढे घेऊन जातो.\nQtWidgets अचूक समज.\nQtWidgets अचूक समज.\nQtWidgets पुढे घेऊन जातो.", code: `विजेट = [("Label", "शुभेच्छा"), ("Button", "OK"), ("Entry", "लेखन")]
+    print(f"{f[0]}: {f[1]}")`,
+        codeLanguage: "python",
+        output: `नाव: input
+पासवर्ड: input_secret
+लॉगिन: button`,
+      },
+      {
+        title: "PyQt आणि आधुनिक",
+        content: "PyQt दुसरी popular toolkit — दोन्हीचा concept पालक-मूल. जास्त साधने Tkinter मध्ये; क्लास आणि widgets.",
+        code: `विजेट = [("Label", "शुभेच्छा"), ("Button", "OK"), ("Entry", "लेखन")]
 for k, v in विजेट:
-    print(f"{k} - {v}")`, output: "Label - शुभेच्छा\nButton - OK\nEntry - लेखन", codeLanguage: "python" },
-      { title: "Mini Project", content: "फॉर्म मॉडेल:\n\nतीन घटक, प्रत्येकी प्रकार.\n\nस्वच्छ प्रिंट.", code: `विजेट = [("Label", "शीर्षक"), ("Entry", "मजकूर"), ("Button", "पाठवा")]
+    print(f"{k} - {v}")`,
+        codeLanguage: "python",
+        output: `Label - शुभेच्छा
+Button - OK
+Entry - लेखन`,
+      },
+      {
+        title: "Mini Project",
+        content: "फॉर्म मॉडेल — तीन घटक, प्रत्येकी प्रकार. स्वच्छ प्रिंट.",
+        code: `विजेट = [("Label", "शीर्षक"), ("Entry", "मजकूर"), ("Button", "पाठवा")]
 for k, v in विजेट:
-    print(f"{k} - {v}")`, output: "Label - शीर्षक\nEntry - मजकूर\nButton - पाठवा", codeLanguage: "python" },
+    print(f"{k} - {v}")`,
+        codeLanguage: "python",
+        output: `Label - शीर्षक
+Entry - मजकूर
+Button - पाठवा`,
+      },
     ],
     practiceQuestions: [
       "GUI म्हणजे?",
@@ -894,39 +1415,81 @@ for f in फॉर्म:
     minutes: 14,
     summary: "subprocess, env vars, glob, scheduling heapq, logging, threads; multiprocessing संकल्पना.",
     sections: [
-      { title: "1. subprocess", content: "इतर कार्यक्रम चालवतो.\n\nsubprocess.run([...]).\n\ncapture_output ने stdout.\n\nशेल कमांड python मधून.\n\nसिस्टम ऑटोमेशनचा आधार.", code: `import subprocess
+      {
+        title: "subprocess",
+        content: "इतर कार्यक्रम चालवतो — subprocess.run([...]). capture_output ने stdout मिळतो. शेल कमांड python मधून; सिस्टम ऑटोमेशनचा आधार.",
+        code: `import subprocess
 r = subprocess.run(["python3", "-c", "print(6*7)"], capture_output=True, text=True)
-print(r.stdout.strip())`, output: "42", codeLanguage: "python" },
-      { title: "2. Environment variables", content: "env vars प्रणाली सेटिंग.\n\nos.environ मध्ये मानचित्रण.\n\nगुप्त कळा ठेवता.\n\nos.environ[\"MODE\"] लिहितात.\n\nअनुप्रयोग कॉन्फिगरेशन.\nos.environ वाचतो सेटिंग.\nos.environ वाचतो सेटिंग.\nos.environ अचूक मूल्य.\nos.environ अचूक मूल्य.\nos.environ वाचतो सेटिंग.", code: `import os
+print(r.stdout.strip())`,
+        codeLanguage: "python",
+        output: `42`,
+      },
+      {
+        title: "Environment variables",
+        content: "env vars प्रणाली सेटिंग — os.environ मध्ये मानचित्रण. गुप्त कळा ठेवता येतात; os.environ[\"MODE\"] लिहितात.",
+        code: `import os
 os.environ["MODE"] = "अभ्यास"
-print(os.environ.get("MODE"))`, output: "अभ्यास", codeLanguage: "python" },
-      { title: "3. फाईल ऑटोमेशन", content: "glob ने नावांनी शोध.\n\n*.log ने पद्धत.\n\ncleaning, बॅकअप.\n\nसोप्या क्रियांचे मूल.\n*.log पद्धत स्पष्ट होते.\n*.log पद्धत सराव करा.\n*.log पद्धत अचूक फाइल.\n*.log पद्धत अनुभव घ्या.\n*.log पद्धत मराठीत सोपे.\n*.log पद्धत आज वापरा.\n*.log पद्धत धडा समजतो.\nos.remove अचूक फाइल.\n*.log पद्धत धडा समजतो.\n*.log पद्धत सोपे करते काम.\n*.log पद्धत verify करा.\n*.log पद्धत चालवून पहा.\n*.log पद्धत स्पष्ट होते.\n*.log पद्धत सराव करा.\n*.log पद्धत अचूक फाइल.\nos.remove सोपे करते काम.\nos.remove अचूक फाइल.\n*.log पद्धत चालवून पहा.\n*.log पद्धत स्पष्ट होते.\n*.log पद्धत सराव करा.\n*.log पद्धत अचूक फाइल.\n*.log पद्धत अनुभव घ्या.\n*.log पद्धत मराठीत सोपे.\n*.log पद्धत आज वापरा.\nos.remove अचूक फाइल.", code: `import tempfile, os, glob
+print(os.environ.get("MODE"))`,
+        codeLanguage: "python",
+        output: `अभ्यास`,
+      },
+      {
+        title: "फाईल ऑटोमेशन",
+        content: "glob ने नावांनी शोध — *.log ने पद्धत. cleaning, बॅकअप; सोप्या क्रियांचे मूळ.",
+        code: `import tempfile, os, glob
 d = tempfile.mkdtemp()
 for n in ("a.log", "b.log", "x.txt"):
     open(os.path.join(d, n), "w").close()
-print(len(glob.glob(os.path.join(d, "*.log"))))`, output: "2", codeLanguage: "python" },
-      { title: "4. शेड्युलिंग", content: "कामांना प्राधान्य.\n\nheapq ने लहान प्रथम.\n\n(\"वेळ\", \"काम\") tuples.\n\nheappop ने सर्वात लवकर.\n\ntask queue सारखी रचना.\nशेड्युलिंग चालवतो स्वयंचलित.\nशेड्युलिंग चालवतो स्वयंचलित.\nशेड्युलिंग अचूक वेळ.\nशेड्युलिंग अचूक वेळ.\nशेड्युलिंग चालवतो स्वयंचलित.", code: `import heapq
+print(len(glob.glob(os.path.join(d, "*.log"))))`,
+        codeLanguage: "python",
+        output: `2`,
+      },
+      {
+        title: "शेड्युलिंग",
+        content: "कामांना प्राधान्य — heapq ने लहान प्रथम. (\"वेळ\", \"काम\") tuples; heappop ने सर्वात लवकर. task queue सारखी रचना.",
+        code: `import heapq
 q = [(5, "शॉर्ट"), (2, "मेल"), (9, "बॅकअप")]
 heapq.heapify(q)
 _, नाव = heapq.heappop(q)
-print(नाव)`, output: "मेल", codeLanguage: "python" },
-      { title: "5. लॉगिंग", content: "logging ने प्रगती नोंदवतो.\n\nStreamHandler ने text output.\n\nStringIO मध्ये पकडा.\n\nग्रंथात अमूल्य.\nलॉगिंग नोंद ठेवतो.\nलॉगिंग नोंद ठेवतो.\nलॉगिंग अचूक लॉग.\nलॉगिंग अचूक लॉग.\nलॉगिंग नोंद ठेवतो.", code: `import logging, io
+print(नाव)`,
+        codeLanguage: "python",
+        output: `मेल`,
+      },
+      {
+        title: "लॉगिंग",
+        content: "logging ने प्रगती नोंदवतो — StreamHandler ने text output. StringIO मध्ये पकडा; ग्रंथात अमूल्य.",
+        code: `import logging, io
 buf = io.StringIO()
 h = logging.StreamHandler(buf)
 lg = logging.getLogger("v8")
 lg.addHandler(h)
 lg.setLevel(logging.INFO)
 lg.info("सुरवात झाली")
-print(buf.getvalue().strip().split(":")[-1].strip())`, output: "सुरवात झाली", codeLanguage: "python" },
-      { title: "6. समांतर कार्य", content: "threads भाग करतात.\n\nThreadPoolExecutor ने सोपे.\n\nex.map ने परिणाम क्रम.\n\nmultiprocessing प्रक्रियांसाठी.\n\nGIL मुळे भिन्न context.\nThreadPoolExecutor वेगवान करतो.\nThreadPoolExecutor वेगवान करतो.", code: `from concurrent.futures import ThreadPoolExecutor
+print(buf.getvalue().strip().split(":")[-1].strip())`,
+        codeLanguage: "python",
+        output: `सुरवात झाली`,
+      },
+      {
+        title: "समांतर कार्य",
+        content: "threads भाग करतात — ThreadPoolExecutor ने सोपे. ex.map ने परिणाम क्रम. multiprocessing प्रक्रियांसाठी; GIL मुळे भिन्न context.",
+        code: `from concurrent.futures import ThreadPoolExecutor
 def वर्ग(x):
     return x ** 2
 with ThreadPoolExecutor(max_workers=2) as ex:
     out = list(ex.map(वर्ग, [1, 2, 3, 4]))
-print(sum(out))`, output: "30", codeLanguage: "python" },
-      { title: "Mini Project", content: "पाइपलाइन:\n\nsubprocess ने sum काढा.\n\nआदेशांना जोडा.", code: `import subprocess
+print(sum(out))`,
+        codeLanguage: "python",
+        output: `30`,
+      },
+      {
+        title: "Mini Project",
+        content: "पाइपलाइन — subprocess ने sum काढा; आदेशांना जोडा.",
+        code: `import subprocess
 r = subprocess.run(["python3", "-c", "import sys; print(sum(map(int, sys.argv[1:])))", "10", "20", "30"], capture_output=True, text=True)
-print(f"बेरीज={r.stdout.strip()}")`, output: "बेरीज=60", codeLanguage: "python" },
+print(f"बेरीज={r.stdout.strip()}")`,
+        codeLanguage: "python",
+        output: `बेरीज=60`,
+      },
     ],
     practiceQuestions: [
       "subprocess कशासाठी?",

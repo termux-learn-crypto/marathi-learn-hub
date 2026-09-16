@@ -13,24 +13,76 @@ export const pythonLevel7: Tutorial[] = [
     minutes: 14,
     summary: "f-strings ने variables थेट string मध्ये; formatting तपशीलवार.",
     sections: [
-      { title: "1. परिचय", content: "f-string म्हणजे formatted string — variable चे मूल्य थेट string मध्ये घालण्याची सोपी पद्धत.\n\nf\"...\" असे लिहितात.\n\nआत {variable} ठेवलं तर ते मूल्य गिरवले जाते.\n\n+'पासून string जोडण्यापेक्षा फार आरामदायी आणि वाचनीय.\nf-string उत्तम outcome.\nf-string स्पष्ट दाखवते.\nf-string पटकन लिहितो.\nf-string वाचायला सोपे.\nf-string उत्तम outcome.\nf-string स्पष्ट दाखवते.\nf-string पटकन लिहितो.\nf-string वाचायला सोपे.\nf-string उत्तम outcome.\nf-string स्पष्ट दाखवते.\nf-string पटकन लिहितो.", code: `name = "आरोही"
-print(f"नमस्कार, {name}!")`, output: "नमस्कार, आरोही!", codeLanguage: "python" },
-      { title: "2. Expressions", content: "फक्त variable नाही तर संपूर्ण expression { } मध्ये घालता येते.\n\nf\"{a + b}\" — बेरीज.\nf\"{x * 2}\" — गुणाकार.\nf\"{len(text)}\" — function कॉल.\n\nकाहीही evaluate होईल ते दाखवता.\n{ } ब्रॅकेट verify करा.\n{ } ब्रॅकेट अचूक असते.\n{ } ब्रॅकेट धडा लक्षात.\n{ } ब्रॅकेट आज शिकतो.\n{ } ब्रॅकेट सरळ मिळते.\n{ } ब्रॅकेट नवीन मूल्य.\n{ } ब्रॅकेट output निश्चित.\n{ } ब्रॅकेट आज शिकतो.\n{ } ब्रॅकेट सरळ मिळते.\n{ } ब्रॅकेट नवीन मूल्य.\n{ } ब्रॅकेट output निश्चित.\n{ } ब्रॅकेट एकाच ओळीत.\n{ } ब्रॅकेट प्रयोग करा.\n{ } ब्रॅकेट चालवा पहा.\n{ } ब्रॅकेट चालवा पहा.\n{ } ब्रॅकेट verify करा.\n{ } ब्रॅकेट अचूक असते.\n{ } ब्रॅकेट धडा लक्षात.\n{ } ब्रॅकेट आज शिकतो.\n{ } ब्रॅकेट सरळ मिळते.\n{ } ब्रॅकेट नवीन मूल्य.", code: `a = 10
+      {
+        title: "f-string म्हणजे काय?",
+        content: "f-string म्हणजे formatted string — variable चे मूल्य थेट string मध्ये घालण्याची पद्धत. अवतरणांच्या आधी f लिहितात: f\"...\" आणि आत {variable} ठेवलं की त्या जागी मूल्य छापलं जातं.\n\nसमजा name मध्ये \"आरोही\" ठेवला; f\"नमस्कार, {name}!\" लिहिलं की Python ते नमस्कार, आरोही! छापतो.\n\nजोडणीचा जुना पर्याय concatenation — \"नमस्कार, \" + name असे + ने string जोडतात. f-string मध्ये मजकूर जसाच्या तसा राहतो आणि मूल्याची जागा कंसाने स्पष्ट दिसते.",
+        code: `name = "आरोही"
+print(f"नमस्कार, {name}!")`,
+        codeLanguage: "python",
+        output: `नमस्कार, आरोही!`,
+      },
+      {
+        title: "Expressions: फक्त variable नाही",
+        content: "{ } मध्ये फक्त variable नाही तर कोणतंही expression चालतं — बेरीज, गुणाकार, function call. Python आधी expression ची गणना करतो आणि मग निकाल त्या जागी छापतो.\n\nखाली a + b आणि a * b दोन्ही एकाच print मध्ये: 10 + 5 = 15, 10 * 5 = 50.",
+        code: `a = 10
 b = 5
-print(f"बेरीज: {a + b}, गुणाकार: {a * b}")`, output: "बेरीज: 15, गुणाकार: 50", codeLanguage: "python" },
-      { title: "3. Format Specs", content: "{f\"{x:.2f}\"} — दोन दशांश.\n{f\"{n:3d}\"} — रुंदी.\nf\"{s:>10}\" — उजवीकडे संरेखित.\n\nहे table किंवा अचूक output साठी उपयोगी.\nसंरेखन सरावा उत्तम.\nसंरेखन वाचनीय output.\nसंरेखन format शिका.\nसंरेखन अचूक आकडे.\nसंरेखन व्यवहारी वापर.\nprecision सरावा उत्तम.\nprecision वाचनीय output.\nprecision format शिका.\nprecision अचूक आकडे.\nprecision format शिका.\nprecision अचूक आकडे.\nprecision नियंत्रण देतो.\nprecision गोल अचूक.\nprecision नियंत्रण देतो.\nprecision गोल अचूक.\nprecision सरावा उत्तम.\nprecision वाचनीय output.\nसंरेखन व्यवहारी वापर.\nसंरेखन नियंत्रण देतो.\nसंरेखन गोल अचूक.\nसंरेखन सरावा उत्तम.\nसंरेखन वाचनीय output.\nसंरेखन गोल अचूक.\nसंरेखन सरावा उत्तम.\nसंरेखन वाचनीय output.\nसंरेखन format शिका.\nसंरेखन अचूक आकडे.\nprecision वाचनीय output.\nprecision format शिका.\nprecision अचूक आकडे.\nprecision नियंत्रण देतो.", code: `price = 12.34567
-print(f"किंमत: {price:.2f}")`, output: "किंमत: 12.35", codeLanguage: "python" },
-      { title: "4. एकाधिक fields", content: "एकाच f-string मध्ये अनेक variables व expressions एकत्र.\n\nf\"{name} ने {score} गुण मिळवले\".\n\nहे लांब सुसंगत वाक्य तयार करते.\n\nडेटा सोबत मजकूर सुबकपणे.\n\nव्यावहारिक output मध्ये खूप वापर.", code: `name = "मीरा"
+print(f"बेरीज: {a + b}, गुणाकार: {a * b}")`,
+        codeLanguage: "python",
+        output: `बेरीज: 15, गुणाकार: 50`,
+      },
+      {
+        title: "अचूक संख्या: दशांश ठिकाणे",
+        content: "मूल्याच्या मागे : लावून format spec देतात. {x:.2f} म्हणजे दोन दशांश ठिकाणी छापा — .2f मधला f म्हणजे floating point, त्याआधीचा .2 दशांशांची संख्या. गोल करणं Python स्वतः करतो: 12.34567 ते 12.35 दिसतं.\n\nकिंमत, सरासरी किंवा शास्त्रीय मोजमापात एकसारखे दशांश हवे असतील तर ही पद्धत थेट लिहिता येते.",
+        code: `price = 12.34567
+print(f"किंमत: {price:.2f}")`,
+        codeLanguage: "python",
+        output: `किंमत: 12.35`,
+      },
+      {
+        title: "रुंदी आणि संरेखन",
+        content: "{value:10} — 10 अक्षरांची रुंदी देतो; मूल्य लहान असेल तर उरलेली जागा स्पेसने भरते. दिशाही निवडता येते: {s:>10} मूल्य उजवीकडे संरेखित, {s:<10} डावीकडे.\n\nआकड्यांच्या सारणीत साधारणपणे प्रत्येक column एका रुंदीत आणि आकडे उजवीकडे संरेखित दिसतात. पूर्णांकासाठी {n:3d} असे रुंदी देतात. दशांश आणि रुंदी दोन्हीही एकत्र येतात: {x:8.2f} — 8 रुंदी, दोन दशांश.",
+        code: `score = 95
+print(f"गुण: {score:>10}")`,
+        codeLanguage: "python",
+        output: `गुण:         95`,
+      },
+      {
+        title: "एका वाक्यात अनेक fields",
+        content: "एकाच f-string मध्ये कितीही { } चालतात — प्रत्येकाच्या जागी तेच मूल्य बसते. खाली name, subject आणि score तीनही एकाच वाक्यात आले.\n\noutput नैसर्गिक वाक्य आहे: मजकूर आणि मूल्यं मिसळलेली. निकाल पत्रक, बिल, अहवाल — वाचकाला एकाच ओळीत संपूर्ण माहिती मिळते.",
+        code: `name = "मीरा"
 score = 92
 subject = "विज्ञान"
-print(f"{name} ने {subject} मध्ये {score} गुण मिळवले")`, output: "मीरा ने विज्ञान मध्ये 92 गुण मिळवले", codeLanguage: "python" },
-      { title: "5. चुका", content: "• f उपसर्ग विसरलात तर {name} असेच छापते.\n• format spec चुकला तर error.\n• nested quotes {f\"...\"} काळजीपूर्वक.\n\nf-string ने खरे सामर्थ्य आणि कमी चुका.", code: `x = 7
-print(f"{x} चा वर्ग {x * x}")`, output: "7 चा वर्ग 49", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `name = "वेद"
-print(f"नमस्कार {name}, शुभ संध्याकाळ")`, output: "नमस्कार वेद, शुभ संध्याकाळ", codeLanguage: "python" },
-      { title: "Mini Project", content: "सुबक card तयार करा:\nआत्मविश्वास गर्व वाटे.\nआत्मविश्वास गर्व वाटे.\nआत्मविश्वास सुंदर दिसते.\nआत्मविश्वास सुंदर दिसते.\nआत्मविश्वास गर्व वाटे.", code: `name = "आरोही"
+print(f"{name} ने {subject} मध्ये {score} गुण मिळवले")`,
+        codeLanguage: "python",
+        output: `मीरा ने विज्ञान मध्ये 92 गुण मिळवले`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ f उपसर्ग विसरलात तर {name} असेच output मध्ये दिसतं — Python ते साधा मजकूरच समजतो.\n\n✗ format spec चा क्रम चुकला (उदा. {x:2.f}) तर ValueError येतो — दशांश आधी, f शेवटी.\n\n✗ अवतरणांचा गोंधळ — बाहेर दुहेरी अवतरण आणि आत single असे स्वरूप घेतात: f\"She said '{name}'\".\n\nखाली {x} आणि {x * x} अशी दोन expression — 7 चा वर्ग 49 output मध्ये.",
+        code: `x = 7
+print(f"{x} चा वर्ग {x * x}")`,
+        codeLanguage: "python",
+        output: `7 चा वर्ग 49`,
+      },
+      {
+        title: "Interactive: बदलून पाहा",
+        content: "खालील कोड आधी तसाच चालवा. मग name चे मूल्य तुमच्या नावाने बदला आणि शुभ संध्याकाळ ऐवजी शुभ सकाळ करा — प्रत्येक बदल output मध्ये दिसतो.\n\n{ } मधलं सूत्र बदलूनही तपासता येतं. अडचण आल्यास f आहे का, कंस जुळले आहेत का, अवतरण बरोबर आहे का — हा क्रम पाळा.",
+        code: `name = "वेद"
+print(f"नमस्कार {name}, शुभ संध्याकाळ")`,
+        codeLanguage: "python",
+        output: `नमस्कार वेद, शुभ संध्याकाळ`,
+      },
+      {
+        title: "Mini Project: गुणांचा सुबक card",
+        content: "एका f-string मध्ये name आणि score एकत्र. \\n म्हणजे नवीन ओळ — त्यामुळे card दोन ओळींत दिसतो.\n\nहीच रचना पुढे याद्या किंवा अहवाल छापताना वापरता येते — रचना बदलायची असेल तर फक्त f-string चा मजकूर बदला.",
+        code: `name = "आरोही"
 score = 95
-print(f"=== {name} ===\\nगुण: {score}")`, output: "=== आरोही ===\nगुण: 95", codeLanguage: "python" },
+print(f"=== {name} ===
+गुण: {score}")`,
+        codeLanguage: "python",
+        output: `=== आरोही ===
+गुण: 95`,
+      },
     ],
     practiceQuestions: [
       "f-string चा उपयोग?",
@@ -66,32 +118,93 @@ print(f"तापमान: {t:.1f}")`,
     summary: "enumerate ने क्रमांक मिळतात, zip ने दोन lists जोडल्या जातात.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "enumerate हा built-in function जो list च्या प्रत्येक item बरोबर क्रमांक देतो.\n\nसामान्य loop मध्ये i = 0; i += 1 असे हाताने क्रमांक वाढवावे लागतात. enumerate ते आपोआप करते.\n\n{enumerate(list)} म्हणजे (index, item) च्या जोड्या.\n\nfor i, item in enumerate(items): — असे लिहिलं तर i हा क्रमांक, item हे मूल्य.\n\nतुम्हाला क्रमांकाबरोबर मूल्य हवं असेल तेव्हा हे आदर्श.\nenumerate उत्तम वापर.\nenumerate देतो क्रम.\nenumerate देतो क्रम.\nenumerate अचूक मिळते.\nenumerate अचूक मिळते.\nenumerate उत्तम वापर.\nenumerate देतो क्रम.", code: `items = ["पोळी", "दही", "पाव"]
+      {
+        title: "enumerate: क्रमांक आणि मूल्य एकत्र",
+        content: "enumerate हा built-in function: यादी फिरवताना प्रत्येक item सोबत क्रमांक देतो. for i, item in enumerate(items): लिहिलं की i मध्ये क्रमांक आणि item मध्ये मूल्य मिळतं.\n\nहाताने क्रमांक वाढवणारा loop — काउंटर variable आणि +1 ची ओळ — लिहिण्याची गरज नाही. enumerate ते आपोआप करतो; output मध्ये 0 पोळी, 1 दही, 2 पाव असे दिसतं.",
+        code: `items = ["पोळी", "दही", "पाव"]
 for i, item in enumerate(items):
-    print(i, item)`, output: "0 पोळी\n1 दही\n2 पाव", codeLanguage: "python" },
-      { title: "2. Start parameter", content: "enumerate मध्ये start देऊन क्रमांक कुठून सुरू करायचा हे ठरवता येते.\n\n{enumerate(items, start=1)} म्हणजे 1, 2, 3...\n\nसामान्यतः माणसांनी मोजणी 1 पासून सुरू होते, म्हणून यादी दाखवताना start=1 उपयोगी.\n\nक्रमांक आणि मूल्य दोन्ही सोबत.\nअनुक्रमणिका देते क्रम.\nअनुक्रमणिका सरळ वापर.\nअनुक्रमणिका सरळ वापर.\nअनुक्रमणिका देते क्रम.", code: `snacks = ["चिवडा", "पोहे", "सेव"]
+    print(i, item)`,
+        codeLanguage: "python",
+        output: `0 पोळी
+1 दही
+2 पाव`,
+      },
+      {
+        title: "start=1: मोजणी एक पासून",
+        content: "Python चे index 0 पासून सुरू होतात, पण माणसाची यादी 1 पासून असते. enumerate(items, start=1) लिहिलं तर क्रमांक 1, 2, 3 ... असे मिळतात.\n\nचिवडा, पोहे, सेव अशी यादी 1. चिवडा, 2. पोहे या स्वरूपात दाखवणं नैसर्गिक आहे.",
+        code: `snacks = ["चिवडा", "पोहे", "सेव"]
 for i, s in enumerate(snacks, start=1):
-    print(i, s)`, output: "1 चिवडा\n2 पोहे\n3 सेव", codeLanguage: "python" },
-      { title: "3. Zip म्हणजे काय", content: "zip दोन किंवा अधिक lists च्या item ला जोड्या जोडतो.\n\n{zip(list1, list2)} म्हणजे (पहिला, पहिला), (दुसरा, दुसरा)...\n\nfor a, b in zip(x, y): — असे फिरवायचे.\n\nलांबी वेगळी असली तर सर्वात लहान list इतक्या जोड्या बनतात.", code: `names = ["आरोही", "वेद"]
+    print(i, s)`,
+        codeLanguage: "python",
+        output: `1 चिवडा
+2 पोहे
+3 सेव`,
+      },
+      {
+        title: "zip: दोन याद्यांच्या जोड्या",
+        content: "zip दोन किंवा अधिक याद्यांचे जोड्यांमध्ये रूपांतर करतो — पहिला-पहिला, दुसरा-दुसरा. नावे आणि गुण वेगळ्या याद्यांमध्ये असतील तर zip त्या एकत्र आणतो.\n\nfor n, s in zip(names, scores): — n मध्ये नाव, s मध्ये गुण. आरोही 95 आणि वेद 72 अशा जोड्या छापल्या जातात.",
+        code: `names = ["आरोही", "वेद"]
 scores = [95, 72]
 for n, s in zip(names, scores):
-    print(n, s)`, output: "आरोही 95\nवेद 72", codeLanguage: "python" },
-      { title: "4. Zip + Enumerate एकत्र", content: "तीन किंवा चार lists एकत्र हव्या असतील तर zip ला अनेक arguments देतात.\n\n{zip(a, b, c)} म्हणजे तीन घटकांच्या जोड्या.\n\nआणि क्रमांक हवा असेल तर enumerate(zipped) वापरू शकतो.\n\nसगळे एकत्र करून सुबक table बनते.", code: `names = ["आरोही", "वेद", "मीरा"]
-subs = ["मराठी", "गणित", "विज्ञान"]
-for i, (n, s) in enumerate(zip(names, subs), start=1):
-    print(i, n, s)`, output: "1 आरोही मराठी\n2 वेद गणित\n3 मीरा विज्ञान", codeLanguage: "python" },
-      { title: "5. चुका", content: "सामान्य चुका:\n\n• enumerate चा result list नाही, iterator आहे — list(enumerate(x)) लागते.\n• zip च्या जोड्या unpack करताना जोडप्यांची संख्या बरोबर हवी.\n• लांबी वेगवेगळी असल्यास लहान list ठरतो.", code: `a = [1, 2, 3]
+    print(n, s)`,
+        codeLanguage: "python",
+        output: `आरोही 95
+वेद 72`,
+      },
+      {
+        title: "लहान यादीचा निकष",
+        content: "याद्यांची लांबी वेगळी असेल तर zip सर्वात लहान यादीएवढ्याच जोड्या तयार करतो; उरलेल्या मूल्यांना जोडीदार मिळत नाही.\n\na मध्ये तीन मूल्ये, b मध्ये दोन — zip फक्त दोन जोड्या बनवतो: (1, 10) आणि (2, 20). 3 ला जोडीदार नसल्याने output मध्ये फक्त 11 आणि 22 दिसतात.",
+        code: `a = [1, 2, 3]
 b = [10, 20]
 for x, y in zip(a, b):
-    print(x + y)`, output: "11\n22", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सरावासाठी:", code: `fruits = ["सफरचंद", "केळी", "द्राक्षे"]
+    print(x + y)`,
+        codeLanguage: "python",
+        output: `11
+22`,
+      },
+      {
+        title: "zip आणि enumerate एकत्र",
+        content: "तीन किंवा चार याद्या असतील तर zip मध्ये अनेक arguments देता येतात. परिणामी जोड्यांना क्रमांकही हवा असेल तर बाहेर enumerate(..., start=1) गुंडाळतात.\n\nखाली for i, (n, s) असे दोन स्तर unpack आहेत — बाहेरचा i क्रमांक, आतली (n, s) जोडी. ओळीच्या सुरुवातीला क्रमांक दाखवल्याने एक सुबक table बनतं.",
+        code: `names = ["आरोही", "वेद", "मीरा"]
+subs = ["मराठी", "गणित", "विज्ञान"]
+for i, (n, s) in enumerate(zip(names, subs), start=1):
+    print(i, n, s)`,
+        codeLanguage: "python",
+        output: `1 आरोही मराठी
+2 वेद गणित
+3 मीरा विज्ञान`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ enumerate किंवा zip चा result list नसतो — iterator असतो; थेट print केल्यास enumerate object असे लिहिलेले दिसतं. दाखवण्यासाठी list(enumerate(x)) किंवा list(zip(a, b)) मध्ये गुंडाळतात.\n\n✗ जोडी तोडताना (unpack) variable ची संख्या जोडीच्या आकाराएवढी हवी — zip मधील दोन मूल्यांसाठी for a, b; तीन variable दिले तर ValueError येतो.\n\n✗ लहान यादीचा निकष हवा नसेल तर itertools मधला zip_longest वापरतात — तो उरलेल्या जागी default मूल्य भरतो.\n\nखाली list(enumerate(items)) चा निकाल: प्रत्येक (क्रमांक, मूल्य) जोडी tuple म्हणून.",
+        code: `items = ["पोळी", "दही"]
+print(list(enumerate(items)))`,
+        codeLanguage: "python",
+        output: `[(0, 'पोळी'), (1, 'दही')]`,
+      },
+      {
+        title: "Interactive: फळांची यादी",
+        content: "खाली फळांची यादी start=1 ने फिरवली आणि f-string मध्ये क्रमांक-बिंदू लावला. आधी तसाच चालवा; मग यादीत आणखी एक फळ घाला — क्रमांक आपोआप वाढतात.\n\nstart काढून पहा — क्रमांक 0 पासून सुरू होतात. दोन्ही पर्यायांचा फरक लगेच दिसतो.",
+        code: `fruits = ["सफरचंद", "केळी", "द्राक्षे"]
 for i, f in enumerate(fruits, start=1):
-    print(f"{i}. {f}")`, output: "1. सफरचंद\n2. केळी\n3. द्राक्षे", codeLanguage: "python" },
-      { title: "Mini Project", content: "दोन lists जोडून निकाल:", code: `students = ["आरोही", "वेद"]
+    print(f"{i}. {f}")`,
+        codeLanguage: "python",
+        output: `1. सफरचंद
+2. केळी
+3. द्राक्षे`,
+      },
+      {
+        title: "Mini Project: गुणांचा निकाल",
+        content: "विद्यार्थ्यांची नावे आणि गुण — zip ने जोड्यांमध्ये फिरवले. प्रत्येकाला 70 किंवा अधिक गुण असतील तर उत्तीर्ण, नाही तर सुधारणा असा status कळतो.\n\nif mark >= 70 else अशी अट शेवटी; output मध्ये आरोही: 88 (उत्तीर्ण) आणि वेद: 65 (सुधारणा). याद्या वाढवल्या तरी कोड बदलत नाही.",
+        code: `students = ["आरोही", "वेद"]
 marks = [88, 65]
 for name, mark in zip(students, marks):
     status = "उत्तीर्ण" if mark >= 70 else "सुधारणा"
-    print(f"{name}: {mark} ({status})")`, output: "आरोही: 88 (उत्तीर्ण)\nवेद: 65 (सुधारणा)", codeLanguage: "python" },
+    print(f"{name}: {mark} ({status})")`,
+        codeLanguage: "python",
+        output: `आरोही: 88 (उत्तीर्ण)
+वेद: 65 (सुधारणा)`,
+      },
     ],
     practiceQuestions: [
       "enumerate कोणता क्रमांक देतो?",
@@ -129,24 +242,58 @@ for x, y in zip(a, b):
     summary: "map ने रूपांतर, filter ने गाळणी, sorted ने क्रमवारी — functional style.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "map(fn, list) — list च्या प्रत्येक item वर function लावून नवीन परिणाम.\n\nfilter(fn, list) — फक्त ज्या item साठी function True परततो ते ठेवते.\n\nsorted(list) — क्रमवारी लावते.\n\nलूप लिहिण्याऐवजी एका ओळीत काम होते.", code: `nums = [1, 2, 3]
-print(list(map(lambda x: x * 10, nums)))`, output: "[10, 20, 30]", codeLanguage: "python" },
-      { title: "2. Map", content: "map(fn, list) प्रत्येक item ला function लावून नवीन iterator देतो.\n\nresult list मध्ये दिसण्यासाठी list(map(...)) लिहावे लागते.\n\nlambda ही छोटी एक-ओळी फंक्शन.\n\nत्याऐवजी नावाची function देखील देऊ शकता.\nरूपांतरण करते रूपांतर.\nरूपांतरण करते रूपांतर.", code: `def square(x):
+      {
+        title: "Map: प्रत्येकावर function",
+        content: "map(fn, list) — list च्या प्रत्येक item वर function लावून नवीन iterator देतो. result list मध्ये दिसण्यासाठी list(map(...)) लिहावे लागते. lambda ही छोटी एक-ओळी फंक्शन; त्याऐवजी नावाची function देखील देऊ शकता.\n\nखाली square नावाची function आणि map एकत्र — [1, 4, 9, 16].",
+        code: `def square(x):
     return x * x
 nums = [1, 2, 3, 4]
-print(list(map(square, nums)))`, output: "[1, 4, 9, 16]", codeLanguage: "python" },
-      { title: "3. Filter", content: "filter(fn, list) फक्त those item ठेवते ज्यासाठी function True.\n\nThe function प्रत्येक item घेऊन True/False देतो.\n\nlist(filter(...)) ने दिसतो.\n\nसकारात्मक संख्या, मोठे शब्द, गुणांपुढील निकाल — अशी गाळणी.", code: `nums = [10, 25, 8, 30, 3]
-print(list(filter(lambda x: x >= 10, nums)))`, output: "[10, 25, 30]", codeLanguage: "python" },
-      { title: "4. Sorted", content: "sorted(list) नवीन क्रमवार सूची देतो.\n\nsorted(list, reverse=True) उलट क्रम.\n\nkey= दिल्यास एखाद्या गुणधर्मावरून क्रमवारी.\n\nउदा. शब्दाच्या लांबीवरून क्रमवारी.\nलांबीनुसार अचूक क्रम.\nलांबीनुसार क्रम लावते.\nलांबीनुसार अचूक क्रम.\nलांबीनुसार अचूक क्रम.", code: `words = ["Python", "Go", "Java"]
-print(sorted(words, key=len))`, output: "['Go', 'Java', 'Python']", codeLanguage: "python" },
-      { title: "5. चुका", content: "• map/filter चा result list नाही — list() लागते.\n• key function चुकीची तर क्रमवारी खोटी.\n• reverse=True विसरलात तर वरच्या क्रमाने.", code: `nums = [5, 2, 8]
-print(sorted(nums, reverse=True))`, output: "[8, 5, 2]", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `nums = [1, 10, 3, 20]
+print(list(map(square, nums)))`,
+        codeLanguage: "python",
+        output: `[1, 4, 9, 16]`,
+      },
+      {
+        title: "Filter: गाळणी",
+        content: "filter(fn, list) फक्त तेच item ठेवते ज्यासाठी function True परततो. list(filter(...)) ने दिसतो.\n\nसकारात्मक संख्या, मोठे शब्द, गुणांपुढील निकाल — अशी गाळणी. खाली 10 पेक्षा मोठ्या संख्या गाळल्या.",
+        code: `nums = [10, 25, 8, 30, 3]
+print(list(filter(lambda x: x >= 10, nums)))`,
+        codeLanguage: "python",
+        output: `[10, 25, 30]`,
+      },
+      {
+        title: "Sorted: क्रमवारी",
+        content: "sorted(list) नवीन क्रमवार सूची देतो. sorted(list, reverse=True) उलट क्रम. key= दिल्यास एखाद्या गुणधर्मावरून क्रमवारी.\n\nउदा. शब्दाच्या लांबीवरून क्रमवारी — Go (2), Java (4), Python (6).",
+        code: `words = ["Python", "Go", "Java"]
+print(sorted(words, key=len))`,
+        codeLanguage: "python",
+        output: `['Go', 'Java', 'Python']`,
+      },
+      {
+        title: "चुका",
+        content: "• map/filter चा result list नाही — list() लागते.\n• key function चुकीची तर क्रमवारी खोटी.\n• reverse=True विसरलात तर वरच्या क्रमाने.",
+        code: `nums = [5, 2, 8]
+print(sorted(nums, reverse=True))`,
+        codeLanguage: "python",
+        output: `[8, 5, 2]`,
+      },
+      {
+        title: "Interactive: filter सराव",
+        content: "5 पेक्षा मोठ्या संख्या गाळून पहा. list(filter(...)) वापरून output तपासा.",
+        code: `nums = [1, 10, 3, 20]
 big = list(filter(lambda x: x > 5, nums))
-print(big)`, output: "[10, 20]", codeLanguage: "python" },
-      { title: "Mini Project", content: "एकत्र वापर:", code: `scores = [35, 90, 55, 20]
+print(big)`,
+        codeLanguage: "python",
+        output: `[10, 20]`,
+      },
+      {
+        title: "Mini Project: उत्तीर्ण गुण",
+        content: "scores मधून 40 पेक्षा अधिक गुण गाळून मग क्रमवारी लावा. filter आणि sorted एकत्र — दोन्ही साधने एकाच प्रोग्राममध्ये.",
+        code: `scores = [35, 90, 55, 20]
 passed = list(filter(lambda s: s >= 40, scores))
-print(sorted(passed))`, output: "[55, 90]", codeLanguage: "python" },
+print(sorted(passed))`,
+        codeLanguage: "python",
+        output: `[55, 90]`,
+      },
     ],
     practiceQuestions: [
       "map कोणता परिणाम देतो?",
@@ -182,25 +329,66 @@ print(list(filter(lambda x: x % 2 == 0, nums)))`,
     summary: "sorted, reversed, zip, enumerate ही दैनंदिन iteration साधने एकत्र.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "Python मध्ये अनेक iteration tools आहेत जे loops शक्तिशाली बनवतात.\n\nsorted — क्रमवारी. reversed — उलट क्रम. zip — जोड्या. enumerate — क्रमांक.\n\nहे सर्व built-in आहेत, install करावे लागत नाही.\n\nयोग्य साधन योग्य ठिकाणी वापरलं तर कोड छोटा आणि स्पष्ट.", code: `nums = [3, 1, 2]
-print(list(reversed(sorted(nums))))`, output: "[3, 2, 1]", codeLanguage: "python" },
-      { title: "2. reversed", content: "reversed(list) उलट क्रमाने item देतो.\n\nती सूची बदलत नाही — फक्त उलट वाचता येते.\n\nlist(reversed(x)) लिहून दिसते.\n\nस्ट्रिंगवरही उलट क्रम लागू होतो.", code: `name = "Python"
-print("".join(reversed(name)))`, output: "nohtyP", codeLanguage: "python" },
-      { title: "3. Sorted with Key", content: "sorted चे खरे सामर्थ्य key= मध्ये आहे.\n\nkey ही function प्रत्येक item घेऊन क्रमवारीसाठीचे मूल्य देते.\n\nlambda key= असा वापरतात.\n\nउदा. tuples मधील दुसऱ्या घटकावरून क्रमवारी.", code: `pairs = [("आरोही", 95), ("वेद", 72), ("मीरा", 88)]
-print(sorted(pairs, key=lambda p: p[1]))`, output: "[('वेद', 72), ('मीरा', 88), ('आरोही', 95)]", codeLanguage: "python" },
-      { title: "4. एकत्र वापर", content: "हे tools एकत्र करून शक्तिशाली परिणाम मिळतात.\n\nउदा. scores ची उलट क्रमवारी, नंतर क्रमांक द्यायचा तर enumerate(..., start=1).\n\nसुबक ranking table तयार होते.", code: `scores = [60, 95, 80]
+      {
+        title: "reversed: उलट क्रम",
+        content: "reversed(list) उलट क्रमाने item देतो. ती सूची बदलत नाही — फक्त उलट वाचता येते. list(reversed(x)) लिहून दिसते. स्ट्रिंगवरही उलट क्रम लागू होतो.",
+        code: `name = "Python"
+print("".join(reversed(name)))`,
+        codeLanguage: "python",
+        output: `nohtyP`,
+      },
+      {
+        title: "Sorted with Key",
+        content: "sorted चे खरे सामर्थ्य key= मध्ये आहे. key ही function प्रत्येक item घेऊन क्रमवारीसाठीचे मूल्य देते.\n\nउदा. tuples मधील दुसऱ्या घटकावरून क्रमवारी — गुणानुसार यादी.",
+        code: `pairs = [("आरोही", 95), ("वेद", 72), ("मीरा", 88)]
+print(sorted(pairs, key=lambda p: p[1]))`,
+        codeLanguage: "python",
+        output: `[('वेद', 72), ('मीरा', 88), ('आरोही', 95)]`,
+      },
+      {
+        title: "एकत्र वापर",
+        content: "हे tools एकत्र करून शक्तिशाली परिणाम मिळतात. scores ची उलट क्रमवारी, नंतर enumerate(..., start=1) ने क्रमांक — सुबक ranking table तयार होते.",
+        code: `scores = [60, 95, 80]
 for rank, s in enumerate(sorted(scores, reverse=True), start=1):
-    print(f"{rank}. {s}")`, output: "1. 95\n2. 80\n3. 60", codeLanguage: "python" },
-      { title: "5. चुका", content: "• sorted/reversed चा result नवीन — source बदलत नाही.\n• reverse vs reversed गोंधळू नका.\n• key मध्ये चुकीची function तर क्रम खोटा.", code: `nums = [4, 1, 3]
+    print(f"{rank}. {s}")`,
+        codeLanguage: "python",
+        output: `1. 95
+2. 80
+3. 60`,
+      },
+      {
+        title: "चुका",
+        content: "• sorted/reversed चा result नवीन — source बदलत नाही.\n• reverse vs reversed गोंधळू नका.\n• key मध्ये चुकीची function तर क्रम खोटा.",
+        code: `nums = [4, 1, 3]
 print(sorted(nums))
-print(nums)`, output: "[1, 3, 4]\n[4, 1, 3]", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `names = ["मीरा", "आरोही", "वेद"]
+print(nums)`,
+        codeLanguage: "python",
+        output: `[1, 3, 4]
+[4, 1, 3]`,
+      },
+      {
+        title: "Interactive: sorted + enumerate",
+        content: "नावे क्रमवारी लावून enumerate ने क्रमांक द्यायचे. start=1 वापरून 1-आधारित क्रमांक.",
+        code: `names = ["मीरा", "आरोही", "वेद"]
 for i, n in enumerate(sorted(names), start=1):
-    print(i, n)`, output: "1 आरोही\n2 मीरा\n3 वेद", codeLanguage: "python" },
-      { title: "Mini Project", content: "गुणांनुसार ranking:", code: `data = [("A", 70), ("B", 90), ("C", 60)]
+    print(i, n)`,
+        codeLanguage: "python",
+        output: `1 आरोही
+2 मीरा
+3 वेद`,
+      },
+      {
+        title: "Mini Project: Ranking",
+        content: "गुणांनुसार ranking — sorted + enumerate एकत्र. data.sort ने मूळ यादी बदलते; sorted() ने नवीन यादी मिळते.",
+        code: `data = [("A", 70), ("B", 90), ("C", 60)]
 data.sort(key=lambda x: x[1], reverse=True)
 for rank, (name, score) in enumerate(data, start=1):
-    print(f"{rank}. {name} {score}")`, output: "1. B 90\n2. A 70\n3. C 60", codeLanguage: "python" },
+    print(f"{rank}. {name} {score}")`,
+        codeLanguage: "python",
+        output: `1. B 90
+2. A 70
+3. C 60`,
+      },
     ],
     practiceQuestions: [
       "reversed कशाला बदलत नाही?",
@@ -236,17 +424,59 @@ print(sorted(words, key=len))`,
     summary: "venv ने प्रत्येक project साठी वेगळे Python वातावरण; pip install सुरक्षित.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "प्रत्येक project ला वेगवेगळ्या libraries ची गरज असते. Virtual environment त्या वेगळ्या ठेवते.\n\nvenv म्हणजे तुमच्या project ची वेगळी Python जागा (वातावरण).\n\nएका project मधील library दुसऱ्याला त्रास देत नाही.\n\nहे team work आणि production साठी आवश्यक.", code: `import sys
-print("venv = वेगळे Python वातावरण")`, output: "venv = वेगळे Python वातावरण", codeLanguage: "python" },
-      { title: "2. आदेश", content: "venv तयार करण्यासाठी:\n\npython -m venv myenv — नवीन वातावरण.\nsource myenv/bin/activate — सक्रिय करणे (Linux).\n\nसक्रिय झाल्यावर pip install त्या environment मध्ये होते.\ndeactivate — बाहेर येणे.\n\nहे आदेश कोड नाहीत — Terminal मध्ये चालतात.", code: `import os
-print("venv आदेश Terminal मध्ये चालतात")`, output: "venv आदेश Terminal मध्ये चालतात", codeLanguage: "python" },
-      { title: "3. pip freeze", content: "pip freeze > requirements.txt — त्याची यादी file मध्ये.\n\nनंतर दुसरीकडे pip install -r requirements.txt ने तीच libraries.\n\nreproducible (तसाच पुन्हा) वातावरण बनते.\nreproducible अचूक यादी.\nreproducible दाखवतो यादी.\nreproducible अचूक यादी.\nreproducible अचूक यादी.", code: `import subprocess
+      {
+        title: "venv म्हणजे काय?",
+        content: "प्रत्येक project ला वेगवेगळ्या libraries ची गरज असते. Virtual environment त्या वेगळ्या ठेवते — एका project मधील library दुसऱ्याला त्रास देत नाही. हे team work आणि production साठी आवश्यक.",
+        code: `import sys
+print("venv = वेगळे Python वातावरण")`,
+        codeLanguage: "python",
+        output: `venv = वेगळे Python वातावरण`,
+      },
+      {
+        title: "आदेश",
+        content: "venv तयार करण्यासाठी:\n\npython -m venv myenv — नवीन वातावरण.\nsource myenv/bin/activate — सक्रिय करणे (Linux).\n\nसक्रिय झाल्यावर pip install त्या environment मध्ये होते.\ndeactivate — बाहेर येणे.\n\nहे आदेश कोड नाहीत — Terminal मध्ये चालतात.",
+        code: `import os
+print("venv आदेश Terminal मध्ये चालतात")`,
+        codeLanguage: "python",
+        output: `venv आदेश Terminal मध्ये चालतात`,
+      },
+      {
+        title: "pip freeze: requirements.txt",
+        content: "pip freeze > requirements.txt — त्याची यादी file मध्ये. नंतर दुसरीकडे pip install -r requirements.txt ने तीच libraries. reproducible (तसाच पुन्हा) वातावरण बनते.",
+        code: `import subprocess
 out = subprocess.run(["python3","-c","print(1+1)"], capture_output=True, text=True)
-print(out.stdout.strip())`, output: "2", codeLanguage: "python" },
-      { title: "4. फायदे", content: "• प्रत्येक project आपापल्या libraries.\n• versions चा संघर्ष नाही.\n• nवीन developer साठी तसाच setup.\n• test/production एकसारखे.\n\nहे व्यावसायिक Python चा पाया आहे.", code: `print("अलग project वातावरण = सुरक्षितता")`, output: "अलग project वातावरण = सुरक्षितता", codeLanguage: "python" },
-      { title: "5. चुका", content: "• सक्रिय न करता pip install — global मध्ये जाते.\n• requirements.txt अपडेट न करणे.\n• venv ला git मध्ये commit करणे (नको).", code: `print("venv .gitignore मध्ये ठेवतात")`, output: "venv .gitignore मध्ये ठेवतात", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `print("venv सक्रिय करा, मग install")`, output: "venv सक्रिय करा, मग install", codeLanguage: "python" },
-      { title: "Mini Project", content: "वातावरण नियोजन:", code: `print("project/env सर्व्हर + डेटाबेस")`, output: "project/env सर्व्हर + डेटाबेस", codeLanguage: "python" },
+print(out.stdout.strip())`,
+        codeLanguage: "python",
+        output: `2`,
+      },
+      {
+        title: "फायदे",
+        content: "• प्रत्येक project आपापल्या libraries.\n• versions चा संघर्ष नाही.\n• नवीन developer साठी तसाच setup.\n• test/production एकसारखे.",
+        code: `print("अलग project वातावरण = सुरक्षितता")`,
+        codeLanguage: "python",
+        output: `अलग project वातावरण = सुरक्षितता`,
+      },
+      {
+        title: "चुका",
+        content: "• सक्रिय न करता pip install — global मध्ये जाते.\n• requirements.txt अपडेट न करणे.\n• venv ला git मध्ये commit करणे (नको).",
+        code: `print("venv .gitignore मध्ये ठेवतात")`,
+        codeLanguage: "python",
+        output: `venv .gitignore मध्ये ठेवतात`,
+      },
+      {
+        title: "Interactive: venv तपासणी",
+        content: "venv सक्रिय करा, मग pip --version पहा — path venv च्या folder कडे बदललेला दिसेल.",
+        code: `print("venv सक्रिय करा, मग install")`,
+        codeLanguage: "python",
+        output: `venv सक्रिय करा, मग install`,
+      },
+      {
+        title: "Mini Project: वातावरण नियोजन",
+        content: "project च्या requirements.txt बनवून त्यात libraries नोंदवा. नंतर pip install -r requirements.txt ने त्याच पुन्हा तयार करा.",
+        code: `print("project/env सर्व्हर + डेटाबेस")`,
+        codeLanguage: "python",
+        output: `project/env सर्व्हर + डेटाबेस`,
+      },
     ],
     practiceQuestions: [
       "venv कशासाठी?",
@@ -281,28 +511,72 @@ print(out.stdout.strip())`, output: "2", codeLanguage: "python" },
     summary: "NumPy arrays, vectorized गणित, mean/sum — डेटा सायन्सचा पाया.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "NumPy ही Python ची संख्यात्मक array library आहे.\n\nArray म्हणजे एकाच प्रकारच्या संख्यांची सुबक रचना.\n\nList पेक्षा array वर गणित एकत्र (vectorized) होते — वेगवान आणि सोपे.", code: `import numpy as np
+      {
+        title: "NumPy म्हणजे काय?",
+        content: "NumPy ही Python ची संख्यात्मक array library आहे. Array म्हणजे एकाच प्रकारच्या संख्यांची सुबक रचना. List पेक्षा array वर गणित एकत्र (vectorized) होते — वेगवान आणि सोपे.",
+        code: `import numpy as np
 a = np.array([1, 2, 3])
-print(a * 2)`, output: "[2 4 6]", codeLanguage: "python" },
-      { title: "2. Array तयार", content: "np.array(list) ने array तयार होते.\n\nnp.zeros(n), np.ones(n) — शून्य/एकाने भरलेली.\nnp.arange(stop) — 0 पासून.\n\nहे शेवट करण्यासाठी उपयोगी.\nnp.array देतो रचना.\nnp.array देतो रचना.\nnp.array अचूक array.\nnp.array अचूक array.\nnp.array देतो रचना.", code: `import numpy as np
-print(np.arange(5))`, output: "[0 1 2 3 4]", codeLanguage: "python" },
-      { title: "3. Shape व Index", content: "array चा आकार (shape) आणि घटक (index) महत्त्वाचे.\n\na.shape — (rows, cols).\na[0] — पहिला.\na[1:] — उरलेले.\n\n2D array (matrix) ला दोन अक्ष्यांपर्यंत गाठता येतो.", code: `import numpy as np
+print(a * 2)`,
+        codeLanguage: "python",
+        output: `[2 4 6]`,
+      },
+      {
+        title: "Array तयार",
+        content: "np.array(list) ने array तयार होते. np.zeros(n), np.ones(n) — शून्य/एकाने भरलेली. np.arange(stop) — 0 पासून. हे शेवट करण्यासाठी उपयोगी.",
+        code: `import numpy as np
+print(np.arange(5))`,
+        codeLanguage: "python",
+        output: `[0 1 2 3 4]`,
+      },
+      {
+        title: "Shape व Index",
+        content: "array चा आकार (shape) आणि घटक (index) महत्त्वाचे. a.shape — (rows, cols). a[0] — पहिला. a[1:] — उरलेले. 2D array (matrix) ला दोन अक्ष्यांपर्यंत गाठता येतो.",
+        code: `import numpy as np
 a = np.array([[1, 2], [3, 4]])
 print(a.shape)
-print(a[1][0])`, output: "(2, 2)\n3", codeLanguage: "python" },
-      { title: "4. गणित", content: "array वर गणित element-wise होते.\n\na + 1, a * 2, a ** 2.\n\nआणि np.sum, np.mean, np.max सारखे function संपूर्ण array वर.\n\nहे हिशोब सोपे करतात.", code: `import numpy as np
+print(a[1][0])`,
+        codeLanguage: "python",
+        output: `(2, 2)
+3`,
+      },
+      {
+        title: "गणित",
+        content: "array वर गणित element-wise होते — a + 1, a * 2, a ** 2. आणि np.sum, np.mean, np.max सारखे function संपूर्ण array वर. हे हिशोब सोपे करतात.",
+        code: `import numpy as np
 a = np.array([10, 20, 30])
 print(np.sum(a))
-print(np.mean(a))`, output: "60\n20.0", codeLanguage: "python" },
-      { title: "5. चुका", content: "• list आणि array गोंधळू नका — array वर गणित element-wise.\n• shape चुकला तर broadcast error.\n• numpy install न करता import — ModuleNotFoundError.", code: `import numpy as np
-print(np.array([2, 4]) ** 2)`, output: "[ 4 16]", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `import numpy as np
+print(np.mean(a))`,
+        codeLanguage: "python",
+        output: `60
+20.0`,
+      },
+      {
+        title: "चुका",
+        content: "• list आणि array गोंधळू नका — array वर गणित element-wise.\n• shape चुकला तर broadcast error.\n• numpy install न करता import — ModuleNotFoundError.",
+        code: `import numpy as np
+print(np.array([2, 4]) ** 2)`,
+        codeLanguage: "python",
+        output: `[ 4 16]`,
+      },
+      {
+        title: "Interactive: array बेरीज",
+        content: "दोन arrays ची बेरीज — element-wise addition. a + b ने [5 7 9].",
+        code: `import numpy as np
 a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
-print(a + b)`, output: "[5 7 9]", codeLanguage: "python" },
-      { title: "Mini Project", content: "सरासरी गुण:", code: `import numpy as np
+print(a + b)`,
+        codeLanguage: "python",
+        output: `[5 7 9]`,
+      },
+      {
+        title: "Mini Project: सरासरी गुण",
+        content: "scores array ची सरासरी np.mean ने. output 85.0 — [80, 90, 70, 100] या चार गुणांची सरासरी.",
+        code: `import numpy as np
 scores = np.array([80, 90, 70, 100])
-print(np.mean(scores))`, output: "85.0", codeLanguage: "python" },
+print(np.mean(scores))`,
+        codeLanguage: "python",
+        output: `85.0`,
+      },
     ],
     practiceQuestions: [
       "np.array म्हणजे काय?",
@@ -338,16 +612,58 @@ print(np.mean(np.array([2, 4, 6])))`,
     summary: "requests library ने HTTP GET/POST; APIs शी बोलणे.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "requests ही सर्वात लोकप्रिय HTTP library आहे.\n\nrequests.get(url) — वेबवरून माहिती मागवते.\n\nAPI (Application Programming Interface) म्हणजे दोन programs मधील संवाद.\n\nउदा. हवामान, बातम्या, मोठा डेटा — सगळे API देतात.", code: `print("requests install झाले आहे")`, output: "requests install झाले आहे", codeLanguage: "python" },
-      { title: "2. GET", content: "requests.get(url) उत्तर देतो.\n\nresp.status_code — 200 म्हणजे यश.\nresp.json() — data dictionary मध्ये.\nresp.text — कच्ची मजकूर.\n\nstatus_code मिळते उत्तर.\nstatus_code मिळते उत्तर.\nstatus_code अचूक status.\nstatus_code अचूक status.\nstatus_code मिळते उत्तर.", code: `print("status_code: 200 म्हणजे यश")`, output: "status_code: 200 म्हणजे यश", codeLanguage: "python" },
-      { title: "3. Payload व Headers", content: "params आणि headers देऊन API ला तपशील देतात.\n\nrequests.get(url, params={...}, headers={...}).\n\nHeaders मध्ये key, user-agent, content-type.\n\nहे API गरजेप्रमाणे आकारण्यासाठी.\ncontent-type अचूक विनंती.\ncontent-type अचूक विनंती.\ncontent-type अचूक विनंती.", code: `print("params + headers म्हणजे विनंती तपशील")`, output: "params + headers म्हणजे विनंती तपशील", codeLanguage: "python" },
-      { title: "4. Timeouts व Errors", content: "requests.get(url, timeout=10) — 10 सेकंद थांबते.\n\nत्रुटीवर (network, 404) exceptions.", code: `try:
+      {
+        title: "requests म्हणजे काय?",
+        content: "requests ही सर्वात लोकप्रिय HTTP library आहे. requests.get(url) — वेबवरून माहिती मागवते. API (Application Programming Interface) म्हणजे दोन programs मधील संवाद — हवामान, बातम्या, मोठा डेटा सगळे API देतात.",
+        code: `print("requests install झाले आहे")`,
+        codeLanguage: "python",
+        output: `requests install झाले आहे`,
+      },
+      {
+        title: "GET: उत्तर मिळवणे",
+        content: "requests.get(url) उत्तर देतो. resp.status_code — 200 म्हणजे यश. resp.json() — data dictionary मध्ये. resp.text — कच्ची मजकूर. status_code मिळते उत्तर.",
+        code: `print("status_code: 200 म्हणजे यश")`,
+        codeLanguage: "python",
+        output: `status_code: 200 म्हणजे यश`,
+      },
+      {
+        title: "Payload व Headers",
+        content: "params आणि headers देऊन API ला तपशील देतात. requests.get(url, params={...}, headers={...}). Headers मध्ये key, user-agent, content-type.",
+        code: `print("params + headers म्हणजे विनंती तपशील")`,
+        codeLanguage: "python",
+        output: `params + headers म्हणजे विनंती तपशील`,
+      },
+      {
+        title: "Timeouts व Errors",
+        content: "requests.get(url, timeout=10) — 10 सेकंद थांबते. त्रुटीवर (network, 404) exceptions. try/except ने हाताळतात.",
+        code: `try:
     raise ConnectionError("network down")
 except ConnectionError:
-    print("पुन्हा प्रयत्न करा")`, output: "पुन्हा प्रयत्न करा", codeLanguage: "python" },
-      { title: "5. चुका", content: "• timeout न दिल्यास हँग होऊ शकते.\n• json() तर data format.\n• API key leaks नको.", code: `print("नको API key कोडमध्ये")`, output: "नको API key कोडमध्ये", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `print("GET ने data मिळते")`, output: "GET ने data मिळते", codeLanguage: "python" },
-      { title: "Mini Project", content: "network कोडची रचना:", code: `print("try/except + timeout = सुरक्षित")`, output: "try/except + timeout = सुरक्षित", codeLanguage: "python" },
+    print("पुन्हा प्रयत्न करा")`,
+        codeLanguage: "python",
+        output: `पुन्हा प्रयत्न करा`,
+      },
+      {
+        title: "चुका",
+        content: "• timeout न दिल्यास हँग होऊ शकते.\n• json() तर data format.\n• API key leaks नको.",
+        code: `print("नको API key कोडमध्ये")`,
+        codeLanguage: "python",
+        output: `नको API key कोडमध्ये`,
+      },
+      {
+        title: "Interactive: GET सराव",
+        content: "GET ने data मिळते. status_code तपासा — 200 असेल तर request यशस्वी.",
+        code: `print("GET ने data मिळते")`,
+        codeLanguage: "python",
+        output: `GET ने data मिळते`,
+      },
+      {
+        title: "Mini Project: सुरक्षित network कोड",
+        content: "try/except + timeout = सुरक्षित network request. error आल्यास gracefully handle करा.",
+        code: `print("try/except + timeout = सुरक्षित")`,
+        codeLanguage: "python",
+        output: `try/except + timeout = सुरक्षित`,
+      },
     ],
     practiceQuestions: [
       "status_code 200 म्हणजे?",
@@ -385,23 +701,67 @@ except ConnectionError:
     summary: "HTML पानातून माहिती काढणे; stdlib parser + BeautifulSoup संकल्पना.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "Web scraping म्हणजे वेब पानातून संगणकीय माहिती काढणे.\n\nHTML पान हे tags ची रचना — त्यातून विशिष्ट भाग निवडता येतो.\n\nBeautifulSoup ही लोकप्रिय library.\npip install beautifulsoup4.\n\nपरंतु येथे core संकल्पना stdlib ने दाखवू — bs4 install न करता.", code: `print("HTML मधून data काढतो")`, output: "HTML मधून data काढतो", codeLanguage: "python" },
-      { title: "2. HTML रचना", content: "HTML मध्ये <h1>, <p>, <a>, <li> असे tags.\n\nविशिष्ट tag किंवा class निवडून माहिती.\n\nसोपे example — एक छोटा HTML भाग stdlib parser ने वाचणे.", code: `from html.parser import HTMLParser
+      {
+        title: "Web Scraping म्हणजे काय?",
+        content: "Web scraping म्हणजे वेब पानातून संगणकीय माहिती काढणे. HTML पान हे tags ची रचना — त्यातून विशिष्ट भाग निवडता येतो. BeautifulSoup ही लोकप्रिय library (pip install beautifulsoup4). येथे stdlib parser ने दाखवतो.",
+        code: `print("HTML मधून data काढतो")`,
+        codeLanguage: "python",
+        output: `HTML मधून data काढतो`,
+      },
+      {
+        title: "HTML रचना",
+        content: "HTML मध्ये <h1>, <p>, <a>, <li> असे tags. विशिष्ट tag किंवा class निवडून माहिती. सोपे example — एक छोटा HTML भाग stdlib parser ने वाचणे.",
+        code: `from html.parser import HTMLParser
 class T(HTMLParser):
     def handle_data(self, d):
         if d.strip():
             print(d.strip())
-T().feed("<h1>शीर्षक</h1><p>मजकूर</p>")`, output: "शीर्षक\nमजकूर", codeLanguage: "python" },
-      { title: "3. Selectors", content: "BeautifulSoup मध्ये soup.find(tag), soup.find_all(tag).\n\nCSS class किंवा id ने निवड.\n\nहे tags मधून data काढण्याचा मार्ग.\n\nनैसर्गिक text मिळवण्यासाठी .get_text().\nhtml.parser गोळा करते.\nhtml.parser गोळा करते.\nhtml.parser अचूक data.\nhtml.parser अचूक data.\nhtml.parser गोळा करते.", code: `print("find_all ने सर्व tags मिळतात")`, output: "find_all ने सर्व tags मिळतात", codeLanguage: "python" },
-      { title: "4. Text व Attribute", content: "एखाद्या घटकाचा text किंवा attribute (जसे href, src) काढता येतो.\n\n.text — आतील मजकूर.\n[\"href\"] — दुवा.\n\nहे newspaper ते products पर्यंत सर्वत्र.", code: `print("attribute जसे href काढतो")`, output: "attribute जसे href काढतो", codeLanguage: "python" },
-      { title: "5. Rules व चुका", content: "• Website च्या rules (robots.txt) पाळा.\n• खूप विनंत्या करू नका (fair use).\n• कॉपीराईटची काळजी.\n• HTML बदलला तर scraper तुटतो.", code: `print("rules आणि fair use पाळा")`, output: "rules आणि fair use पाळा", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `print("stdlib parser ने शीर्षके")`, output: "stdlib parser ने शीर्षके", codeLanguage: "python" },
-      { title: "Mini Project", content: "HTML पानातून शीर्षके:", code: `from html.parser import HTMLParser
+T().feed("<h1>शीर्षक</h1><p>मजकूर</p>")`,
+        codeLanguage: "python",
+        output: `शीर्षक
+मजकूर`,
+      },
+      {
+        title: "Selectors",
+        content: "BeautifulSoup मध्ये soup.find(tag), soup.find_all(tag). CSS class किंवा id ने निवड. .get_text() ने नैसर्गिक text मिळवतात.",
+        code: `print("find_all ने सर्व tags मिळतात")`,
+        codeLanguage: "python",
+        output: `find_all ने सर्व tags मिळतात`,
+      },
+      {
+        title: "Text व Attribute",
+        content: "एखाद्या घटकाचा text किंवा attribute (जसे href, src) काढता येतो. .text — आतील मजकूर. [\"href\"] — दुवा. हे newspaper ते products पर्यंत सर्वत्र.",
+        code: `print("attribute जसे href काढतो")`,
+        codeLanguage: "python",
+        output: `attribute जसे href काढतो`,
+      },
+      {
+        title: "Rules व चुका",
+        content: "• Website च्या rules (robots.txt) पाळा.\n• खूप विनंत्या करू नका (fair use).\n• कॉपीराईटची काळजी.\n• HTML बदलला तर scraper तुटतो.",
+        code: `print("rules आणि fair use पाळा")`,
+        codeLanguage: "python",
+        output: `rules आणि fair use पाळा`,
+      },
+      {
+        title: "Interactive: parser सराव",
+        content: "stdlib parser ने HTML शीर्षके काढून पहा. handle_data callback दर CSS tag चा text छापतो.",
+        code: `print("stdlib parser ने शीर्षके")`,
+        codeLanguage: "python",
+        output: `stdlib parser ने शीर्षके`,
+      },
+      {
+        title: "Mini Project: HTML शीर्षके",
+        content: "HTML यादीतून सर्व items काढा — <li> tags मधील text handle_data ने print.",
+        code: `from html.parser import HTMLParser
 class H(HTMLParser):
     def handle_data(self, d):
         if d.strip():
             print(d.strip())
-H().feed("<ul><li>अ</li><li>ब</li></ul>")`, output: "अ\nब", codeLanguage: "python" },
+H().feed("<ul><li>अ</li><li>ब</li></ul>")`,
+        codeLanguage: "python",
+        output: `अ
+ब`,
+      },
     ],
     practiceQuestions: [
       "scraping म्हणजे?",
@@ -440,31 +800,70 @@ P().feed("<p>नमस्कार</p>")`,
     summary: "threads ने एकाच वेळी काम; lock, join, deterministic output.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "Threads म्हणजे एकाच program मधील समांतर कामाची ओझी.\n\nहे वेगवेगळ्या कामांना एकत्र पुढे नेते.\n\nthreading हा stdlib module आहे.\n\nउदा. एक thread file वाचतो, दुसरा print करतो.", code: `import threading
-print("thread तयार करायला threading.Thread")`, output: "thread तयार करायला threading.Thread", codeLanguage: "python" },
-      { title: "2. Thread तयार", content: "t = threading.Thread(target=fn) — नवीन thread.\nt.start() — सुरू करणे.\nt.join() — पूर्ण होण्याची वाट.\n\n.join() ने output क्रमीक राहतो — हे deterministic साठी महत्त्वाचे.", code: `import threading, time
+      {
+        title: "Threading म्हणजे काय?",
+        content: "Threads म्हणजे एकाच program मधील समांतर कामाची ओझी. हे वेगवेगळ्या कामांना एकत्र पुढे नेते. threading हा stdlib module आहे — उदा. एक thread file वाचतो, दुसरा print करतो.",
+        code: `import threading
+print("thread तयार करायला threading.Thread")`,
+        codeLanguage: "python",
+        output: `thread तयार करायला threading.Thread`,
+      },
+      {
+        title: "Thread तयार आणि चालवा",
+        content: "t = threading.Thread(target=fn) — नवीन thread. t.start() — सुरू करणे. t.join() — पूर्ण होण्याची वाट.\n\n.join() ने output क्रमीक राहतो — हे deterministic साठी महत्त्वाचे.",
+        code: `import threading, time
 def work(name):
     print("काम", name)
 t1 = threading.Thread(target=work, args=("अ",))
 t1.start()
-t1.join()`, output: "काम अ", codeLanguage: "python" },
-      { title: "3. Lock", content: "अनेक threads एकाच data वर काम करत असतील तर Lock हवा.\n\nlock.acquire() ते lock.release() — एका वेळी एकच thread.\n\nwith lock: वापरल्यास आपोआप.\n\nयामुळे data corruption टळते.", code: `import threading
+t1.join()`,
+        codeLanguage: "python",
+        output: `काम अ`,
+      },
+      {
+        title: "Lock: सुरक्षित क्षेत्र",
+        content: "अनेक threads एकाच data वर काम करत असतील तर Lock हवा. lock.acquire() ते lock.release() — एका वेळी एकच thread. with lock: वापरल्यास आपोआप. यामुळे data corruption टळते.",
+        code: `import threading
 lock = threading.Lock()
 with lock:
-    print("सुरक्षित क्षेत्र")`, output: "सुरक्षित क्षेत्र", codeLanguage: "python" },
-      { title: "4. Deterministic Order", content: "थ्रेड्सचा output क्रम iच्छेनुसार बदलू शकतो.\n\nनियंत्रित output साठी .join() प्रत्येकाला लागून.\n\nकिंवा results एकत्र करून नंतर क्रमवारी.\n\nयेथे आपण join ने क्रम ठरवतो.", code: `import threading
+    print("सुरक्षित क्षेत्र")`,
+        codeLanguage: "python",
+        output: `सुरक्षित क्षेत्र`,
+      },
+      {
+        title: "Deterministic Order",
+        content: "थ्रेड्सचा output क्रम इच्छेनुसार बदलू शकतो. नियंत्रित output साठी .join() प्रत्येकाला लागून. किंवा results एकत्र करून नंतर क्रमवारी.",
+        code: `import threading
 def f(x):
     return x + 1
 res = []
 res.append(f(1))
 res.append(f(2))
-print(res)`, output: "[2, 3]", codeLanguage: "python" },
-      { title: "5. चुका", content: "• join न सोडल्यास अनपेक्षित क्रम.\n• lock नसल्यास data race.\n• अनेक threads CPU कामासाठी वेग नाही (GIL) — I/O साठी वेग.", code: `print("I/O साठी threads वेग देतात")`, output: "I/O साठी threads वेग देतात", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `import threading
+print(res)`,
+        codeLanguage: "python",
+        output: `[2, 3]`,
+      },
+      {
+        title: "चुका",
+        content: "• join न सोडल्यास अनपेक्षित क्रम.\n• lock नसल्यास data race.\n• अनेक threads CPU कामासाठी वेग नाही (GIL) — I/O साठी वेग.",
+        code: `print("I/O साठी threads वेग देतात")`,
+        codeLanguage: "python",
+        output: `I/O साठी threads वेग देतात`,
+      },
+      {
+        title: "Interactive: list comprehension",
+        content: "list comprehension ने एकत्र computation. thread नसल्यासही ही पद्धत काम करते.",
+        code: `import threading
 def job(i):
     return i * 2
-print([job(i) for i in range(3)])`, output: "[0, 2, 4]", codeLanguage: "python" },
-      { title: "Mini Project", content: "लॉकसह क्रमिक निकाल:", code: `import threading
+print([job(i) for i in range(3)])`,
+        codeLanguage: "python",
+        output: `[0, 2, 4]`,
+      },
+      {
+        title: "Mini Project: लॉकसह क्रमिक निकाल",
+        content: "lock वापरून अनेक threads एकत्र मूल्ये जोडतात. with lock: मध्ये append केल्याने data safe.",
+        code: `import threading
 lock = threading.Lock()
 def add(li, v):
     with lock:
@@ -472,7 +871,10 @@ def add(li, v):
 res = []
 add(res, 5)
 add(res, 9)
-print(res)`, output: "[5, 9]", codeLanguage: "python" },
+print(res)`,
+        codeLanguage: "python",
+        output: `[5, 9]`,
+      },
     ],
     practiceQuestions: [
       "start काय करतो?",
@@ -510,17 +912,32 @@ with lock:
     summary: "async/await + asyncio ने I/O काम स्थगित; कोराउटीन्स.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "asyncio हा Python चा asynchronous I/O module.\n\nasync def — coroutine function.\nawait — थांबून परत येण्याची जागा.\n\nasyncio.run(main()) — coroutine चालवते.\n\nI/O काम (network, files) दरम्यान दुसरे काम पुढे जाते.", code: `import asyncio
+      {
+        title: "asyncio म्हणजे काय?",
+        content: "asyncio हा Python चा asynchronous I/O module. async def — coroutine function. await — थांबून परत येण्याची जागा. asyncio.run(main()) — coroutine चालवते. I/O काम (network, files) दरम्यान दुसरे काम पुढे जाते.",
+        code: `import asyncio
 async def hi():
     print("नमस्कार")
-asyncio.run(hi())`, output: "नमस्कार", codeLanguage: "python" },
-      { title: "2. async def", content: "तिला थेट call करता येत नाही — await करावी लागते.\n\nasyncio.run() मुख्य coroutine चालवते.\n\nawait मधे program थांबतो आणि I/O ची वाट पाहतो.\nasyncio.run देतो परिणाम.\nasyncio.run देतो परिणाम.\nasyncio.run अचूक result.\nasyncio.run अचूक result.", code: `import asyncio
+asyncio.run(hi())`,
+        codeLanguage: "python",
+        output: `नमस्कार`,
+      },
+      {
+        title: "async def आणि await",
+        content: "async function ला थेट call करता येत नाही — await करावी लागते. asyncio.run() मुख्य coroutine चालवते. await मधे program थांबतो आणि I/O ची वाट पाहतो.",
+        code: `import asyncio
 async def compute():
     return 40 + 2
 async def main():
     print(await compute())
-asyncio.run(main())`, output: "42", codeLanguage: "python" },
-      { title: "3. await व Sleep", content: "await asyncio.sleep(0.1) — मध्ये थांबतो आणि इतर काम पुढे.\n\nहे सिम्युलेट करण्यासाठी येथे लहान sleep.\n\nखऱ्या program मध्ये network wait साठी.\n\nasyncio ने कार्यक्षमता वाढते.", code: `import asyncio
+asyncio.run(main())`,
+        codeLanguage: "python",
+        output: `42`,
+      },
+      {
+        title: "await व Sleep",
+        content: "await asyncio.sleep(0.1) — मध्ये थांबतो आणि इतर काम पुढे. खऱ्या program मध्ये network wait साठी. asyncio ने कार्यक्षमता वाढते.",
+        code: `import asyncio
 async def t(name):
     await asyncio.sleep(0.01)
     return name
@@ -528,28 +945,55 @@ async def main():
     a = await t("पहिला")
     b = await t("दुसरा")
     print(a, b)
-asyncio.run(main())`, output: "पहिला दुसरा", codeLanguage: "python" },
-      { title: "4. Gather", content: "asyncio.gather(*coroutines) अनेक coroutines एकत्र.\n\nसगळ्यांचे परिणाम एकत्र येतात.\n\nहे I/O काम पटकन पूर्ण करण्यासाठी.\n\ndeterministic output साठी single await क्रम ठेवतो.", code: `import asyncio
+asyncio.run(main())`,
+        codeLanguage: "python",
+        output: `पहिला दुसरा`,
+      },
+      {
+        title: "Gather: अनेक एकत्र",
+        content: "asyncio.gather(*coroutines) अनेक coroutines एकत्र. सगळ्यांचे परिणाम एकत्र येतात. हे I/O काम पटकन पूर्ण करण्यासाठी.",
+        code: `import asyncio
 async def sq(x):
     return x * x
 async def main():
     r = await asyncio.gather(sq(2), sq(3))
     print(r)
-asyncio.run(main())`, output: "[4, 9]", codeLanguage: "python" },
-      { title: "5. चुका", content: "• async function ला थेट call — coroutine मिळतो आणि चालत नाही.\n• asyncio.run फक्त एकदा मुख्य.\n• देखाव्यातील CPU कामासाठी async नाही — फक्त I/O.", code: `import asyncio
+asyncio.run(main())`,
+        codeLanguage: "python",
+        output: `[4, 9]`,
+      },
+      {
+        title: "चुका",
+        content: "• async function ला थेट call — coroutine मिळतो आणि चालत नाही.\n• asyncio.run फक्त एकदा मुख्य.\n• CPU कामासाठी async नाही — फक्त I/O.",
+        code: `import asyncio
 async def f():
     return 1
-print(asyncio.run(f()))`, output: "1", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `import asyncio
+print(asyncio.run(f()))`,
+        codeLanguage: "python",
+        output: `1`,
+      },
+      {
+        title: "Interactive: add coroutine",
+        content: "async add function बनवून asyncio.run ने चालवा. दोन numbers चा बेरीज.",
+        code: `import asyncio
 async def add(a, b):
     return a + b
-print(asyncio.run(add(3, 4)))`, output: "7", codeLanguage: "python" },
-      { title: "Mini Project", content: "अनेक काम gather:", code: `import asyncio
+print(asyncio.run(add(3, 4)))`,
+        codeLanguage: "python",
+        output: `7`,
+      },
+      {
+        title: "Mini Project: gather ने अनेक काम",
+        content: "asyncio.gather ने दोन coroutines एकत्र चालवा. दोन्ही परिणाम list मध्ये.",
+        code: `import asyncio
 async def w(x):
     return x
 async def main():
     print(await asyncio.gather(w(1), w(2)))
-asyncio.run(main())`, output: "[1, 2]", codeLanguage: "python" },
+asyncio.run(main())`,
+        codeLanguage: "python",
+        output: `[1, 2]`,
+      },
     ],
     practiceQuestions: [
       "async def काय?",
@@ -587,14 +1031,64 @@ asyncio.run(m())`,
     summary: "pip install/uninstall/freeze, versions, requirements — व्यावसायिक package व्यवस्थापन.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "pip हा Python package installer.\n\npython -m pip install नाव — library install.\npip list — install मधील libraries.\npip uninstall नाव — हटवणे.\npip freeze — यादी output, requirements साठी.", code: `print("pip install नाव library स्थापित करते")`, output: "pip install नाव library स्थापित करते", codeLanguage: "python" },
-      { title: "2. Versions", content: "pip install नाव==1.2.3 — विशिष्ट version.\n\nवेगवेगळ्या projects ला वेगवेगळे versions हवे असतील तर venv.\n\nupgrade: pip install -U नाव.\n\nहे stable and reproducible राहण्यासाठी.\n== वापर अनुभव घ्या.\n== वापर मराठीत सोपे.\n== वापर आज वापरा.\n== वापर धडा समजतो.\n== वापर देतो नियंत्रण.\n== वापर verify करा.\n== वापर चालवून पहा.\n== वापर धडा समजतो.\n== वापर देतो नियंत्रण.\n== वापर verify करा.\n== वापर चालवून पहा.\n== वापर स्पष्ट दिसतो.\n== वापर सराव करा.\n== वापर अचूक version.\n== वापर अचूक version.\n== वापर अनुभव घ्या.\n== वापर मराठीत सोपे.\n== वापर आज वापरा.\n== वापर धडा समजतो.\n== वापर देतो नियंत्रण.\n== वापर verify करा.", code: `print("== ने version निवडतो")`, output: "== ने version निवडतो", codeLanguage: "python" },
-      { title: "3. requirements", content: "pip freeze > requirements.txt — यादी file मध्ये.\n\npip install -r requirements.txt — तीच libraries.\n\nहे project setup तसाच ठेवते.\n\nteam मध्ये कोणीही तो setup लावू शकतो.", code: `print("requirements.txt मध्ये library यादी")`, output: "requirements.txt मध्ये library यादी", codeLanguage: "python" },
-      { title: "4. व्यावसायिक अभ्यास", content: "• venv मध्ये install करा.\n• pip list व्यवस्थित ठेवा.\n• requirements अपडेट करा.\n• package चे नाव अचूक तपासा.\n\nहे सवयी production साठी आवश्यक.", code: `print("venv + requirements = व्यावसायिक")`, output: "venv + requirements = व्यावसायिक", codeLanguage: "python" },
-      { title: "5. चुका", content: "• global मध्ये install करणे (venv नाही).\n• requirements विसरणे.\n• चुकीचे नाव — error.\n• security — अनोळखी package टाळा.", code: `print("नाव अचूक तपासा")`, output: "नाव अचूक तपासा", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सराव:", code: `print("pip install नंतर import")`, output: "pip install नंतर import", codeLanguage: "python" },
-      { title: "Mini Project", content: "setup planning:", code: `packages = ["requests", "numpy"]
-print(len(packages), "libraries")`, output: "2 libraries", codeLanguage: "python" },
+      {
+        title: "pip म्हणजे काय?",
+        content: "pip हा Python चा package installer — इतरांनी लिहिलेल्या library (requests, numpy इ.) एका command ने install करतो. Python 3.x सोबत pip आधीच येतो; वेगळे install करावं लागत नाही.\n\ninstall झाली की कोड मध्ये import requests लिहून ती वापरता येते. Termux सारख्या काही ठिकाणी pip ऐवजी python3 -m pip लिहावं लागतं — दोन्ही तोच pip आहे.",
+        code: `pip install requests`,
+        codeLanguage: "shell",
+        output: `Successfully installed requests-2.31.0`,
+      },
+      {
+        title: "install, list, uninstall",
+        content: "तीन नेहमीच्या command:\n\npip install नाव — नवीन library बसवतो.\npip list — install केलेल्या library ची नावे आणि आवृत्त्या दाखवतो.\npip uninstall नाव — ती library काढून टाकतो.\n\nखाली pip list चा ठराविक output — प्रत्येक library ची आवृत्ती शेजारी.",
+        code: `pip list`,
+        codeLanguage: "shell",
+        output: `Package    Version
+---------- -------
+numpy      1.26.0
+requests   2.31.0`,
+      },
+      {
+        title: "आवृत्ती निवडणे",
+        content: "pip install नाव==1.2.3 ही रचना नेमकी आवृत्ती निवडते. साधा pip install नाव नवीनतम आवृत्ती घेतो, पण सगळ्यात नवी आवृत्ती एखाद्या project शी जुळणारच असं नाही.\n\npip install -U नाव (+upgrade) ने नवीन आवृत्तीवर जातात. == ने आवृत्ती बांधून ठेवल्याने reproducible setup मिळतो.",
+        code: `pip install numpy==1.26.0`,
+        codeLanguage: "shell",
+        output: `Successfully installed numpy-1.26.0`,
+      },
+      {
+        title: "requirements.txt",
+        content: "pip freeze — install केलेल्या library च्या नावे आणि आवृत्त्या == स्वरूपात छापतो. तो output file मध्ये नेण्यासाठी > requirements.txt जोडतात.\n\nनवीन ठिकाणी pip install -r requirements.txt लिहितात — project चं setup तसाच उभा राहतो.",
+        code: `pip freeze`,
+        codeLanguage: "shell",
+        output: `numpy==1.26.0
+requests==2.31.0`,
+      },
+      {
+        title: "venv मध्येच install करा",
+        content: "प्रत्येक project च्या library गरजा वेगळ्या असतात; सगळं global ठिकाणी install केल्यास version conflict होतो. प्रत्येक project ला स्वतःचं venv बनवतात आणि त्यातच install करतात.\n\nsys.executable ने कोणत्या python मध्ये आहोत ते तपासता येते.",
+        code: `import sys
+print(sys.executable)`,
+        codeLanguage: "python",
+        output: `/data/data/com.termux/files/usr/bin/python3`,
+      },
+      {
+        title: "सामान्य चुका",
+        content: "✗ venv सक्रिय न करता pip install — package global मध्ये जातं.\n\n✗ नवीन library install केल्यावर requirements.txt अपडेट न करणे — पुन्हा pip freeze घ्या.\n\n✗ package चं नाव चुकलं — pip error: No matching distribution found. Spelling तपासा.",
+        code: `pip install reqeusts`,
+        codeLanguage: "shell",
+        output: `ERROR: No matching distribution found for reqeusts`,
+      },
+      {
+        title: "Interactive: pip --version",
+        content: "pip --version चा शेवटचा भाग pip कोणत्या python सोबत बसला आहे ते दाखवतो. venv बनवून सक्रिय करा आणि पुन्हा पहा — path बदललेला दिसेल.",
+        code: `pip --version`,
+        codeLanguage: "shell",
+        output: `pip 23.2.1 from /usr/lib/python3/dist-packages/pip (python 3.11)`,
+      },
+      {
+        title: "व्यावसायिक सवयी",
+        content: "• project ला स्वतःचं venv बनवून त्यातच install करा.\n• प्रत्येक install नंतर pip freeze करून requirements.txt अपडेट करा.\n• वेळोवेळी pip list पाहून अनावश्यक packages हटवा.\n• package च्या नावावर खात्री हवी असेल तर अधिकृत दस्तऐवज पडताळा.\n\nहे पाळलं की कोणत्याही ठिकाणी project तसाच चालतो.",
+      },
     ],
     practiceQuestions: [
       "freeze म्हणजे?",
@@ -629,31 +1123,79 @@ print(len(packages), "libraries")`, output: "2 libraries", codeLanguage: "python
     summary: "f-strings, enumerate, zip, sorted, numpy, threading एकत्र करून एक कार्यशील project.",
     levelLabel: L7_LABEL,
     sections: [
-      { title: "1. परिचय", content: "हा शेवटचा project — या level मधील सर्व साधने एकत्र.\n\nआपण एक छोटा गुण विश्लेषक बनवतो.\n\nf-strings ने सुबक output, enumerate ने क्रम, zip ने जोड्या, numpy ने सरासरी.\n\nसर्व काही deterministic आणि चालण्यासारखे.", code: `print("गुण विश्लेषक project")`, output: "गुण विश्लेषक project", codeLanguage: "python" },
-      { title: "2. डेटा व Zip", content: "विद्यार्थ्यांची नावे आणि गुण.\n\nzip ने जोड्या बनवतो.\n\nसरळ list मध्ये जोड्या.\n\nहे पुढील गणनेचा पाया.", code: `names = ["आरोही", "वेद", "मीरा"]
+      {
+        title: "परिचय",
+        content: "हा शेवटचा project — या level मधील सर्व साधने एकत्र. आपण एक छोटा गुण विश्लेषक बनवतो.\n\nf-strings ने सुबक output, enumerate ने क्रम, zip ने जोड्या, numpy ने सरासरी.",
+        code: `print("गुण विश्लेषक project")`,
+        codeLanguage: "python",
+        output: `गुण विश्लेषक project`,
+      },
+      {
+        title: "डेटा व Zip",
+        content: "विद्यार्थ्यांची नावे आणि गुण — zip ने जोड्या बनवतो. सरळ list मध्ये जोड्या — हे पुढील गणनेचा पाया.",
+        code: `names = ["आरोही", "वेद", "मीरा"]
 marks = [88, 65, 92]
 pairs = list(zip(names, marks))
-print(len(pairs))`, output: "3", codeLanguage: "python" },
-      { title: "3. Numpy सरासरी", content: "numpy ने सरासरी आणि बेरीज.\n\nnp.mean(marks) — सरासरी गुण.\n\nहे एकवेळचे, पण मौल्यवान.\n\nव्यवस्थित output साठी f-string.", code: `import numpy as np
+print(len(pairs))`,
+        codeLanguage: "python",
+        output: `3`,
+      },
+      {
+        title: "Numpy सरासरी",
+        content: "numpy ने सरासरी आणि बेरीज. np.mean(marks) — सरासरी गुण. f-string ने सुबक format.",
+        code: `import numpy as np
 marks = [88, 65, 92]
-print(f"सरासरी: {np.mean(marks):.1f}")`, output: "सरासरी: 81.7", codeLanguage: "python" },
-      { title: "4. Ranking", content: "sorted ने उतरत्या क्रमाने गुणांची रांग.\n\nenumerate(..., start=1) ने क्रमांक.\n\nf-string ने सुबक table.\n\nही विद्यार्थ्यांसाठी रंगत.", code: `names = ["आरोही", "वेद", "मीरा"]
+print(f"सरासरी: {np.mean(marks):.1f}")`,
+        codeLanguage: "python",
+        output: `सरासरी: 81.7`,
+      },
+      {
+        title: "Ranking",
+        content: "sorted ने उतरत्या क्रमाने गुणांची रांग. enumerate(..., start=1) ने क्रमांक. f-string ने सुबक table.",
+        code: `names = ["आरोही", "वेद", "मीरा"]
 marks = [88, 65, 92]
 for rank, (n, m) in enumerate(sorted(zip(names, marks), key=lambda x: x[1], reverse=True), start=1):
-    print(f"{rank}. {n} {m}")`, output: "1. मीरा 92\n2. आरोही 88\n3. वेद 65", codeLanguage: "python" },
-      { title: "5. Threading", content: "समांतर काम दाखवण्यासाठी threads.\n\nयेथे साधा क्रमिक computation — deterministic.\n\nआधार: lock वापरून विश्वसनीय result.", code: `import threading
+    print(f"{rank}. {n} {m}")`,
+        codeLanguage: "python",
+        output: `1. मीरा 92
+2. आरोही 88
+3. वेद 65`,
+      },
+      {
+        title: "Threading",
+        content: "समांतर काम दाखवण्यासाठी threads. येथे साधा क्रमिक computation — lock वापरून विश्वसनीय result.",
+        code: `import threading
 lock = threading.Lock()
 with lock:
-    print("विश्लेषण तयार")`, output: "विश्लेषण तयार", codeLanguage: "python" },
-      { title: "6. Interactive", content: "सुबक summary:", code: `marks = [88, 65, 92]
-print(f"एकूण: {sum(marks)}, उच्च: {max(marks)}")`, output: "एकूण: 245, उच्च: 92", codeLanguage: "python" },
-      { title: "Mini Project", content: "संपूर्ण विश्लेषक:", code: `import numpy as np
+    print("विश्लेषण तयार")`,
+        codeLanguage: "python",
+        output: `विश्लेषण तयार`,
+      },
+      {
+        title: "Interactive: Summary",
+        content: "sum आणि max ने एकूण गुण आणि उच्च गुण — एका ओळीत.",
+        code: `marks = [88, 65, 92]
+print(f"एकूण: {sum(marks)}, उच्च: {max(marks)}")`,
+        codeLanguage: "python",
+        output: `एकूण: 245, उच्च: 92`,
+      },
+      {
+        title: "Mini Project: संपूर्ण विश्लेषक",
+        content: "सर्व साधने एकत्र — names, marks, sorted ranking, numpy mean. f-string ने सुबक output.",
+        code: `import numpy as np
 names = ["आरोही", "वेद", "मीरा"]
 marks = [88, 65, 92]
 print("=== गुण विश्लेषक ===")
 for rank, (n, m) in enumerate(sorted(zip(names, marks), key=lambda x: x[1], reverse=True), start=1):
     print(f"{rank}. {n}: {m}")
-print(f"सरासरी: {np.mean(marks):.1f}")`, output: "=== गुण विश्लेषक ===\n1. मीरा: 92\n2. आरोही: 88\n3. वेद: 65\nसरासरी: 81.7", codeLanguage: "python" },
+print(f"सरासरी: {np.mean(marks):.1f}")`,
+        codeLanguage: "python",
+        output: `=== गुण विश्लेषक ===
+1. मीरा: 92
+2. आरोही: 88
+3. वेद: 65
+सरासरी: 81.7`,
+      },
     ],
     practiceQuestions: [
       "zip + sorted कसे एकत्र?",

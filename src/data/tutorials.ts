@@ -97,7 +97,7 @@ export const tutorials: Tutorial[] = [
     sections: [
       {
         title: "काय आहे HTML?",
-        content: "HTML (HyperText Markup Language) ही एक मार्कअप भाषा आहे जी वेबपेजची रचना तयार करते. जशी एखाद्या घराची नक्की (blueprint) असते, तशीच HTML ही वेबपेजची रचना ठरवते.\n\nHTML मध्ये आपण tags वापरतो. Tag म्हणजे < आणि > यामध्ये लिहिलेला कोड. उदा. <h1>, <p>, <div> इत्यादी.\n\nप्रत्येक tag दोन प्रकारे असतो:\n• Opening tag: <p>\n• Closing tag: </p>",
+        content: "HTML (HyperText Markup Language) ही मार्कअप भाषा आहे जी वेबपेजची रचना ठरवते.\n\nHTML मध्ये tags वापरतो. Tag म्हणजे < आणि > यामध्ये लिहिलेला कोड: <h1>, <p>, <div> इत्यादी.\n\nप्रत्येक tag दोन प्रकारे असतो:\n• Opening tag: <p>\n• Closing tag: </p>",
         code: `<!DOCTYPE html>
 <html>
   <head>
@@ -112,7 +112,7 @@ export const tutorials: Tutorial[] = [
       },
       {
         title: "मूलभूत Tags",
-        content: "प्रत्येक HTML डॉक्युमेंटमध्ये खालील मूलभूत tags असतात:\n\n• <html> - संपूर्ण दस्तऐवज\n• <head> - मेटाडेटा (टायटल, लिंक्स)\n• <title> - ब्राउझर टॅबवर दिसणारा टायटल\n• <body> - दिसणारी सर्व माहिती\n\nHeading tags:\n• <h1> - सर्वात मोठा heading\n• <h2> ते <h6> - छोटे headings\n\nParagraph आणि Lists:\n• <p> - paragraph\n• <ul> - unordered list\n• <ol> - ordered list\n• <li> - list item",
+        content: "प्रत्येक HTML डॉक्युमेंटमध्ये चार मूलभूत tags असतात: <html> संपूर्ण दस्तऐवज, <head> मेटाडेटा, <title> ब्राउझर टॅबवर दिसणारा टायटल, <body> पेजवर दिसणारी सर्व माहिती.\n\nशीर्षके: <h1> सर्वांत मोठा heading; <h2> ते <h6> लहान headings.\nParagraph आणि Lists: <p> paragraph, <ul> bulleted list, <ol> क्रमांकित list, <li> list item.",
         code: `<h1>मुख्य शीर्षक</h1>
 <h2>उप-शीर्षक</h2>
 <p>हे एक paragraph आहे.</p>
@@ -122,7 +122,11 @@ export const tutorials: Tutorial[] = [
   <li>दुसरा item</li>
 </ul>`,
         codeLanguage: "html",
-        output: "मुख्य शीर्षक\nउप-शीर्षक\nहे एक paragraph आहे.\n• पहिला item\n• दुसरा item",
+        output: `मुख्य शीर्षक
+उप-शीर्षक
+हे एक paragraph आहे.
+• पहिला item
+• दुसरा item`,
       },
     ],
     quiz: [
@@ -673,8 +677,8 @@ chown user:group file.txt`,
     summary: "रोजच्या कामात लागणारे essential Linux commands शिका.",
     sections: [
       {
-        title: "Essential Commands",
-        content: "येथे काही उपयुक्त Linux commands:\n\nFile management:\n• cp - कॉपी\n• mv - हलवणे\n• rm - डिलीट\n• ln - link\n\nText processing:\n• grep - pattern शोधणे\n• cat - वाचणे\n• less - आरामात वाचणे\n• wc - word count\n\nSystem:\n• ps - processes\n• kill - process थांबवणे\n• df - disk usage\n• free - memory",
+        title: "रोजच्या कामातील commands",
+        content: "File management: cp — कॉपी; mv — हलवणे/रिनेम; rm — डिलीट; ln — link बनवणे.\nText processing: grep — pattern शोधणे; cat — वाचणे; less — मोठा file आरामात वाचणे; wc — word count.\nSystem: ps — processes; kill — process थांबवणे; df — disk usage; free — memory.",
         code: `# फाइलमध्ये keyword शोधणे
 grep "error" log.txt
 
@@ -847,11 +851,11 @@ python
     sections: [
       {
         title: "AI म्हणजे काय?",
-        content: "AI (Artificial Intelligence) म्हणजे संगणकाला माणसासारखं विचार करायला, शिकायला आणि निर्णय घ्यायला शिकवणे.\n\nआधीच्या programs नुसार नियमं पाळतात, पण AI data वरून शिकतो.\n\nAI चे उदाहरण:\n• Siri / Google Assistant\n• Chat-GPT\n• फोटो फेस पाहणे\n• YouTube वर recommendations",
-        code: `# AI काय करतो (सोपे उदाहरण):
-1. Massive data (माहिती) घेतो
-2. त्या data मधून patterns (नमुने) शिकतो
-3. शिकलेल्या ज्ञानावरून निर्णय/उत्तर देतो
+        content: "AI (Artificial Intelligence) म्हणजे संगणकाला माणसासारखं विचार करायला, शिकायला आणि निर्णय घ्यायला शिकवणे. सामान्य प्रोग्राम पूर्वलिखित नियमच पाळतो; AI मात्र data वरून शिकतो.\n\nरोज वापरले जाणारे AI: Siri / Google Assistant, ChatGPT, फोटोमधील चेहरा ओळखणे, YouTube वरील recommendations.",
+        code: `# AI काय करतो:
+1. Massive data घेतो
+2. Patterns शिकतो
+3. निर्णय/उत्तर देतो
 
 # उदा. फोटोमधील चेहरा
 Input: लाखो चेहऱ्यांचे फोटो
@@ -860,40 +864,36 @@ Output: नवीन फोटोमधील चेहरा ओळखते`,
         codeLanguage: "text",
       },
       {
-        title: "AI कुठे वापरला जातो — रोजची उदाहरणे",
-        content: "AI आता केवळ प्रयोगशाळेत नाही — तो रोजच्या जीवनात सगळीकडे आहे. अनेकदा तो आपल्या लक्षातही येत नाही:\n\n• Google Search — आपण टंपलेला सगळा मजकूर वाचून बरोबर निकाल देतो.\n• YouTube / Instagram — आपण काय पाहतो त्यावरून पुढील video सुचवणे.\n• Maps — traffic साठी रस्ता बदलण्याचा अंदाज.\n• फोनचा auto-correct — आपल्या शब्दाचा अंदाज घेऊन पुढचा शब्द सुचवणे.\n• Spam filter — email मधील junk message ओळखणे.\n• UPI / बँक — फसवणूकीचा व्यवहार शोधणे.\n\nही सगळी उदाहरणे मागे data वर शिकलेला एक अंदाज (prediction) असतो. AI म्हणजे जादूगार नाही — तो अधिक अचूक अंदाज लावणारा गणितज्ञ आहे.\n\nआजच्या कोर्समध्ये आपण हेच करणार: प्रत्येक वापर मागची साधी कल्पना उलगडत जाणार.",
+        title: "AI कुठे वापरला जातो?",
+        content: "Google Search — टाइप केलेला मजकूर वाचून सुसंगत निकाल देतो.\nYouTube / Instagram — पाहलेल्या video वरून पुढील सुचवतात.\nGoogle Maps — traffic पाहून रस्ता बदलण्याचा अंदाज देतो.\nफोनचा auto-correct — पुढचा शब्द सुचवतो.\nemail चा spam filter — junk message वेगळे करतो.\nबँक / UPI — फसवणुकीचा व्यवहार शोधतो.\n\nAI जादूगार नाही — तो मोठ्या प्रमाणात data वरून अचूक अंदाज लावणारी गणिती प्रक्रिया आहे.",
       },
       {
-        title: "नियम प्रोग्राम vs AI — मुख्य फरक",
-        content: "संगणक सुरुवातीपासून केवळ नियम पाळतो. आपण त्याला सांगतो — जर असे असेल तर हे कर. यालाच programming म्हणतात.\n\nउदाहरण — calculator:\n\t• input त्यांची बेरीज करून output देतो.\n\t• नियम स्पष्ट: a + b = c.\n\nपण काही कामांसाठी नियम लिहिणेच अशक्य असते:\n\t• हाताने लिहिलेला अंक ओळखण्याचे नियम कोणीही सांगू शकत नाही.\n\t• भाषेतील व्यंग्य (sarcasm) नियमांनी मांडता येत नाही.\n\nइथेच AI वेगळा — नियम आपण लिहित नाही, तर उदाहरणे देतो:\n\t1. लाखो अंकांचे फोटो (data).\n\t2. प्रत्येक फोटोवर खरे उत्तर (label).\n\t3. संगणक स्वतः नियम शोधतो.\n\nथोडक्यात: programming मध्ये आपण नियम लिहितो; AI मध्ये data वरून नियम आपोआप तयार होतात. ही सर्वात महत्त्वाची ओळख आहे.",
+        title: "नियम प्रोग्राम vs AI",
+        content: "Calculator हेच उदाहरण — तो दोन संख्या घेऊन त्यांची बेरीज करतो; नियम स्पष्ट: a + b = c.\n\nपण हाताने लिहिलेला अंक ओळखण्याचे नियम कोणीही तयार करू शकत नाही आणि भाषेतील व्यंग्य नियमांमध्ये मांडता येत नाही.\n\nAI वेगळा येतो — नियम आपण लिहित नाही, तर उदाहरणे देतो: लाखो अंकांचे फोटो (data), प्रत्येक फोटोवर खरे उत्तर (label), आणि संगणक स्वतः नियम शोधतो.\n\nProgramming मध्ये नियम आपण लिहितो; AI मध्ये data वरून नियम आपोआप तयार होतात.",
       },
       {
         title: "Narrow AI vs General AI",
-        content: "AI चे भविष्य चर्चा करताना आपल्याला दोन संज्ञा ऐकू येतात:\n\nNarrow AI (Weak AI) — एका विशिष्ट कामात दक्ष:\n\t• फोटोतला चेहरा ओळखणे.\n\t• स्पॅम वेगळे करणे.\n\t• शतरंजात माणसाला हरवणे.\n\nहे एक काम अप्रतिम करते, पण त्याच क्षमता दुसऱ्या कामात वापरता येत नाहीत. आजचे बहुतेक सगळे AI narrow आहेत. आजचा फोन चेहरा ओळखतो, पण त्याचा face-unlock वापरून व्याकरण शिकवणारा tutor बनत नाही.\n\nGeneral AI (Strong AI) — माणसासारखे कोणतेही काम करू शकणारा:\n\t• शिकणे, समजणे, सर्जनशील राहणे.\n\t• एकाच बुद्धीतून वेगवेगळ्या कामांत लागणे.\n\nअसा AI आज अस्तित्वात नाही; तो संशोधनाचा दीर्घकालीन ध्येयमार्ग आहे. म्हणून चित्रपटांतील 'AI चा ताबा' या कल्पना सध्या तरी प्रत्यक्षात नाही — आजचे AI केवळ नियमीत कामांत उत्तम आहेत.",
+        content: "Narrow AI (Weak AI) — एका विशिष्ट कामात दक्ष: फोटोतील चेहरा ओळखणे, स्पॅम वेगळे करणे, बुद्धिबळात माणसाला हरवणे. आजचे बहुतेक AI narrow आहेत.\n\nGeneral AI (Strong AI) — माणसासारखे कोणतेही काम करू शकणारा. असा AI आज अस्तित्वात नाही; तो संशोधनाचा दीर्घकालीन ध्येयमार्ग आहे.",
       },
       {
-        title: "AI कसा शिकतो — मुख्य तीन मार्ग",
-        content: "AI शिकण्याचे एकच मूलभूत तत्त्व असते — उदाहरणांमधून नमुना शोधणे. याची तीन मुख्य शैली:\n\n१. पाठ्यपुस्तकी (Supervised):\n\t• प्रत्येक उदाहरणाबरोबर खरे उत्तर असते.\n\t• उदा. फोटो + 'मांजर' असे लेबल.\n\t• संगणक उत्तराचा अंदाज लावून, चुकीवरून सुधारतो.\n\n२. गट शोधणे (Unsupervised):\n\t• उत्तर नसते, फक्त उदाहरणे असतात.\n\t• संगणक स्वतःच सारखे नमुने वेगळे करतो.\n\t• उदा. ग्राहकांचे गट शोधून marketing strategy.\n\n३. प्रयत्न-अपयश (Reinforcement):\n\t• कृतीचे फळ मिळते; चांगली कृती मजबूत होते.\n\t• उदा. robot ला चालायला शिकवणे — पडल्यावर शिक्षा व यशावर बक्षीस.\n\nया तिन्ही मार्गांवर पुढील पाठांत सविस्तर प्रकाश पडेल. आतासाठी फक्त ओळख — AI मध्ये 'शिकणे' हे data वरून नमुना शोधणेच आहे.",
+        title: "AI कसा शिकतो?",
+        content: "AI शिकण्याचे मूळ एकच तत्त्व: उदाहरणांमधून नमुना शोधणे.\n\nSupervised — प्रत्येक उदाहरणाबरोबर खरे उत्तर असते; उदा. फोटो + मांजर लेबल.\n\nUnsupervised — उत्तर नसते, फक्त उदाहरणे; संगणक स्वतः सारखे नमुने वेगळे करतो.\n\nReinforcement — प्रत्येक कृतीला फळ मिळते; चांगली कृती मजबूत होते; उदा. robot ला चालायला शिकवणे.",
       },
       {
-        title: "AI ची प्रमुख तंत्रे — ML, DL, NLP, Vision",
-        content: "AI चे अनेक उपक्षेत्र आहेत; चार प्रमुख ती नक्की समजून घ्या:\n\nMachine Learning (ML):\n\t• Data वरून नियम शिकणाऱ्या तंत्रांचा संच्य.\n\t• या कोर्सचा पाया.\n\nDeep Learning (DL):\n\t• ML चा एक भाग — मानवी मेंदूच्या neuron प्रमाणे layers वापरणे.\n\t• मोठे data व मोठ्या संगणकावर अचूक.\n\t• फोटो, आवाज, भाषा यात दबदबा.\n\nNatural Language Processing (NLP):\n\t• भाषा समजून घेणे — translator, chatbot, writer असिस्टंट.\n\nComputer Vision (CV):\n\t• चित्रे/फोटो समजून घेणे — face unlock, self-driving car, फोटो search.\n\nसोपी ओळख: ChatGPT हा NLP+DL चा वापर; बँकेतला चेहरा ओळख CV+DL चा. ही उपक्षेत्रे पुढील पाठांमध्ये एकेक उलगडत जातील.",
+        title: "AI ची उपक्षेत्रे",
+        content: "Machine Learning (ML) — data वरून नियम शिकणाऱ्या तंत्रांचा संच.\nDeep Learning (DL) — ML चा एक भाग; मानवी मेंदूच्या neuron प्रमाणे layers वापरतो.\nNatural Language Processing (NLP) — भाषा समजून घेणे: translator, chatbot.\nComputer Vision (CV) — प्रतिमा समजून घेणे: face unlock, self-driving car.\n\nChatGPT म्हणजे NLP+DL; बँकेतला चेहरा ओळख म्हणजे CV+DL.",
       },
       {
-        title: "AI चे फायदे — व्यक्ती आणि समाज",
-        content: "AI चा योग्य वापर अनेक कामे सोपी करतो:\n\n• वेळ वाचवणे — दस्तऐवज सारांश, मसुदा, नोंदी.\n• दुर्गम कामे — डॉक्टरला X-ray विश्लेषणात मदत.\n• भाषा — झटपट भाषांतर, शिक्षण सर्वांसाठी.\n• व्यवसाय — फसवणूकी शोधणे, वेअरहाऊस व्यवस्थापन.\n• शारीरिक धोका टाळणे — बॉम्ब शोधणारा रोबोट, धोकादायक ठिकाणचे संशोधन.\n\nपण फायदा योग्य data व योग्य वापरावर अवलंबून. AI हेच साधन — ते शिक्षक बनू शकते किंवा दिशाभूल करणारेही. चांगला निकाल मिळवण्याची जबाबदारी आपलीच.\n\nमराठीत विचार: AI मुळे शाळेतील विद्यार्थ्याला स्वतःहून गणित सराव मिळू शकतो; अनुवादामुळे मराठी साहित्य जगभर पोहोचू शकते. या कोर्सचा उद्देश असाच सामर्थ्यवर्धक वापर शिकवणे आहे.",
-      },
-      {
-        title: "AI च्या जोखमी — सावधान",
-        content: "प्रत्येक तंत्रज्ञानाच्या सोबत जोखमी असतात; AI लाही:\n\n• Bias — data गलिच्छ असल्यास निर्णय अन्यायकारक (उदा. एका गटाला नेहमी नाकारणे).\n• Privacy — एखाद्याची छायाचित्रे, सवयी व चुका data मध्ये येतात.\n• Fake content — बनावट फोटो/आवाज/बातम्या विश्वास लायक वाटतात.\n• नोकरी — काही नोकर्या बदलतील; स्किल्स अपडेट ठेवाव्या लागतील.\n• Over-reliance — AI वर अंध विश्वास; माणसाचा निर्णय कमी.\n\nयाचा अर्थ AI टाळावा असा नाही — तर तो जाणूनबुजून वापरावा.\n\nमुख्य सुरक्षा नियम: AI कडून मिळणारी माहिती तपासा, वैयक्तिक गुप्त माहिती शेअर करू नका, आणि महत्त्वाच्या निर्णयांसाठी नेहमी माणसाची पडताळणी घ्या. हे नियम ai-ethics पाठात सविस्तर येतील.",
+        title: "AI चे फायदे आणि जोखमी",
+        content: "फायदे: दस्तऐवज सारांश वेळ वाचतो; डॉक्टरला X-ray विश्लेषणात मदत; झटपट भाषांतर; फसवणूक शोधणे; बॉम्ब शोधणारा रोबोट माणसाचा धोका टाळतो.\n\nजोखमी: गलिच्छ data → अन्यायकारक निर्णय (bias); छायाचित्रे data मध्ये जातात (privacy); बनावट फोटो/आवाज; काही नोकर्या बदलतात.\n\nAI टाळावा असा नाही, तर जाणूनबुजून वापरावा. AI कडून मिळालेली माहिती तपासा, खासगी गुप्त माहिती शेअर करू नका.",
       },
       {
         title: "या कोर्सचा नकाशा",
-        content: "AI शिकण्यामध्ये दिशा महत्त्वाची. या शृंखलेची रचना अशी आहे:\n\n१. AI ओळख (हे पाठ) — AI काय आहे, कुठे वापरतात.\n२. Machine Learning — data वरून शिकण्याची मुळे.\n३. Python — AI ची भाषा व libraries.\n४. Data — features, labels, quality (ai-data).\n५. गणित — सरासरी, error, gradient (ai-math-ai).\n६. Neural networks व Deep learning (ai-neural-networks).\n७. Reinforcement learning (ai-reinforcement).\n८. ChatGPT / LLM — tokens, context (ai-chatgpt).\n९. Prompts — ChatGPT ला चांगले प्रश्न (ai-prompts).\n१०. NLP — भाषेचे तंत्र (ai-nlp).\n११. दोन small प्रकल्प — Spam detector व Chatbot (ai-project-*).\n\nशिकण्याची पद्धत: प्रत्येक पाठ वाचा, अंतर्गत code सोबत करा, शेवटी प्रश्न स्वतः सोडवा. गणित म्हणजे घाबरु नका — आपण फक्त बेरीज-वजाबाकीच्या पातळीवर जाणार.",
+        content: "AI शिकण्यामध्ये दिशा महत्त्वाची. या शृंखलेची रचना: १. AI ओळख (हा पाठ), २. Machine Learning, ३. Python व libraries, ४. Data, ५. गणित, ६. Neural networks व Deep learning, ७. Reinforcement learning, ८. ChatGPT / LLM, ९. Prompts, १०. NLP, ११. दोन छोटे प्रकल्प.\n\nगणित म्हणजे घाबरू नका — गणना फक्त बेरीज-वजाबाकीच्या पातळीवर राहील.",
       },
       {
         title: "आजचा सारांश",
-        content: "आजचे प्रमुख धडे:\n\n• AI म्हणजे संगणकाला data वरून शिकवणे — नियम आपण लिहित नाही, तो उदाहरणांवरून नियम शोधतो.\n• आजचे सगळे AI narrow आहेत — एका कामात उत्तम, पण सर्वशक्तिमान नाही.\n• शिकण्याचे तीन मार्ग: Supervised, Unsupervised, Reinforcement.\n• उपक्षेत्रे: ML, DL, NLP, Computer Vision.\n• फायदा आणि जोखीम — योग्य data आणि जबाबदार वापर आवश्यक.\n• कोर्सचा मार्ग: ओळख → ML → Python → Data → गणित → Networks → नंतर प्रकल्प.\n\nपुढील पाठात Machine Learning — AI चे हृदय — सोप्या उदाहरणांसह समजून घेणार आहोत.\n\nआजचे प्रॅक्टिस:\n\t०१. दिवसभरात तुम्ही वापरलेले ३ AI साधने लिहा (वर प्रमाणे).\n\t०२. प्रत्येक साधन narrow AI आहे का — का — ते कारण सांगा.\n\t०३. 'AI मुळे नोकरी जाईल' या विधानावर तुमचे मत ४ ओळीत लिहा.",
+        content: "AI म्हणजे data वरून शिकवणे — नियम उदाहरणांवरून शोधतो. आजचे सर्व AI narrow आहेत. शिकण्याचे तीन मार्ग — Supervised, Unsupervised, Reinforcement. उपक्षेत्रे — ML, DL, NLP, CV.\n\nसराव: दिवसभरात वापरलेली तीन AI साधने लिहा; प्रत्येक narrow AI आहे का ते ठरवा.",
       },
     ],
     quiz: [
@@ -922,17 +922,17 @@ Output: नवीन फोटोमधील चेहरा ओळखते`,
     sections: [
       {
         title: "Machine Learning ची ओळख",
-        content: "Machine Learning (ML) हे AI चे उप-क्षेत्र आहे. सामान्य programming मध्ये आपण rules लिहतो, पण ML मध्ये आपण data देतो आणि संगणक स्वतःच rules शिकतो.\n\nतीन प्रकार:\n1. Supervised Learning - labeled data वरून शिकणे\n2. Unsupervised Learning - patterns शोधणे\n3. Reinforcement Learning - प्रयत्न-अपयशातून शिकणे\n\nसामान्य उदाहरण:\nआपण मुलाला सफरचंद ओळखायला शिकवतो - अनेक चित्रे दाखवतो. तो मग स्वतः ओळखतो.",
+        content: "ML हे AI चे उप-क्षेत्र आहे. सामान्य programming मध्ये rules लिहितो, पण ML मध्ये data देतो आणि संगणक स्वतःच rules शिकतो.\n\nतीन प्रकार:\n1. Supervised Learning — labeled data वरून शिकणे\n2. Unsupervised Learning — patterns शोधणे\n3. Reinforcement Learning — प्रयत्न-अपयशातून शिकणे\n\nसामान्य उदाहरण: मुलाला सफरचंद ओळखायला शिकवतो — अनेक चित्रे दाखवतो. तो मग स्वतः ओळखतो.",
         code: `# सामान्य programming vs ML
 
 # सामान्य programming
-if state == 'जवळ' and object == 'APPLE':
-    label = 'सफरचंद'
+if state == "जवळ" and object == "APPLE":
+    label = "सफरचंद"
 
 # ML पद्धत
 training_data = [
-   (सफरचंद_चित्र, 'सफरचंद'),
-   (केळी_चित्र, 'केळी'),
+   (सफरचंद_चित्र, "सफरचंद"),
+   (केळी_चित्र, "केळी"),
 ]
 model.learn(training_data)
 
@@ -941,40 +941,36 @@ model.predict(नवीन_चित्र)`,
         codeLanguage: "python",
       },
       {
-        title: "Learning म्हणजे नेमकं काय — संगणकाच्या नजरेतून",
-        content: "माणूस शिकतो म्हणजे अनुभवातून वागण्याची पद्धत बदलते. संगणकाचे 'शिकणे' म्हणजे data वरून अंदाज प्रक्रियेचे नियम (weights/parameters) असे बदलतात की अंदाज चांगले व्हायला लागतात.\n\nउदाहरण घेऊ — रेषा सरकवणे:\n\t• १० उदाहरणे: घराचे क्षेत्रफळ → किंमत.\n\t• मॉडेल एक रेषा: किंमत = weight × area + bias.\n\t• सुरुवातीला weight यादृच्छिक (random) — अंदाज चुकीचे.\n\t• प्रत्येक उदाहरणावर चुक प्रमाणे weight थोडा सुधारतो.\n\nशिकण्याचा चक्र (training loop):\n\t१. एक उदाहरण घ्या.      २. अंदाज लावा.\n\t३. चुक मोजा.            ४. चुक कमी करेल अशा दिशेने weight बदला.\n\t५. पुढील उदाहरण घ्या — पुन्हा १ पासून.\n\nअनेक फेऱ्यांनंतर weight असे जुळतो की चुक कमीत कमी. या प्रक्रियेला प्रशिक्षण (training) म्हणतात. शेवटी नवीन घरासाठी अंदाज योग्य येतो.",
+        title: "Learning — संगणकाच्या नजरेतून",
+        content: "संगणकाचे शिकणे म्हणजे data वरून अंदाज प्रक्रियेचे weights/parameters असे बदलतात की अंदाज चांगले व्हायला लागतात.\n\nउदाहरण — रेषा सरकवणे: १० उदाहरणे (घराचे क्षेत्रफळ → किंमत). मॉडेल: किंमत = weight × area + bias. सुरुवातीला weight random — अंदाज चुकीचे. प्रत्येक उदाहरणावर weight थोडा सुधारतो.\n\nशिकण्याचा चक्र: १. उदाहरण घ्या. २. अंदाज लावा. ३. चुक मोजा. ४. weight बदला. ५. पुढील उदाहरण. अनेक फेऱ्यांनंतर चुक कमीत कमी.",
       },
       {
-        title: "features आणि labels — शिकण्याची जोडी",
-        content: "ML मध्ये प्रत्येक उदाहरण दोन भागांचे असते:\n\nFeatures (माहिती) — ज्यावरून अंदाज लावायचा:\n\t• संख्यात्मक — क्षेत्रफळ, किंमत, दिवस संख्या.\n\t• शब्द — शहराचे नाव, श्रेणी.\n\t• प्रतिमा — प्रत्येक pixel ची brightness.\n\nLabels (उत्तर) — खरं काय, ते मॉडेलला शिकवायचे:\n\t• घराची खरी विक्री किंमत.\n\t• फोटो मांजर की कुत्रा.\n\t• ईमेल spam की नाही.\n\nSupervised learning चे सूत्र: features + label → मॉडेल.\nज्या उदाहरणांवर label नसेल, त्या उदाहरणांवर मॉडेलला काही शिकवता येत नाही. म्हणूनच labeling — माणसाने उत्तरे जोडणे — ही वेळखाऊ पण आवश्यक मेहनत असते.\n\nलक्षात ठेवा: प्रत्येक algorithm मध्ये features व label चा मेळ बरोबर असावा लागतो; अन्यथा शिकणे दिशाभूल होते.",
+        title: "Features आणि Labels",
+        content: "ML मध्ये प्रत्येक उदाहरण दोन भागांचे असते:\n\nFeatures — ज्यावरून अंदाज लावायचा: संख्यात्मक (क्षेत्रफळ, किंमत), शब्द (शहराचे नाव), प्रतिमा (pixel brightness).\n\nLabels — खरं काय: घराची खरी विक्री किंमत, फोटो मांजर की कुत्रा, ईमेल spam की नाही.\n\nSupervised learning: features + label → मॉडेल. Labeling — माणसाने उत्तरे जोडणे — ही वेळखाऊ पण आवश्यक मेहनत.",
       },
       {
-        title: "Supervised learning — सखोल दृष्टी",
-        content: "सगळ्यांत सामान्य आणि उपयोगी पद्धत. त्यात दोन प्रकार:\n\nRegression (अंदाज — संख्या):\n\t• उत्तर सतत संख्या असते.\n\t• उदा. घराची किंमत, थंडीची पातळी, उत्पादन विक्री.\n\t• चुक मोजली जाते magnitude ने (अंदाज किती दूर गेला).\n\nClassification (वर्गीकरण — निवड):\n\t• उत्तर एका मर्यादित यादीतला असते.\n\t• उदा. मांजर/कुत्रा, spam/non-spam, रोगी/निरोगी.\n\t• चुक मोजली जाते चुकीच्या वर्गावरून.\n\nदोन्हीमध्ये काम करणारा data: [features → पाठ/उत्तर]. मॉडेलला शिकताना 'या features मध्ये हे उत्तर होते' प्रमाणे शिकवतात.\n\nसोपी ओळख: regression 'किती?' सांगतो, classification 'कोणता?' सांगतो. दोन्ही एकत्रही येतात — उदा. disease prediction मध्ये आधी वर्ग (रोग/नाही) नंतर शक्यता (किती % धोका).",
+        title: "Supervised Learning — Regression आणि Classification",
+        content: "Regression (अंदाज): उत्तर सतत संख्या — घराची किंमत, थंडीची पातळी. चुक magnitude ने मोजली जाते.\n\nClassification (वर्गीकरण): उत्तर एका मर्यादित यादीतला — मांजर/कुत्रा, spam/non-spam. चुक चुकीच्या वर्गावरून मोजली जाते.\n\nसोपी ओळख: regression किती? सांगतो, classification कोणता? सांगतो.",
       },
       {
-        title: "Unsupervised learning — गट शोधणे",
-        content: "कधीकधी आपल्याकडे फक्त features असतात — उत्तर नसते. तरीही माहिती वेगळी मांडता येते:\n\nClustering (गट बनवणे):\n\t• सारख्या features चा गट शोधणे.\n\t• उदा. ग्राहकांचे गट — कोण जास्त खरेदी करतो, कोण केवळ सेल वर.\n\t• उदा. बातम्या — स्वतः विषयांचे गट तयार होतात.\n\nDimensionality reduction (मोठा data लहान करणे):\n\t• हजारो features मधून गरजेचे २-३ सोपे features बनवणे.\n\t• उदा. चेहऱ्याचा data १०००० pixel वरून १०० अवयवांत कमी करणे.\n\nहे कशासाठी?\n\t• data समजणे — आधी गट माहीत झाले, मग प्रत्येक गटाला नाव देणे.\n\t• गलिच्छ data शोधणे — असामान्य नमुने वेगळे दिसतात.\n\nहे supervised सारखे अचूक नाही, पण जिथे उत्तर नाही तिथे सुरुवात करण्याचा एकमेव मार्ग.",
+        title: "Unsupervised Learning",
+        content: "फक्त features असतात — उत्तर नसते.\n\nClustering: सारख्या features चा गट शोधणे — उदा. ग्राहकांचे गट.\nDimensionality reduction: हजारो features मधून गरजेचे २-३ बनवणे.\n\nSupervised सारखे अचूक नाही, पण जिथे उत्तर नाही तिथे सुरुवात करण्याचा एकमेव मार्ग.",
       },
       {
-        title: "Evaluating — चांगले कसे तपासतात",
-        content: "मॉडेल बनवले की प्रश्न येतो: किती चांगले? खरी परीक्षा म्हणजे नवीन (test) data वर निकाल.\n\nमुख्य मोजमापे:\n\t• Accuracy — एकूण उदाहरणांपैकी किती बरोबर?\n\t• Precision / Recall — दुर्मिळ गटासाठी (रोग, फसवणूक) महत्त्वाचे.\n\t• Confusion matrix — कोणत्या गटात चुक होते, ते पाहणे.\n\t• Error (regression) — अंदाज सरासरी किती दूर.\n\nटोकाची परिस्थिती:\n\t• 100 मध्ये 99 'निरोगी', 1 'रोगी'. फक्त 'निरोगी' सांगणारे मॉडेल 99% accuracy देते — पण निरुपयोगी. यामुळे accuracy एकटीच पुरेशी नाही.\n\t• precision/recall मुळेच असे मॉडेल पकडले जातात.\n\nमहत्त्वाचे: test data हा training मध्ये लगेच वापरू नये. मॉडेल वारंवार test data वरच तपासायचे झाल्यास तो तो data पाठ करतो आणि परीक्षा खोटी होते.",
+        title: "Overfitting",
+        content: "मॉडेल सरावातील उदाहरणे तंतोतंत पाठ करते, पण नवीन उदाहरणात चुकते.\n\nलक्षणे: Training accuracy 100%, test accuracy वेगाने कमी.\n\nउपाय: जास्त data, सोपे मॉडेल, regularization, cross-validation.\nविरुद्ध बाजू: underfitting — मॉडेल खूप सोपे, training वरही निकृष्ट.",
       },
       {
-        title: "Overfitting — पाठांतराची सापळा",
-        content: "एक सामान्य अपयश — मॉडेल सरावातील उदाहरणे तंतोतंत पाठ करते, पण नवीन उदाहरणात चुकते.\n\nउदाहरण:\n\t• मुलाने ५ प्रश्नांची उत्तरे लक्षात ठेवली. परीक्षेत प्रश्न बदलले की गोंधळ.\n\t• मॉडेलने data मध्ये घोंगडी (noise) नेमके वाचले — तो नियम नव्हे, योगायोग शिकला.\n\nलक्षणे:\n\t• Training accuracy अगदी 100%.\n\t• Test accuracy वेगाने कमी.\n\nउपाय:\n\t• जास्त data — नवे नमुने.\n\t• मॉडेल सोपे — कमी layers/features.\n\t• regularization — खूप मोठ्या weight ला शिक्षा.\n\t• cross-validation — data वेगवेगळ्या कापांत तपासणी.\n\nविरुद्ध बाजू underfitting — मॉडेल खूप सोपे, training वरही निकृष्ट.\n\nयोग्य निवड: मॉडेल इतकं सोपं असावं की general बरोबर, आणि इतकं क्षमतावान की पुरेसं नियम शिकवेल. ही संतुलनाची कसरत आहे.",
+        title: "Hands-on उदाहरण",
+        content: "३ उदाहरणे: घराचे क्षेत्रफळ → किंमत: (100,10) (200,15) (300,20)\n\nसाधे रेषेचे मॉडेल: किंमत = w × क्षेत्रफळ + b. सुरुवातीला w=0, b=0 → चुक 10, 15. w=0.05 → चुक 5. w≈0.06 → अंदाज जवळ.",
       },
       {
-        title: "एक छोटे hands-on उदाहरण — गणित सोबत",
-        content: "कल्पना करा: ३ उदाहरणे आहेत — घराचे क्षेत्रफळ → किंमत:\n\t(100,10)  (200,15)  (300,20)\n\nसाधे रेषेचे मॉडेल: किंमत = w × क्षेत्रफळ + b.\nसुरुवातीला w=0, b=0:\n\t• १०० → 0, खरी 10, चुक = 10.\n\t• २०० → 0, खरी 15, चुक = 15.\n\nसुधारणा नियम: w थोडा वाढवा. 1-2 फेऱ्यांत:\n\t• w=0.05 → 100→5, चुक 5;   300→15, चुक 5.\n\nआणखी फेऱ्या केल्यास w≈0.06 बरोबर जवळ — तीनही अंदाज जवळ आले.\n\nहे साधे उदाहरण खरे शिकणे दाखवते:\n\t१. चुक मोजणे.\n\t२. चुक कमी करण्याच्या दिशेने नियम बदलणे.\n\t३. पुन्हा, पुन्हा — चुक कमी होते.\n\nनेहमी code न करता कागदावरच हा खेळ नक्की करा — मग कोणतेही algorithm (sklearn, TensorFlow) सोपे वाटेल. भविष्यातील ai-math-ai पाठात याचे gradient चे गणित देखील येईल.",
-      },
-      {
-        title: "नैतिक गोष्टी — शिकतानाच शिकणे",
-        content: "ML शिकण्याबरोबर त्याच्या जबाबदारीची ओळख देखील व्हायला हवी:\n\n• Bias — data मध्येच असमतोल असेल तर model पक्षपाती.\n\tउदा. कमी महिला असलेल्या भरती data वर प्रशिक्षण = महिलांना दुर्लक्ष.\n• Privacy — labels तयार करताना एखाद्याची खासगी माहिती जाणीवपूर्वक हाताळली जाते.\n• Medical — मॉडेलने सांगितलेले अंदाज नेहमी दोनदा तपासा (उदा. रोगाचा निदान आणि डॉक्टरचा सल्ला).\n• Explainability — स्पष्ट करता येईल असे मॉडेल निवडा; काळ्या पेटीसारखे मॉडेल महत्त्वाच्या निर्णयात धोकादायक.\n\nचांगले data + पारदर्शक मॉडेल + मानवी पडताळणी = विश्वासार्ह ML.\n\nया सर्व जबाबदाऱ्या ai-ethics पाठात विस्ताराने समजतील. शिकण्याची सुरुवातच नैतिक मनाने होणे महत्त्वाचे.",
+        title: "नैतिक गोष्टी",
+        content: "Bias — data मध्येच असमतोल असेल तर model पक्षपाती.\nPrivacy — labels तयार करताना खासगी माहिती हाताळली जाते.\nMedical — मॉडेलने सांगितलेले अंदाज नेहमी दोनदा तपासा.\nExplainability — स्पष्ट करता येईल असे मॉडेल निवडा.\n\nचांगले data + पारदर्शक मॉडेल + मानवी पडताळणी = विश्वासार्ह ML.",
       },
       {
         title: "आजचा सारांश",
-        content: "Machine Learning — ठळक मुद्दे:\n\n• ML मध्ये आपण नियम लिहित नाही; data वरून मॉडेलला नियम शिकवतो.\n• शिकण्याचे चक्र: अंदाज → चुक → weight सुधारणा → पुन्हा.\n• तीन शैली: Supervised, Unsupervised, Reinforcement.\n• Supervised मध्ये दोन: regression (किती?) व classification (कोणता?).\n• Features + labels ही शिकण्याची जोडी.\n• evaluation — नवीन data वर तपासणे; accuracy ही एकमेव परीक्षा नाही.\n• Overfitting — पाठांतर; सोपे मॉडेल + जास्त data हा उपाय.\n• नैतिक ओळख — bias, privacy, मानवी पडताळणी.\n\nपुढील पाठात Python — AI ची भाषा — त्याच्या libraries सह पाहू.\n\nआजचे प्रॅक्टिस:\n\t०१. तुमच्या रोजच्या गोष्टीत एक regression आणि एक classification उदाहरण शोधा.\n\t०२. मॉडेलला 'पाठांतर' होणे कसे टाळाल ते २ उपाय लिहा.\n\t०३. स्वतः ३ उदाहरणांचे छोटे supervised प्रकरण तयार करा व weight कसा सुधारेल ते कागदावर दाखवा.",
+        content: "ML मध्ये नियम लिहित नाही; data वरून मॉडेलला शिकवतो. शिकण्याचे चक्र: अंदाज → चुक → weight सुधारणा. तीन शैली: Supervised, Unsupervised, Reinforcement. Features + labels = शिकण्याची जोडी. Overfitting — सोपे मॉडेल + जास्त data.\n\nपुढील पाठात Python — AI ची भाषा — पाहू.",
       },
     ],
     quiz: [
@@ -1004,56 +1000,54 @@ model.predict(नवीन_चित्र)`,
     sections: [
       {
         title: "Python आणि AI",
-        content: "Python ही AI/ML साठी सर्वात लोकप्रिय भाषा आहे कारण:\n\n• Simpl सिंटॅक्स - learn करणे सोपे\n• भरपूर libraries:\n  - NumPy - गणित\n  - Pandas - data analysis\n  - Scikit-learn - ML algorithms\n  - TensorFlow / PyTorch - deep learning\n• मोठा समाज (community)\n• मुक्त स्वरूप (free)\n\nसुरुवातीला आपण Python basics आणि नंतर ML libraries शिकू.",
-        code: `# ML library उदाहरण (सोपे)
-# pip install scikit-learn
+        content: "Python ही AI/ML साठी सर्वात लोकप्रिय भाषा — सिंटॅक्स सोपी, भरपूर libraries (NumPy, Pandas, Scikit-learn, TensorFlow/PyTorch), मोठा community, मुक्त.",
+        code: `from sklearn.tree import DecisionTreeClassifier
 
-from sklearn.tree import DecisionTreeClassifier
-
-# data
 X = [[5.1, 3.5], [7.0, 3.2], [6.3, 3.3]]
-y = [0, 1, 1]  # labels
+y = [0, 1, 1]
 
-# मॉडेल तयार
 model = DecisionTreeClassifier()
 model.fit(X, y)
-
-# prediction
 print(model.predict([[5.1, 3.5]]))`,
         codeLanguage: "python",
-        output: "[0]",
+        output: `[0]`,
       },
       {
-        title: "Python ची ओळख — पहिला दृष्टीक्षेप",
-        content: "Python मध्ये code लिहिणे हे इंग्रजी वाचल्यासारखे वाटते. हेच त्याचे सर्वांत मोठे वैशिष्ट्य.\n\nसाधी तुलना (C++ विरुद्ध Python):\n\tC++:  int sum = 0; for (int i=0; i<5; i++) sum += i;\n\tPython: sum(range(5))\n\nAI data वर काम करताना वेगवान write व पुन्हा वापर महत्त्वाचा — Python तसे शक्य करते.\n\nयाशिवाय Python चे फायदे:\n\t• Open source — फुकट.\n\t• मोठा समुदाय — प्रश्न सोडवणारी लोक भरपूर.\n\t• Libraries — AI साठी तयार साहित्य.\n\nतुम्हाला programming नवीन असेल तर डरू नका — या कोर्समध्ये Python basics (python-basics पाठ) नंतर AI specific वापर शिकवला जातो.",
+        title: "Python सिंटॅक्स",
+        content: "Python मध्ये code लिहिणे इंग्रजी वाचल्यासारखे वाटते.\n\nC++: int sum = 0; for (int i=0; i<5; i++) sum += i;\nPython: sum(range(5))\n\nAI data वर काम करताना वेगवान write व पुन्हा वापर महत्त्वाचा — Python तसे शक्य करते.",
       },
       {
-        title: "AI साठी महत्त्वाच्या libraries",
-        content: "Python ची खरी ताकद त्याच्या libraries मध्ये आहे — AI साठी रेडीमेड साधने:\n\nNumPy:\n\t• संख्यात्मक गणित — arrays, matrix.\n\t• उदा. 1000 संख्यांवर गणित एका ओळीत.\n\nPandas:\n\t• Data table सांभाळणे — excel सारखा data.\n\t• उदा. CSV वाचणे, गट करणे, कमी असलेली मूल्ये हाताळणे.\n\nMatplotlib:\n\t• चित्रे/आलेख काढणे — data पाहणे.\n\nScikit-learn:\n\t• तयार ML algorithms — regression, classification, clustering.\n\t• Beginner मध्ये सर्वांत आवडते.\n\nTensorFlow / PyTorch:\n\t• Deep learning — neural networks बनवणे.\n\t• जास्त क्षमता, पण तुलनेने अवघड.\n\nशिकण्याचा मार्ग: NumPy → Pandas → Scikit-learn या ओळीने. TensorFlow नंतर. एका वेळी एक library — व्यवस्थित समजा.",
+        title: "AI साठी Libraries",
+        content: "NumPy — संख्यात्मक गणित, arrays, matrix.\nPandas — Data table सांभाळणे, CSV वाचणे.\nMatplotlib — चित्रे/आलेख काढणे.\nScikit-learn — तयार ML algorithms.\nTensorFlow / PyTorch — Deep learning, neural networks.\n\nशिकण्याचा मार्ग: NumPy → Pandas → Scikit-learn → TensorFlow.",
       },
       {
-        title: "वातावरण तयार करणे — install आणि setup",
-        content: "AI कोड चालवण्यासाठी Python install असणे आवश्यक. सोपा प्रारंभ:\n\n१. Python install करा (नवीन आवृत्ती 3.x).\n\t• Windows: python.org वरून installer.\n\t• Termux (Android): pkg install python\n\t• Linux/Mac: बहुतेक वेळा आधीचं.\n\n२. पॅकेज install करा (स्वतंत्र project साठी):\n\t• pip install numpy pandas matplotlib scikit-learn jupyter\n\t• त्रुटी आली तरी काळजी नसावी — समस्येचा message वाचून google करणे हीच शिकण्याची पद्धत.\n\n३. वैकल्पिक सोपा मार्ग — Google Colab:\n\t• Browser मध्येच चालतो, install नाही.\n\t• Free GPU मिळते (deep learning करताना उपयुक्त).\n\t• लगेच सुरुवात: colab.research.google.com\n\nशेअरिंग व बॅकअप: Colab प्रत्येक notebook Google Drive मध्ये साठवतो. सुरुवातीला हाच सर्वांत सोपा मार्ग.\n\nआता पुढील पाठातल्या code ला चालवण्यासाठी वातावरण तयार माना.",
+        title: "वातावरण तयार करणे",
+        content: "Python install करा (3.x). pip install numpy pandas matplotlib scikit-learn jupyter.\n\nवैकल्पिक: Google Colab — browser मध्येच चालतो, install नाही, Free GPU मिळते. colab.research.google.com",
       },
       {
-        title: "Data ओळख — आधी खेळणे (Hands-on टिप)",
-        content: "कोणताही AI प्रोजेक्ट करण्यापूर्वी डेटा पाहण्याची सवय लावा. Pandas चा वापर उदाहरण:\n\nimport pandas as pd\ndf = pd.read_csv('houses.csv')\nprint(df.head())        # पहिल्या 5 ओळी\nprint(df.describe())    # stats — सरासरी, किमान, कमाल\nprint(df.shape)         # rows, columns\n\nही चार आज्ञा data चा दृष्टीक्षेप देतात. नंतर:\n\n\t• रिकामे boxes?  df.isnull().sum()\n\t• विषम मूल्ये?  df['price'].plot.hist() # matplotlib\n\nहे करतानाच आपल्याला कळते: कोणते features सुदृढ, कोणते सोडावे लागतील.\n\nसर्वांत महत्त्वाचा नियम: 'clean data → good AI'. Data आधी समजून घेतल्यावर मॉडेल नंतर लगेच बसवता येते. कोड मागे मेहनत लक्षणीयपणे कमी होते.",
+        title: "पहिला AI मॉडेल",
+        content: "DecisionTreeClassifier वापरून मॉडेल बनवणे.\n\ndata: [घंटे_अभ्यास, सराव_प्रश्न] → उत्तीर्ण?\nX = [[3, 4], [6, 8], [1, 2], [8, 9]]\ny = [0, 1, 0, 1]\n\nmodel.fit(X, y) → नियम शिकले.\nmodel.predict([[5, 5]]) → अंदाज.\n\nहे चर step सगळ्या ML algorithms साठी सारखे — फक्त data व algorithm बदलते.",
+        code: `from sklearn.tree import DecisionTreeClassifier
+
+X = [[3, 4], [6, 8], [1, 2], [8, 9]]
+y = [0, 1, 0, 1]
+
+model = DecisionTreeClassifier()
+model.fit(X, y)
+print(model.predict([[5, 5]]))`,
+        codeLanguage: "python",
       },
       {
-        title: "पहिला AI मॉडेल — १० ओळींत",
-        content: "तयार library वापरून मॉडेल बनवणे आश्चर्यकारकरीत्या सोपे आहे:\n\nfrom sklearn.tree import DecisionTreeClassifier\n\n# data: [घंटे_अभ्यास, सराव_प्रश्न] -> उत्तीर्ण?\nX = [[3, 4], [6, 8], [1, 2], [8, 9]]\ny = [0, 1, 0, 1]   # 0 = नापास, 1 = उत्तीर्ण\n\nmodel = DecisionTreeClassifier()\nmodel.fit(X, y)   # शिकणे\n\nprint(model.predict([[5, 5]]))   # अंदाज\n\nकाय घडतंय:\n\t१. sklearn मधील algorithm निवडला.\n\t२. data (X) + उत्तरे (y) दिली.\n\t३. fit() ने नियम शिकले.\n\t४. predict() ने नवीन उदाहरणावर उत्तर दिले.\n\nहे चार step सगळ्या ML algorithms साठी सारखे असतात — फक्त data व algorithm बदलते. पुढील पाठांमध्ये प्रत्येक step गहन करूया.",
+        title: "NumPy आणि Pandas",
+        content: "NumPy: np.array([1,2,3]), np.zeros((2,3)), np.arange(5), matrix गुणाकार.\nPandas: Series, DataFrame, read_csv, groupby, fillna, dropna.\n\n90% प्रोजेक्ट data साफ करण्यात जाते; या दोन libraries मुळे ते मिनिटात साध्य.",
       },
       {
-        title: "NumPy आणि Pandas — स्फोटक सारांश",
-        content: "दोन libraries AI data हाताळण्याचा पाया:\n\nNumPy — संख्यांची साधने:\n\t• np.array([1,2,3]) — वेगवान mathematical arrays.\n\t• np.zeros((2,3)), np.arange(5)\n\t• मॅट्रिक्स गुणाकार — neural network च्या मागे.\n\nPandas — data table:\n\t• Series (एक स्तंभ), DataFrame (संपूर्ण तक्ता).\n\t• CSV/Excel/SQL वाचणे — read_csv, read_excel.\n\t• गट: df.groupby('city')['price'].mean()\n\t• बदल: df.fillna(0), df.dropna()\n\nनेहमी लक्षात ठेवा: 90% प्रोजेक्ट data साफ करण्यात जाते; या दोन libraries मुळे ते मिनिटात साध्य होते. कोणतेही AI code तुम्ही भविष्यात पाहाल ते या दोन भोवती फिरेल.",
-      },
-      {
-        title: "Jupyter Notebook — शिकण्याचा खेळ",
-        content: "ज्युटर हा AI code लिहिण्याचा लोकप्रिय मार्ग — कारण त्यात cell-दर-cell चालवता येते व परिणाम तत्काळ पाहता येतो.\n\nफायदे:\n\t• एक एक cell run करा; output लगेच खाली.\n\t• निकाल दिसल्यावर पुढील cell चालवता येते.\n\t• शिकताना प्रयोग करणे सोपे.\n\t• चित्रे/आलेख notebook मध्येच दिसतात.\n\nकशी चालवावी:\n\t• Terminal: jupyter notebook\n\t• Browser मध्ये interface उघडेल.\n\t• वरील code copy → New Notebook → Run.\n\nसवय: छोटे प्रयोग एकत्रित करून २-३ pages चा 'शिकण्याचा diary' बनवा. प्रत्येक प्रयोगाचे नाव लिहा — प्रोजेक्ट करताना परत संदर्भासाठी.\n\nColab वर जास्तीत जास्त सुरुवात करणे सोपे; फक्त गरज नसते तेव्हा GPU वापरू नका.",
+        title: "Jupyter Notebook",
+        content: "cell-दर-cell चालवता येते, output लगेच खाली. Terminal: jupyter notebook. नवीन Notebook → New → Run.\n\nColab वर जास्तीत जास्त सुरुवात करणे सोपे.",
       },
       {
         title: "आजचा सारांश",
-        content: "Python आणि AI — आजचे मुद्दे:\n\n• Python साधे code लिहिणे; AI साठी मानक भाषा.\n• महत्त्वाच्या libraries: NumPy (संख्या), Pandas (data), scikit-learn (ML), TensorFlow (deep).\n• Setup: pip install numpy pandas matplotlib scikit-learn; किंवा Google Colab (फुकट).\n• Data आधी पाहा — Pandas च्या head()/describe()/isnull() ने.\n• पहिला मॉडेल १० ओळींत — sklearn algorithm + fit + predict.\n• Jupyter Notebook — cell-दर-cell शिकवण्याचा खेळ.\n\nपुढील पाठात AI चा पाया data — features, labels, quality आणि math — सोप्या भाषेत पाहू.\n\nआजचे प्रॅक्टिस:\n\t०१. Google Colab उघडा व 'पहिला AI मॉडेल' section चा code चालवा.\n\t०२. df.head() व df.describe() मध्ये काय फरक, लिहा.\n\t०३. स्वतः ४ उदाहरणांचा छोटा डेटासेट बनवून पहिला मॉडेल १० ओळींत चालवा.",
+        content: "Python साधे code; AI साठी मानक भाषा. Libraries: NumPy, Pandas, scikit-learn, TensorFlow. Setup: pip install व Google Colab. Data आधी पाहा. पहिला मॉडेल १० ओळींत. Jupyter — cell-दर-cell शिकवण्याचा खेळ.\n\nपुढील पाठात AI चा पाया data — features, labels, quality आणि math.",
       },
     ],
     quiz: [
@@ -1086,42 +1080,42 @@ print(model.predict([[5.1, 3.5]]))`,
     sections: [
       {
         title: "मूलभूत संकल्पना",
-        content: "इलेक्ट्रॉनिक्स समजून घेण्यासाठी तीन मूलभूत गोष्टी:\n\n• Voltage (V) - विद्युत दाब, पाण्याच्या दाबासारखा\n• Current (I) - विद्युत प्रवाह, पाण्याच्या प्रवाहासारखा\n• Resistance (R) - प्रवाहाला विरोध, अरुंद पाईपसारखा\n\nओहमचा नियम:\nV = I × R\n\nमूलभूत घटक:\n• Resistor - प्रवाह मर्यादित करतो\n• Capacitor - ऊर्जा store करतो\n• Diode - एका दिशेने प्रवाह\n• LED - प्रकाश देणारा diode\n• Transistor - switch/amplifier",
-        code: `# Ohm's Law उदाहरण:
-Voltage (V) = Current (I) × Resistance (R)
+        content: "Voltage (V) — विद्युत दाब, पाण्याच्या दाबासारखा.\nCurrent (I) — विद्युत प्रवाह, पाण्याच्या प्रवाहासारखा.\nResistance (R) — प्रवाहाला विरोध, अरुंद पाईपसारखा.\n\nOhm's Law: V = I × R\n\nघटक: Resistor (प्रवाह मर्यादित), Capacitor (ऊर्जा store), Diode (एका दिशेने), LED (प्रकाश), Transistor (switch/amplifier).",
+        code: `# Ohm's Law
+V = I × R
 
-जर V = 5V आणि R = 1000Ω:
-I = V / R = 5 / 1000 = 0.005A = 5mA
+# जर V = 5V, R = 1000Ω:
+I = 5 / 1000 = 0.005A = 5mA
 
 # LED circuit:
 V_source = 5V
-V_led = 2V (LED चे व्होल्टेज)
+V_led = 2V
 R = (5 - 2) / 0.02 = 150Ω`,
         codeLanguage: "text",
       },
       {
         title: "सर्किट आणि प्रवाह",
-        content: "प्रवाह नेहमी बंद मार्गाने (closed loop) वाहतो.\n\nसर्किटचे प्रकार:\n\t• Open circuit — मार्ग तुटलेला, प्रवाह नाही.\n\t• Closed circuit — संपूर्ण मार्ग जोडलेला, प्रवाह चालतो.\n\t• Short circuit — थेट (+)−(−) जोडणी, धोकादायक.\n\nपाण्याच्या नळीचे साधर्म्य:\n\t• Voltage = पाण्याचा दाब.\n\t• Current = वाहणारे पाणी.\n\t• Resistance = नळीची अरुंदाई.\n\nघरातील सर्किट बहुतेक समांतर असतात — एक घटक बंद झाला तरी बाकी चालतात.\n\nप्रयोगांमध्ये नेहमी फक्त लो-व्होल्टेज (3-9V) वापरा.\n\nपुढील पाठांमध्ये series/parallel चे नियम सखोल येतील.",
+        content: "प्रवाह नेहमी बंद मार्गाने (closed loop) वाहतो.\n\nOpen circuit — मार्ग तुटलेला. Closed circuit — प्रवाह चालतो. Short circuit — थेट (+)−(−) जोडणी, धोकादायक.\n\nपाण्याचे साधर्म्य: Voltage = दाब, Current = वाहणारे पाणी, Resistance = अरुंदाई.\n\nघरातील सर्किट बहुतेक समांतर असतात. प्रयोगांमध्ये फक्त लो-व्होल्टेज (3-9V) वापरा.",
       },
       {
-        title: "ओहमचा नियम — व्यवहार",
-        content: "एकच समीकरण इलेक्ट्रॉनिक्सचे मूळ:\n\nV = I × R\n\nतीन स्वरूप:\n\t• V = I × R — voltage काढणे.\n\t• I = V / R — प्रवाह काढणे.\n\t• R = V / I — resistor काढणे.\n\nउदाहरण १:\n\t• बॅटरी 5V, resistor 1000Ω → I = 5/1000 = 0.005A = 5mA.\n\nउदाहरण २:\n\t• LED ला 2V व 20mA हवे, स्रोत 5V.\n\t• R = (5 − 2) / 0.02 = 150Ω.\n\nनियम:\n\t• मोठा R → कमी प्रवाह.\n\t• दोन resistor शृंखलेत → R बेरीज.\n\t• तार/कंडक्टरचा resistance जवळजवळ शून्य.\n\nनेहमी लक्षात ठेवा: LED सोबत 220Ω resistor आवश्यक.",
+        title: "Ohm's Law — व्यवहार",
+        content: "तीन स्वरूप: V = I × R, I = V / R, R = V / I.\n\n१. बॅटरी 5V, resistor 1000Ω → I = 5mA.\n२. LED ला 2V व 20mA, स्रोत 5V → R = 150Ω.\n\nनियम: मोठा R → कमी प्रवाह. दोन resistor शृंखलेत → R बेरीज.\nLED सोबत नेहमी 220Ω resistor.",
       },
       {
         title: "घटकांची ओळख",
-        content: "पाच मूलभूत घटक:\n\n• Resistor — प्रवाह मर्यादित करतो.\n• Capacitor — थोडी ऊर्जा साठवतो/फिल्टर करतो.\n• Diode — एकाच दिशेने प्रवाह देतो.\n• LED — प्रकाश देणारा diode.\n• Transistor — लहान इशाऱ्याने मोठा प्रवाह नियंत्रित करतो.\n\nओळख कशी?\n\t• Resistor — रंगीत पट्ट्या.\n\t• Capacitor — गोल/सपाट, अंक लिहिलेले.\n\t• LED — लांब पाय anode (+).\n\t• Transistor — तीन पाय, अक्षर कोड.\n\nसर्वात सोपा प्रयोग: LED + resistor + बॅटरी.\n\nपुढील पाठांमध्ये प्रत्येक घटकाचे तपशील.",
+        content: "Resistor — रंगीत पट्ट्या.\nCapacitor — गोल/सपाट, अंक लिहिलेले.\nLED — लांब पाय anode (+).\nTransistor — तीन पाय, अक्षर कोड.\n\nसर्वात सोपा प्रयोग: LED + resistor + बॅटरी.",
       },
       {
         title: "साधने — ब्रेडबोर्ड व multimeter",
-        content: "प्रयोग करण्यासाठी दोन मुख्य साधने:\n\nब्रेडबोर्ड:\n\t• मध्य रेषेच्या दोन्ही बाजूंना rows — प्रत्येक row मध्ये 5 जोडलेली छिद्रे.\n\t• बाहेरच्या रेल — एक +V, एक GND.\n\t• न वेल्ड करता योग्य तारांनी सर्किट जलद.\n\nMultimeter:\n\t• Voltage mode — घटकावरील V मोजणे.\n\t• Resistance mode — R वाचणे.\n\t• Continuity — तार तुटली आहे का तपासणे.\n\t• Current mode — प्रवाह मोजणे (सावधान).\n\nसुरक्षा:\n\t• फक्त लो-व्होल्टेज (3-9V).\n\t• बॅटरीचे ध्रुव उलट न लावा.\n\t• तारा (+)/(−) थेट जोडू नका.\n\nसराव: 2 बॅटरी holder बनवून voltage मोजा.",
+        content: "ब्रेडबोर्ड: rows मध्ये 5 जोडलेली छिद्रे; बाहेरच्या रेल — +V व GND.\nMultimeter: voltage mode, resistance mode, continuity, current mode.\n\nसुरक्षा: फक्त लो-व्होल्टेज. बॅटरीचे ध्रुव उलट न लावा. तारा (+)/(−) थेट जोडू नका.",
       },
       {
         title: "DIY — बॅटरी + LED दिवा",
-        content: "पहिला प्रोजेक्ट — battery-powered टेबल दिवा.\n\nपार्ट्स:\n\t• 1 × LED (कोणताही रंग).\n\t• 1 × resistor 100-220Ω.\n\t• 2 × AA बॅटरी + holder.\n\t• 2 तारा.\n\nजोडणी:\n\t• बॅटरी (+) → resistor → LED anode (+).\n\t• LED cathode (−) → बॅटरी (−).\n\nचाचणी:\n\t• LED जळत नसल्यास anode/cathode उलट बघा.\n\t• धूसर असेल तर resistor मूल्य कमी करा (मर्यादेत).\n\nविस्तार:\n\t• दोन LEDs समांतर.\n\t• बटण switch जोडून ON/OFF.\n\t• कागदाच्या कपाने लँपशेड.\n\nहेच सर्किट पुढे Arduino ने चालवले जाते.",
+        content: "पार्ट्स: 1 LED + 1 resistor 100-220Ω + 2 AA बॅटरी + holder + 2 तारा.\nजोडणी: बॅटरी (+) → resistor → LED anode (+); LED cathode (−) → बॅटरी (−).\n\nचाचणी: LED जळत नसल्यास anode/cathode उलट बघा.\nविस्तार: दोन LEDs समांतर, switch जोडा, कागदाच्या कपाने लँपशेड.",
       },
       {
         title: "आजचा सारांश",
-        content: "इलेक्ट्रॉनिक्स बेसिक्सचे सहा मुद्दे:\n\n• प्रवाह बंद मार्गाने वाहतो; short circuit धोकादायक.\n• V = I × R — तीन स्वरूप.\n• घटक — resistor, capacitor, diode, LED, transistor.\n• साधने — ब्रेडबोर्ड आणि multimeter.\n• सुरक्षा — लो-व्होल्टेज, ध्रुव व्यवस्थित.\n• DIY — LED दिवा; नंतर switch जोडा.\n\nआजचे प्रॅक्टिस:\n\t०१. घरातील बॅटरी दिव्यांचे निरीक्षण करा.\n\t०२. Multimeter ने बॅटरी voltage मोजा.\n\t०३. LED + 220Ω + बॅटरी दिवा बनवा.\n\t०४. दोन भिन्न resistor ची मूल्ये मोजा.\n\nपुढील पाठ — Circuits: series/parallel चे नियम.",
+        content: "प्रवाह बंद मार्गाने वाहतो; short circuit धोकादायक.\nV = I × R — तीन स्वरूप.\nघटक — resistor, capacitor, diode, LED, transistor.\nसाधने — ब्रेडबोर्ड व multimeter.\nसुरक्षा — लो-व्होल्टेज, ध्रुव व्यवस्थित.\nDIY — LED दिवा.\n\nपुढील पाठ — Circuits: series/parallel चे नियम.",
       },
     ],
     quiz: [
@@ -1160,45 +1154,39 @@ R = (5 - 2) / 0.02 = 150Ω`,
     sections: [
       {
         title: "Arduino म्हणजे काय?",
-        content: "Arduino हे एक microcontroller board आहे जे इलेक्ट्रॉनिक्स प्रोजेक्ट्स बनवण्यासाठी वापरले जाते.\n\nयात अनेक input/output pins असतात ज्यांना LED, sensor, motor इत्यादी जोडता येतात.\n\nआपण computer वर Arduino IDE वापरून program (sketch) लिहतो आणि USB ने upload करतो.\n\nArduino भाषा ही C/C++ सारखी असते.",
-        code: `// Arduino चा पहिला program - LED blink
-// pin 13 वर LED जोडलेला आहे (Built-in)
-
+        content: "Arduino हे microcontroller board आहे जे इलेक्ट्रॉनिक्स प्रोजेक्ट्स बनवण्यासाठी वापरले जाते. input/output pins वर LED, sensor, motor जोडता येतात. Arduino IDE वापरून USB ने upload करतो. भाषा C/C++ सारखी.",
+        code: `// LED blink — pin 13 built-in LED
 void setup() {
-  pinMode(13, OUTPUT);   // LED pin output म्हणून सेट
+  pinMode(13, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(13, HIGH);   // LED ON
-  delay(1000);              // 1 सेकंद थांबणे
-  digitalWrite(13, LOW);    // LED OFF
-  delay(1000);              // 1 सेकंद थांबणे
+  digitalWrite(13, HIGH);
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(1000);
 }`,
         codeLanguage: "c",
       },
       {
         title: "बोर्डचे भाग",
-        content: "Arduino Uno वर काय काय असते:\n\n• USB port — program upload व power.\n• Power jack — 7-12V adapter साठी.\n• Digital pins 0-13 — IN/OUT; 13 वर built-in LED.\n• Analog pins A0-A5 — sensor वाचन.\n• GND pins — सामायिक मुळा (सर्वात महत्त्वाचा).\n• 5V / 3.3V pins — बाह्य घटकांना वीज.\n• Reset button — program पुन्हा सुरू.\n• TX/RX LEDs — upload दरम्यान चमकतात.\n\nसाधा नियम:\n\t• GND शिवाय परिपूर्ण सर्किट नाही.\n\t• Built-in LED pin 13 — पहिला प्रयोग.\n\nभिन्न बोर्ड (Nano, Mega) — pin names साठी boards/documentation पहा.\n\nआता IDE उघडा आणि पहिला sketch चालवा.",
+        content: "USB port — program upload व power. Power jack — 7-12V adapter.\nDigital pins 0-13 — IN/OUT; 13 वर built-in LED.\nAnalog pins A0-A5 — sensor वाचन. GND — सामायिक मुळा.\n5V / 3.3V pins — बाह्य घटकांना वीज.\nReset button — program पुन्हा सुरू.\n\nGND शिवाय परिपूर्ण सर्किट नाही.",
       },
       {
         title: "IDE आणि पहिला sketch",
-        content: "Arduino IDE — सर्व काम एका जागी.\n\nमुख्य भाग:\n\t• Code editor — setup() आणि loop().\n\t• Upload button (→) — program बोर्डवर.\n\t• Serial monitor — बोर्डचे मजकूर वाचणे.\n\t• Board/port selector.\n\nस्ट्रक्चर:\n\tvoid setup() { } — सुरुवातीला एकदाच.\n\tvoid loop() { } — पुन्हा पुन्हा अनंत वेळा.\n\nपहिला program (Blink):\n\t• File → Examples → 01.Basics → Blink.\n\t• Tools → Board → Arduino Uno.\n\t• Tools → Port → योग्य port.\n\t• Upload दाबा.\n\t• Built-in LED 1 सेकंदाच्या अंतराने blink होईल.\n\nबोर्ड/port दिसत नसल्यास:\n\t• USB दुसऱ्या port मध्ये लावा.\n\t• driver/bootloader तपासा.\n\nएकदा Blink चालले की काहीही बनवता येईल.",
+        content: "Arduino IDE मध्ये: Code editor (setup() + loop()), Upload button, Serial monitor, Board/port selector.\n\nvoid setup() { } — सुरुवातीला एकदाच. void loop() { } — पुन्हा पुन्हा.\n\nFile → Examples → 01.Basics → Blink. Tools → Board → Arduino Uno. Upload दाबा. Built-in LED blink होईल.",
       },
       {
         title: "digitalWrite — LED control",
-        content: "LED नियंत्रणाचे तीन आदेश:\n\n\tpinMode(pin, OUTPUT); — pin ची दिशा.\n\tdigitalWrite(pin, HIGH); — 5V (ON).\n\tdigitalWrite(pin, LOW); — 0V (OFF).\n\nमूल कोड:\n\tvoid setup() {\n\t  pinMode(13, OUTPUT);\n\t}\n\tvoid loop() {\n\t  digitalWrite(13, HIGH);\n\t  delay(1000);\n\t  digitalWrite(13, LOW);\n\t  delay(1000);\n\t}\n\ndelay(मिलिसेकंद):\n\t• delay(1000) = 1 सेकंद.\n\t• लहान delay → जलद blink.\n\nप्रयोग:\n\t• delay 200 करा — वेगवान flicker.\n\t• दोन LEDs दोन pins वर चालवा.\n\t• वेगवेगळे वेग द्या.\n\nसराव: 3 blink + थांबा + पुन्हा असा pattern बनवा.",
+        content: "pinMode(pin, OUTPUT); — pin ची दिशा.\ndigitalWrite(pin, HIGH); — 5V (ON). digitalWrite(pin, LOW); — 0V (OFF).\ndelay(1000) = 1 सेकंद.\n\nप्रयोग: delay 200 करा — वेगवान flicker. दोन LEDs दोन pins वर.",
       },
       {
         title: "digitalRead — बटण वाचणे",
-        content: "बटण दाबल्याचे ओळखण्यासाठी digitalRead.\n\nजोडणी (pull-down):\n\t• पिन 2 ← बटण; बटण दुसऱ्या टोकाला 5V.\n\t• 10kΩ पिन 2 ते GND — स्थिर LOW.\n\t• LED पिन 13 (built-in).\n\nकोड:\n\tint btn = 2;\n\tvoid setup() {\n\t  pinMode(btn, INPUT);\n\t  pinMode(13, OUTPUT);\n\t  Serial.begin(9600);\n\t}\n\tvoid loop() {\n\t  int v = digitalRead(btn);\n\t  Serial.println(v);\n\t  digitalWrite(13, v == HIGH ? HIGH : LOW);\n\t}\n\nकाम:\n\t• दाबल्यावर pin 2 → HIGH → LED ON.\n\t• Serial monitor मध्ये 0/1 दिसते.\n\nINPUT_PULLUP:\n\t• पिन आतून 5V कडे खेचली जाते.\n\t• बटण दुसऱ्या टोकाला GND → दाबल्यावर LOW.\n\t• कोड तद्नुसार उलट बदलतो.\n\nसराव: बटणाने blink वेग बदला.",
+        content: "pull-down: pin 2 ← बटण; दुसऱ्या टोकाला 5V; 10kΩ पिन 2 ते GND.\n\nकोड: pinMode(btn, INPUT); int v = digitalRead(btn); Serial.println(v).\nदाबल्यावर HIGH → LED ON. Serial monitor मध्ये 0/1.\n\nINPUT_PULLUP: pin आतून 5V; बटण GND → दाबल्यावर LOW.",
       },
       {
-        title: "analogRead — वाचन",
-        content: "सतत बदलणारे मूल्य वाचण्यासाठी analogRead.\n\nकोड:\n\tint light = analogRead(A0);\n\tSerial.println(light);\n\nमूल्यांचा अर्थ:\n\t• 0V → 0\n\t• 5V → 1023\n\t• मध्ये — voltage प्रमाणात 0-1023.\n\nव्यवहार:\n\t• LDR → प्रकाश.\n\t• Potentiometer → फिरवल्यावर voltage बदलतो.\n\t• Thermistor → तापमानाचा ठोका.\n\nSerial Plotter:\n\t• Tools → Serial Plotter — वाचनाचा ग्राफ.\n\t• बदल लगेच दिसतात.\n\nसराव: A0 वर potentiometer जोडून ग्राफ पहा.\n\nSensor पाठात हेच वाढवले जाते.",
-      },
-      {
-        title: "सुरक्षा व सामान्य चुका",
-        content: "Arduino सोबत सुरक्षा:\n\n• प्रत्येक pin फक्त ~20-40mA — LED सोबत resistor.\n• 5V आणि GND थेट जोडू नका.\n• बाह्य वीज बंद करून wiring करा.\n• पिन/data sheet तपासा.\n\nसामान्य चुका:\n\t• LED उलट — लांब पाय (+), छोटा (−).\n\t• resistor नाही → LED जळतो.\n\t• GND नाही → सर्किट बंद.\n\t• pin चुकला → काही प्रतिसाद नाही.\n\nडीबग पद्धत:\n\t• Serial.println() ने मूल्य छापा.\n\t• एकावेळी एक बदल व upload.\n\t• ब्रेडबोर्ड rows क्रमाने तपासा.\n\nसराव: मुद्दाम एक चूक करून शोधा — पटकन शिकायला होईल.",
+        title: "सुरक्षा व चुका",
+        content: "प्रत्येक pin फक्त ~20-40mA — LED सोबत resistor. 5V आणि GND थेट जोडू नका.\n\nचुका: LED उलट (लांब पाय +), resistor नाही → LED जळतो, GND नाही → सर्किट बंद.\n\nडीबग: Serial.println() ने मूल्य छापा. एकावेळी एक बदल.",
       },
     ],
     quiz: [
@@ -1229,14 +1217,13 @@ void loop() {
     sections: [
       {
         title: "LED Control",
-        content: "LED (Light Emitting Diode) हा एक साधा घटक आहे जो विद्युत ऊर्जा प्रकाशात बदलतो.\n\nArduino मध्ये LED जोडण्यासाठी:\n• Anode (+) → resistor (220Ω) → Arduino pin\n• Cathode (-) → GND\n\nResistor वापरणे महत्त्वाचे - नाहीतर LED जळू शकते.",
-        code: `// अनेक LEDs sequence मध्ये
-int leds[] = {2, 3, 4, 5};  // pins
+        content: "LED हा विद्युत ऊर्जा प्रकाशात बदलतो.\nAnode (+) → resistor (220Ω) → Arduino pin; Cathode (-) → GND.\nResistor नाहीतर LED जळू शकते.",
+        code: `// अनेक LEDs sequence
+int leds[] = {2, 3, 4, 5};
 
 void setup() {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 4; i++)
     pinMode(leds[i], OUTPUT);
-  }
 }
 
 void loop() {
@@ -1255,27 +1242,23 @@ void loop() {
       },
       {
         title: "Built-in LED — पहिले blink",
-        content: "बहुतांश boards वर pin 13 शी जोडलेला एक सोपा LED असतो.\n\nकोड:\n\tvoid setup() {\n\t  pinMode(13, OUTPUT);\n\t}\n\tvoid loop() {\n\t  digitalWrite(13, HIGH);\n\t  delay(500);\n\t  digitalWrite(13, LOW);\n\t  delay(500);\n\t}\n\nकाय घडते:\n\t• HIGH → LED प्रकाशित; LOW → बंद.\n\t• delay(500) = अर्धा सेकंद.\n\nबदल:\n\t• delay 1000 → मंद blink.\n\t• delay 100 → वेगवान blink.\n\nहेच simple timing प्रत्येक LED project मध्ये असते.\n\nसराव: SOS पॅटर्न बनवा (3 लहान, 3 मोठे, 3 लहान).",
+        content: "pin 13 वर built-in LED. HIGH → ON, LOW → OFF. delay(500) = अर्धा सेकंद.\n\nबदल: delay 1000 → मंद, delay 100 → वेगवान.\nसराव: SOS पॅटर्न (3 लहान, 3 मोठे, 3 लहान).",
       },
       {
-        title: "PWM — तेज नियंत्रण (analogWrite)",
-        content: "लक्षात ठेवा: analogRead वाचते, analogWrite तेज बदलते.\n\nतेज समजून घेणे:\n\t• analogWrite(pin, value) — value 0 ते 255.\n\t• 51 ≈ 20%, 128 ≈ 50%, 255 = 100%.\n\nकोड — हळूहळू उजळणे:\n\tint led = 9;   // PWM capable pin\n\tvoid setup() { pinMode(led, OUTPUT); }\n\tvoid loop() {\n\t  for (int i = 0; i <= 255; i++) {\n\t    analogWrite(led, i);\n\t    delay(10);\n\t  }\n\t  delay(500);\n\t  for (int i = 255; i >= 0; i--) {\n\t    analogWrite(led, i);\n\t    delay(10);\n\t  }\n\t  delay(500);\n\t}\n\nफक्त PWM pins (3,5,6,9,10,11) वर analogWrite चालते.\n\nसराव: रात्रीचा हळू उजळणारा दिवे बनवा.",
+        title: "PWM — तेज नियंत्रण",
+        content: "analogWrite(pin, value) — value 0 ते 255. 51 ≈ 20%, 128 ≈ 50%, 255 = 100%.\nफक्त PWM pins (3,5,6,9,10,11) वर चालते.\n\nहळूहळू उजळणे: for loop 0→255, delay(10).",
       },
       {
         title: "बटण + LED — इनपुट combo",
-        content: "आता LED फक्त बटण दाबल्यावरच झळकतो.\n\nजोडणी:\n\t• पिन 2 ← बटण (बटण दुसऱ्या टोकाला GND).\n\t• पिन 9 → 220Ω → LED.\n\nकोड (INPUT_PULLUP):\n\tint btn = 2, led = 9;\n\tvoid setup() {\n\t  pinMode(btn, INPUT_PULLUP);\n\t  pinMode(led, OUTPUT);\n\t}\n\tvoid loop() {\n\t  int v = digitalRead(btn);\n\t  if (v == LOW) digitalWrite(led, HIGH);\n\t  else digitalWrite(led, LOW);\n\t}\n\nप्रयोग:\n\t• बटण GND ला → दाबल्यावर v = LOW → LED ON.\n\t• कोड उलटा असतो (LOW म्हणजे दाबलेले).\n\nबटण bounce झाल्यास delay(20) debounce जोडा.\n\nसराव: दोन बटणे — एक ON, दुसरा बदल.",
+        content: "INPUT_PULLUP: pinMode(btn, INPUT_PULLUP). बटण GND ला → LOW → LED ON.\nकोड उलटा: LOW म्हणजे दाबलेले.\n\nबटण bounce झाल्यास delay(20) debounce जोडा.",
       },
       {
         title: "Fade — सुरुवात-शेवट",
-        content: "analogWrite ने सोपे fade बनवू.\n\nविचार:\n\t१. value 0 → 255 (उजळणे).\n\t२. delay 10ms.\n\t३. value 255 → 0 (मंद होणे).\n\t४. delay 10ms.\n\nकोड:\n\tint led = 9;\n\tint b = 0;\n\tint step = 5;\n\tvoid setup() { pinMode(led, OUTPUT); }\n\tvoid loop() {\n\t  analogWrite(led, b);\n\t  b = b + step;\n\t  if (b <= 0 || b >= 255) step = -step;\n\t  delay(20);\n\t}\n\nstep मोठा → जलद; लहान → मंद.\n\nहेच lighting चा आधार — sunset lamp, मंद candle LED.\n\nसराव: step आणि delay बदलून दोन वेगांची तुलना करा.",
+        content: "analogWrite ने fade: value 0→255→0, step=5, delay(20).\nstep मोठा → जलद; लहान → मंद.\n\nहेच sunset lamp, candle LED चा आधार.",
       },
       {
         title: "सामान्य चुका व तपासण्या",
-        content: "LED project चालत नसेल तर क्रमाने तपासा:\n\n१. Wiring:\n\t• Anode → resistor → pin; Cathode → GND.\n\t• resistor वगळल्यास LED जळतो.\n\t• GND सामायिक झाला आहे का बघा.\n\n२. Pin:\n\t• PWM वापरत असल्यास PWM pin निवडा.\n\t• pin number आणि code जुळले का.\n\n३. Code:\n\t• braces/स्वल्पविराम कुठे चुकले नाही ना.\n\t• upload होत नसल्यास syntax error पहा.\n\n४. Serial:\n\t• Serial.println(v) ठेवा — मूल्य दिसतील.\n\t• HIGH/LOW logic पडताळा.\n\nलक्षात ठेवा: बहुतेक चुका wiring/ध्रुवांत असतात.",
-      },
-      {
-        title: "आजचा सारांश",
-        content: "Arduino LED चे सहा मुद्दे:\n\n• Built-in LED pin 13 — पहिला blink.\n• analogWrite — 0 ते 255 तेज.\n• PWM pins — 3,5,6,9,10,11.\n• बटण + INPUT_PULLUP — दाबल्यावर LOW.\n• Fade — step + delay ने दिशा बदल.\n• Debug — wiring, pin, code, serial.\n\nआजचे प्रॅक्टिस:\n\t०१. Built-in LED blink वेग बदलून बघा.\n\t०२. PWM ने LED 30% तेजावर ठेवा.\n\t०३. बटणाने LED toggle करा.\n\t०४. fade चे step/delay खेळवा.\n\nपुढे sensors — analogRead ने जग वाचा.",
+        content: "Wiring: Anode → resistor → pin; Cathode → GND.\nPWM pins वापरा; pin number आणि code जुळवा.\nSerial.println(v) ठेवा — मूल्य दिसतील.\n\nबहुतेक चुका wiring/ध्रुवांत असतात.",
       },
     ],
     quiz: [
@@ -1477,13 +1460,13 @@ void loop() {
     sections: [
       {
         title: "सायबर सुरक्षा म्हणजे काय?",
-        content: "सायबर सुरक्षा म्हणजे तुमची डिजिटल माहिती (computer, phone, accounts) सुरक्षित ठेवणे.\n\nसर्वात मोठे धोके:\n\n1. Phishing - बनावट message/link द्वारे माहिती चोरणे\n2. Malware - वाईट software\n3. Password चोरी - weak password मुळे\n4. Fake websites\n\nसुरक्षित राहण्यासाठी:\n• Strong password (लांब + unusual)\n• Two-factor authentication (2FA)\n• suspicious link क्लिक करू नका\n• software अपडेट ठेवा\n• अज्ञात sender चे attachments उघडू नका",
+        content: "सायबर सुरक्षा म्हणजे डिजिटल माहिती सुरक्षित ठेवणे.\n\nधोके: Phishing — बनावट message/link; Malware — वाईट software; Password चोरी; Fake websites.\n\nसुरक्षित राहण्यासाठी: Strong password (लांब + unusual); 2FA; संशयास्पद link क्लिक करू नका; software अपडेट; अज्ञात attachments उघडू नका.",
         code: `# Strong Password टिप्स:
 - किमान 12 characters
 - uppercase + lowercase
 - numbers + symbols
 - शब्द/नावे नको
-- प्रत्येक account ला वेगळा password
+- प्रत्येक account ला वेगळा
 
 # उदा.
 कमकुवत: vilas123
@@ -1491,7 +1474,7 @@ void loop() {
 
 # 2FA वापरा:
 - SMS/App-based OTP
-- Authentication apps (Google Authenticator)`,
+- Google Authenticator`,
         codeLanguage: "text",
       },
     ],
@@ -1762,7 +1745,7 @@ void loop() {
     sections: [
       {
         title: "सामान्य ज्ञान",
-        content: "काही उपयुक्त सामान्य ज्ञान:\n\nविज्ञान:\n• पाण्याचा उत्कलनांक 100°C\n• प्रकाशाचा वेग 3 × 10^8 m/s\n• सर्वात जवळचा तारा - सूर्य\n\nभूगोल:\n• सर्वात उंच शिखर - माउंट एव्हरेस्ट (8,848m)\n• भारताची राजधानी - नवी दिल्ली\n\nसंगणक:\n• पहिला computer - ENIAC (1946)\n• binary system - 0 आणि 1\n• इंटरनेट - 1969 पासून",
+        content: "विज्ञान: पाण्याचा उत्कलनांक 100°C, प्रकाशाचा वेग 3 × 10^8 m/s, सूर्य.\n\nभूगोल: माउंट एव्हरेस्ट (8,848m), भारताची राजधानी नवी दिल्ली.\n\nसंगणक: ENIAC (1946), binary system 0 आणि 1, इंटरनेट 1969.",
       },
     ],
     quiz: [
