@@ -466,10 +466,10 @@ export const cssLevel12: Tutorial[] = [
     minutes: 40,
     summary: ":user-valid :user-invalid फॉर्म feedback.",
     sections: [
-      { title: "1. invalid थर", content: ":user-invalid नियम.\nखराब input.\nerror ठसा.\n:user-invalid नियम सरावाने पक्के होते.\n:user-invalid नियम पाया मजबूत आहे.\n:user-invalid नियम आज विषय आत्मसात करा.\n:user-invalid नियम संपूर्ण अर्थ उमजतो.\n:user-invalid नियम हे तत्व आहे.\n:user-invalid नियम सुरुवात येथे होते.\n:user-invalid नियम अर्थ लक्षात ठेवा.\n:user-invalid नियम संपूर्ण अर्थ उमजतो.\n:user-invalid नियम हे तत्व आहे.\n:user-invalid नियम सुरुवात येथे होते.\n:user-invalid नियम अर्थ लक्षात ठेवा.\n:user-invalid नियम मराठीतून समजतो.\n:user-invalid नियम रचना स्पष्ट होते.\n:user-invalid नियम ब्राउझर ते करतो.", code: `input:user-invalid {
+      { title: "1. invalid थर", content: ":user-invalid नियम.\nखराब input.\nerror ठसा.\n:user-invalid नियम सरावाने पक्के होते.\n:user-invalid नियम पाया मजबूत आहे.\n:user-invalid नियम आज विषय आत्मसात करा.\n:user-invalid नियम संपूर्ण अर्थ उमजतो.\n:user-invalid नियम हे तत्व आहे.", code: `input:user-invalid {
   border-color: #dc2626;
 }`, codeLanguage: "css" },
-      { title: "2. valid नियम", content: ":user-valid नियम.\nबरोबर input.\nहिरवा रंग.\nरचना स्पष्ट.\n:user-valid नियम वापर सोपा आहे.\n:user-valid नियम अचूक गुण देतो.\n:user-valid नियम प्रत्येक वेळी शिकवतो.\n:user-valid नियम सरावाने नक्की.\n:user-valid नियम शैली प्रत्यक्ष पहा.\n:user-valid नियम कोड तपासा.\n:user-valid नियम उदाहरण चालवा.\n:user-valid नियम सरावाने नक्की.\n:user-valid नियम शैली प्रत्यक्ष पहा.\n:user-valid नियम कोड तपासा.\n:user-valid नियम उदाहरण चालवा.\n:user-valid नियम पेजवर दिसते.\n:user-valid नियम नियमाचा अर्थ कळतो.\n:user-valid नियम नेहमी वापरा.", code: `input:user-valid {
+      { title: "2. valid नियम", content: ":user-valid नियम.\nबरोबर input.\nहिरवा रंग.\nरचना स्पष्ट.\n:user-valid नियम वापर सोपा आहे.\n:user-valid नियम अचूक गुण देतो.\n:user-valid नियम प्रत्येक वेळी शिकवतो.\n:user-valid नियम सरावाने नक्की.", code: `input:user-valid {
   border-color: #16a34a;
 }`, codeLanguage: "css" },
       { title: "3. error संदेश", content: "ओळ खाली.\nरंग नेमका.\nमजकूर स्पष्ट.\nवाचन नीट.", code: `input[aria-invalid="true"] {
@@ -522,10 +522,10 @@ input:user-valid {
     minutes: 40,
     summary: ":placeholder-shown :read-write :autofill.",
     sections: [
-      { title: "1. placeholder थर", content: ":placeholder-shown नियम.\nरिकामे input.\nlabel अंतर.\n:placeholder-shown सरावाने पक्के होते.\n:placeholder-shown पाया मजबूत आहे.\n:placeholder-shown आज विषय आत्मसात करा.\n:placeholder-shown संपूर्ण अर्थ उमजतो.\n:placeholder-shown हे तत्व आहे.\n:placeholder-shown सुरुवात येथे होते.\n:placeholder-shown अर्थ लक्षात ठेवा.\n:placeholder-shown संपूर्ण अर्थ उमजतो.\n:placeholder-shown हे तत्व आहे.\n:placeholder-shown सुरुवात येथे होते.\n:placeholder-shown अर्थ लक्षात ठेवा.\n:placeholder-shown मराठीतून समजतो.\n:placeholder-shown रचना स्पष्ट होते.\n:placeholder-shown ब्राउझर ते करतो.", code: `input:placeholder-shown {
+      { title: "1. placeholder थर", content: ":placeholder-shown नियम.\nरिकामे input.\nlabel अंतर.\n:placeholder-shown सरावाने पक्के होते.\n:placeholder-shown पाया मजबूत आहे.\n:placeholder-shown आज विषय आत्मसात करा.\n:placeholder-shown संपूर्ण अर्थ उमजतो.\n:placeholder-shown हे तत्व आहे.", code: `input:placeholder-shown {
   border-color: #94a3b8;
 }`, codeLanguage: "css" },
-      { title: "2. भरले input", content: ":not placeholder.\nरंग नेमका.\nस्थिती तपास.\nरचना स्पष्ट.\n:not placeholder नियम वापर सोपा आहे.\n:not placeholder नियम अचूक गुण देतो.\n:not placeholder नियम प्रत्येक वेळी शिकवतो.\n:not placeholder नियम सरावाने नक्की.\n:not placeholder नियम शैली प्रत्यक्ष पहा.\n:not placeholder नियम कोड तपासा.\n:not placeholder नियम उदाहरण चालवा.\n:not placeholder नियम सरावाने नक्की.\n:not placeholder नियम शैली प्रत्यक्ष पहा.\n:not placeholder नियम कोड तपासा.\n:not placeholder नियम उदाहरण चालवा.\n:not placeholder नियम पेजवर दिसते.\n:not placeholder नियम नियमाचा अर्थ कळतो.\n:not placeholder नियम नेहमी वापरा.", code: `input:not(:placeholder-shown) {
+      { title: "2. भरले input", content: ":not placeholder.\nरंग नेमका.\nस्थिती तपास.\nरचना स्पष्ट.\n:not placeholder नियम वापर सोपा आहे.\n:not placeholder नियम अचूक गुण देतो.\n:not placeholder नियम प्रत्येक वेळी शिकवतो.\n:not placeholder नियम सरावाने नक्की.", code: `input:not(:placeholder-shown) {
   border-color: #0d9488;
 }`, codeLanguage: "css" },
       { title: "3. read थर", content: ":read-only मजकूर.\nवाचनीय थर.\nरंग हलका.", code: `input:read-only {

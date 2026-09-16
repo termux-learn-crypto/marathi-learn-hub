@@ -425,19 +425,19 @@ ol {
     minutes: 30,
     summary: ":is :where :not आणि nth नियम.",
     sections: [
-      { title: "1. :is() नियम", content: ":is() एकत्र निवडी.\nकमी वाक्य.\nसगळे match.\nसोपे सोयीचे.\nselectors एकत्र.\n:is() निवड सरावाने पक्के होते.\n:is() निवड पाया मजबूत आहे.\n:is() निवड आज विषय आत्मसात करा.\n:is() निवड संपूर्ण अर्थ उमजतो.\n:is() निवड हे तत्व आहे.\n:is() निवड सुरुवात येथे होते.\n:is() निवड अर्थ लक्षात ठेवा.\n:is() निवड संपूर्ण अर्थ उमजतो.\n:is() निवड हे तत्व आहे.\n:is() निवड सुरुवात येथे होते.\n:is() निवड अर्थ लक्षात ठेवा.\n:is() निवड मराठीतून समजतो.\n:is() निवड रचना स्पष्ट होते.\n:is() निवड ब्राउझर ते करतो.", code: `:is(h1, h2, h3) {
+      { title: "1. :is() नियम", content: ":is() एकत्र निवडी.\nकमी वाक्य.\nसगळे match.\nसोपे सोयीचे.\nselectors एकत्र.\n:is() निवड सरावाने पक्के होते.\n:is() निवड पाया मजबूत आहे.\n:is() निवड आज विषय आत्मसात करा.", code: `:is(h1, h2, h3) {
   margin-top: 1.5em;
 }`, codeLanguage: "css" },
-      { title: "2. :where() वजन", content: ":where() शून्य specificity.\nहलके नियम.\nसाध्यांपेक्षा कमी.\nसानुकूल जुळते.\nउपयोग सुरक्षित.\nनवीन लिहिणे.\n:where() वजन वापर सोपा आहे.\n:where() वजन अचूक गुण देतो.\n:where() वजन प्रत्येक वेळी शिकवतो.\n:where() वजन सरावाने नक्की.\n:where() वजन शैली प्रत्यक्ष पहा.\n:where() वजन कोड तपासा.\n:where() वजन उदाहरण चालवा.\n:where() वजन सरावाने नक्की.\n:where() वजन शैली प्रत्यक्ष पहा.\n:where() वजन कोड तपासा.\n:where() वजन उदाहरण चालवा.\n:where() वजन पेजवर दिसते.\n:where() वजन नियमाचा अर्थ कळतो.\n:where() वजन नेहमी वापरा.", code: `:where(nav, footer) a {
+      { title: "2. :where() वजन", content: ":where() शून्य specificity.\nहलके नियम.\nसाध्यांपेक्षा कमी.\nसानुकूल जुळते.\nउपयोग सुरक्षित.\nनवीन लिहिणे.\n:where() वजन वापर सोपा आहे.\n:where() वजन अचूक गुण देतो.", code: `:where(nav, footer) a {
   color: #475569;
 }`, codeLanguage: "css" },
-      { title: "3. :not() उलट", content: ":not() नकार देतो.\nएक किंवा अनेक.\nकालबाह्य वगळा.\nspecificity जोडते.\nगरज अचूक निवडा.\nस्वरूप स्पष्ट.\n:not() उलट parent child समजते.\n:not() उलट नियम कडक आहे.\n:not() उलट पाळला तर सोपे.\n:not() उलट गोंधळ टाळतो.\n:not() उलट रचना स्थिर राहते.\n:not() उलट क्रम नेहमी सारखा.\n:not() उलट भाग जुळतात.\n:not() उलट गोंधळ टाळतो.\n:not() उलट रचना स्थिर राहते.\n:not() उलट क्रम नेहमी सारखा.\n:not() उलट भाग जुळतात.\n:not() उलट स्वरूप नीट होते.\n:not() उलट खोली संतुलित आहे.\n:not() उलट नियम बरोबर.", code: `li:not(:last-child) {
+      { title: "3. :not() उलट", content: ":not() नकार देतो.\nएक किंवा अनेक.\nकालबाह्य वगळा.\nspecificity जोडते.\nगरज अचूक निवडा.\nस्वरूप स्पष्ट.\n:not() उलट parent child समजते.\n:not() उलट नियम कडक आहे.", code: `li:not(:last-child) {
   border-bottom: 1px solid #e2e8f0;
 }`, codeLanguage: "css" },
       { title: "4. nth गणित", content: "nth-child An+B गणित.\n3n मधील तिसरा.\nपहिला आणि शेवट.\nक्रम तपासा.\nप्रगती नमुन्यांत.", code: `tr:nth-child(odd) {
   background: #f8fafc;
 }`, codeLanguage: "css" },
-      { title: "5. :target भेद", content: ":target निवड लिंक.\nइतर link नवा.\nid चे भिंत.\nhighlight विभाग.\nफक्त ते दिसते.\nउपयोग सोपा.\n:target भेद आत्मविश्वास वाढतो.\n:target भेद दररोज थोडे सरावा.\n:target भेद प्रयोग करायला घ्या.\n:target भेद शिकणे प्रगत होते.\n:target भेद सराव करून पहा.\n:target भेद प्रत्येक ठिकाणी लिहा.\n:target भेद चुका सुधारा.\n:target भेद शिकणे प्रगत होते.\n:target भेद सराव करून पहा.\n:target भेद प्रत्येक ठिकाणी लिहा.\n:target भेद चुका सुधारा.\n:target भेद पुन्हा तपासा.\n:target भेद हाताने करून दिसेल.\n:target भेद उदाहरण स्वतंत्र वापरा.", code: `section:target {
+      { title: "5. :target भेद", content: ":target निवड लिंक.\nइतर link नवा.\nid चे भिंत.\nhighlight विभाग.\nफक्त ते दिसते.\nउपयोग सोपा.\n:target भेद आत्मविश्वास वाढतो.\n:target भेद दररोज थोडे सरावा.", code: `section:target {
   background: #fef9c3;
 }`, codeLanguage: "css" },
       { title: "6. संयोग सवय", content: "एकत्र :is :where.\nspecificity नियम जपा.\nवाक्य वाचता.\nअर्थ स्पष्ट.\nआधार मजबूत.", code: `:where(article) :is(h2, h3):not(:first-child) {

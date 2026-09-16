@@ -352,7 +352,7 @@ export const cssLevel13: Tutorial[] = [
     minutes: 40,
     summary: ":focus-within keyboard मदत.",
     sections: [
-      { title: "1. focus-within कल्पना", content: ":focus-within नियम.\nआत focus.\nगट उजळ.\n:focus-within नियम सरावाने पक्के होते.\n:focus-within नियम पाया मजबूत आहे.\n:focus-within नियम आज विषय आत्मसात करा.\n:focus-within नियम संपूर्ण अर्थ उमजतो.\n:focus-within नियम हे तत्व आहे.\n:focus-within नियम सुरुवात येथे होते.\n:focus-within नियम अर्थ लक्षात ठेवा.\n:focus-within नियम संपूर्ण अर्थ उमजतो.\n:focus-within नियम हे तत्व आहे.\n:focus-within नियम सुरुवात येथे होते.\n:focus-within नियम अर्थ लक्षात ठेवा.\n:focus-within नियम मराठीतून समजतो.\n:focus-within नियम रचना स्पष्ट होते.\n:focus-within नियम ब्राउझर ते करतो.", code: `.card:focus-within {
+      { title: "1. focus-within कल्पना", content: ":focus-within नियम.\nआत focus.\nगट उजळ.\n:focus-within नियम सरावाने पक्के होते.\n:focus-within नियम पाया मजबूत आहे.\n:focus-within नियम आज विषय आत्मसात करा.\n:focus-within नियम संपूर्ण अर्थ उमजतो.\n:focus-within नियम हे तत्व आहे.", code: `.card:focus-within {
   outline: 2px solid #0d9488;
 }`, codeLanguage: "css" },
       { title: "2. कार्ड थर", content: "कार्ड focus.\nकिनार रंग.\nkeyboard सुख.\nरचना स्पष्ट.", code: `.field:focus-within {

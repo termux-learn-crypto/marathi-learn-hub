@@ -87,7 +87,7 @@ const v = cs.getPropertyValue("--accent").trim();`, codeLanguage: "css" },
       { title: "6. आधार सूचना", content: "स्क्रोल-ड्रिव्हन सर्वत्र नाही.\n@supports ने तपासा आतल्या.\nजुन्या ब्राउझरसाठी static.\ntransitions वर स्थिर परत.", code: `@supports (animation-timeline: scroll()) {
   .bar { animation-timeline: scroll(); }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "स्क्रोल प्रोग्रेस बार बनवा.\nscroll() timeline.\nreduced पर्याय सोबत.\nscroll() नियम मानक पाळा.\nscroll() नियम आधार तपासा.\nscroll() नियम साधेपणा ठेवा.\nscroll() नियम कोड सुबक ठेवा.\nscroll() नियम वेबवर वापरा.\nscroll() नियम शैली योग्य निवडा.\nscroll() नियम मर्यादा पाळा.\nscroll() नियम कोड सुबक ठेवा.\nscroll() नियम वेबवर वापरा.\nscroll() नियम शैली योग्य निवडा.\nscroll() नियम मर्यादा पाळा.\nscroll() नियम नाव योग्य द्या.\nscroll() नियम गुणधर्म जोडा.\nscroll() नियम ब्राउझर बदल पडेल.", code: `body {
+      { title: "Mini Project", content: "स्क्रोल प्रोग्रेस बार बनवा.\nscroll() timeline.\nreduced पर्याय सोबत.\nscroll() नियम मानक पाळा.\nscroll() नियम आधार तपासा.\nscroll() नियम साधेपणा ठेवा.\nscroll() नियम कोड सुबक ठेवा.\nscroll() नियम वेबवर वापरा.", code: `body {
   animation: fill linear;
   animation-timeline: scroll();
 }
@@ -524,7 +524,7 @@ const v = cs.getPropertyValue("--accent").trim();`, codeLanguage: "css" },
       { title: "3. @scope नियम", content: "@scope मध्ये सीमारेषा निर्दिष्ट करते.\nlimit मध्येच नियम.\nchild तिथेच लागतात.\nजागतिक कोड सुरक्षित.\nनामांचा संघर्ष कमी.", code: `@scope (.widget) to (.foot) {
   .title { color: teal; }
 }`, codeLanguage: "css" },
-      { title: "4. :scope संदर्भ", content: ":scope हा root स्वतः.\nआतला निवडला तर.\nमुलांचा संदर्भ स्पष्ट.\nselector वाक्य वाचता.\nजटिलता उतरवते.\n:scope संदर्भ screen reader ते वाचते.\n:scope संदर्भ शुद्ध वेब बनतो.\n:scope संदर्भ ही सवय ठेवा.\n:scope संदर्भ आधुनिक दृष्टी घ्या.\n:scope संदर्भ सर्वांसाठी खुला.\n:scope संदर्भ वाचक घाबरत नाही.\n:scope संदर्भ प्रवेशयोग्यता वाढते.\n:scope संदर्भ आधुनिक दृष्टी घ्या.\n:scope संदर्भ सर्वांसाठी खुला.\n:scope संदर्भ वाचक घाबरत नाही.\n:scope संदर्भ प्रवेशयोग्यता वाढते.\n:scope संदर्भ मराठी समजते.\n:scope संदर्भ अर्थ स्पष्ट होतो.\n:scope संदर्भ दृष्टिहीनांना मदत.", code: `@scope {
+      { title: "4. :scope संदर्भ", content: ":scope हा root स्वतः.\nआतला निवडला तर.\nमुलांचा संदर्भ स्पष्ट.\nselector वाक्य वाचता.\nजटिलता उतरवते.\n:scope संदर्भ screen reader ते वाचते.\n:scope संदर्भ शुद्ध वेब बनतो.\n:scope संदर्भ ही सवय ठेवा.", code: `@scope {
   :scope {
     border: 1px solid #ccc;
   }

@@ -659,7 +659,7 @@ textarea {
       { title: "2. caret थर", content: "caret-shape नियम.\nblock रूप.\nजागा स्पष्ट.\nनियम नेमका.", code: `input {
   caret-shape: underline;
 }`, codeLanguage: "css" },
-      { title: "3. selection थर", content: "::selection नियम.\nनिवड रंग.\ntext ठळक.\nदृश्य सुबक.\n:selection थर जोड parent child समजते.\n:selection थर जोड नियम कडक आहे.\n:selection थर जोड पाळला तर सोपे.\n:selection थर जोड गोंधळ टाळतो.\n:selection थर जोड रचना स्थिर राहते.\n:selection थर जोड क्रम नेहमी सारखा.\n:selection थर जोड भाग जुळतात.\n:selection थर जोड गोंधळ टाळतो.\n:selection थर जोड रचना स्थिर राहते.\n:selection थर जोड क्रम नेहमी सारखा.\n:selection थर जोड भाग जुळतात.\n:selection थर जोड स्वरूप नीट होते.\n:selection थर जोड खोली संतुलित आहे.\n:selection थर जोड नियम बरोबर.", code: `::selection {
+      { title: "3. selection थर", content: "::selection नियम.\nनिवड रंग.\ntext ठळक.\nदृश्य सुबक.\n:selection थर जोड parent child समजते.\n:selection थर जोड नियम कडक आहे.\n:selection थर जोड पाळला तर सोपे.\n:selection थर जोड गोंधळ टाळतो.", code: `::selection {
   background: #99f6e4;
   color: #134e4a;
 }`, codeLanguage: "css" },

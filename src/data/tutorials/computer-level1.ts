@@ -20,18 +20,15 @@ export const computerLevel1: Tutorial[] = [
     sections: [
       {
         title: "1. इनपुट उपकरणे म्हणजे काय?",
-        content:
-          "इनपुट उपकरणे (Input Devices) ही संगणकाची 'डोळे-कान-हात' आहेत — त्यांच्यातूनच संगणकाला कळतं 'काय करायचं'.\nअजून सखोल विचार करू:\n• कोणत्याही कृतीची सुरुवात = इनपुट. (टाइप करणे, क्लिक करणे, छायाचित्र घेणे, बोलणे — सर्व.)\n• संगणकाला फक्त विजेचीच माहिती समजते (0/1) — इनपुट device चे काम तुमच्या कृतीचे (pressure, light, sound, motion) या विजेच्या संकेतांत रूपांतर करणे.\n\nम्हणूनच प्रत्येक इनपुट उपकरणात संवेदक (sensor) असतो:\nकीबोर्डमध्ये key press → charge बदल → 0/1\nमाउसमध्ये light/स्लॅक → movement → 0/1\nहे रूपांतर समजलं की 'इनपुट कसे काम करतं' याचा पाया तयार होतो.",
+        content: "इनपुट उपकरणे (Input Devices) ही संगणकाची 'डोळे-कान-हात' आहेत — त्यांच्यातूनच संगणकाला कळतं 'काय करायचं'. प्रत्येक कृती (टाइप, क्लिक, फोटो, बोलणे) ही इनपुट आहे. संगणकाला फक्त 0/1 समजते; device चे काम pressure/light/sound → 0/1 रूपांतर. प्रत्येक इनपुट उपकरणात sensor असतो: कीबोर्डमध्ये key press → charge बदल → 0/1; माउसमध्ये light/movement → 0/1.",
       },
       {
         title: "2. कीबोर्ड — संगणकाचे लेखनयंत्र (सखोल)",
-        content:
-          "कीबोर्ड (Keyboard) हे सर्वात महत्त्वाचे इनपुट device — मजकूर लिहिण्यासाठी.\n\nमुख्य भाग व ओळख:\n• Alphanumeric keys — अक्षरे व संख्या आणि # $ @ सारखी special characters.\n• Function keys (F1-F12) — shortcuts (F2 rename, F5 refresh).\n• Modifier keys — Ctrl, Alt, Shift — इतर keys ला विशेष अर्थ देतात (Ctrl+C = copy).\n• Nav keys — Home, End, PageUp/Down, arrows — फाईल/पेजमध्ये झटपट हालचाल.\n• Numpad — उजवीकडील मोजणीची की — फक्त संख्या टाकण्यात वेगवान.\n\nLayouts:\n• QWERTY — इंग्रजीसाठी सर्वत्र.\n• अभ्यासानुसार मराठी/देवनागरी layout (Inscript) — OS मध्ये भाषा add करून.\n• नवीन layout शिकण्यासाठी — typing trainer अवश्य वापरा; बोटांची ठिकाणे नकाशानुसार ठेवा.\n\nकाळजी:\nकीबोर्डवर खाणे-पिणे सांडलं तर keys अडकतात — उलटा ठेवून वाळवा, इलेक्ट्रॉनिक्स भिजवू नका.",
+        content: "कीबोर्ड (Keyboard) — मजकूर लिहिण्यासाठी सर्वात महत्त्वाचे इनपुट device.\n\nमुख्य भाग: Alphanumeric keys (अक्षरे/संख्या); Function keys F1-F12 (shortcuts); Modifier keys Ctrl/Alt/Shift (विशेष अर्थ); Nav keys (Home/End/arrows); Numpad (संख्या टाकण्यात वेगवान). Layouts: QWERTY (इंग्रजी); Inscript (देवनागरी) — OS मध्ये भाषा add करून. नवीन layout शिकण्यासाठी typing trainer वापरा; बोटांची ठिकाणे नकाशानुसार ठेवा.\n\nदेखभाल: कीबोर्डवर खाणे-पिणे सांडलं तर keys अडकतात — उलटा ठेवून वाळवा, इलेक्ट्रॉनिक्स भिजवू नका.",
       },
       {
         title: "3. माउस आणि टचपॅड — हालचालीची साधने (सखोल)",
-        content:
-          "माउस (Mouse) / टचपॅड (Touchpad) — संगणकाच्या screen वरील वस्तू निवडणे, हलवणे, उघडणे.\n\nकामातील मुख्य gestures:\n• Left click — निवड / उघडणे.\n• Double click — फोल्डर/अॅप उघडणे.\n• Right click — संदर्भ मेनू (context menu).\n• Drag & drop — फाईल पुढे खेचणे.\n• Scroll wheel — वर/खाली जाणे.\n• Ctrl + scroll — zoom in/out.\n\nतंत्रज्ञान:\n• Optical/Laser mouse — खालचा प्रकाश डिव्हाइस हालचालीचा अंदाज घेतो; डेस्क/मॅट सपाट असणे गरजेचे.\n• Wireless/BT mouse — USB receiver किंवा ब्लूटूथने जोडला जातो; batteries लक्षात ठेवा.\n\nएर्गोनॉमिक्स:\n• माउस अगदी सहज हातात बसला पाहिजे; २-३ तास सलग वापर असल्यास wrist जोर न करणारे उपकरण.\n• टचपॅडवरील gestures (दोन बोटांनी स्क्रोल, तीन बोटांनी अॅप switch) शिकल्यास लॅपटॉप वापर सोपा होतो.",
+        content: "माउस (Mouse) / टचपॅड (Touchpad) — संगणकाच्या screen वरील वस्तू निवडणे, हलवणे, उघडणे.\n\nकामातील मुख्य gestures:\n• Left click — निवड / उघडणे.\n• Double click — फोल्डर/अॅप उघडणे.\n• Right click — संदर्भ मेनू (context menu).\n• Drag & drop — फाईल पुढे खेचणे.\n• Scroll wheel — वर/खाली जाणे.",
       },
       {
         title: "4. मॉनिटर — निकाल दाखवणारा पडदा (सखोल)",
@@ -67,6 +64,10 @@ export const computerLevel1: Tutorial[] = [
         title: "10. छोटा सराव व सारांश",
         content:
           "आचरणात आणा:\n\n१) सभोवतालची १० उपकरणे इनपुट/आउटपुट/दोन्ही या गटांत लिहा — ATM, स्मार्टबोर्ड, फोटोशॉप अशी.\n२) तुमच्या लॅपटॉप/फोनचा कीबोर्ड व माउस पोर्ट (USB/ब्लूटूथ) कसा आहे पहा.\n३) मॉनिटर resolution (Settings → Display) पहा — 1920×1080 असल्यास Full HD.\n\nसारांश:\n• इनपुट = माहिती देणे; आउटपुट = निकाल दाखवणे; दोन्ही = दुहेरी.\n• प्रत्येक उपकरणात sensor रूपांतर होते.\n• योग्य निवड व देखभाल — दीर्घ आयुष्य.\n\nपुढील tutorial (computer-ports) — या सर्व उपकरणांचे संगणकाशी जोडणी (USB, HDMI, Ethernet) सविस्तर.",
+      code: `इनपुट: कीबोर्ड, माउस, स्कॅनर, वेबकॅम, माइक्रोफोन
+आउटपुट: मॉनिटर, प्रिंटर, स्पीकर
+दोन्ही: टचस्क्रीन, USB ड्राइव्ह, नेटवर्क कार्ड`,
+      codeLanguage: "text",
       },
     ],
     quiz: [
@@ -101,13 +102,11 @@ export const computerLevel1: Tutorial[] = [
     sections: [
       {
         title: "1. पोर्ट म्हणजे काय?",
-        content:
-          "पोर्ट (Port) म्हणजे संगणकाच्या कडेवरील जोडनीचे 'दरवाजे' — जिथून बाह्य उपकरणे (USB ड्राइव्ह, मॉनिटर, नेट केबल, प्रिंटर) संगणकाशी जोडली जातात.\n\nपोर्ट म्हणजे केबल नाही —\n• पोर्ट = संगणकातील ठाव (socket).\n• केबल = जोडनी वाहक (wire + connector).\n• ऍडाप्टर = एक पोर्ट दुसऱ्यात रूपांतर करण्याचे साधन.\n\nकाही पोर्ट मागील बाजूस (I/O back panel) असतात, काही समोरच्या (front) भागावर — डिझाइननुसार.\nप्रत्येक पोर्टला विशिष्ट आकार असतो — चुकीच्या पोर्टला जबरदस्तीने जोडता येत नाही.\n\nया topic मध्ये तुम्हाला प्रत्येक पोर्ट कसा ओळखावा आणि कधी कसा वापरावा — ते ठोस शिकायला मिळेल.",
+        content: "पोर्ट (Port) = संगणकाच्या कडेवरील जोडनीचे 'दरवाजे' — जिथून बाह्य उपकरणे संगणकाशी जोडली जातात.\n\nपोर्ट म्हणजे केबल नाही: पोर्ट = संगणकातील socket; केबल = wire + connector; ऍडाप्टर = एक पोर्ट दुसऱ्यात रूपांतर. काही पोर्ट मागील बाजूस (I/O back panel), काही समोरच्या भागावर. प्रत्येक पोर्टला विशिष्ट आकार — चुकीच्या पोर्टला जबरदस्तीने जोडता येत नाही. या topic मध्ये प्रत्येक पोर्ट कसा ओळखावा आणि कधी कसा वापरावा ते ठोस शिकायला मिळेल.",
       },
       {
         title: "2. USB — सर्वात बहुपयोगी पोर्ट (सखोल)",
-        content:
-          "USB (Universal Serial Bus) — 'एक पोर्ट, हजार कामे'.\n\nआकार व प्रकार:\n• USB-A — मोठा आयताकृती; जुने मानक; पेनड्राइव्ह, कीबोर्ड, माउस, चार्जर.\n• USB-B — चौकोनी, जुने प्रिंटर/स्कॅनर.\n• USB-C — नवीन, लहान अंडाकृती, उलटसुलटही जातो; फोन/लॅपटॉप/मॉनिटर मानक; डेटा + वीज दोन्ही.\n• Micro-USB — जुने अॅन्ड्रॉइड फोन/इअरबड्स.\n\nव्हर्जन व वेग:\n• USB 2.0 — ~480 Mbps (हेळू, कीबोर्ड/माउससाठी पुरे).\n• USB 3.0/3.1 — 5-10 Gbps (निळा आतील भाग) — पेनड्राइव्ह/HDD.\n• USB 3.2 / Thunderbolt — 20-40 Gbps — मॉनिटर, eGPU.\nछोटी टीप: जुना port + नवीन cable हेळू असते; निटची दोन्ही पुरी आवश्यक.\n\nवीज (Power):\nUSB-C द्वारे लॅपटॉप चार्जिंग (60-100W) — होय, एकच केबल सगळं काही करते.",
+        content: "USB (Universal Serial Bus) — 'एक पोर्ट, हजार कामे'.\n\nआकार व प्रकार:\n• USB-A — मोठा आयताकृती; जुने मानक; पेनड्राइव्ह, कीबोर्ड, माउस, चार्जर.\n• USB-B — चौकोनी, जुने प्रिंटर/स्कॅनर.\n• USB-C — नवीन, लहान अंडाकृती, उलटसुलटही जातो; फोन/लॅपटॉप/मॉनिटर मानक; डेटा + वीज दोन्ही.\n• Micro-USB — जुने अॅन्ड्रॉइड फोन/इअरबड्स.\n",
       },
       {
         title: "3. व्हिडिओ पोर्ट्स — मॉनिटर जोडणी (सखोल)",
@@ -116,13 +115,11 @@ export const computerLevel1: Tutorial[] = [
       },
       {
         title: "4. नेटवर्क पोर्ट्स — इंटरनेट जोडणी (सखोल)",
-        content:
-          "नेटवर्क पोर्ट — संगणकाला इंटरनेट/लॅनशी जोडणारी:\n\n• Ethernet (RJ45) — मोठ्या रुंद सॉकेटमध्ये LAN केबल; वेग: 100 Mbps (Cat5), 1 Gbps (Cat5e/Cat6), 10 Gbps+ (Cat6a/7).\n• WiFi / Bluetooth — पोर्ट नाही पण याच कामाचे wireless.\n\nEthernet का वापरतात?\n• स्थिरता — गेमिंग/व्हिडिओ कॉलमध्ये колебаний नाही.\n• WiFi सिग्नल कमी असेल घरामध्ये — Ethernet हा पर्याय.\n• सुरक्षा — स्थानिक नेटवर्क एकट्यापर्यंत मर्यादित (WiFi पेक्षा कमी व्यत्यय).\n\nसामान्य नेटवर्क सेटअप:\nमोडेम (इंटरनेट) → राउटर (WiFi/Ethernet) → तुमची उपकरणे.\nRouter ला Ethernet केबल ने संगणक जोडल्यास सर्वात जलद व स्थिर.",
+        content: "नेटवर्क पोर्ट — संगणकाला इंटरनेट/लॅनशी जोडणारी.\n\nEthernet (RJ45) — LAN केबल; वेग: 100 Mbps (Cat5), 1 Gbps (Cat5e/Cat6), 10 Gbps+ (Cat6a/7). WiFi/Bluetooth — पोर्ट नाही पण याच कामाचे wireless. Ethernet का वापरतात: स्थिरता (गेमिंग/व्हिडिओ कॉल), WiFi सिग्नल कमी असेल घरामध्ये, सुरक्षा (स्थानिक नेटवर्क मर्यादित).\n\nसामान्य सेटअप: मोडेम (इंटरनेट) → राउटर (WiFi/Ethernet) → तुमची उपकरणे. Router ला Ethernet केबल ने संगणक जोडल्यास सर्वात जलद व स्थिर.",
       },
       {
         title: "5. ऑडिओ आणि इतर पोर्ट्स (सखोल)",
-        content:
-          "संगणकावरील इतर महत्त्वाचे ports:\n\nऑडिओ:\n• 3.5mm jack — हिरवा (आवाज बाहेर), गुलाबी (माईक आत), निळा (लाईन-इन).\n• USB headphone — USB वरच आवाज + माईक — वेगळ्या ऑडिओ कार्डची गरज नाही.\n• S/PDIF (ऑप्टिकल) — डिजिटल ऑडिओ (जुने अॅम्प/साउंडबार).\n\nमेमरी कार्ड:\n• SD/microSD slot — फोटोग्राफर/फोन डेटा.\n\nपॉवर:\n• Barrel jack — जुने लॅपटॉप चार्जिंग.\n• USB-C Power Delivery — नवीन केबल एकच.\n\nजर संगणकावर HDMI + USB + headphone असतील तर बहुतेक दैनंदिन कामे अन्य कोणत्याही ऍडॉप्टरशिवाय होऊ शकतात.",
+        content: "संगणकावरील इतर महत्त्वाचे ports:\n\nऑडिओ:\n• 3.5mm jack — हिरवा (आवाज बाहेर), गुलाबी (माईक आत), निळा (लाईन-इन).\n• USB headphone — USB वरच आवाज + माईक — वेगळ्या ऑडिओ कार्डची गरज नाही.\n• S/PDIF (ऑप्टिकल) — डिजिटल ऑडिओ (जुने अॅम्प/साउंडबार).\n\nमेमरी कार्ड:",
       },
       {
         title: "6. डॉकिंग स्टेशन आणि ऍडाप्टर (सखोल)",
@@ -148,6 +145,12 @@ export const computerLevel1: Tutorial[] = [
         title: "10. छोटा सराव व सारांश",
         content:
           "आचरणात आणा:\n\n१) लॅपटॉप/फोनचे प्रत्येक port — नाव व रंगासह यादी करा, Photos काढा.\n२) Ethernet केबल लॅपटॉप/राउटर यांना जोडून WiFi बंद करा — वेगात फरक समजू.\n३) एक USB-C hub ऍडॉप्टर असल्यास प्रिंटर/मॉनिटर/नेट — ३ उपकरणे यात जोडून पहा.\n\nसारांश:\n• पोर्ट = सॉकेट; केबल = वाहक; ऍडाप्टर = रूपांतरक.\n• USB (डेटा + वीज), HDMI/DP (व्हिडिओ), Ethernet (नेट), ऑडिओ.\n• योग्य व्हर्जन/ऍडाप्टर निवडणे व केबल सांभाळणे — कामाचा स्थायी.\n\nपुढील tutorial (computer-memory) — याच पोर्टवर येणाऱ्या storage व RAM संकल्पना.",
+      code: `USB-A — कीबोर्ड/माउस/पेनड्राइव्ह
+USB-C — फोन/लॅपटॉप (डेटा+वीज)
+HDMI — मॉनिटर (चित्र+आवाज)
+Ethernet (RJ45) — LAN नेटवर्क
+3.5mm — हिरवा=आवाज, गुलाबी=माईक`,
+      codeLanguage: "text",
       },
     ],
     quiz: [
@@ -182,13 +185,11 @@ export const computerLevel1: Tutorial[] = [
     sections: [
       {
         title: "1. मेमरी म्हणजे काय — श्रेणीबद्ध विचार",
-        content:
-          "मेमरी (Memory) म्हणजे संगणकातील माहिती ठेवण्याची जागा — पण एकच जागा नाही, तर श्रेणी (hierarchy):\n\n• सर्वात जवळ/जलद — CPU कॅशे (KB-MB)\n• नंतर — RAM (GB)\n• मग — SSD/HDD (स्टोरेज, GB-TB)\n\nनियम: जितकी जलद मेमरी, तितकी महाग व कमी जागा.\nम्हणूनच संगणक सर्वत्र RAM ठेवतो तरीही स्टोरेज अधिक — वेग व खर्च यांची तोल.\n\nआणखी एक महत्त्वाचा फरक:\n• Primary (main) मेमरी — CPU थेट वाचतो (रेजिस्टर, कॅश, RAM)\n• Secondary स्टोरेज — फाइल्स कायम (SSD/HDD, pen drive)\n\nहे आकलन पुढील प्रत्येक 'वेगवान/मंद' समस्येत लागेल.",
+        content: "मेमरी (Memory) = संगणकातील माहिती ठेवण्याची जागा; पण एकच जागा नाही, तर श्रेणी (hierarchy): सर्वात जवळ/जलद — CPU कॅशे (KB-MB); नंतर — RAM (GB); मग — SSD/HDD (GB-TB). नियम: जितकी जलद मेमरी, तितकी महाग व कमी जागा.\n\nदोन प्रकार: Primary मेमरी — CPU थेट वाचतो (रेजिस्टर, कॅश, RAM); Secondary स्टोरेज — फाईल्स कायम (SSD/HDD, pen drive). हे आकलन पुढील प्रत्येक 'वेगवान/मंद' समस्येत लागेल.",
       },
       {
         title: "2. RAM — तात्पुरती काम-मेज (सखोल)",
-        content:
-          "RAM (Random Access Memory) — चालू कामाची तात्पुरती जागा; संगणक काम करत असताना apps व त्यांचा डेटा इथेच लोड होतो.\n\nकार्यरत तत्त्व:\n• तुम्ही अॅप उघडता → ते HDD पासून RAM मध्ये कॉपी होते → CPU RAM मधून वाचून काम करतो.\n• RAM ही SSD/HDD पेक्षा लक्षावधीपट जलद असते — म्हणून तिथून काम.\n• वीज बंद झाली की RAM रिकामी — 'विसरली'.\n\nप्रकार:\n• DDR4 / DDR5 — सध्या RAM च्या पिढ्या; system एकच प्रकार सपोर्ट करतो.\n• Dual channel — दोन समान RAM स्टिक्स जोडल्यास दुहेरी बँडविद्थ — लहान पण लक्षणीय फायदा.\n\nकिती RAM योग्य?\n• 8 GB — बेसिक सुरुवात\n• 16 GB — coding, tabs, editing आरामात\n• 32 GB+ — heavy video/गेमिंग\n\nजर RAM संपली (usage >90%) — संगणक हळू; कारण पुढचा उपाय virtual memory.",
+        content: "RAM (Random Access Memory) — चालू कामाची तात्पुरती जागा; संगणक काम करत असताना apps व त्यांचा डेटा इथेच लोड होतो.\n\nकार्यरत तत्त्व:\n• तुम्ही अॅप उघडता → ते HDD पासून RAM मध्ये कॉपी होते → CPU RAM मधून वाचून काम करतो.\n• RAM ही SSD/HDD पेक्षा लक्षावधीपट जलद असते — म्हणून तिथून काम.\n• वीज बंद झाली की RAM रिकामी — 'विसरली'.\n\nप्रकार:",
       },
       {
         title: "3. ROM आणि फर्मवेअर — कायम सूचना (सखोल)",
@@ -202,18 +203,15 @@ export const computerLevel1: Tutorial[] = [
       },
       {
         title: "5. व्हर्च्युअल मेमरी / Swap — RAM ला मदत (सखोल)",
-        content:
-          "जेव्हा RAM भरते — अनेक apps एकदम उघडली — तेव्हा OS 'व्हर्च्युअल मेमरी' वापरतो:\n\nकसे काम करते:\n• कमी वापराचा डेटा हार्ड डिस्कच्या एका भागात (page file/swap) हलवला जातो.\n• जेव्हा लागतो तेव्हा परत RAM मध्ये आणला जातो.\n\nWindows — pagefile.sys; Linux/macOS — swap partition / swapfile.\nटर्मक्सवर प्रत्यक्ष बघा: `free -h` — तळात swap रक्कम.\n\nतोटा:\nSwap हि डिस्कवर असते — म्हणजे हळू. जेव्हा OS सतत swap करतो (thrashing) — संगणक गोठतो.\nउपाय: अतिरिक्त RAM जोडा किंवा कमी apps उघडा.\n\nम्हणूनच 'RAM वाढवली की वेग सुटतो' — खरं तर swap थांबतो.",
+        content: "जेव्हा RAM भरते — अनेक apps एकदम उघडली — तेव्हा OS 'व्हर्च्युअल मेमरी' वापरतो: कमी वापराचा डेटा हार्ड डिस्कच्या एका भागात (page file/swap) हलवला जातो; जेव्हा लागतो तेव्हा परत RAM मध्ये. Windows — pagefile.sys; Linux/macOS — swap partition/swapfile.\n\nतोटा: Swap हि डिस्कवर असते — म्हणजे हळू. OS सतत swap करतो (thrashing) → संगणक गोठतो. उपाय: अतिरिक्त RAM जोडा किंवा कमी apps उघडा. 'RAM वाढवली की वेग सुटतो' — खरं तर swap थांबतो.",
       },
       {
         title: "6. स्टोरेज डिव्हाइसेस — HDD, SSD, NVMe (सखोल)",
-        content:
-          "सेकंडरी स्टोरेज — तुमच्या फाईल्स कायम ठेवणारी (बंद केल्यावरही).\n\n• HDD — फिरणाऱ्या प्लेटवर magnetic; मोठा (1-8 TB), स्वस्त; पण हळू व ऐकू येणारा आवाज.\n• SSD (SATA) — चिप-आधारित; ~500 MB/s; बूट/अॅप्स जलद.\n• NVMe SSD — PCIe वर; 2000-6000+ MB/s; आज लॅपटॉप मानक.\n\nफरक (साखळी):\nHDD: read ~100-200 MB/s\nSATA SSD: ~500 MB/s\nNVMe SSD: ~2000-6000+ MB/s\n\nप्रॅक्टिकल:\n• OS + अॅप्स = SSD (जलद प्रतिसाद)\n• फोटो/संग्रह = HDD (स्वस्त मोठा)\nयोग्य स्टोरेज निवड हा 'संगणक जलद' चा सर्वात मोठा एक upgrade आहे.",
+        content: "सेकंडरी स्टोरेज — तुमच्या फाईल्स कायम ठेवणारी.\n\nHDD — फिरणाऱ्या प्लेटवर magnetic; मोठा (1-8 TB), स्वस्त; पण हळू व ऐकू येणारा आवाज. SSD (SATA) — चिप-आधारित; ~500 MB/s; बूट/अॅप्स जलद. NVMe SSD — PCIe वर; 2000-6000+ MB/s; आज लॅपटॉप मानक.\n\nफरक: HDD ~100-200 MB/s; SATA SSD ~500 MB/s; NVMe SSD ~2000-6000+ MB/s. OS + अॅप्स = SSD (जलद); फोटो/संग्रह = HDD (स्वस्त मोठा). SSD upgrade हा 'संगणक जलद' चा सर्वात मोठा upgrade आहे.",
       },
       {
         title: "7. युनिट्स — bit, byte, KB... TB (सखोल)",
-        content:
-          "माहितीचे मोजमाप:\n\n• bit — सर्वात लहान (0/1)\n• byte — 8 bits (एक अक्षर)\n• KB/MB/GB/TB — प्रत्येक पुढील 1024 पट\n\nआकडे:\n1 KB = 1024 B\n1 MB = 1024 KB\n1 GB = 1024 MB\n1 TB = 1024 GB\n\nवास्तविक आकार:\n• photo ≈ 2-5 MB\n• song ≈ 3-8 MB\n• movie (HD) ≈ 1-2 GB\n• game ≈ 50-100 GB\n\nनिर्माते '1 GB = 1000 MB' (decimal) दाखवतात; आपण '1024' (binary) गणतो — म्हणून 16 GB pen drive वर ~14.6 GB साठेल असे दिसते. हा फरक सामान्य पाठीमागे आहे.\n\nहे अंदाज pen drive/HDD निवडताना अत्यंत उपयोगी.",
+        content: "माहितीचे मोजमाप:\n\n• bit — सर्वात लहान (0/1)\n• byte — 8 bits (एक अक्षर)\n• KB/MB/GB/TB — प्रत्येक पुढील 1024 पट\n\nआकडे:\n1 KB = 1024 B",
         code: `1 bit   = 0 किंवा 1
 8 bits  = 1 byte  (एक अक्षर)
 1024 B  = 1 KB     (एक छोटा मजकूर)
@@ -276,18 +274,15 @@ export const computerLevel1: Tutorial[] = [
       },
       {
         title: "2. कर्नेल आणि ड्रायव्हर्स — आतले यंत्र (सखोल)",
-        content:
-          "कर्नेल (Kernel) — OS चा गाभा; सुरुवातीपासून सर्व low-level काम:\n• RAM व CPU चा नियोजन\n• फाईल सिस्टमवर वाचन/लेखन\n• उपकरणांशी संवाद\n\nतुम्ही desktop सोबत बोलता, desktop कर्नेलशी, कर्नेल hardware शी.\n\nड्रायव्हर (Driver) — विशिष्ट hardware साठीचा छोटा प्रोग्राम:\n`प्रिंटर driver` — प्रिंटरच्या भाषेत आदेश भाषांतर.\nनवीन hardware जोडल्यावर OS ला driver हवा — नाहीतर तो उपकरण ओळखत नाही.\nआधुनिक OS (Windows/Linux/macOS) अनेक सामान्य drivers आपोआप install करतात — पण अपवाद (विशेष उपकरणे) राहतात, तेव्हा निर्मात्याची driver फाईल आवश्यक.",
+        content: "कर्नेल (Kernel) — OS चा गाभा; सुरुवातीपासून सर्व low-level काम: RAM व CPU चा नियोजन, फाईल सिस्टमवर वाचन/लेखन, उपकरणांशी संवाद. तुम्ही desktop सोबत बोलता, desktop कर्नेलशी, कर्नेल hardware शी.\n\nड्रायव्हर (Driver) — विशिष्ट hardware साठीचा छोटा प्रोग्राम: प्रिंटर driver → प्रिंटरच्या भाषेत आदेश भाषांतर. नवीन hardware जोडल्यावर OS ला driver हवा — नाहीतर ओळखत नाही. आधुनिक OS अनेक सामान्य drivers आपोआप install करतात; विशेष उपकरणांसाठी निर्मात्याची driver फाईल आवश्यक.",
       },
       {
         title: "3. GUI वि CLI — दोन भाषा (सखोल)",
-        content:
-          "GUI (Graphical User Interface) — चित्रांतून:\n• माउस/टच, आयकॉन, विंडो, меню — Windows, macOS, Android.\n• नवशिक्यांसाठी सर्वात सोपा मार्ग.\n\nCLI (Command Line Interface) — मजकुरातून:\n• टर्मिनलमध्ये कमांड: `ls`, `cd`, `mkdir`, `pwd`.\n• का वापरतात? — जलद, automate होतो (स्क्रिप्ट्स), सर्व्हरवर GUI नसतोच, प्रत्येका computer सारखी कामे.\n\nTermux/लिनक्स प्रॅक्टिस:\n$ pwd — आपण कुठे आहोत\n$ ls — काय आहे\n$ cd Documents — आत जा\n$ mkdir test — फोल्डर बनवा\nही ४ कमांड तुमच्या टर्मिनलची पहिली ओळख.\n\nदोन्ही शक्य असतील तर दोन्ही शिकले पाहिजे — GUI day-to-day, CLI power.",
+        content: "GUI (Graphical User Interface) — चित्रांतून: माउस/टच, आयकॉन, विंडो, меню — Windows, macOS, Android. नवशिक्यांसाठी सर्वात सोपा मार्ग.\n\nCLI (Command Line Interface) — मजकुरातून: टर्मिनलमध्ये कमांड ls, cd, mkdir, pwd. का वापरतात — जलद, automate होतो (स्क्रिप्ट्स), सर्व्हरवर GUI नसतोच.\n\nTermux/लिनक्स प्रॅक्टिस: $ pwd (आपण कुठे), $ ls (काय आहे), $ cd Documents (आत जा), $ mkdir test (फोल्डर बनवा). दोन्ही शिकले पाहिजे — GUI day-to-day, CLI power.",
       },
       {
         title: "4. लोकप्रिय OS ची तुलना (सखोल)",
-        content:
-          "Windows:\n• घर-ऑफिस-गेमिंग सर्वात सामान्य; apps/सहाय्य आणि hardware समर्थन मोठ्या प्रमाणात.\n• मोफत नाही (license), व्यावसायिक वापर प्रचलित.\n\nLinux:\n• मोफत, open-source; सर्व्हर आणि डेव्हलपमेंटची पहिली निवड.\n• Distributions (डिस्ट्रो): Ubuntu/Mint (सोपे), Fedora, Arch (तज्ञ), Kali (सुरक्षा/टेस्टिंग).\n• Termux हा देखील Linux — फोनवर सच्चा टर्मिनल.\n\nmacOS:\n• Apple; फक्त Mac hardware वर; डिझाइन/अॅप सुलभता; मल्टीमीडिया कामांसाठी लोकप्रिय.\n\nAndroid/iOS:\n• फोन/टॅबलेट OS — Android हा Linux वर बांधलेला (कर्नेल).\nमोबाईल म्हणजे खिशातला संगणक — त्यामुळे OS संकल्पना केवळ डेस्कटॉप नाही.",
+        content: "Windows:\n• घर-ऑफिस-गेमिंग सर्वात सामान्य; apps/सहाय्य आणि hardware समर्थन मोठ्या प्रमाणात.\n• मोफत नाही (license), व्यावसायिक वापर प्रचलित.\n\nLinux:\n• मोफत, open-source; सर्व्हर आणि डेव्हलपमेंटची पहिली निवड.\n• Distributions (डिस्ट्रो): Ubuntu/Mint (सोपे), Fedora, Arch (तज्ञ), Kali (सुरक्षा/टेस्टिंग).\n• Termux हा देखील Linux — फोनवर सच्चा टर्मिनल.",
       },
       {
         title: "5. बूटिंग प्रक्रिया — संगणक कसा उठतो (सखोल)",
@@ -371,27 +366,24 @@ Desktop/Login स्क्रीन
       },
       {
         title: "2. फाईल एक्सटेंशन — शेवटचा कोड (सखोल)",
-        content:
-          "Extension = फाईल नावाचा शेवटचा भाग (.jpg, .pdf, .txt) — OS ठरवतो कोणत्या app ने उघडायचं.\n\nमहत्त्वाचे प्रकार:\n• कागदपत्र — .docx, .pdf, .txt, .odt\n• स्प्रेडशीट — .xlsx, .csv, .ods\n• प्रेझेंटेशन — .pptx\n• चित्रे — .jpg (लहान आकार), .png (पारदर्शकता), .svg (वेक्टर),\n• व्हिडिओ/ऑडिओ — .mp4, .mkv, .mp3, .wav\n• संग्रह — .zip, .rar\n• प्रत्यारोप — .exe (Windows), .apk (Android), .deb\n\nWindows मध्ये extensions लपलेली असतात:\nFile Explorer → View → File name extensions चालू करा.\nका महत्त्वाचं: फसवणुकीची फाईल `photo.jpg.exe` — दिसायला फोटो, खरं प्रोग्राम. Extension visible केल्यावर ही युक्ती पकडता येते.",
+        content: "Extension = फाईल नावाचा शेवटचा भाग (.jpg, .pdf, .txt) — OS ठरवतो कोणत्या app ने उघडायचं.\n\nप्रकार: कागदपत्र (.docx, .pdf, .txt); स्प्रेडशीट (.xlsx, .csv); प्रेझेंटेशन (.pptx); चित्रे (.jpg — लहान, .png — पारदर्शकता, .svg — वेक्टर); व्हिडिओ/ऑडिओ (.mp4, .mp3); संग्रह (.zip, .rar); प्रत्यारोप (.exe, .apk, .deb).\n\nWindows मध्ये extensions लपलेली: File Explorer → View → File name extensions चालू करा. का महत्त्वाचं — photo.jpg.exe यासारख्या फसवणुकीच्या फाईल ओळखता येतात.",
       },
       {
         title: "3. फाईल पाथ (Path) — घरपर्यंतचा नकाशा (सखोल)",
-        content:
-          "Path = फाईल शोधण्यासाठी संपूर्ण मार्ग — घराचा पत्त्यासारखा.\n\nWindows: `C:\\Users\\सायली\\Documents\\resume.pdf`\nLinux/macOS: `/home/सायली/Documents/resume.pdf`\n\nAbsolute path — root पासून संपूर्ण मार्ग.\nRelative path — सध्याच्या स्थानावरून:\n• `.` — सध्याचे फोल्डर\n• `..` — एक स्तर वर\n• `~` — home फोल्डर (Linux/टर्मक्स)\n\nटर्मक्स प्रॅक्टिस:\n$ pwd  →  `/data/data/com.termux/files/home`\n$ cd Documents && pwd\n$ ls .. — मागचा फोल्डर\n\nPath समजलं की फाईल सापडणे, copy URL, script करणे — सर्व सोपे होते.",
-        code: `C:\\
-├── Users\\
-│   └── सायली\\
-│       ├── Documents\\
+        content: "Path = फाईल शोधण्यासाठी संपूर्ण मार्ग — घराचा पत्त्यासारखा.\n\nWindows: C:\\Users\\सायली\\Documents\\resume.pdf\nLinux/macOS: /home/सायली/Documents/resume.pdf\n\nAbsolute path — root पासून संपूर्ण. Relative path — सध्याच्या स्थानावरून: . (सध्याचे), .. (एक स्तर वर), ~ (home).\n\nTermux: $ pwd → /data/data/com.termux/files/home; $ cd Documents && pwd; $ ls .. Path समजलं की फाईल सापडणे, script करणे — सर्व सोपे.",
+        code: `C:\
+├── Users\
+│   └── सायली\
+│       ├── Documents\
 │       │   ├── resume.pdf
 │       │   └── notes.txt
-│       └── Pictures\\
+│       └── Pictures\
 │           └── photo.jpg`,
         codeLanguage: "text",
       },
       {
         title: "4. फाईल प्रकार आणि त्यांच्यासाठी apps (सखोल)",
-        content:
-          "प्रत्येक फाईल प्रकार सहसा विशिष्ट app ने उघडतो:\n\n• .docx → Word / LibreOffice Writer\n• .xlsx → Excel / LibreOffice Calc\n• .pdf → PDF viewer (जवळपास सर्वत्र)\n• .jpg/.png → photo viewer / editor\n• .mp4 → media player\n\nउघडण्याचे नियंत्रण:\n• Default app बदलणे — OS च्या Settings मधील 'Open with' (Windows: Default apps).\n\nतीन गोष्टी करू नका:\n• कोणतीही फाईल अनोळखी app ने उघडू नका.\n• extension खोडू नका (ओळख नष्ट).\n• रिसीव्हही जंक फाईल सॉफ्टवेअर — नको ते टाळा.",
+        content: "प्रत्येक फाईल प्रकार सहसा विशिष्ट app ने उघडतो:\n\n• .docx → Word / LibreOffice Writer\n• .xlsx → Excel / LibreOffice Calc\n• .pdf → PDF viewer (जवळपास सर्वत्र)\n• .jpg/.png → photo viewer / editor\n• .mp4 → media player\n",
       },
       {
         title: "5. संपीडन — zipआणि rar (सखोल)",
@@ -483,13 +475,11 @@ Ctrl + A → सगळे निवडा`,
       },
       {
         title: "5. ब्राउझर शॉर्टकट्स (सखोल)",
-        content:
-          "ब्राउझरमधील मुख्य:\n\n• Ctrl+T — नवीन tab.\n• Ctrl+W — सध्याचा tab बंद.\n• Ctrl+Shift+T — चुकून बंद केलेला tab परत.\n• Ctrl+Tab / Ctrl+Shift+Tab — पुढचा/मागचा tab.\n• Ctrl+L — address bar (URL लिहा).\n• Ctrl+F — पेजमध्ये शब्द शोधा.\n• Ctrl+R / F5 — refresh.\n• Ctrl+Plus / Ctrl+Minus — zoom.\n• Ctrl+D — bookmark.\n\nमहत्त्व: Ctrl+Shift+T हा जीवरक्षक — चुकून बंद केलेला important tab परत आणतो.\nटीप: २० tabs उघडण्याऐवजी bookmark + Ctrl+T वापरा — प्रत्येक tab (RAM) मेमरी खातो.",
+        content: "ब्राउझरमधील मुख्य: Ctrl+T (नवीन tab); Ctrl+W (सध्याचा tab बंद); Ctrl+Shift+T (चुकून बंद केलेला tab परत); Ctrl+Tab/Ctrl+Shift+Tab (पुढचा/मागचा tab); Ctrl+L (address bar); Ctrl+F (पेजमध्ये शब्द शोधा); Ctrl+R/F5 (refresh); Ctrl+Plus/Ctrl+Minus (zoom); Ctrl+D (bookmark).\n\nCtrl+Shift+T हा जीवरक्षक — चुकून बंद केलेला important tab परत आणतो. २० tabs उघडण्याऐवजी bookmark + Ctrl+T वापरा — प्रत्येक tab RAM मेमरी खातो.",
       },
       {
         title: "6. टेक्स्ट एडिटर / टर्मिनल शॉर्टकट्स (सखोल)",
-        content:
-          "संपादन (editing) व टर्मिनलमध्ये विशेष:\n\n• Ctrl+C / Ctrl+X / Ctrl+V — टेक्स्ट ऍडिटरमध्येही.\n• Ctrl+Z / Ctrl+Y — मजकुराची किमया.\n• Home/End, PageUp/PageDown — लांब फाईल्ससाठी.\n• Ctrl+Shift+Esc/Task Manager — सर्व apps.\n\nटर्मिनल (लिनक्स/टर्मक्स):\n• Tab — auto-complete (दुप्पट सोय).\n• Up/Down arrows — आधीच्या कमांड्स.\n• Ctrl+L — स्क्रीन साफ.\n• Ctrl+C — चालू क्रिया थांबवा (टीप: टर्मिनलमध्ये copy साठी Ctrl+C नाही हे!).\n• Ctrl+A / Ctrl+E — लाईनची सुरुवात/शेवट.\n\nहे शिकलं की टर्मिनलवर प्रत्येक क्षणाची बचत होते.",
+        content: "संपादन (editing) व टर्मिनलमध्ये विशेष:\n\n• Ctrl+C / Ctrl+X / Ctrl+V — टेक्स्ट ऍडिटरमध्येही.\n• Ctrl+Z / Ctrl+Y — मजकुराची किमया.\n• Home/End, PageUp/PageDown — लांब फाईल्ससाठी.\n• Ctrl+Shift+Esc/Task Manager — सर्व apps.\n\nटर्मिनल (लिनक्स/टर्मक्स):",
       },
       {
         title: "7. वेगवान कामाची सवय — विसरू नका (सखोल)",
@@ -554,18 +544,15 @@ Ctrl + A → सगळे निवडा`,
       },
       {
         title: "3. MAC address आणि Router (सखोल)",
-        content:
-          "MAC address — प्रत्येक नेटवर्क उपकरणाला निर्मात्याने दिलेला कायमचा ओळखपत्र (उदा. `A4:5E:60:xx:xx:xx`).\n• IP बदलतो, MAC बदलत नाही.\n• LAN मध्ये उपकरणे MAC ने एकमेकांशी बोलतात.\n\nRouter — घरच्या नेटवर्कचा 'नायक':\n• एक public IP घेऊन अनेक private IP वाटतो (NAT).\n• Internet आणि devices च्या दरम्यान डेटाची वाहतूक करतो.\n• सामान्यतः त्याचा login IP `192.168.1.1` किंवा `192.168.0.1` असतो.\n\nWiFi बंद-चालू (restart) हे router ने पुन्हा जोडणी देतो — हीच 'router restart' समस्या सोडवण्याची पहिली पायरी.\nमोबाईल hotspot हादेखील routerच आहे — तो तुमच्या फोनच्या मोबाईल डेटाला Wi-Fi शेअर करतो.",
+        content: "MAC address — प्रत्येक नेटवर्क उपकरणाला निर्मात्याने दिलेला कायमचा ओळखपत्र (उदा. A4:5E:60:xx:xx:xx). IP बदलतो, MAC बदलत नाही. LAN मध्ये उपकरणे MAC ने एकमेकांशी बोलतात.\n\nRouter — घरच्या नेटवर्कचा 'नायक': एक public IP घेऊन अनेक private IP वाटतो (NAT); Internet आणि devices च्या दरम्यान डेटा वाहतूक करतो. Login IP सामान्यतः 192.168.1.1 किंवा 192.168.0.1. WiFi बंद-चालू (restart) हे router ने पुन्हा जोडणी देतो — हीच 'router restart' समस्या सोडवण्याची पहिली पायरी. मोबाईल hotspot हादेखील routerच आहे.",
       },
       {
         title: "4. DNS — इंटरनेटचा फोनबुक (सखोल)",
-        content:
-          "DNS (Domain Name System) — नावाला पत्ता देणारी व्यवस्था.\n\nतुम्ही `google.com` विचारता; त्यावेळी:\n१) तुमचा computer/provided DNS server ला विचारतो — 'google.com चा IP काय?'\n२) DNS server ती माहिती (cache/मागे) सांगतो.\n३) नंतर तुमचा browser त्या IP वर विनंती पाठवतो.\n\nप्रत्येक domain चा mapping details मध्ये असतो — DNS च्या सद्य पद्धतीनेच websites ला नावे वापरणे शक्य.\n\nडायग्नोस्टिक्स:\n• `nslookup google.com` — नावाचे IP दिसेल.\n• `ping -c 4 google.com` VS `ping -c 4 1.1.1.1`:\n  दुसरा चालतो, पहिला नाही → DNS समस्या.\n  दोन्हीही नाही → नेटवर्क समस्या.\nDNS बदलणे (1.1.1.1/8.8.8.8) — काहीवेळा browsing वेगवान व सुरक्षित होते.",
+        content: "DNS (Domain Name System) — नावाला पत्ता देणारी व्यवस्था. google.com विचारता तेव्हा: computer DNS server ला विचारतो → DNS server IP सांगतो → browser त्या IP वर विनंती पाठवतो.\n\nडायग्नोस्टिक्स: nslookup google.com — IP दिसेल; ping -c 4 google.com VS ping -c 4 1.1.1.1 — दुसरा चालतो, पहिला नाही → DNS समस्या; दोन्ही नाही → नेटवर्क समस्या. DNS बदलणे (1.1.1.1/8.8.8.8) — काहीवेळा browsing वेगवान व सुरक्षित होते.",
       },
       {
         title: "5. WiFi — तारांविना जोडणी (सखोल)",
-        content:
-          "WiFi — तारा न लावता devices ला LAN मध्ये जोडण्याची पद्धत.\n\nफ्रिक्वेंसी:\n• 2.4 GHz — जास्त रेंज, भिंती भेदतो, पण गर्दीत मंद.\n• 5 GHz — जलद, पण रेंज कमी.\nआधुनिक router दोन्ही एकाच नावाने (band steering) चालवतो.\n\nमानक (standards):\nWi-Fi 4 (802.11n), Wi-Fi 5 (ac), Wi-Fi 6/6E (ax) — नवीनतम, जलद व कमी विलंब.\n\nघटक:\n• SSID — नेटवर्क नाव (तुम्ही बघता).\n• Password/Key — प्रवेशासाठी.\n• Guest network — पाहुण्यांसाठी वेगळे/मर्यादित.\n\n'WiFi नाव बदलणे' किंवा 'पासवर्ड सेट' — router admin page (browser) मध्ये: 192.168.1.1 → login → Wi-Fi settings.",
+        content: "WiFi — तारा न लावता devices ला LAN मध्ये जोडण्याची पद्धत.\n\nफ्रिक्वेंसी:\n• 2.4 GHz — जास्त रेंज, भिंती भेदतो, पण गर्दीत मंद.\n• 5 GHz — जलद, पण रेंज कमी.\nआधुनिक router दोन्ही एकाच नावाने (band steering) चालवतो.\n\nमानक (standards):",
       },
       {
         title: "6. पॅकेट्स आणि TCP/IP (सखोल)",
@@ -591,6 +578,14 @@ Ctrl + A → सगळे निवडा`,
         title: "10. छोटा सराव व सारांश",
         content:
           "आचरणात आणा:\n\n१) टर्मक्स: `ping -c 4 1.1.1.1` आणि `ping -c 4 google.com` — दोन्ही outputs तुलना करा.\n२) Windows: `ipconfig` / Termux: `ifconfig` वरून तुमचा IP, MAC, gateway पहा.\n३) राउटर login page (192.168.1.1) उघडून WiFi name व band (2.4/5 GHz) नोंदवा.\n४) `nslookup google.com` — IP चे नाव कसे वाचते ते पहा.\n\nसारांश:\n• LAN/WAN/PAN — आकारानुसार नेटवर्क.\n• IP = पत्ता (बदलणारा); MAC = ओळखपत्र (कायम); Router = वाटपकर्ता.\n• DNS नावाला IP देते; packets ने डेटा जातो.\n• WiFi सुरक्षा — WPA2/WPA3 + strong password.\n\nपुढील tutorial (computer-security) — याच जोडण्यांवर आधारित सुरक्षित राहण्याच्या पायऱ्या.",
+      code: `ping -c 4 1.1.1.1       ← इंटरनेट जागतिक
+ping -c 4 google.com    ← DNS नाव
+nslookup google.com     ← IP दिसेल
+ifconfig / ip a          ← IP, MAC, gateway`,
+      codeLanguage: "shell",
+      output: `PING 1.1.1.1: 64 bytes, time=12ms
+google.com → 142.250.x.x
+en0: inet 192.168.1.105`,
       },
     ],
     quiz: [
@@ -630,13 +625,11 @@ Ctrl + A → सगळे निवडा`,
       },
       {
         title: "2. मजबूत पासवर्ड (सखोल)",
-        content:
-          "पासवर्डचे नियम:\n• प्रत्येक अकाउंटला वेगळा पासवर्ड — एक leak झाला तर बाकी सुरक्षित.\n• लांबी महत्त्वाची: 12+ अक्षरे (सोपा पण लांब > लहान पण किचकट).\n• दोन्ही केस, संख्या, special characters.\n• शब्दकोषातला शब्द/जन्मतारीख/नाव नको.\n\nवाक्प्रचार (passphrase) तंत्र:\n'माझाDog2026Aamchi' — लहान दोन शब्द + संख्या + दोन्ही केस — आठवणे सोपे, अंदाज लावणे कठीण.\nप्रत्येक साइटसाठी थोडासा वेगळा भाग जोडा: '...Gmail', '...Bank'.\n\nपासवर्ड मॅनेजर (Bitwarden, KeepassXC):\nसर्व पासवर्ड एकाच encrypted vault मध्ये; मुख्य passphrase लक्षात ठेवा.\nBrowser developer 'save password' वापरू शकता, पण मॅनेजर अधिक नियंत्रण देतो.",
+        content: "पासवर्डचे नियम: प्रत्येक अकाउंटला वेगळा — एक leak झाला तर बाकी सुरक्षित. लांबी महत्त्वाची: 12+ अक्षरे (सोपा पण लांब > लहान पण किचकट). दोन्ही केस, संख्या, special characters. शब्दकोषातला शब्द/जन्मतारीख/नाव नको.\n\nवाक्प्रचार (passphrase) तंत्र: 'माझाDog2026Aamchi' — लहान दोन शब्द + संख्या + दोन्ही केस — आठवणे सोपे, अंदाज लावणे कठीण. प्रत्येक साइटसाठी थोडासा वेगळा भाग जोडा: '...Gmail', '...Bank'.\n\nपासवर्ड मॅनेजर (Bitwarden, KeepassXC): सर्व पासवर्ड एकाच encrypted vault मध्ये; मुख्य passphrase लक्षात ठेवा.",
       },
       {
         title: "3. दुहेरी पडताळणी — 2FA/MFA (सखोल)",
-        content:
-          "2FA (2 Factor Authentication) — पासवर्ड + दुसरी खात्री.\n\nदुसरी खात्री कुठून?\n• Authenticator app (Google Authenticator, Aegis) — TOTP code दर 30 सेकंद.\n• SMS code — सोपा, पण SIM jail/swapping चा धोका.\n• Security key (YubiKey) — सर्वात मजबूत.\n\nका उपयोगी?\nपासवर्ड चोरला गेला तरी दुसऱ्या पायरीशिवाय login होऊ शकत नाही.\n\nसूचना:\n• Backup codes नोंदवा/मुद्रित करा — app गमावल्यास.\n• Recovery options अपडेट ठेवा (दुसरा email, phone).\n\nकिमान बँक, email, WhatsApp वर 2FA चालू करा — ही एक सवय डेटा वाचवू शकते.",
+        content: "2FA (2 Factor Authentication) — पासवर्ड + दुसरी खात्री.\n\nदुसरी खात्री कुठून?\n• Authenticator app (Google Authenticator, Aegis) — TOTP code दर 30 सेकंद.\n• SMS code — सोपा, पण SIM jail/swapping चा धोका.\n• Security key (YubiKey) — सर्वात मजबूत.\n\nका उपयोगी?",
       },
       {
         title: "4. Antivirus आणि Windows Security (सखोल)",
@@ -672,6 +665,11 @@ Ctrl + A → सगळे निवडा`,
         title: "10. छोटा सराव व सारांश",
         content:
           "आचरणात आणा (आजपासून):\n\n१) तुमच्या ३ महत्त्वाच्या अकाउंट्सवर 2FA चालू करा (email, bank, messaging).\n२) प्रत्येक महत्त्वाच्या अकाउंटचा पासवर्ड १२+ अक्षरांचा व वेगळा आहे का ते तपासा.\n३) एक backup करा: महत्त्वाच्या फाईल्स external/cloud वर.\n४) एक phishing ईमेल दिसला तर — link वर क्लिक न करता त्या बाबतीत नोंद करा (technical reporting).\n\nसारांश:\n• धोके — malware, phishing, brute force, social engineering.\n• मजबूत व unique पासवर्ड + 2FA.\n• Antivirus, updates, backup — तिन्ही आवश्यक.\n• सवयी — https, lock, public WiFi सावधान.\n\nपुढील tutorial (computer-troubleshooting) — जेव्हा संगणक बरोबर टेकावा लागतो तेव्हा अपरिहार्य समस्या सोडवणे.",
+      code: `कमजोर: password, 123456, qwerty
+मध्यम: MyDog2026
+मजबूत: Tr@in2026!Bangalore
+वाक्प्रचार: निळा-७-कुंभ-फिरणे`,
+      codeLanguage: "text",
       },
     ],
     quiz: [
@@ -706,13 +704,11 @@ Ctrl + A → सगळे निवडा`,
     sections: [
       {
         title: "1. डायग्नोस्टिक मानसिकता (सखोल)",
-        content:
-          "प्रत्येक समस्येच्या आधी शांतपणे ३ प्रश्न विचारा:\n\n१) समस्या कधी सुरू झाली?\n२) त्यावेळी काय बदलले? (नवीन app, update, हार्डवेअर, नेटवर्क)\n३) समस्या एकाच जागी आहे का सगळीकडे? (फक्त एक app / संपूर्ण system / फक्त एक device)\n\nनियम १: RESTART आधी — संगणकातील बरीचशी (अंदाजे ८०%) लहान समस्या मॅमरी/सर्व्हिसअने रीसेट होऊन सुटतात.\nनियम २: EVIDENCE — error message नेमका लिहा (फोटो/टंकन).\nनियम ३: एकावेळी एकच बदल करा — एकत्र बदल केले तर काय काम झालं ते ओळखणं कठीण.\nपैकी कोणीही computer technician नाहीए — पण या पद्धतीनेच एखादा technician करतो.",
+        content: "प्रत्येक समस्येच्या आधी शांतपणे ३ प्रश्न: (१) समस्या कधी सुरू? (२) त्यावेळी काय बदलले? (३) समस्या एकाच जागी का सगळीकडे?\n\nनियम १: RESTART आधी — ~८०% लहान समस्या मेमरी/सर्व्हिस reset होऊन सुटतात. नियम २: EVIDENCE — error message नेमका लिहा (फोटो/टंकन). नियम ३: एकावेळी एकच बदल करा — एकत्र बदल केले तर काय काम झालं ते ओळखणं कठीण. या पद्धतीनेच एखादा technician करतो.",
       },
       {
         title: "2. मंद संगणक — ठरावीक उपाय (सखोल)",
-        content:
-          "मंद संगणकाचे मुख्य कारण: CPU/RAM/डिस्क व्यस्त.\n\nपहिली पायरी:\nCtrl+Shift+Esc → Task Manager → Processes टॅब → CPU/RAM नुसार sort करा → जो सर्वात जास्त घेतो त्यावर 'End task'.\n\nपुढील उपाय:\n• Startup apps कमी करा (Task Manager → Startup) — बूट वेगवान.\n• डिस्क मोकळी ठेवा: temp files हटवा, recycle bin रिकामी, मोठ्या downloads इतरत्र.\n• browser extensions कमी — अनेक extension मंदी देतात.\n• नियमित रीबूट — दिवसेंदिवस open apps/pending updates जमा होतात.\n\nकायमचा उपाय (hardware):\n• RAM वाढवा (8→16 GB) — multitasking साठी.\n• पारंपरिक hard disk → SSD — झपाट्याने फरक (सर्वात प्रभावी upgrade).\nमंदीचे खरे कारण: सरासरी वापर vs उपलब्ध RAM — RAM कमी असल्यास system pagefile वापरतो, त्यामुळे मंदी.",
+        content: "मंद संगणकाचे मुख्य कारण: CPU/RAM/डिस्क व्यस्त.\n\nपहिली पायरी:\nCtrl+Shift+Esc → Task Manager → Processes टॅब → CPU/RAM नुसार sort करा → जो सर्वात जास्त घेतो त्यावर 'End task'.\n\nपुढील उपाय:\n• Startup apps कमी करा (Task Manager → Startup) — बूट वेगवान.\n• डिस्क मोकळी ठेवा: temp files हटवा, recycle bin रिकामी, मोठ्या downloads इतरत्र.",
       },
       {
         title: "3. App ने जवाब न देणे (Freeze) (सखोल)",
@@ -754,6 +750,14 @@ Ctrl + A → सगळे निवडा`,
         title: "10. छोटा सराव व सारांश",
         content:
           "आजच्या संगणकावर २ व्यावहारिक चाचण्या:\n\n१) Task Manager उघडून CPU/RAM/डिस्क % नोंदवा — जास्त % आणणारे app ओळखा.\n२) टर्मक्स मध्ये `ping -c 4 1.1.1.1` व `ping -c 4 google.com` — परिणाम लिहा.\n३) आपल्या printer ची 'test page' एकदा प्रिंट करा.\n४) Safe Mode कसे चालवायचे ते तुमच्या निर्मात्याच्या सहाय्य पानावरून नोंद करा.\n\nसारांश:\n• प्रश्न विचारा: कधी/काय बदलले/कुठे.\n• Restart आधी; error message लिहा; एक बदल एका वेळी.\n• मंद → Task Manager; freeze → End task; boot नाही → Safe Mode.\n• नेटवर्क → router restart + ping/DNS; आवाज → output/driver.\nज्या गोष्टी स्वतः करणे धोकादायक — तेवढ्या सेवा केंद्राला.",
+      code: `ping -c 4 1.1.1.1       ← इंटरनेट
+ping -c 4 google.com    ← DNS
+nslookup google.com     ← नाव→IP
+ipconfig / ifconfig      ← IP तपासणी`,
+      codeLanguage: "shell",
+      output: `1.1.1.1 → reply OK
+google.com → DNS error
+→ DNS समस्या; 1.1.1.1 वापरा`,
       },
     ],
     quiz: [
@@ -887,28 +891,23 @@ Google Drive / OneDrive / iCloud
       },
       {
         title: "3. RAM — किती आणि का (सखोल)",
-        content:
-          "RAM = एकावेळी चालणाऱ्या कामांची 'टेबल' जागा.\n\nअंदाजे गरज:\n• 4GB — फक्त basic internet/typing; आजच्या वेळी कमीपणा वाटेल.\n• 8GB — सुरुवातीचा आराम; काही tabs + docs + light apps.\n• 16GB — आरामदायी; editing, coding, अनेक apps एकत्र.\n• 32GB+ — गंभीर editing/virtual machines.\n\nटीप:\n• OS + browser खरोखरच खूप खातात — 8GB किमान धरा.\n• खरेदीनंतर RAM वाढवणे desktop वर सोपे, laptop वर कठीण — निवडताना ध्यानात ठेवा.\n• लक्षात ठेवा: RAM = 'टेबल'; ती भरली की संगणक मंद होतो.",
+        content: "RAM = एकावेळी चालणाऱ्या कामांची 'टेबल' जागा.\n\nअंदाजे गरज: 4GB — फक्त basic internet/typing; आज कमीपणा. 8GB — सुरुवातीचा आराम; काही tabs + docs. 16GB — आरामदायी; editing, coding, अनेक apps. 32GB+ — गंभीर editing/virtual machines.\n\nOS + browser खरोखरच खूप खातात — 8GB किमान धरा. खरेदीनंतर RAM वाढवणे desktop वर सोपे, laptop वर कठीण — निवडताना ध्यानात ठेवा.",
       },
       {
         title: "4. स्टोरेज — SSD वि HDD (सखोल)",
-        content:
-          "स्टोरेजमध्ये दोन प्रकार:\n\nSSD — जलद (फ्लॅश मेमरी):\n• बूट सेकंदात, apps लगेच उघडतात.\n• शॉक-प्रतिरोधक, शांत.\n• मोठा (1TB+) महाग.\n\nHDD — पारंपरिक मेकॅनिकल:\n• स्वस्त, मोठा.\n• मंद, गरम, पर्यंत आवाज.\n\nयोग्य संयोजन:\n• किमान 256GB SSD (OS + मुख्य apps) हेच आजचा minimum.\n• मोठी माहिती (फोटो, video archive) → वेगळा external/HDD.\nखरा फरक: SSD असला तर सुरू होणे व apps उघडणे झपाट्याने सुधारते — हा आजकाल सर्वात जाणवणारा फरक.",
+        content: "स्टोरेजमध्ये दोन प्रकार:\n\nSSD — जलद (फ्लॅश मेमरी): बूट सेकंदात, apps लगेच उघडतात; शॉक-प्रतिरोधक, शांत; मोठा (1TB+) महाग.\n\nHDD — पारंपरिक मेकॅनिकल: स्वस्त, मोठा; पण मंद, गरम, आवाज.\n\nकिमान 256GB SSD (OS + मुख्य apps) — आजचा minimum. मोठी माहिती → वेगळा external/HDD. SSD असला तर बूट व apps उघडणे झपाट्याने सुधारते — हा आजचा सर्वात जाणवणारा फरक.",
       },
       {
         title: "5. स्क्रीन (सखोल)",
-        content:
-          "डिस्प्ले निवडताना ३ गोष्टी:\n\n१) पॅनेल:\n• IPS — रंग चोख, कोणत्याही कोनातून स्पष्ट; recommended.\n• TN — स्वस्त पण रंग/कोन कमजोर; टाळणे उत्तम.\n\n२) Resolution:\n• Full HD (1920x1080) — आजचा minimum.\n• 2K/4K — मोठ्या स्क्रीन/editing साठी.\n\n३) Size:\n• laptop — 14-15.6 इंच सामान्य.\n• desktop monitor — 22-27 इंच.\n\nरेफ्रेश दर (Hz) गेमरसाठी महत्त्वाचा (120Hz+ फायदा); सामान्य वापरात कमी महत्त्व.\nस्क्रीन जितकी विश्वासू तितका डोळ्यांचा ताण कमी — IPS निवडा.",
+        content: "डिस्प्ले निवडताना ३ गोष्टी:\n\n१) पॅनेल:\n• IPS — रंग चोख, कोणत्याही कोनातून स्पष्ट; recommended.\n• TN — स्वस्त पण रंग/कोन कमजोर; टाळणे उत्तम.\n\n२) Resolution:\n• Full HD (1920x1080) — आजचा minimum.",
       },
       {
         title: "6. बॅटरी, वजन आणि कीबोर्ड (सखोल)",
-        content:
-          "लॅपटॉप निवडताना हे तीन कमी न समजू दे:\n\n• बॅटरी — आदर्श 5-8 तास (light use). 'up to 8 तास' ही marketing; reviews पहा.\n• वजन — १.५-१.८kg आरामदायी; सतत सोबत नेअसल्यास हलके १.२kg.\n• कीबोर्ड — key spacing व की प्रवास हाताळून पहा; रात्रीच्या वापरासाठी backlight सोयीचा.\n\nचार्जिंग पोर्ट — USB-C वर चालवता येईल का ते सोयीचे.\nही गोष्ट दुकानात हाताळून तपासा — specs बघून ठरवता येत नाही.",
+        content: "लॅपटॉप निवडताना:\n\nबॅटरी — आदर्श 5-8 तास (light use). 'up to 8 तास' marketing; reviews पहा. वजन — १.५-१.८kg आरामदायी; सतत सोबत नेअसल्यास हलके १.२kg. कीबोर्ड — key spacing व की प्रवास हाताळून पहा; backlight सोयीचा.\n\nचार्जिंग पोर्ट — USB-C वर चालवता येईल का ते सोयीचे. ही गोष्ट दुकानात हाताळून तपासा — specs बघून ठरवता येत नाही.",
       },
       {
         title: "7. Laptop वि Desktop (सखोल)",
-        content:
-          "दोन्हींची सिस्टम:\n\nLaptop:\n+ सर्व एकत्र, चलता, कुठेही.\n- Upgrade/repair मर्यादित; किंमत जास्त (per performance).\n\nDesktop:\n+ वेगवान component, upgrade सोपे (RAM/SSD/GPU), दीर्घ आयुष्य.\n+ समान किमतीत जास्त performance; repair स्वस्त.\n- स्थिर; monitor/keyboard वेगवेगळे जागा घेतात.\n\nनिर्णय सूत्र:\n• प्रवास/शाळा/मीटिंग — laptop.\n• घर/ऑफिस/गेमिंग — desktop (किंवा desktop + हलका laptop).\nप्रश्न: 'काम कुठे होणार?' — उत्तर मिळाले की निवड स्पष्ट होते.",
+        content: "दोन्हींची सिस्टम:\n\nLaptop:\n+ सर्व एकत्र, चलता, कुठेही.\n- Upgrade/repair मर्यादित; किंमत जास्त (per performance).\n\nDesktop:\n+ वेगवान component, upgrade सोपे (RAM/SSD/GPU), दीर्घ आयुष्य.",
       },
       {
         title: "8. इतर महत्त्वाच्या गोष्टी (सखोल)",
@@ -924,6 +923,11 @@ Google Drive / OneDrive / iCloud
         title: "10. छोटा सराव व सारांश",
         content:
           "खरेदी करण्यापूर्वीचा सराव:\n\n१) आपल्या कामासाठी एक preferred specs ची यादी तयार करा:\n   CPU: ______ RAM: ______ SSD: ______ display: ______ budget: ______.\n२) वेगवेगळ्या २-३ लॅपटॉपची किंमत + specs शेजारी-शेजारी लिहा; तुलना करा.\n३) खरेदीचे नेमके कारण लिहा — आवेगात नव्हे.\n\nसारांश:\n• काम → then specs.\n• CPU: core + generation; RAM ≥ 8GB (16GB आराम).\n• SSD ≥ 256GB अत्यावश्यक; display IPS/Full HD.\n• लॅपटॉप चलता, डेस्कटॉप performant.\n• खरेदीत धीर ठेवा — योग्य निवड होईल.\nपुढील tutorial (computer-history) — संगणक या जगात कसा आला ते समजून घ्या.",
+      code: `सुरुवात: i3/8GB/256GB SSD    ≈ ₹30-35K
+मध्यम:  i5/16GB/512GB SSD   ≈ ₹50-65K
+गेमिंग: i7/16-32GB/1TB SSD  ≈ ₹80K+
+विशेष:  M-series Mac        ≈ ₹70K+`,
+      codeLanguage: "text",
       },
     ],
     quiz: [
@@ -1000,13 +1004,11 @@ Google Drive / OneDrive / iCloud
       },
       {
         title: "8. आजची दिशा — Cloud, AI (सखोल)",
-        content:
-          "सध्याचा काळ:\n\n• Cloud computing — computation/storage इंटरनेटवर; device फक्त दर्शक.\n• AI/ML — भाषा, चित्रे, वेब — 'शिकणारे' software; (लेखन, कोड, तयार साहाय्य).\n• IoT — घरातील उपकरणे (smart TV, lights) इंटरनेटशी.\n• Quantum — सुरुवातीचे प्रयोग (मोठ्या संशोधन क्षेत्रात).\n\nयोग्य नजर:\nप्रत्येक आधुनिक गोष्टीचा पाया — transistor, microprocessor, TCP/IP.\nपुढील गोष्टी शिकत असताना 'हे कसे अपग्रेड आहे' ते विचारणे — इतिहासाचा उपयोग.",
+        content: "सध्याचा काळ: Cloud computing — computation/storage इंटरनेटवर; device फक्त दर्शक. AI/ML — भाषा, चित्रे, वेब — 'शिकणारे' software. IoT — घरातील उपकरणे (smart TV, lights) इंटरनेटशी. Quantum — सुरुवातीचे प्रयोग.\n\nप्रत्येक आधुनिक गोष्टीचा पाया — transistor, microprocessor, TCP/IP. पुढील गोष्टी शिकत असताना 'हे कसे अपग्रेड आहे' ते विचारणे — इतिहासाचा उपयोग.",
       },
       {
         title: "9. महत्त्वाचे वळण — Timeline (सखोल)",
-        content:
-          "एका नजरेने:\n\n3000 वर्षांपूर्वी — अबॅकस\n  1837 — बॅबेजचे Analytical Engine\n  1945 — ENIAC\n  1947 — Transistor\n  1958 — Integrated Circuit\n  1971 — Intel 4004 (microprocessor)\n  1976 — Apple I\n  1981 — IBM PC\n  1985 — Windows 1.0\n  1991 — World Wide Web\n  2007 — iPhone (स्मार्टफोन)\nआज — Cloud + AI\n\nयादी लक्षात ठेवणे सोपे नाही, पण क्रम — 'घटक लहान → संगणक मोठा' — हाच मुख्य आराखडा.",
+        content: "एका नजरेने:\n\n3000 वर्षांपूर्वी — अबॅकस\n  1837 — बॅबेजचे Analytical Engine\n  1945 — ENIAC\n  1947 — Transistor\n  1958 — Integrated Circuit\n  1971 — Intel 4004 (microprocessor)",
       },
       {
         title: "10. छोटा सराव व सारांश",

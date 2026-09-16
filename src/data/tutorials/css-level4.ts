@@ -487,7 +487,7 @@ img.gr:hover {
     minutes: 28,
     summary: "@container style() नियम आणि variants.",
     sections: [
-      { title: "1. शैली प्रश्न", content: "@container style() शैली तपासते.\nआकार नाही, style विचारते.\ncustom property वजन.\nकंटेनर गरज असेल.\nहे नवे घटक.\nstyle() नियम सरावाने पक्के होते.\nstyle() नियम पाया मजबूत आहे.\nstyle() नियम आज विषय आत्मसात करा.\nstyle() नियम संपूर्ण अर्थ उमजतो.\nstyle() नियम हे तत्व आहे.\nstyle() नियम सुरुवात येथे होते.\nstyle() नियम अर्थ लक्षात ठेवा.\nstyle() नियम संपूर्ण अर्थ उमजतो.\nstyle() नियम हे तत्व आहे.\nstyle() नियम सुरुवात येथे होते.\nstyle() नियम अर्थ लक्षात ठेवा.\nstyle() नियम मराठीतून समजतो.\nstyle() नियम रचना स्पष्ट होते.\nstyle() नियम ब्राउझर ते करतो.", code: `@container style(--theme: neon) {
+      { title: "1. शैली प्रश्न", content: "@container style() शैली तपासते.\nआकार नाही, style विचारते.\ncustom property वजन.\nकंटेनर गरज असेल.\nहे नवे घटक.\nstyle() नियम सरावाने पक्के होते.\nstyle() नियम पाया मजबूत आहे.\nstyle() नियम आज विषय आत्मसात करा.", code: `@container style(--theme: neon) {
   .card {
     background: #0f172a;
   }
@@ -625,14 +625,14 @@ input {
   outline: 3px dashed #f59e0b;
   outline-offset: 4px;
 }`, codeLanguage: "css" },
-      { title: "4. :has() सोबत", content: ":has() मध्ये focus-visible.\nparent दर्शवतो.\ncard आतला भाग.\nरचना सुरक्षित.\nअनेक आकार एकत्र.\nहे आधुनिक नियम.\n:has() सह screen reader ते वाचते.\n:has() सह शुद्ध वेब बनतो.\n:has() सह ही सवय ठेवा.\n:has() सह आधुनिक दृष्टी घ्या.\n:has() सह सर्वांसाठी खुला.\n:has() सह वाचक घाबरत नाही.\n:has() सह प्रवेशयोग्यता वाढते.\n:has() सह आधुनिक दृष्टी घ्या.\n:has() सह सर्वांसाठी खुला.\n:has() सह वाचक घाबरत नाही.\n:has() सह प्रवेशयोग्यता वाढते.\n:has() सह मराठी समजते.\n:has() सह अर्थ स्पष्ट होतो.\n:has() सह दृष्टिहीनांना मदत.", code: `.card:has(a:focus-visible) {
+      { title: "4. :has() सोबत", content: ":has() मध्ये focus-visible.\nparent दर्शवतो.\ncard आतला भाग.\nरचना सुरक्षित.\nअनेक आकार एकत्र.\nहे आधुनिक नियम.\n:has() सह screen reader ते वाचते.\n:has() सह शुद्ध वेब बनतो.", code: `.card:has(a:focus-visible) {
   outline: 2px solid #2563eb;
 }`, codeLanguage: "css" },
       { title: "5. keyboard UX", content: "focus सूचना दृश्य.\nमोठी keyboard भाग.\nप्रत्येक घटक नियम.", code: `button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }`, codeLanguage: "css" },
-      { title: "6. आधार आणि सवय", content: ":focus-visible आधार उत्तम.\nजुने :focus सोबत.\n:focus पूर्ण replace.\nदोन्ही लिहिता.\nप्रत्येक ब्राउझर चांगले.\nवाचनीय राहते.\nजुने :focus धडा आत्मसात झाला.\nजुने :focus काम उपयुक्त आहे.\nजुने :focus प्रगती दिसते.\nजुने :focus हा स्तर पूर्ण.\nजुने :focus प्रकल्प संपतो.\nजुने :focus सर्व एकत्र जुळते.\nजुने :focus अखेर निकाल मिळतो.\nजुने :focus हा स्तर पूर्ण.\nजुने :focus प्रकल्प संपतो.\nजुने :focus सर्व एकत्र जुळते.\nजुने :focus अखेर निकाल मिळतो.\nजुने :focus रचना पूर्ण आहे.\nजुने :focus कौशल्य सिद्ध होते.\nजुने :focus पुढे सरकतो.", code: `a:focus {
+      { title: "6. आधार आणि सवय", content: ":focus-visible आधार उत्तम.\nजुने :focus सोबत.\n:focus पूर्ण replace.\nदोन्ही लिहिता.\nप्रत्येक ब्राउझर चांगले.\nवाचनीय राहते.\nजुने :focus धडा आत्मसात झाला.\nजुने :focus काम उपयुक्त आहे.", code: `a:focus {
   outline: 2px solid;
 }
 a:focus-visible {

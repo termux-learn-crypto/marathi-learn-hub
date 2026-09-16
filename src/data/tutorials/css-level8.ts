@@ -187,7 +187,7 @@ export const cssLevel8: Tutorial[] = [
   display: grid;
   gap: 6px;
 }`, codeLanguage: "css" },
-      { title: "2. required star", content: "required तारका.\n::after जोड.\nरंग स्थिर.\nवाचक नाव.\nस्वतःचा संकेत.\n::after जोड वापर सोपा आहे.\n::after जोड अचूक गुण देतो.\n::after जोड प्रत्येक वेळी शिकवतो.\n::after जोड सरावाने नक्की.\n::after जोड शैली प्रत्यक्ष पहा.\n::after जोड कोड तपासा.\n::after जोड उदाहरण चालवा.\n::after जोड सरावाने नक्की.\n::after जोड शैली प्रत्यक्ष पहा.\n::after जोड कोड तपासा.\n::after जोड उदाहरण चालवा.\n::after जोड पेजवर दिसते.\n::after जोड नियमाचा अर्थ कळतो.\n::after जोड नेहमी वापरा.", code: `.required label::after {
+      { title: "2. required star", content: "required तारका.\n::after जोड.\nरंग स्थिर.\nवाचक नाव.\nस्वतःचा संकेत.\n::after जोड वापर सोपा आहे.\n::after जोड अचूक गुण देतो.\n::after जोड प्रत्येक वेळी शिकवतो.", code: `.required label::after {
   content: " *";
   color: #ef4444;
 }`, codeLanguage: "css" },
@@ -490,7 +490,7 @@ input:valid {
       { title: "4. break नियम", content: "break-inside avoid.\nभाग संपूर्ण.\nविभाग नवा.\nवाचन संयोजन.\nरचना शांत.", code: `.card {
   break-inside: avoid;
 }`, codeLanguage: "css" },
-      { title: "5. links वाचता", content: "link url दाखवा.\n::after जोड.\nprint केवळ.\nवाचक मार्ग.\n::after जोड आत्मविश्वास वाढतो.\n::after जोड दररोज थोडे सरावा.\n::after जोड प्रयोग करायला घ्या.\n::after जोड शिकणे प्रगत होते.\n::after जोड सराव करून पहा.\n::after जोड प्रत्येक ठिकाणी लिहा.\n::after जोड चुका सुधारा.\n::after जोड शिकणे प्रगत होते.\n::after जोड सराव करून पहा.\n::after जोड प्रत्येक ठिकाणी लिहा.\n::after जोड चुका सुधारा.\n::after जोड पुन्हा तपासा.\n::after जोड हाताने करून दिसेल.\n::after जोड उदाहरण स्वतंत्र वापरा.", code: `a[href]::after {
+      { title: "5. links वाचता", content: "link url दाखवा.\n::after जोड.\nprint केवळ.\nवाचक मार्ग.\n::after जोड आत्मविश्वास वाढतो.\n::after जोड दररोज थोडे सरावा.\n::after जोड प्रयोग करायला घ्या.\n::after जोड शिकणे प्रगत होते.", code: `a[href]::after {
   content: " (" attr(href) ")";
 }`, codeLanguage: "css" },
       { title: "6. आधार", content: "print आधार जुना.\n@page खुला.\nA4 सामान्य.\ncolor-adjust नवा.\nकोड सुरक्षित.\nआधार घट्ट.", code: `@media print {
