@@ -541,5 +541,6 @@ export const androidLevel1: Tutorial[] = [
     ],
     related: ["app-inventor-webview", "app-inventor-share", "computer-security"],
     prev: "app-inventor-webview",
+    next: "android-tips",
   },
 ];

@@ -226,7 +226,7 @@ input:valid {
       expectedOutput: "Renders a clear labeled form field",
     },
     interviewQuestions: ["f", "o", "r", "m", " ", "आ", "ध", "ा", "र", "?"],
-    related: ["css-tabs-aria", "css-switch-toggle", "css-forms-pro"],
+    related: ["css-tabs-aria", "css-switch-toggle"],
     prev: "css-tabs-aria",
     next: "css-switch-toggle",
     levelLabel: CSS8_LABEL,

@@ -636,7 +636,7 @@ with open("msg.txt") as f:
       "with context manager म्हणजे काय?",
       "फाइल मोठी असली तर ओळ धरून वाचण्याचा फायदा?",
     ],
-    related: ["python-string-loops", "python-json", "python-files"],
+    related: ["python-string-loops", "python-json"],
     prev: "python-string-loops",
     next: "python-json",
   },

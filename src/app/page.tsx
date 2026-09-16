@@ -8,6 +8,7 @@ import { categories } from "@/data/categories";
 import { tutorials } from "@/data/tutorials";
 import { projects } from "@/data/projects";
 import { CategoryCard, TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
+import LearningPaths from "@/components/LearningPaths";
 import { telegramUrl } from "@/lib/site";
 
 const quickFilters = [
@@ -144,6 +145,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <LearningPaths />
 
         {/* Featured & Trending Tutorials */}
         <section id="featured" className="py-8">

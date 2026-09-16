@@ -1719,36 +1719,7 @@ void loop() {
     prev: "freelancing-basics",
   },
 
-  // === ANDROID ===
-  {
-    slug: "android-basics",
-    categoryId: "android",
-    title: "Android Basics",
-    marathiTitle: "Android म्हणजे काय?",
-    level: "beginner",
-    minutes: 12,
-    summary: "Android ही Google ची mobile ऑपरेटिंग सिस्टम आहे.",
-    sections: [
-      {
-        title: "Android म्हणजे काय?",
-        content: "Android ही Google ने विकसित केलेली open-source mobile ऑपरेटिंग सिस्टम आहे. जगातील सर्वात जास्त वापरली जाणारी mobile OS.\n\nAndroid वर अॅप्स Java, Kotlin आणि आता दुसऱ्या भाषांमध्येही बनवता येतात.\n\nAndroid च्या मागे Linux kernel वापरलेले आहे.\n\nअॅप्स बनवण्यासाठी:\n• Android Studio (official IDE)\n• Kotlin / Java प्रोग्रामिंग",
-      },
-    ],
-    quiz: [
-      {
-        question: "Android OS कोणी विकसित केली?",
-        options: ["Apple", "Google", "Microsoft", "Samsung"],
-        correct: 1,
-      },
-      {
-        question: "Android वर अॅप्स कोणत्या भाषेत लिहिले जातात?",
-        options: ["Swift", "Kotlin/Java", "C#", "Ruby"],
-        correct: 1,
-      },
-    ],
-    related: ["computer-basics", "termux-basics", "android-tips"],
-    next: "android-tips",
-  },
+  // === ANDROID · TIPS ===
   {
     slug: "android-tips",
     categoryId: "android",
@@ -1776,7 +1747,7 @@ void loop() {
       },
     ],
     related: ["android-basics", "termux-basics", "computer-basics"],
-    prev: "android-basics",
+    prev: "android-permissions",
   },
 
   // === GENERAL ===
