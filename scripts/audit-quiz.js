@@ -1,7 +1,17 @@
 const path = require("path");
 const fs = require("fs");
 const dir = "src/data/tutorials";
-const files = fs.readdirSync(dir).filter((f) => f.endsWith(".ts"));
+
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (e.name.endsWith(".ts")) out.push(p);
+  }
+  return out;
+}
+
+const files = walk(dir);
 
 function extractBlocks(code, key) {
   const re = new RegExp(key + ":\\s*\\[", "g");
@@ -31,7 +41,7 @@ function extractBlocks(code, key) {
 
 const slugToFile = {};
 for (const f of files) {
-  const code = fs.readFileSync(path.join(dir, f), "utf8");
+  const code = fs.readFileSync(f, "utf8");
   for (const m of code.matchAll(/slug: "([^"]+)"/g)) {
     if (slugToFile[m[1]]) slugToFile[m[1]].push(f);
     else slugToFile[m[1]] = [f];
@@ -45,7 +55,7 @@ for (const [s, fl] of Object.entries(slugToFile)) {
 
 console.log("\n=== QUIZ VALIDATION (out-of-range correct index) ===");
 for (const f of files) {
-  const code = fs.readFileSync(path.join(dir, f), "utf8");
+  const code = fs.readFileSync(f, "utf8");
   const quizzes = extractBlocks(code, "quiz");
   for (const q of quizzes) {
     const qs = q.matchAll(/question:\s*"([^"]*)",\s*options:\s*\[([\s\S]*?)\],\s*correct:\s*(\d+)/g);

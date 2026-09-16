@@ -2,7 +2,17 @@ const path = require("path");
 const fs = require("fs");
 
 const dir = "src/data/tutorials";
-const files = fs.readdirSync(dir).filter((f) => f.endsWith(".ts"));
+
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (e.name.endsWith(".ts")) out.push(p);
+  }
+  return out;
+}
+
+const files = walk(dir);
 const tcode = fs.readFileSync("src/data/tutorials.ts", "utf8");
 
 const dump = (code, key) => {
@@ -15,7 +25,7 @@ const dump = (code, key) => {
 
 const defined = new Set();
 for (const f of files) {
-  const code = fs.readFileSync(path.join(dir, f), "utf8");
+  const code = fs.readFileSync(f, "utf8");
   for (const mm of code.match(/slug: "([^"]+)"/g) || [])
     defined.add(mm.match(/"([^"]+)"/)[1]);
 }
@@ -25,7 +35,7 @@ for (const mm of tcode.match(/slug: "([^"]+)"/g) || [])
 const missing = {};
 const check = (k) => {
   for (const f of files) {
-    const code = fs.readFileSync(path.join(dir, f), "utf8");
+    const code = fs.readFileSync(f, "utf8");
     const hits = dump(code, k);
     for (const h of hits) {
       const refs = [...h.matchAll(/"([^"]+)"/g)].map((x) => x[1]);
@@ -65,8 +75,8 @@ console.log("\nTOTAL distinct broken refs:", total);
 // which slugs are referenced but belong to unimported jsLevel7?
 const js7 = [];
 for (const f of files) {
-  if (f === "js-level7.ts") {
-    const code = fs.readFileSync(path.join(dir, f), "utf8");
+  if (path.basename(f) === "js-level7.ts") {
+    const code = fs.readFileSync(f, "utf8");
     console.log("\n=== js-level7.ts defines ===");
     for (const mm of code.match(/slug: "([^"]+)"/g) || [])
       console.log("  " + mm.match(/"([^"]+)"/)[1]);

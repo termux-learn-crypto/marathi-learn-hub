@@ -4,9 +4,16 @@ const path = require("path");
 const dirs = ["src/data/tutorials"];
 const inlineFile = "src/data/tutorials.ts";
 
-const files = dirs.flatMap((d) =>
-  fs.readdirSync(d).filter((f) => f.endsWith(".ts")).map((f) => path.join(d, f))
-);
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (e.name.endsWith(".ts")) out.push(p);
+  }
+  return out;
+}
+
+const files = dirs.flatMap((d) => walk(d));
 files.push(inlineFile);
 
 const BLOAT_LEN = 3000;
