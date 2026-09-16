@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { getCategory } from "@/data/categories";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const cat = getCategory(params.id);
+  const { id } = await params;
+  const cat = getCategory(id);
   if (!cat) {
     return {
       title: "Category | Marathi Learn Hub",

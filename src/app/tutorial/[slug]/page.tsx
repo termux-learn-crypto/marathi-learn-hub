@@ -13,7 +13,7 @@ import AdUnit from "@/components/AdUnit";
 import { siteUrl, telegramUrl } from "@/lib/site";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -21,7 +21,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const tutorial = getTutorial(params.slug);
+  const { slug } = await params;
+  const tutorial = getTutorial(slug);
   const cat = tutorial ? getCategory(tutorial.categoryId) : undefined;
   if (!tutorial) {
     return {
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description: desc,
       type: "article",
-      url: `/tutorial/${params.slug}`,
+      url: `/tutorial/${slug}`,
       locale: "mr_IN",
       siteName: "Marathi Learn Hub",
       images: ["/icons/icon-512.png"],
@@ -62,13 +63,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: ["/icons/icon-512.png"],
     },
     alternates: {
-      canonical: `/tutorial/${params.slug}`,
+      canonical: `/tutorial/${slug}`,
     },
   };
 }
 
-export default function TutorialDetailPage({ params }: Props) {
-  const slug = params.slug;
+export default async function TutorialDetailPage({ params }: Props) {
+  const { slug } = await params;
   const tutorial = getTutorial(slug);
 
   if (!tutorial) {

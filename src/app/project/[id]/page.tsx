@@ -7,7 +7,7 @@ import { getCategory } from "@/data/categories";
 import CodeEditor from "@/components/CodeEditor";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export function generateStaticParams() {
@@ -15,7 +15,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = getProject(params.id);
+  const { id } = await params;
+  const project = getProject(id);
   const cat = project?.categoryId ? getCategory(project.categoryId) : undefined;
   const title = project ? `${project.marathiTitle} | Marathi Learn Hub` : "Project | Marathi Learn Hub";
   return {
@@ -33,16 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description: project?.summary,
       type: "article",
-      url: `project/${params.id}`,
+      url: `project/${id}`,
     },
     alternates: {
-      canonical: `/project/${params.id}`,
+      canonical: `/project/${id}`,
     },
   };
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-  const project = getProject(params.id);
+export default async function ProjectDetailPage({ params }: Props) {
+  const { id } = await params;
+  const project = getProject(id);
 
   if (!project) {
     return (
