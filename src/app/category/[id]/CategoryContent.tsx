@@ -15,25 +15,12 @@ import TutorialFilters, {
 import { useMemo, useState } from "react";
 
 export default function CategoryContent({ catId }: { catId: string }) {
-  const cat = getCategory(catId);
+  const cat = getCategory(catId)!;
   const [filters, setFilters] = useState<TutorialFiltersState>(defaultTutorialFilters);
 
   const catTutorials = useMemo(() => getTutorialsByCategory(catId), [catId]);
   const filtered = useMemo(() => applyTutorialFilters(catTutorials, filters), [catTutorials, filters]);
   const catProjects = useMemo(() => getProjectsByCategory(catId), [catId]);
-
-  if (!cat) {
-    return (
-      <>
-        <Navbar />
-        <main className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold">Category सापडली नाही</h1>
-          <p className="text-gray-500 mt-2">कृपया योग्य category निवडा.</p>
-        </main>
-        <Footer />
-      </>
-    );
-  }
 
   return (
     <>

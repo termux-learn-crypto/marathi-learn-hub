@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getTutorial, tutorials } from "@/data/tutorials";
@@ -73,16 +74,7 @@ export default async function TutorialDetailPage({ params }: Props) {
   const tutorial = getTutorial(slug);
 
   if (!tutorial) {
-    return (
-      <>
-        <Navbar />
-        <main className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold">Tutorial सापडला नाही</h1>
-          <Link href="/tutorials" className="text-primary-600 mt-4 inline-block">सर्व tutorials पहा</Link>
-        </main>
-        <Footer />
-      </>
-    );
+    notFound();
   }
 
   const cat = getCategory(tutorial.categoryId);

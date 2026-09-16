@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getProject, projects } from "@/data/projects";
@@ -47,16 +48,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   const project = getProject(id);
 
   if (!project) {
-    return (
-      <>
-        <Navbar />
-        <main className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold">Project सापडला नाही</h1>
-          <Link href="/projects" className="text-primary-600 mt-4 inline-block">सर्व projects पहा</Link>
-        </main>
-        <Footer />
-      </>
-    );
+    notFound();
   }
 
   const cat = project.categoryId ? getCategory(project.categoryId) : undefined;

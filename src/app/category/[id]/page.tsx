@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getCategory } from "@/data/categories";
 import CategoryContent from "./CategoryContent";
 
@@ -53,5 +54,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { id } = await params;
+  const cat = getCategory(id);
+  if (!cat) {
+    notFound();
+  }
   return <CategoryContent catId={id} />;
 }
