@@ -1,24 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HomeClient from "@/components/HomeClient";
 import { categories } from "@/data/categories";
-import { tutorials } from "@/data/tutorials";
+import { tutorials, type Tutorial } from "@/data/tutorials";
 import { projects } from "@/data/projects";
-import { CategoryCard, TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
+import { CategoryCard, ProjectCard, SectionHeader, type TutorialSummary } from "@/components/Cards";
 import LearningPaths from "@/components/LearningPaths";
 import { telegramUrl } from "@/lib/site";
-
-const quickFilters = [
-  { id: "all", icon: "🌐", label: "सर्व", chip: "bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300" },
-  { id: "computer", icon: "💻", label: "Computer Basics" },
-  { id: "web", icon: "🌐", label: "Web Dev" },
-  { id: "python", icon: "🐍", label: "Python" },
-  { id: "ai", icon: "🤖", label: "AI & Tech" },
-  { id: "electronics", icon: "🔌", label: "Electronics" },
-];
 
 const trustBadges = [
   { icon: "✅", text: "100% मोफत" },
@@ -44,22 +33,34 @@ const valuePillars = [
   },
 ];
 
-export default function Home() {
-  const [query, setQuery] = useState("");
-  const [activeFilter, setActiveFilter] = useState("all");
+const filterIds = ["all", "computer", "web", "python", "ai", "electronics"];
 
+function toSummary(t: Tutorial): TutorialSummary {
+  return {
+    slug: t.slug,
+    marathiTitle: t.marathiTitle,
+    summary: t.summary,
+    minutes: t.minutes,
+    level: t.level,
+    categoryId: t.categoryId,
+  };
+}
+
+export default function Home() {
   const latestProjects = [...projects].slice(0, 3);
 
-  const featuredTutorials =
-    activeFilter === "all"
-      ? [...tutorials].slice(0, 6)
-      : tutorials.filter((t) => t.categoryId === activeFilter).slice(0, 6);
+  const categoryCounts = new Map<string, number>();
+  for (const t of tutorials) {
+    categoryCounts.set(t.categoryId, (categoryCounts.get(t.categoryId) ?? 0) + 1);
+  }
 
-  const filterChip = (id: string) => {
-    if (id === "all") return quickFilters[0].chip;
-    const cat = categories.find((c) => c.id === id);
-    return cat?.chip || quickFilters[0].chip;
-  };
+  const featured: Record<string, TutorialSummary[]> = {};
+  for (const id of filterIds) {
+    featured[id] =
+      id === "all"
+        ? tutorials.slice(0, 6).map(toSummary)
+        : tutorials.filter((t) => t.categoryId === id).slice(0, 6).map(toSummary);
+  }
 
   return (
     <>
@@ -104,81 +105,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Quick Search + Filter Bar */}
-        <section className="pb-8">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              window.location.href = `/search?q=${encodeURIComponent(query)}`;
-            }}
-            className="max-w-xl mx-auto flex gap-2 mb-5"
-          >
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Python, Web Dev, Linux या इतर विषय शोधा..."
-              className="flex-1 px-5 py-3 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-primary-500 marathi"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-full whitespace-nowrap"
-            >
-              शोधा
-            </button>
-          </form>
-
-          {/* Quick Filter Chips */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {quickFilters.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`filter-pill px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
-                  activeFilter === f.id
-                    ? `${filterChip(f.id)} border-transparent filter-pill-active`
-                    : "border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-                }`}
-              >
-                {f.icon} {f.label}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <LearningPaths />
-
-        {/* Featured & Trending Tutorials */}
-        <section id="featured" className="py-8">
-          <SectionHeader
-            title={activeFilter === "all" ? "🔥 Featured & Trending Lessons" : `🔥 ${categories.find((c) => c.id === activeFilter)?.name || ""} Lessons`}
-            subtitle={
-              activeFilter === "all"
-                ? "सर्वात जास्त शिकले जाणारे topics"
-                : "तुमच्या पसंतीच्या category मधील topics"
-            }
-            link="/tutorials"
-            linkText="सर्व tutorials"
-          />
-          {featuredTutorials.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {featuredTutorials.map((t) => (
-                <TutorialCard key={t.slug} tutorial={t} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <div className="text-5xl mb-4">📭</div>
-              <p className="text-gray-500 mb-4">या category मध्ये अजून lessons नाहीत.</p>
-              <button
-                onClick={() => setActiveFilter("all")}
-                className="filter-pill px-5 py-2 rounded-full bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium"
-              >
-                🌐 सर्व lessons बघा
-              </button>
-            </div>
-          )}
-        </section>
+        {/* Quick Search + Filter Bar, Learning Paths, Featured Tutorials */}
+        <HomeClient categories={categories} featured={featured}>
+          <LearningPaths />
+        </HomeClient>
 
         {/* Categories Grid */}
         <section className="py-8">
@@ -190,7 +120,7 @@ export default function Home() {
           />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {categories.map((cat) => (
-              <CategoryCard key={cat.id} id={cat.id} />
+              <CategoryCard key={cat.id} cat={cat} count={categoryCounts.get(cat.id) ?? 0} />
             ))}
           </div>
         </section>

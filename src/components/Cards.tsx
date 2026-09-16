@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { tutorials, Tutorial } from "@/data/tutorials";
-import { projects, Project } from "@/data/projects";
-import { categories } from "@/data/categories";
+import type { Tutorial } from "@/data/tutorials";
+import type { Project } from "@/data/projects";
+import { categories, type Category } from "@/data/categories";
 
-export function CategoryCard({ id }: { id: string }) {
-  const cat = categories.find((c) => c.id === id);
-  if (!cat) return null;
-  const count = tutorials.filter((t) => t.categoryId === id).length;
+export type TutorialSummary = Pick<
+  Tutorial,
+  "slug" | "marathiTitle" | "summary" | "minutes" | "level" | "categoryId"
+>;
+
+export function CategoryCard({ cat, count }: { cat: Category; count: number }) {
   return (
     <Link
       href={`/category/${cat.id}`}
@@ -28,7 +30,7 @@ export function CategoryCard({ id }: { id: string }) {
   );
 }
 
-export function TutorialCard({ tutorial }: { tutorial: Tutorial }) {
+export function TutorialCard({ tutorial }: { tutorial: TutorialSummary }) {
   const cat = categories.find((c) => c.id === tutorial.categoryId);
   const diffColor =
     tutorial.level === "beginner"

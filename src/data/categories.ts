@@ -1,5 +1,3 @@
-import { tutorials } from "@/data/tutorials";
-
 export interface Category {
   id: string;
   name: string;
@@ -172,12 +170,4 @@ export const categories: Category[] = [
 export function getCategory(id: string): Category | undefined {
   const cat = categories.find((c) => c.id === id);
   return cat;
-}
-
-export function getTopicCount(categoryId: string): number {
-  return countFor(categoryId);
-}
-
-function countFor(categoryId: string): number {
-  return tutorials.filter((t) => t.categoryId === categoryId).length;
 }

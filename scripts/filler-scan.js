@@ -30,9 +30,11 @@ function analyze(code) {
 }
 
 let summary = [];
+let totalBlocksAllFiles = 0;
 for (const f of files) {
   const code = fs.readFileSync(f, "utf8");
   const { blocks, bySlug } = analyze(code);
+  totalBlocksAllFiles += blocks.length;
   const bloated = blocks.filter((b) => b.length > BLOAT_LEN || (b.match(/\\n/g) || []).length + 1 > BLOAT_SEG);
   if (!bloated.length) continue;
   summary.push({ file: path.relative(".", f), bloated: bloated.length, total: blocks.length, slugStats: [...bySlug.entries()].filter(([, s]) => s.bloat > 0) });
@@ -58,7 +60,7 @@ if (mode === "queue") {
   }
 } else {
   console.log("=== FILLER SCAN BASELINE ===");
-  console.log("Total content blocks:", summary.reduce((a, s) => a + s.total, 0));
+  console.log("Total content blocks:", totalBlocksAllFiles);
   console.log("Bloated blocks (len>3000 or >14 segments):", totalBloat);
   console.log("\nBy file (worst first):");
   for (const s of summary) {
