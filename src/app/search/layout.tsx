@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     description: "Tutorials, projects आणि topics मराठीत शोधा.",
     images: ["/icons/icon-512.png"],
   },
+  robots: { index: false, follow: true },
   alternates: { canonical: "/search" },
 };
 

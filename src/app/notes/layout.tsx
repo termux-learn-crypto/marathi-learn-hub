@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     description: "तुमची शिकण्याची प्रगती track करा — tutorials, bookmarks आणि quiz scores.",
     images: ["/icons/icon-512.png"],
   },
+  robots: { index: false, follow: true },
   alternates: { canonical: "/notes" },
 };
 
