@@ -1,142 +1,57 @@
-"use client";
-
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { useParams } from "next/navigation";
+import type { Metadata } from "next";
 import { getCategory } from "@/data/categories";
-import { getTutorialsByCategory } from "@/data/tutorials";
-import { getProjectsByCategory } from "@/data/projects";
-import { TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
-import TutorialFilters, {
-  defaultTutorialFilters,
-  applyTutorialFilters,
-  hasActiveFilters,
-  TutorialFiltersState,
-} from "@/components/TutorialFilters";
-import { useMemo, useState } from "react";
+import CategoryContent from "./CategoryContent";
 
-export default function CategoryPage() {
-  const params = useParams();
-  const catId = params.id as string;
-  const cat = getCategory(catId);
-  const [filters, setFilters] = useState<TutorialFiltersState>(defaultTutorialFilters);
+interface Props {
+  params: Promise<{ id: string }>;
+}
 
-  const catTutorials = useMemo(() => getTutorialsByCategory(catId), [catId]);
-  const filtered = useMemo(() => applyTutorialFilters(catTutorials, filters), [catTutorials, filters]);
-  const catProjects = useMemo(() => getProjectsByCategory(catId), [catId]);
-
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const cat = getCategory(id);
   if (!cat) {
-    return (
-      <>
-        <Navbar />
-        <main className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold">Category सापडली नाही</h1>
-          <p className="text-gray-500 mt-2">कृपया योग्य category निवडा.</p>
-        </main>
-        <Footer />
-      </>
-    );
+    return {
+      title: "Category | Marathi Learn Hub",
+      description: "मराठीत कोडिंग आणि तंत्रज्ञान शिका. Learn programming and tech in Marathi.",
+    };
   }
+  const title = `${cat.name} — ${cat.marathiName} | Marathi Learn Hub`;
+  const desc = `${cat.description}. Learn ${cat.name} in Marathi — मराठीत ${cat.marathiName} शिका.`;
+  return {
+    title: { absolute: title },
+    description: desc,
+    keywords: [
+      cat.name,
+      cat.marathiName,
+      `${cat.name} marathi`,
+      `learn ${cat.name} in marathi`,
+      `${cat.name} मराठीत`,
+      `${cat.marathiName} tutorial`,
+      ...cat.tags,
+      "marathi", "learn", "मराठी", "ट्यूटोरियल",
+    ].filter(Boolean).join(", "),
+    openGraph: {
+      title,
+      description: desc,
+      type: "website",
+      url: `/category/${cat.id}`,
+      locale: "mr_IN",
+      siteName: "Marathi Learn Hub",
+      images: ["/icons/icon-512.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: desc,
+      images: ["/icons/icon-512.png"],
+    },
+    alternates: {
+      canonical: `/category/${cat.id}`,
+    },
+  };
+}
 
-  return (
-    <>
-      <Navbar />
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex items-center gap-4 mb-8">
-          <span
-            className={`category-box w-16 h-16 rounded-2xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-3xl`}
-          >
-            {cat.icon}
-          </span>
-          <div>
-            <h1 className="text-3xl font-bold marathi">
-              {cat.name} - {cat.marathiName}
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-1">{cat.description}</p>
-          </div>
-        </div>
-
-        <SectionHeader
-          title="📖 Lessons"
-          subtitle={`${filtered.length} lessons`}
-        />
-        {catTutorials.length > 0 && (
-          <TutorialFilters
-            filters={filters}
-            onChange={setFilters}
-            showCategory={false}
-            resultCount={filtered.length}
-          />
-        )}
-        {filtered.length > 0 ? (
-          <div className="mb-10 space-y-8">
-            {(() => {
-              const groups = new Map<string, typeof filtered>();
-              const ungrouped: typeof filtered = [];
-              for (const t of filtered) {
-                if (t.levelLabel) {
-                  const arr = groups.get(t.levelLabel) || [];
-                  arr.push(t);
-                  groups.set(t.levelLabel, arr);
-                } else {
-                  ungrouped.push(t);
-                }
-              }
-              const groupEntries = Array.from(groups.entries());
-              return (
-                <>
-                  {groupEntries.map(([label, items]) => (
-                    <div key={label}>
-                      <h3 className="text-lg font-semibold marathi mb-3 text-primary-700 dark:text-primary-300">
-                        📚 {label}
-                        <span className="ml-2 text-sm font-normal text-gray-500">({items.length})</span>
-                      </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {items.map((t) => (
-                          <TutorialCard key={t.slug} tutorial={t} />
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                  {ungrouped.length > 0 && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {ungrouped.map((t) => (
-                        <TutorialCard key={t.slug} tutorial={t} />
-                      ))}
-                    </div>
-                  )}
-                </>
-              );
-            })()}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <div className="text-5xl mb-4">🔍</div>
-            <h3 className="text-lg font-semibold marathi mb-2">कोणतेही lessons सापडले नाहीत</h3>
-            <p className="text-gray-500 mb-6">वेगळे filters निवडून पहा.</p>
-            {hasActiveFilters(filters) && (
-              <button
-                onClick={() => setFilters(defaultTutorialFilters)}
-                className="px-6 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium"
-              >
-                फिल्टर साफ करा
-              </button>
-            )}
-          </div>
-        )}
-
-        {catProjects.length > 0 && (
-          <>
-            <SectionHeader title="🛠️ Projects" subtitle={`${catProjects.length} projects`} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {catProjects.map((p) => (
-                <ProjectCard key={p.id} project={p} />
-              ))}
-            </div>
-          </>
-        )}
-      </main>
-      <Footer />
-    </>
-  );
+export default async function CategoryPage({ params }: Props) {
+  const { id } = await params;
+  return <CategoryContent catId={id} />;
 }
