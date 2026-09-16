@@ -82,6 +82,7 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "WebSite",
+                  "@id": new URL("/", siteUrl()).toString(),
                   name: "Marathi Learn Hub",
                   alternateName: "MLH",
                   url: new URL("/", siteUrl()).toString(),
@@ -90,6 +91,7 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Organization",
+                  "@id": new URL("/", siteUrl()).toString() + "#organization",
                   name: "Marathi Learn Hub",
                   url: new URL("/", siteUrl()).toString(),
                   logo: new URL("/icons/icon-512.png", siteUrl()).toString(),

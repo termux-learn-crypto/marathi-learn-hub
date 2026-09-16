@@ -1,6 +1,6 @@
 "use client";
 
-import { Tutorial } from "@/data/tutorials";
+import type { Tutorial } from "@/data/tutorials";
 import { categories } from "@/data/categories";
 
 export interface TutorialFiltersState {
@@ -15,7 +15,10 @@ export const defaultTutorialFilters: TutorialFiltersState = {
   categoryId: "all",
 };
 
-export function applyTutorialFilters(tutorials: Tutorial[], f: TutorialFiltersState): Tutorial[] {
+export function applyTutorialFilters<T extends Pick<Tutorial, "level" | "minutes" | "categoryId">>(
+  tutorials: T[],
+  f: TutorialFiltersState
+): T[] {
   return tutorials.filter((t) => {
     if (f.level !== "all" && t.level !== f.level) return false;
     if (f.maxTime === "10" && t.minutes > 10) return false;

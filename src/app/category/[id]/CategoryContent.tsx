@@ -2,9 +2,9 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getCategory } from "@/data/categories";
-import { getTutorialsByCategory } from "@/data/tutorials";
-import { getProjectsByCategory } from "@/data/projects";
+import type { Category } from "@/data/categories";
+import type { TutorialSummary } from "@/data/tutorials";
+import type { Project } from "@/data/projects";
 import { TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
 import TutorialFilters, {
   defaultTutorialFilters,
@@ -14,13 +14,18 @@ import TutorialFilters, {
 } from "@/components/TutorialFilters";
 import { useMemo, useState } from "react";
 
-export default function CategoryContent({ catId }: { catId: string }) {
-  const cat = getCategory(catId)!;
+export default function CategoryContent({
+  cat,
+  catTutorials,
+  catProjects,
+}: {
+  cat: Category;
+  catTutorials: TutorialSummary[];
+  catProjects: Project[];
+}) {
   const [filters, setFilters] = useState<TutorialFiltersState>(defaultTutorialFilters);
 
-  const catTutorials = useMemo(() => getTutorialsByCategory(catId), [catId]);
   const filtered = useMemo(() => applyTutorialFilters(catTutorials, filters), [catTutorials, filters]);
-  const catProjects = useMemo(() => getProjectsByCategory(catId), [catId]);
 
   return (
     <>

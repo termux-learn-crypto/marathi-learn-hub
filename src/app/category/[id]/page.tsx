@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCategory } from "@/data/categories";
+import { getTutorialsByCategory, toTutorialSummary } from "@/data/tutorials";
+import { getProjectsByCategory } from "@/data/projects";
 import CategoryContent from "./CategoryContent";
 
 interface Props {
@@ -58,5 +60,7 @@ export default async function CategoryPage({ params }: Props) {
   if (!cat) {
     notFound();
   }
-  return <CategoryContent catId={id} />;
+  const catTutorials = getTutorialsByCategory(id).map(toTutorialSummary);
+  const catProjects = getProjectsByCategory(id);
+  return <CategoryContent cat={cat} catTutorials={catTutorials} catProjects={catProjects} />;
 }

@@ -96,24 +96,40 @@ export default async function TutorialDetailPage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Course",
-        name: tutorial.marathiTitle,
-        description: tutorial.summary,
-        provider: {
-          "@type": "Organization",
-          name: "Marathi Learn Hub",
-          sameAs: `${base}/`,
-        },
+        "@type": "WebPage",
+        "@id": tutorialUrl,
         url: tutorialUrl,
+        name: `${tutorial.marathiTitle} — ${tutorial.title}`,
+        isPartOf: { "@type": "WebSite", "@id": `${base}/` },
+        breadcrumb: { "@id": `${tutorialUrl}#breadcrumb` },
       },
       {
         "@type": "BreadcrumbList",
+        "@id": `${tutorialUrl}#breadcrumb`,
         itemListElement: breadcrumbItems.map((b) => ({
           "@type": "ListItem",
           position: b.position,
           name: b.name,
           item: b.item,
         })),
+      },
+      {
+        "@type": "LearningResource",
+        "@id": `${tutorialUrl}#lesson`,
+        name: tutorial.marathiTitle,
+        description: tutorial.summary,
+        url: tutorialUrl,
+        inLanguage: "mr",
+        learningResourceType: "Lesson",
+        educationalLevel: tutorial.level,
+        timeRequired: `PT${tutorial.minutes}M`,
+        isAccessibleForFree: true,
+        isFamilyFriendly: true,
+        author: {
+          "@type": "Organization",
+          name: "Marathi Learn Hub",
+          url: `${base}/`,
+        },
       },
     ],
   };
