@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description: project?.summary,
       type: "article",
-      url: `project/${id}`,
+      url: `/project/${id}`,
     },
     alternates: {
       canonical: `/project/${id}`,
