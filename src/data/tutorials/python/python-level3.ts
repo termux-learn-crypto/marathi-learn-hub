@@ -7,6 +7,7 @@ export const pythonLevel3: Tutorial[] = [
   {
     slug: "python-functions",
     categoryId: "python",
+    project: "unit-converter",
     title: "Python Functions",
     marathiTitle: "Functions - कोडचे पुन्हा वापर",
     level: "intermediate",
@@ -651,6 +652,7 @@ print(digit_sum(999))`,
   {
     slug: "python-lists",
     categoryId: "python",
+    project: "todo-app",
     title: "Python Lists",
     marathiTitle: "Lists - एकात अनेक values",
     level: "intermediate",
@@ -1253,6 +1255,7 @@ print("दोन्हीत common:", s1 & s2)`,
   {
     slug: "python-dicts",
     categoryId: "python",
+    project: "simple-quiz",
     title: "Python Dictionaries",
     marathiTitle: "Dictionaries - key-value जोड्या",
     level: "intermediate",

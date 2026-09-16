@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getTutorial, tutorials } from "@/data/tutorials";
 import { getCategory } from "@/data/categories";
+import { getProject } from "@/data/projects";
 import CodeEditor from "@/components/CodeEditor";
 import QuizPlayer from "@/components/QuizPlayer";
 import { TutorialCard } from "@/components/Cards";
@@ -16,6 +17,35 @@ import { siteUrl, telegramUrl } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+function sectionChips(title: string, hasCode: boolean, hasOutput: boolean): { label: string; cls: string }[] {
+  const chips: { label: string; cls: string }[] = [];
+  const t = title.toLowerCase();
+  if (/म्हणजे काय|परिचय|परिभाषा|introduction|what is|called/.test(t)) {
+    chips.push({ label: "📖 हे काय?", cls: "bg-sky-100 text-sky-700 dark:bg-sky-900/50 dark:text-sky-300" });
+  }
+  if (/फायदे|महत्त्व|गरज|why|benefit|importance/.test(t)) {
+    chips.push({ label: "🎯 का?", cls: "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300" });
+  }
+  if (/उदाहरण|example|demo|प्रयोग/.test(t)) {
+    chips.push({ label: "💡 उदाहरण", cls: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300" });
+  }
+  if (/चुक|गैरसमज|सावधान|mistake/.test(t)) {
+    chips.push({ label: "⚠️ चुका / सावधान", cls: "bg-rose-100 text-rose-700 dark:bg-rose-900/50 dark:text-rose-300" });
+  }
+  if (/output|आउटपुट/.test(t)) {
+    chips.push({ label: "🖥️ Output", cls: "bg-violet-100 text-violet-700 dark:bg-violet-900/50 dark:text-violet-300" });
+  }
+  if (/सारांश|summary/.test(t)) {
+    chips.push({ label: "📌 सारांश", cls: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300" });
+  }
+  if (/सराव|practice/.test(t)) {
+    chips.push({ label: "✍️ सराव", cls: "bg-lime-100 text-lime-700 dark:bg-lime-900/50 dark:text-lime-300" });
+  }
+  if (hasCode) chips.push({ label: "💡 उदाहरण", cls: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300" });
+  if (hasOutput) chips.push({ label: "🖥️ Output", cls: "bg-violet-100 text-violet-700 dark:bg-violet-900/50 dark:text-violet-300" });
+  return chips;
 }
 
 export function generateStaticParams() {
@@ -82,6 +112,8 @@ export default async function TutorialDetailPage({ params }: Props) {
   const relatedTuts = tutorial.related
     .map((r) => getTutorial(r))
     .filter((t): t is NonNullable<typeof t> => Boolean(t));
+
+  const project = tutorial.project ? getProject(tutorial.project) : undefined;
 
   const diffLabel = tutorial.level === "beginner" ? "सोपे" : tutorial.level === "intermediate" ? "मध्यम" : "अवघड";
 
@@ -190,7 +222,9 @@ export default async function TutorialDetailPage({ params }: Props) {
 
         {/* Sections */}
         <div className="space-y-8">
-          {tutorial.sections.map((section, idx) => (
+          {tutorial.sections.map((section, idx) => {
+            const chips = sectionChips(section.title, Boolean(section.code), Boolean(section.output));
+            return (
             <Fragment key={idx}>
               <section className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
               <div className="flex items-center gap-3 mb-4">
@@ -199,6 +233,16 @@ export default async function TutorialDetailPage({ params }: Props) {
                 </span>
                 <h2 className="text-xl font-semibold marathi">{section.title}</h2>
               </div>
+
+              {chips.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {chips.map((c, i) => (
+                    <span key={i} className={`text-[11px] px-2 py-0.5 rounded-full font-medium ${c.cls}`}>
+                      {c.label}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <div className="prose prose-lg dark:prose-invert max-w-none marathi whitespace-pre-line text-gray-700 dark:text-gray-300 leading-relaxed">
                 {section.content}
@@ -216,7 +260,8 @@ export default async function TutorialDetailPage({ params }: Props) {
               </section>
               {(showMid && idx === midIdx) && <AdUnit />}
             </Fragment>
-          ))}
+            );
+          })}
         </div>
 
         {/* Practice Questions */}
@@ -305,6 +350,29 @@ export default async function TutorialDetailPage({ params }: Props) {
                 <TutorialCard key={t.slug} tutorial={t} />
               ))}
             </div>
+          </section>
+        )}
+
+        {/* Related Project */}
+        {project && (
+          <section className="mt-10">
+            <h2 className="text-2xl font-bold marathi mb-4">🛠️ Related Project</h2>
+            <Link
+              href={`/project/${project.id}`}
+              className="block rounded-2xl border-2 border-primary-200 dark:border-primary-900/50 p-6 bg-primary-50/50 dark:bg-gray-800 hover:border-primary-500 transition-colors"
+            >
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <h3 className="text-lg font-semibold marathi">{project.marathiTitle}</h3>
+                <div className="flex items-center gap-3 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white dark:bg-gray-700 font-medium">
+                    {project.difficulty}
+                  </span>
+                  <span className="text-gray-500 dark:text-gray-400">⏱ {project.minutes} min</span>
+                </div>
+              </div>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 marathi leading-relaxed">{project.summary}</p>
+              <p className="mt-3 text-sm font-medium text-primary-600">आता practice करा →</p>
+            </Link>
           </section>
         )}
 

@@ -7,6 +7,7 @@ export const pythonLevel4: Tutorial[] = [
   {
     slug: "python-strings",
     categoryId: "python",
+    project: "password-generator",
     title: "Python Strings",
     marathiTitle: "Strings - मजकूर",
     level: "intermediate",
@@ -1261,6 +1262,7 @@ print(date(2026, 9, 5).weekday())`,
   {
     slug: "python-numbers-random",
     categoryId: "python",
+    project: "guess-game",
     title: "गणिती संख्या व random",
     marathiTitle: "Numbers व Random",
     level: "intermediate",

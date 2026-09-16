@@ -135,6 +135,7 @@ void loop() {
 {
     slug: "arduino-led",
     categoryId: "electronics",
+    project: "led-project",
     title: "Arduino LED Projects",
     marathiTitle: "LED control करा Arduino ने",
     level: "intermediate",

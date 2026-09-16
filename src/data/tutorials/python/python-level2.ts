@@ -145,6 +145,7 @@ if उंची < 120:
   {
     slug: "python-if-else",
     categoryId: "python",
+    project: "even-odd-checker",
     title: "if-else",
     marathiTitle: "if-else — दोन पर्याय",
     level: "beginner",
@@ -538,6 +539,7 @@ else:
   {
     slug: "python-for-loop",
     categoryId: "python",
+    project: "multiplication-table",
     title: "for Loop",
     marathiTitle: "for loop — पुनरावृत्ती",
     level: "intermediate",

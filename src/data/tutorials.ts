@@ -30,6 +30,7 @@ export interface Tutorial {
   sections: TopicSection[];
   quiz: QuizQuestion[];
   related: string[];
+  project?: string;
   next?: string;
   prev?: string;
   levelLabel?: string;

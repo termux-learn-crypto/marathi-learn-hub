@@ -64,6 +64,7 @@ void setup() {
   {
     slug: "iot-wifi-basics",
     categoryId: "electronics",
+    project: "web-server-esp32",
     title: "WiFi Basics",
     marathiTitle: "स्थानिक web server — ESP सह पेज, IP, HTTP requests, सुरक्षा मूलभूत",
     level: "advanced",

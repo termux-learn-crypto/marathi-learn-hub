@@ -7,6 +7,7 @@ export const htmlLevel1: Tutorial[] = [
   {
     slug: "html-structure",
     categoryId: "web",
+    project: "personal-website",
     title: "HTML Structure - मूलभूत रचना",
     marathiTitle: "HTML Structure - मराठीतून वेबची सुरुवात",
     level: "beginner",
@@ -635,6 +636,7 @@ export const htmlLevel1: Tutorial[] = [
   {
     slug: "html-forms",
     categoryId: "web",
+    project: "login-page",
     title: "Forms - आकडा घेणे",
     marathiTitle: "Forms - मजकूर पाठवणे आणि मिळवणे",
     level: "beginner",
