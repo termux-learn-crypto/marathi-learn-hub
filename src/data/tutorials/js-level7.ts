@@ -168,7 +168,7 @@ let जोर = document.querySelector("#जोर");
       {
         title: "1. fetch म्हणजे काय",
         content:
-          "fetch(url) — त्या पत्त्यावरून data आणतो (GET).\nतो एक Promise देतो; निकाल .json() ने वाचतो.\nउदा. हवामान, बातम्या, याद्या — सर्व apps हेच करतात.\nएक function: 'शोधा आणि दाखवा'.",
+          "fetch(url) — त्या पत्त्यावरून data आणतो (GET).\nतो एक Promise देतो; निकाल .json() ने वाचतो.\nउदा. हवामान, बातम्या, याद्या — असेच अनेक apps हे करतात.\nएक function: 'शोधा आणि दाखवा'.",
         code: `fetch("https://api.example.com/weather")
   .then(उत्तर => उत्तर.json())
   .then(हवामान => {

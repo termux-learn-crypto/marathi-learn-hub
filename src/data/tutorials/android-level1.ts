@@ -112,7 +112,7 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "पहिला छोटा अॅप — हॅलो बटण",
-        content: "आता काहीतरी अर्थपूर्ण बनवूया: Label + Button = हॅलो! app\n\nDesigner:\n\t• Label ठेवा — Text = 'तू क्लिक केलेस!' FontSize=24, केंद्र.\n\t• Button ठेवा — Text = 'दाबा', मोठा.\n\t• Properties मधून Screen1.Title द्या — HelloApp.\n\nBlocks:\n\t१) Blocks view उघडा.\n\t२) Button1 चा when Button1.Click block drug करा.\n\t३) त्यात Label1 चा set Label1.Text to block ठेवा.\n\t४) Text 'दाबले!' लिहा.\n\nआता Connect → AI Companion → फोनवर बटण दाबा — लेबल बदलले! वाटतं कसलं तरी चमत्कार, पण तुम्ही बनवले!\n\nहा pattern — event + change — हेच सर्व apps चे मूलभूत आहे. आता दुसऱं बटण जोडा — Reset — जे लेबल रिकामे करते.",
+        content: "आता काहीतरी अर्थपूर्ण बनवूया: Label + Button = हॅलो! app\n\nDesigner:\n\t• Label ठेवा — Text = 'तू क्लिक केलेस!' FontSize=24, केंद्र.\n\t• Button ठेवा — Text = 'दाबा', मोठा.\n\t• Properties मधून Screen1.Title द्या — HelloApp.\n\nBlocks:\n\t१) Blocks view उघडा.\n\t२) Button1 चा when Button1.Click block drug करा.\n\t३) त्यात Label1 चा set Label1.Text to block ठेवा.\n\t४) Text 'दाबले!' लिहा.\n\nआता Connect → AI Companion → फोनवर बटण दाबा — लेबल बदलले! वाटतं कसलं तरी चमत्कार, पण तुम्ही बनवले!\n\nहा pattern — event + change — हेच बहुतेक apps चे मूलभूत आहे. आता दुसऱं बटण जोडा — Reset — जे लेबल रिकामे करते.",
       },
       {
         title: "परवानग्या व सवयी (शिकण्याच्या)",
@@ -172,7 +172,7 @@ export const androidLevel1: Tutorial[] = [
       },
       {
         title: "Events विरुद्ध Properties — संवादाची भाषा",
-        content: "घटकांच्या जगात संवादाचे दोन प्रकार:\n\nProperties = स्थिती — किती मोठा, कोणता रंग, काय मजकूर. तुम्ही आधी सेट करता, नंतर बदलता.\n\nEvents = घटना — क्लिक झालं, फोटो निवडला. एका block चा गाभा: when <घटक>.<घटना> do <बदल>.\n\nउदा. when Button1.Click → set Label1.Text to 'दाबले'.\n\nतीन महत्त्वाचे नियम:\n\t१) घटना block मधील घटक त्या नावाचाच (Component name) असेल — नाहीतर blocks चालत नाहीत.\n\t२) set property block ने दुसऱ्या घटकाची property बदलता येते — पण घटक निवडूनच करा.\n\t३) कोणताही बदल करण्यापूर्वी design नीट ठरवा.\n\nहे event-driven programming — आजच्या सर्व apps चा आधार.",
+        content: "घटकांच्या जगात संवादाचे दोन प्रकार:\n\nProperties = स्थिती — किती मोठा, कोणता रंग, काय मजकूर. तुम्ही आधी सेट करता, नंतर बदलता.\n\nEvents = घटना — क्लिक झालं, फोटो निवडला. एका block चा गाभा: when <घटक>.<घटना> do <बदल>.\n\nउदा. when Button1.Click → set Label1.Text to 'दाबले'.\n\nतीन महत्त्वाचे नियम:\n\t१) घटना block मधील घटक त्या नावाचाच (Component name) असेल — नाहीतर blocks चालत नाहीत.\n\t२) set property block ने दुसऱ्या घटकाची property बदलता येते — पण घटक निवडूनच करा.\n\t३) कोणताही बदल करण्यापूर्वी design नीट ठरवा.\n\nहे event-driven programming — आजकालच्या बहुतेक apps चा आधार.",
       },
       {
         title: "Blocks — Variables (चल)",
