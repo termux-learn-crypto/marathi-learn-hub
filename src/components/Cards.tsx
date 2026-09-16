@@ -1,14 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import type { Tutorial } from "@/data/tutorials";
+import type { TutorialSummary } from "@/data/tutorials";
 import type { Project } from "@/data/projects";
 import { categories, type Category } from "@/data/categories";
-
-export type TutorialSummary = Pick<
-  Tutorial,
-  "slug" | "marathiTitle" | "summary" | "minutes" | "level" | "categoryId"
->;
 
 export function CategoryCard({ cat, count }: { cat: Category; count: number }) {
   return (

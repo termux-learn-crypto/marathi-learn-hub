@@ -1815,6 +1815,23 @@ export function searchTutorials(query: string): Tutorial[] {
       t.title.toLowerCase().includes(q) ||
       t.summary.toLowerCase().includes(q) ||
       t.marathiTitle.toLowerCase().includes(q) ||
+      t.categoryId.toLowerCase().includes(q) ||
       t.sections.some((s) => s.title.toLowerCase().includes(q) || s.content.toLowerCase().includes(q))
   );
+}
+
+export type TutorialSummary = Pick<
+  Tutorial,
+  "slug" | "marathiTitle" | "summary" | "minutes" | "level" | "categoryId"
+>;
+
+export function toTutorialSummary(t: Tutorial): TutorialSummary {
+  return {
+    slug: t.slug,
+    marathiTitle: t.marathiTitle,
+    summary: t.summary,
+    minutes: t.minutes,
+    level: t.level,
+    categoryId: t.categoryId,
+  };
 }

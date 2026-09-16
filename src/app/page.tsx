@@ -3,9 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HomeClient from "@/components/HomeClient";
 import { categories } from "@/data/categories";
-import { tutorials, type Tutorial } from "@/data/tutorials";
+import { tutorials, toTutorialSummary, type TutorialSummary } from "@/data/tutorials";
 import { projects } from "@/data/projects";
-import { CategoryCard, ProjectCard, SectionHeader, type TutorialSummary } from "@/components/Cards";
+import { CategoryCard, ProjectCard, SectionHeader } from "@/components/Cards";
 import LearningPaths from "@/components/LearningPaths";
 import { telegramUrl } from "@/lib/site";
 
@@ -35,17 +35,6 @@ const valuePillars = [
 
 const filterIds = ["all", "computer", "web", "python", "ai", "electronics"];
 
-function toSummary(t: Tutorial): TutorialSummary {
-  return {
-    slug: t.slug,
-    marathiTitle: t.marathiTitle,
-    summary: t.summary,
-    minutes: t.minutes,
-    level: t.level,
-    categoryId: t.categoryId,
-  };
-}
-
 export default function Home() {
   const latestProjects = [...projects].slice(0, 3);
 
@@ -58,8 +47,8 @@ export default function Home() {
   for (const id of filterIds) {
     featured[id] =
       id === "all"
-        ? tutorials.slice(0, 6).map(toSummary)
-        : tutorials.filter((t) => t.categoryId === id).slice(0, 6).map(toSummary);
+        ? tutorials.slice(0, 6).map(toTutorialSummary)
+        : tutorials.filter((t) => t.categoryId === id).slice(0, 6).map(toTutorialSummary);
   }
 
   return (
