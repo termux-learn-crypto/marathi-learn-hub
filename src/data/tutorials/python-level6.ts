@@ -14,26 +14,72 @@ export const pythonLevel6: Tutorial[] = [
     summary: "list, dict व set comprehension मध्ये नेस्टेड loops, conditions आणि walrus operator.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "Comprehension म्हणजे list/dict/set एका ओळीत बनवणे. प्रगत वापरात:\n\n• nested loops — [x for a in outer for b in inner]\n• conditions — if चा शेवटी वापर\n• dict comprehension — {key: value ...}\n• set comprehension — {x for x ...}\nlist dict set तीन रूपांची.\nlist dict set वेगळी रचना.\nप्रत्येक रूप तीन रूपांची.\nप्रत्येक रूप वेगळी रचना.\nएकत्र कल्पना मनात राहो.\nएकत्र कल्पना निसर्गाने जायचे.\nकाय होते या धड्यात.\nकाय होते निष्कर्ष मिळे.\nयामधून काय या धड्यात.\nयामधून काय निष्कर्ष मिळे.\nnested अर्थ घरटी वाचा.\nnested अर्थ अटी नियम.\nnested अर्थ tuple सोबत.\ncondition तर्क घरटी वाचा.\ncondition तर्क अटी नियम.\ncondition तर्क tuple सोबत.\nwalrus कधी घरटी वाचा.\nwalrus कधी अटी नियम.\nwalrus कधी tuple सोबत.\nकोड वाचा आवडीनुसार.\nकोड वाचा आणखी करा.\nकोड वाचा उद्यासाठी.\nसराव शब्द आवडीनुसार.\nसराव शब्द आणखी करा.\nसराव शब्द उद्यासाठी.\nस्मरण राहो आवडीनुसार.\nस्मरण राहो आणखी करा.\nस्मरण राहो उद्यासाठी.\nशिक्षण संपूर्ण रोज करा.\nशिक्षण संपूर्ण उत्तम बना.\nवापर जाणीव रोज करा.\nवापर जाणीव उत्तम बना.\nशिकणे जारी तुमचे काम.\nशिकणे जारी उत्सव करा.\nशेवट नाही तुमचे काम.\nशेवट नाही उत्सव करा." },
-      { title: "2. सोप्या मराठीत समज", content: "\"सगळ्या विद्यार्थ्यांच्या गुणांची दुप्पट करून नवी सूची\" — हे एकाच वाक्यात सांगितलं तर तेच comprehension. loop आणि rules एकत्र — वाक्यात संग्रह बनवण्याची जादू.\nloop व conditions सर्वात सहज.\nloop व conditions बनवण्याची.\nसंग्रह जादू सर्वात सहज.\nसंग्रह जादू बनवण्याची.\nजादू गुढ कोड संग्रह.\nजादू गुढ दिवसेंदिवस.\nसोपे होते कोड संग्रह.\nसोपे होते दिवसेंदिवस.\nrules एकाच जागी रचना.\nrules एकाच आठव राहिल.\nउपमा चांगली जागी रचना.\nउपमा चांगली आठव राहिल.\nगणित सोपे व्यवहारी वचन.\nगणित सोपे अनपेक्षित नाही.\nहेच मुख्य सोपे उदाहरण.\nहेच मुख्य धडा त्याचा.\nगणितीय कल्पना जागा काढा.\nगणितीय कल्पना कोड तिकडे.\nवाचा पुन्हा जागा काढा.\nवाचा पुन्हा कोड तिकडे.\nजुने स्मरण आत्मविश्वास.\nजुने स्मरण पुढचा धडा.\nजागा शिल्लक आत्मविश्वास.\nजागा शिल्लक पुढचा धडा." },
-      { title: "3. Syntax", content: "समसमान numbers पकडणे व दुप्पट करणे:\ndoubles सूची तीन ओळींत.\ndoubles सूची अचूक उत्तर.\nप्रिंट वर तीन ओळींत.\nप्रिंट वर अचूक उत्तर.\nफलित पडताळा अचूक आहे.\nफलित पडताळा अर्थ लक्षात.\nआधी चालवा अचूक आहे.\nआधी चालवा अर्थ लक्षात.\ndoubles name कोडमधील.\ndoubles name पुन्हा पुन्हा.\nवाचन सराव कोडमधील.\nवाचन सराव पुन्हा पुन्हा.\nआता बदल करा दहा पर्यंत करा.\nआता बदल करा अजून सम संख्या.\nवेगळा यादी दहा पर्यंत करा.\nवेगळा यादी अजून सम संख्या.\nअजून try करा इतर कोड.\nअजून try करा महत्त्वाचे हे.\nसंख्यांसोबत इतर कोड.\nसंख्यांसोबत महत्त्वाचे हे.\nसर्व बरोबर कोड सिद्ध.\nसर्व बरोबर उत्तम रीती.\nअट पाळल्या कोड सिद्ध.\nअट पाळल्या उत्तम रीती.\nसमज गोळा अनावश्यक नको.\nसमज गोळा स्वतः बघा.\nतपास करा अनावश्यक नको.\nतपास करा स्वतः बघा.", code: `nums = [1, 2, 3, 4, 5, 6]
+      {
+        title: "comprehension म्हणजे एका ओळीत संग्रह",
+        content: "Comprehension म्हणजे list, dict किंवा set एका ओळीत तयार करणारी रचना. 'सगळ्या गुणांची दुप्पट करून नवी यादी' अशा साध्या रूपांतरासाठी loop लिहिण्याऐवजी comprehension थेट निकाल देतो. ही रचना Python मध्ये भरपूर वापरली जाते, म्हणून नीट समजून घेण्यासारखी आहे.\n\nतीन रूपे: list comprehension — [निकाल for घटक in संग्रह if अट], dict comprehension — {key: value for ...}, set comprehension — {expression for ...}. रचना तिन्हींची सारखी आहे; फरक कंस आणि निकालाच्या स्वरूपात आहे — list क्रमवार, dict key/value जोड्या, set वेगळे घटक.\n\nमूळ संग्रहात बदल होत नाही — प्रत्येक वेळी नवीन संग्रह तयार होतो. अट (if) ऐच्छिक आहे आणि नेहमी शेवटी येते.",
+      },
+      {
+        title: "Syntax: expression, loop, condition",
+        content: "रचनेचे तीन भाग: expression — प्रत्येक घटकावर काय करायचं, for loop — घटकांवरून फिरणं, आणि ऐच्छिक if — कोणते घटक निवडायचे. क्रम बदलता येत नाही: expression आधी, loop मध्ये, अट शेवटी.\n\nखाली nums मधील सम संख्या दुप्पट केल्या आहेत: [n * 2 for n in nums if n % 2 == 0]. if ने 2, 4, 6 निवडले आणि expression ने ते 4, 8, 12 केले.\n\nप्रत्येक भाग वेगळा करून पहा: n * 2 ऐवजी n लिहिलं तर संख्या तशाच येतात; if काढला तर सर्व संख्या येतात.",
+        code: `nums = [1, 2, 3, 4, 5, 6]
 doubles = [n * 2 for n in nums if n % 2 == 0]
-print(doubles)`, codeLanguage: "python", output: "[4, 8, 12]" },
-      { title: "4. उदाहरणे", content: "नेस्टेड loop — सपाट सूची:\nflat सूची आठ घटक.\nflat सूची बरोबर मिळतो.\nक्रम लक्ष आठ घटक.\nक्रम लक्ष बरोबर मिळतो.\nक्रमनियम अवश्य धरा.\nक्रमनियम मूल्ये बदला.\nसराव बदल अवश्य धरा.\nसराव बदल मूल्ये बदला.\nक्रम बदला फलित वेगळे.\nक्रम बदला नियम तरी तेच.\nआतले पाहा फलित वेगळे.\nआतले पाहा नियम तरी तेच.\nलूप क्रम न विसरा.\nलूप क्रम नंतर आतला.\nपहिला बाहेर न विसरा.\nपहिला बाहेर नंतर आतला.\nउदाहरणांचा करा हेच सर्व.\nउदाहरणांचा करा उलट तपासा.\nचढती मालिका हेच सर्व.\nचढती मालिका उलट तपासा.\nअधिक उदा निकाल अचूक.\nअधिक उदा हेच काम.\nsum तपासा निकाल अचूक.\nsum तपासा हेच काम.\nअधिक सराव तुमची शैली.\nअधिक सराव आवश्यक तेवढे.\nकोड बदल तुमची शैली.\nकोड बदल आवश्यक तेवढे.", code: `matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(doubles)`,
+        codeLanguage: "python",
+        output: `[4, 8, 12]`,
+      },
+      {
+        title: "नेस्टेड loop — सपाट list",
+        content: "संग्रहात संग्रह असल्यास (matrix सारखा) दोन for लिहितात — आतले सर्व घटक एका सपाट list मध्ये उतरवण्यासाठी. क्रम महत्त्वाचा: बाहेरचा for आधी, आतला नंतर.\n\nflat = [x for row in matrix for x in row if x % 2 == 0] — बाहेरून row एकेक करून येतो; आतला for तिच्यातील x फिरतो; if सम संख्या निवडतो. निकाल [2, 4, 6, 8].\n\nfor चा क्रम उलटा केला तर अर्थ बदलतो — बाहेरचा आणि आतला loop कोणता हे निकालाचा आकार ठरवतं.",
+        code: `matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 flat = [x for row in matrix for x in row if x % 2 == 0]
-print(flat)`, codeLanguage: "python", output: "[2, 4, 6, 8]" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "dict comprehension — संसंख्येचा वर्ग:\nsquares शब्दकोश क्रमवार दिसे.\nsquares शब्दकोश सर्वांना समजे.\nमुद्रण सोपे क्रमवार दिसे.\nमुद्रण सोपे सर्वांना समजे.\nसराव वाढवा रोज क्रमांकाने.\nसराव वाढवा नव्या range ने.\nजोडी तपासा रोज क्रमांकाने.\nजोडी तपासा नव्या range ने.\nrange अजून खेळून पहा.\nrange अजून गुणिलेच दिसे.\nvalue स्पष्ट खेळून पहा.\nvalue स्पष्ट गुणिलेच दिसे.\nअर्थ व्यवस्थित अर्थ उभा.\nअर्थ व्यवस्थित फलित निरखा.\nकोड चालू अर्थ उभा.\nकोड चालू फलित निरखा.\nआणखी शब्दकोश उघडा आता.\nआणखी शब्दकोश आडखळ नाही.\nजोडी संख्या उघडा आता.\nजोडी संख्या आडखळ नाही.\ndict अभ्यास घरातील जुळते.\ndict अभ्यास शैली परवडते.\nदिलेल्या शब्द घरातील जुळते.\nदिलेल्या शब्द शैली परवडते.\nनवीन पद्धत सुंदर होतो.\nनवीन पद्धत बदल तपासा.\nआता लक्षात सुंदर होतो.\nआता लक्षात बदल तपासा.", code: `squares = {i: i * i for i in range(1, 6)}
-print(squares)`, codeLanguage: "python", output: "{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}" },
-      { title: "6. सामान्य चुका", content: "✗ nested loop चा क्रम उलटा — बाहेरील loop आधी लिहितात\n✗ if च्या जागी खूप इतर operations अडकवणे\n✗ mutable element (सूची) set comprehension मध्ये नको\nnames सूची चार अक्षरांचे.\nnames सूची आरोही मीरा.\nlong फलित चार अक्षरांचे.\nlong फलित आरोही मीरा.\nnames चाचणी लांबी चार.\nnames चाचणी थोडा कोड.\nlong तपास लांबी चार.\nlong तपास थोडा कोड.\nnames पुन्हा लांब अक्षरे.\nnames पुन्हा लहान कोड करा.\nअनुभव प्रत्यक्ष लांब अक्षरे.\nअनुभव प्रत्यक्ष लहान कोड करा.\nnames वापरा अक्षरे चार.\nnames वापरा अचूक फलित.\nlong मिळे अक्षरे चार.\nlong मिळे अचूक फलित.\nटीपावर परत येथे.\nटीपावर वेळ द्या.\nअभ्यास घ्या परत येथे.\nअभ्यास घ्या वेळ द्या.\nnames तपास एकदा पहा.\nnames तपास उत्तर मिळे.\nlong स्वतः एकदा पहा.\nlong स्वतः उत्तर मिळे.\nअंतिम टीपा क्षेत्र स्पष्ट.\nस्पष्ट करा क्षेत्र स्पष्ट.", code: `names = ["आरोही", "वेद", "मीरा"]
-long = [n for n in names if len(n) >= 4]
-print(long)`, codeLanguage: "python", output: "['आरोही', 'मीरा']" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• वाचण्यायोग्यता महत्त्वाची — खूप गुंतागुंत नको\n• conditions नंतर, loops आधी\n• dict इसाठी key: value रचना\n• walrus (:=) — x := y मध्ये value assign वापरता येते\nवाचनीयता पहिली महत्त्व नाही?\nवाचनीयता पहिली condition नंतर.\nवाचनीयता पहिली dict यासाठी.\nवाचनीयता पहिली assign आतील.\nloop आधी महत्त्व नाही?\nloop आधी condition नंतर.\nloop आधी dict यासाठी.\nloop आधी assign आतील.\nkey value रचना महत्त्व नाही?\nkey value रचना condition नंतर.\nkey value रचना dict यासाठी.\nkey value रचना assign आतील.\nwalrus असा महत्त्व नाही?\nwalrus असा condition नंतर.\nwalrus असा dict यासाठी.\nwalrus असा assign आतील.\nwalrus उदाहरण लक्षात घ्या.\nwalrus उदाहरण सोपे करते.\nप्रगत टिपा हेच शिकतो.\nप्रगत टिपा सर्व ठिकाणी.\nसावधान राहा हेच शिकतो.\nसावधान राहा सर्व ठिकाणी.\nअभ्यास टीप तोंडी करा.\nअभ्यास टीप समजून धरा.\nआता सरासरी तोंडी करा.\nआता सरासरी समजून धरा.\nnested ही समजता येते.\nnested ही प्रत्येक वाक्यात.\nसर्व सोडा समजता येते.\nसर्व सोडा प्रत्येक वाक्यात.\nवाचनीयतेला आज फेर.\nवाचनीयतेला प्राधान्य कोड.\nवाचनीयतेला थोडक्यात वापर.\nवाचनीयतेला विलग बिंदू.\nसार मजबूत धडा झाला.\nसार मजबूत पुढे हा.\nकाय नवीन धडा झाला.\nकाय नवीन पुढे हा.\nwalrus example गोठवता येते.\nwalrus example learn हे शेवट.\nसाचवर चढता गोठवता येते.\nसाचवर चढता learn हे शेवट.\nशिक्षक मित्र खूप काम.\nशिक्षक मित्र आनंदाने.\nविद्यार्थी असा खूप काम.\nविद्यार्थी असा आनंदाने." },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nचाळीसावर गुण यादी.\nचाळीसावर हाताशी आहे.\nचाळीसावर खालचे सोडा.\nचाळीसावर चालवा पुन्हा.\npassed निकाल बरोबर येतो.\npassed निकाल मजा घ्या.\nखेळ सुरू बरोबर येतो.\nखेळ सुरू मजा घ्या.\nअतिरिक्त प्रश्न स्वतःच बघा.\nअतिरिक्त प्रश्न मग उत्तर द्या.\nटर्मिनल फलित हा प्रिंट.\nटर्मिनल फलित Interactive पूर्ण.\nमग बंद हा प्रिंट.\nमग बंद Interactive पूर्ण.\nबदल मूल्य आता नवी संख्या.\nबदल मूल्य कोड चालवा.\nखिडकी विस्तार या ठिकाणी.\nखिडकी विस्तार शांत बघा.\nचालवा मग या ठिकाणी.\nचालवा मग शांत बघा.\nक्रम मनात विश्रांती घ्या.\nआता बंद विश्रांती घ्या.\nटर्मिनल स्वच्छ Interactive खेळ.\nटर्मिनल स्वच्छ चालवा पुन्हा.\nनिकाल छान Interactive खेळ.\nनिकाल छान चालवा पुन्हा.", code: `scores = [56, 89, 34, 91]
+print(flat)`,
+        codeLanguage: "python",
+        output: `[2, 4, 6, 8]`,
+      },
+      {
+        title: "dict comprehension — key: value जोड्या",
+        content: "नवीन dict बनवण्यासाठी dict comprehension वापरतात. expression च्या जागी key: value जोडी लिहितात आणि square brackets ऐवजी curly braces घेतात.\n\nsquares = {i: i * i for i in range(1, 6)} — i एकेक ते 5 चालतो; प्रत्येकासाठी key i आणि value त्याचा वर्ग. निकाल {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}.\n\ndict मध्ये key वेगळ्या-वेगळ्या असतात; तीच key पुन्हा आली तर नवीन value जुन्या जागेवर बसते — इथे ते घडत नाही, कारण i वेगवेगळे आहेत.",
+        code: `squares = {i: i * i for i in range(1, 6)}
+print(squares)`,
+        codeLanguage: "python",
+        output: `{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}`,
+      },
+      {
+        title: "set comprehension आणि walrus operator",
+        content: "set comprehension — {expression for ...} — वेगळ्या घटकांचा संग्रह देतो; duplicate घटक आपोआप गळून पडतात. list मधील तेच घटक वेगळे करायचे असतील तर ही रचना एका ओळीत उत्तर देते.\n\nwalrus operator (:=) expression मध्येच मूल्य नोंदवतो आणि ते पुढे वापरता येतं — उदा. अटीमध्ये केलेली गणना दोनदा करावी लागत नाही. त्यासाठी कंसाचा वापर स्पष्टता देतो.\n\nwalrus कमी ठिकाणी योग्य असतो; comprehension चा उद्देश संग्रह सोपा बनवणे आहे, अवघड नाही. तेच काम साध्या comprehension ने होत असल्यास walrus टाळा.",
+        code: `names = ["वेद", "मीरा", "वेद", "आरोही"]
+unique = {n for n in names}
+print(unique)`,
+        codeLanguage: "python",
+        output: `{'मीरा', 'वेद', 'आरोही'}`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ नेस्टेड comprehension मध्ये for चा क्रम उलट ठेवणे — बाहेरचा loop आधी लिहा; क्रम उलटल्यास निकाल वेगळ्या आकाराचा येतो.\n\n✗ expression मध्ये खूप तर्क एकत्र करणे — साधा धडा साधा ठेवा; जटिल असेल तर loop लिहा, वाचणं सोपं होतं.\n\n✗ set मध्ये mutable घटक टाकणे — set चे घटक immutable हवेत; list टाकल्यास TypeError येतो.\n\n✗ set च्या घटकांचा क्रम गृहीत धरणे — set चा क्रम ठरलेला नसतो.\n\nखाली names मधून लांबी 4 किंवा अधिक असलेली नावे निवडली आहेत — अट len(n) >= 4. आरोही आणि मीरा या निवडल्या गेल्या; वेद हे नाही, कारण त्याची लांबी 3.\n\nअट बदलून तपासा — >= 3 किंवा >= 5; output मधून अटीचा परिणाम लगेच दिसतो.",
+        code: `names = ["वेद", "मीरा", "आरोही"]
+long_names = [n for n in names if len(n) >= 4]
+print(long_names)`,
+        codeLanguage: "python",
+        output: `['मीरा', 'आरोही']`,
+      },
+      {
+        title: "Interactive: स्कोअर फिल्टर",
+        content: "कृती: scores यादीतून 35 किंवा अधिक गुण असलेले स्कोअर निवडा. अट if s >= 35 शेवटी लिहिली आहे; ती पूर्ण करणारे घटकच नवीन list मध्ये येतात.\n\n35 ही सीमा output निवडते — 56, 89, 91 हे पास; 34 हा वगळला, कारण तो अटीबाहेर. प्रत्येक स्कोअर output शी जुळला तर अट कशी काम करते ते दिसतं.\n\nसीमा 40 केली की काय होतं मनात आधी ठरवा; मग कोड बदलून पडताळा. आकडे बदलल्यावर निकाल बदलतो — हीच comprehension ची खरी तपासणी.",
+        code: `scores = [56, 89, 34, 91]
 passed = [s for s in scores if s >= 35]
-print(passed)`, codeLanguage: "python", output: "[56, 89, 91]" },
-      { title: "Mini Project — खरेदी सूची", content: "मोलाच्या वस्तूंचे नाव अनुक्रमे:\ncostly dict साधा शेवट.\ncostly dict comprehension पूर्ण.\nप्रोजेक्ट सरासरी साधा शेवट.\nप्रोजेक्ट सरासरी comprehension पूर्ण.\nतेच शेवट साधले येथे.\nतेच शेवट धडा उघडा.\nआता नवीन साधले येथे.\nआता नवीन धडा उघडा.\ncostly जोडी अगदी टका.\ncostly जोडी पुढील नवा.\nधडा संपला अगदी टका.\nधडा संपला पुढील नवा.\ncostly परिणाम आकडे बरोबर.\ncostly परिणाम झाला समारंभ.\nधडा पूर्ण आकडे बरोबर.\nधडा पूर्ण झाला समारंभ.\nप्रश्न विचारा स्वतःला पहा.\nप्रश्न विचारा रोज एक धडा.\nसराव उद्या स्वतःला पहा.\nसराव उद्या रोज एक धडा.\nपुन्हा सराव धडा उत्तम.\nपुन्हा सराव उद्या नवीन.\nआनंद शेवट धडा उत्तम.\nआनंद शेवट उद्या नवीन.\nसारांश लिहा चालू राहा.\nसारांश लिहा शेवट येतो.\nउरलेले बाकी चालू राहा.\nउरलेले बाकी शेवट येतो.", code: `items = {"पोळी": 10, "दही": 25, "वडापाव": 30}
+print(passed)`,
+        codeLanguage: "python",
+        output: `[56, 89, 91]`,
+      },
+      {
+        title: "Mini Project: खरेदी सूची",
+        content: "वस्तूंच्या किमती ठरलेल्या आहेत; 15 रुपयांपेक्षा महागड्या वस्तूंचा dict तयार करा.\n\nitems.items() मधून प्रत्येक (नाव, किंमत) जोडी येते; expression name: price जोडी ठेवतो आणि if price > 15 अट निवडते. दही (25) आणि वडापाव (30) उरतात; पोळी 10 रुपयांची असल्याने वगळली.\n\nहा निकाल पुढे कार्ट दाखवण्यासाठी किंवा बजेट ठरवताना वापरता येतो. सीमा बदलून तपासा — price > 20 केल्यास फक्त वडापाव उरेल.",
+        code: `items = {"पोळी": 10, "दही": 25, "वडापाव": 30}
 costly = {name: price for name, price in items.items() if price > 15}
-print(costly)`, codeLanguage: "python", output: "{'दही': 25, 'वडापाव': 30}" },
+print(costly)`,
+        codeLanguage: "python",
+        output: `{'दही': 25, 'वडापाव': 30}`,
+      },
     ],
     practiceQuestions: [
       "comprehension मधील nested loop चा क्रम?",
@@ -71,40 +117,91 @@ print([w for w in words if len(w) > 2])`,
     summary: "functions ही object — argument म्हणून द्या, list मध्ये ठेवा, map/filter ने वापरा.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "Python मध्ये function ही एक object आहे. म्हणजे?\n• variable मध्ये ठेवता येते\n• argument म्हणून दुसऱ्या function ला दिली जाते\n• सूची मध्ये साठवता येते\n• function return करता येते\nशोध करा तेच असे.\nशोध करा मग का वापरता.\nकोड वाचा तेच असे.\nकोड वाचा मग का वापरता.\nमूलभूत टीप महत्त्व जाणीव.\nमूलभूत टीप आजचा धडा.\nपुनरावृत्ती करा महत्त्व जाणीव.\nपुनरावृत्ती करा आजचा धडा.\nसर्व वस्तू जागा काढा.\nसर्व वस्तू आज दिसले.\nशिकणे चालू शेवट पर्यंत.\nशिकणे चालू आत्मविश्वास.\nपुनरावृत्ती शेवट पर्यंत.\nपुनरावृत्ती आत्मविश्वास.\nपुनरावृत्ती शिकणे चालू.\nपुनरावृत्ती आता उदाहरणे.\nशेवटी एकत्र आजचा धडा.\nशेवटी एकत्र समजला का.\nशेवटी नोंदी तुमचे हे.\nशेवटी नोंदी अभिनंदन.\nपुढील धडा तुमचे हे.\nपुढील धडा अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "\"कारागीर\" एक व्यक्ती म्हणून ओळखतो — जसे त्याला काम सोपवतात तसे function ला. function लाही \"कामाचा तुकडा\" (worker) मानून तो दुसऱ्याला देतात; दुसरा त्याला स्वतः बोलवतो.\nउपमा चांगली सोप्या मराठीत.\nउपमा चांगली पुन्हा एकदा.\nप्रायोगिक वापर सोप्या मराठीत.\nप्रायोगिक वापर पुन्हा एकदा.\nउपमा सोपी हेच first-class.\nउपमा सोपी जगात दिसते.\npractice मागे हेच first-class.\npractice मागे जगात दिसते.\nउपमा उपयोगी शिकले का.\nउपमा उपयोगी आणखी बघा.\nसोपे मराठीत शिकले का.\nसोपे मराठीत आणखी बघा.\nsimple उपमा बघा पुन्हा.\nsimple उपमा समजेल कसे.\nगुळगुळीत बघा पुन्हा.\nगुळगुळीत समजेल कसे.\nउपमा पुन्हा आत्मविश्वासाने.\nउपमा पुन्हा पुन्हा येऊया.\nहेच कार्य आत्मविश्वासाने.\nहेच कार्य पुन्हा येऊया.\nउपमा शेवट आणखी करा.\nfunction object आणखी करा." },
-      { title: "3. Syntax", content: "function variable मध्ये:\nनाव () नाही पहिली ओळ.\nनाव () नाही import नको.\nनाव () नाही हेच महत्त्व.\nनाव () नाही प्रिंट फलित.\nसमजून पहा तेच नाव दिसते.\nसमजून पहा वर नेल्यावर.\nशेवटी () नाही पहिली प्रतिक्रिया.\nशेवटी () नाही स्वतः प्रयत्न.\nशेवटी () नाही हेच गुरू.\nशेवटी () नाही verify करा.\nशिक्षण पूर्ण तेच नाव वापर.\nशिक्षण पूर्ण var मध्ये ठेव.\nनाव () नाही प्रत्येक वेळी.\nनाव () नाही import नको.\nनाव () नाही हे लक्षात.\nनाव () नाही फक्त नाव.\nतेच काम दुसर्या ठिकाणी.\nतेच काम पुन्हा जुळवू.\nतेच नाव चालू कंस नको.\nतेच नाव चालू पुन्हा समज.", code: `def shout(s):
-    return s.upper() + "!"
+      {
+        title: "function ही object — याचा अर्थ काय?",
+        content: "Python मध्ये function ही इतर मूल्यांसारखीच एक मूल्य आहे — संख्या, string प्रमाणे तिला variable मध्ये ठेवता येतं, list मध्ये जोडता येतं आणि दुसऱ्या function ला argument म्हणून देता येतं.\n\nfunction चं नाव लिहिलं की तिचा दुवा मिळतो; नावामागे () लावलं की ती चालते. फरक महत्त्वाचा: add म्हणजे function स्वतः, add(2, 3) म्हणजे तिला चालवून मिळालेला निकाल.\n\nहा सगळा पाया उच्च-स्तरीय (higher-order) function चा आहे — map, filter सारखी साधने function ला argument म्हणूनच घेतात.",
+      },
+      {
+        title: "Syntax: function variable मध्ये",
+        content: "def ने बनवलेल्या function ला नावाशिवाय दुसरा दुवा ठेवता येतो: shout = make_shout. म्हणजे तीच function दोन नावांनी ओळखता येते — make_shout(\"python\") आणि shout(\"python\") एकच output देतात.\n\nfunction ला list मध्येही टाकता येतं, म्हणून एकाच क्रमाने function निवडून चालवता येतं. नाव (%), (), नाव दोन्हीचे वापर सरावात पक्के करा.\n\nत्यामुळे कधी function ला, कधी तिचा निकाल हवा — याचा फरक लक्षात राहो: नाव = function, नाव() = निकाल.",
+        code: `def make_shout(text):
+    return text.upper() + "!"
 
-shout_pointer = shout
-print(shout_pointer("hi"))`, codeLanguage: "python", output: "HI!" },
-      { title: "4. उदाहरणे", content: "map/filter — function argument म्हणून:\nprint सोपे दोन ओळी एकत्र.\nprint सोपे अर्थ स्पष्ट.\nmap मर्यादा दिसते छापणे.\nmap मर्यादा list ने सरळ.\nअर्थ जोडणे दिसते छापणे.\nअर्थ जोडणे list ने सरळ.\nlist() आवश्यक दोन परिणाम.\nlist() आवश्यक प्रिंट करा.\nlist() ने दिसते तोंडी करा.\nlist() ने दिसते मनात राखा.\nlist() आवश्यक प्रत्येक ओळ.\nlist() आवश्यक सूची तयार.\nlist() आवश्यक verify करा.\nlist() आवश्यक अचूक दिसते.\nmap पुन्हा चालवा रोज.\nmap पुन्हा आत्मविश्वास.\nverify अंतिम आज झाले.\nverify अंतिम पुन्हा यावे.\nशेवट करा आज झाले.\nशेवट करा पुन्हा यावे.", code: `nums = [7, 2, 9, 4]
-print(list(map(lambda x: x * x, nums)))
-print(list(filter(lambda x: x % 2 == 0, nums)))`, codeLanguage: "python", output: "[49, 4, 81, 16]\n[2, 4]" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "पात्रता मापदंड function म्हणून:\nसंख्या निर्विकार हेच काम.\nशब्द लांबी हेच काम.\nशैली बघा सारांश वाचा.\nदुसऱ्यासाठी तफावत बघा.", code: `def apply(fn, value):
-    return fn(value)
+shout = make_shout
+print(shout("python"))`,
+        codeLanguage: "python",
+        output: `PYTHON!`,
+      },
+      {
+        title: "function argument म्हणून — map आणि filter",
+        content: "map(function, संग्रह) प्रत्येक घटकावर function चालवून नवीन निकालांचा iterator देतो. filter(function, संग्रह) function ज्या घटकांसाठी True देतो तेच ठेवतो.\n\nmap आणि filter ने दिलेलं उत्तर iterator असतं; list() लावल्यावरच सूची म्हणून पाहता येतं. खाली lambda ने function च वेळेपेक्षा छोटी दिली आहे.\n\nnumbers मधून वर्ग (square) आणि सम संख्या निवडतो. list(map(...)) ने output सरळ list स्वरूपात येतो.",
+        code: `numbers = [7, 2, 9, 4]
+squares = list(map(lambda x: x * x, numbers))
+evens = list(filter(lambda n: n % 2 == 0, numbers))
+print(squares)
+print(evens)`,
+        codeLanguage: "python",
+        output: `[49, 4, 81, 16]
+[2, 4]`,
+      },
+      {
+        title: "वास्तविक उदाहरण: function दुसऱ्याला देणे",
+        content: "apply ही function दोन argument घेते: एक value आणि एक function. ती त्या function ला value वर चालवते आणि निकाल परत करते.\n\napply(square, 3) म्हणजे square(3) — म्हणून 9. apply(double, 5) म्हणजे double(5) — म्हणून 10. function नाव argument म्हणून गेलं आहे, तिचा निकाल नाही.\n\nहाच शक्यता list मधील सर्व function वर एकत्र लावायची म्हणजे फाईल कोणती प्रक्रिया द्यायची हे निवडण्यासाठी वरची सोय आहे.",
+        code: `def apply(func, value):
+    return func(value)
 
-print(apply(len, "hello"))
-print(apply(abs, -9))`, codeLanguage: "python", output: "5\n9" },
-      { title: "6. सामान्य चुका", content: "✗ function ला इसाठी argument देताना () न देणे (function object)\n✗ map/filter आल्यावर list() विसरणे\n✗ lambda मध्ये खूप किचकट logic\nवेगळे करा पुन्हा प्रयत्न.\nदुसऱ्या सूची पुन्हा प्रयत्न.\nlist() विसरले संकलन अपयशी.\nlist() विसरले output गायब.\nlist() विसरले data नाही दिसत.\nlist() विसरले short ठेवा.\nसामान्य चुका अशा नको.\nजपा या अशा नको.\nlist() आवश्यक होत नाही संकलन.\nlist() आवश्यक output गायब.\nlist() आवश्यक data दिसत नाही.\nlist() आवश्यक एक ओळीच ठेवा.\nसामान्य दोष पुन्हा या.\nसामान्य दोष आता चालवा.\nलक्षात ठेवा पुन्हा या.\nलक्षात ठेवा आता चालवा.\nlist() विसरले संकलन होत नाही.\nlist() विसरले output गायब.\nlist() विसरले data नाही दिसत.\nlist() विसरले short ठेवा.\nlist() विसरले संकलन होत नाही.\nlist() विसरले output गायब.\nlist() विसरले data नाही दिसत.\nlist() विसरले short ठेवा.\nपुन्हा करा शेवटी टीपा.\nपुन्हा करा आज झाले.", code: `def greeting(name):
-    return "नमस्कार " + name
+def square(x):
+    return x * x
 
-funcs = [greeting, str.lower]
-print(funcs[1]("HELLO"))`, codeLanguage: "python", output: "hello" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• function object म्हणून देताना नाव फक्त (कंस नको): fn\n• map/filter → iterator; list() ने दिसते\n• lambda = छोटी एक-ओळी function\nनोंदी तीन list() ने.\nobject म्हणून कंस नको.\nobject म्हणून list() ने.\nobject म्हणून एक ओळीच.\nobject म्हणून मर्यादित ठेवा.\niterator दिसते कंस नको.\niterator दिसते list() ने.\niterator दिसते एक ओळीच.\niterator दिसते मर्यादित ठेवा.\nlambda छोटी कंस नको.\nlambda छोटी list() ने.\nlambda छोटी एक ओळीच.\nlambda छोटी मर्यादित ठेवा.\nमहत्त्वाच्या गोष्टी पुढे यावे.\nमहत्त्वाच्या गोष्टी आठवण राहील.\nनोंदी विस्तार import नको.\nनोंदी विस्तार कंस वगळा.\nनोंदी विस्तार list() ने.\nनोंदी विस्तार एक ओळ पुरे.\nवस्तू म्हणून import नको.\nवस्तू म्हणून कंस वगळा.\nवस्तू म्हणून list() ने.\nवस्तू म्हणून एक ओळ पुरे.\niterator वापर import नको.\niterator वापर कंस वगळा.\niterator वापर list() ने.\niterator वापर एक ओळ पुरे.\nlambda मर्यादा list() ने.\nतीन मुख्य बिंदू पुढे यावेत.\nतीन मुख्य बिंदू आठवत राहा.\nशेवटच्या टिपा आज पूर्ण.\nशेवटच्या टिपा पुढे साधा.\nमहत्त्वाच्या आज पूर्ण.\nमहत्त्वाच्या पुढे साधा.\nमहत्त्वाच्या बाबी आज झाले.\nसर्व वाचा आज झाले." },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nमूल्य बदलून विस्तार करा.\nमूल्य बदलून चालवा रोज.\nकोड अजून विस्तार करा.\nकोड अजून चालवा रोज.\nपुन्हा पहा नवे नंबर.\nपुन्हा पहा चालवा जलद.\nनवे नंबर साधा कोड.\nनवे नंबर शेवट आला.", code: `def double(n):
-    return n * 2
+def double(x):
+    return x * 2
 
-print(list(map(double, [1, 2, 3])))`, codeLanguage: "python", output: "[2, 4, 6]" },
-      { title: "Mini Project — क्रिया निवडणे", content: "सूचीतील पहिली क्रिया निवडून चालवणे:\nप्रोजेक्ट सोपा आणखी बनवा.\nशेवट गोड आणखी बनवा.\nप्रोजेक्ट छान आत्मविश्वास.\nप्रोजेक्ट छान पुढची श्रेणी.\nadd mul सूची output 12.\nactions वापर output 12.\nपहिली जोडणे दुसरी गुणणे.\nपहिली जोडणे output 12.\nपहिली जोडणे सर्व समजले.\nपहिली जोडणे धडा पूर्ण.\noutput 7 output 12.\nशेवटचा विचार अभिनंदन.\nशेवटचा विचार शिकले खूप.\nपुढील धडा अभिनंदन.\nपुढील धडा शिकले खूप.\nअभिनंदन शिकले खूप.\nअभिनंदन पुढची प्रगती.\nअभिनंदन शिकले खूप.\nअभिनंदन पुढची प्रगती.\nअभिनंदन शिकले खूप.\nअभिनंदन पुढची प्रगती.\nशिकले खूप. अभिनंदन.\nशिकले खूप. धडा पूर्ण.\nपुढची प्रगती. अभिनंदन.\nपुढची प्रगती. धडा पूर्ण.", code: `def add(a, b):
-    return a + b
+print(apply(square, 3))
+print(apply(double, 5))`,
+        codeLanguage: "python",
+        output: `9
+10`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ function नाव () शिवाय लिहून निकाल अपेक्षणे — नाव हा function चा संदर्भ आहे; () हे तिला चालवणं.\n\n✗ map नंतर list() न लावणे — output <map object ...> दिसतो, कारण iterator पाहायला list() हवी.\n\n✗ filter मध्ये else नसणे सांगून काढणे — filter फक्त True घटक ठेवतो; else हा filter चा भाग नाही.\n\n✗ दोन function एकाच नावाने — दुसरी define केली की पहिली हरवते; functions.py मध्ये फक्त तीच ठेवता येते.\n\nखाली funcs ही function list परत करते; funcs()[0] म्हणजे तीच list चा पहिला element — low function. \"HELLO\" वर low चालल्याने hello येतं.",
+        code: `def funcs():
+    return [lambda x: x.lower(), lambda x: x.upper()]
 
-def mul(a, b):
-    return a * b
-
-actions = [add, mul]
-print(actions[0](3, 4))
-print(actions[1](3, 4))`, codeLanguage: "python", output: "7\n12" },
+print(funcs()[0]("HELLO"))`,
+        codeLanguage: "python",
+        output: `hello`,
+      },
+      {
+        title: "lambda — एक-ओळीची function",
+        content: "lambda हे नावाविना function बनवण्याचं छोटं रूप. def ने definition लिहावी लागेल अशा साध्या जागी lambda एका ओळीत काम उरकतं.\n\nरचना: lambda arguments: expression — उदा. lambda x: x * 2. expression ही ठरावीक statement नाही — म्हणजे return, print अशा क्रिया lambdामध्ये येत नाहीत.\n\nlambda फक्त शॉर्टकट आहे; तर्क जटिल झाला की def लिहा — वाचणं अनेकदा गरजेचं असतं.",
+        code: `add = lambda a, b: a + b
+print(add(3, 4))`,
+        codeLanguage: "python",
+        output: `7`,
+      },
+      {
+        title: "Interactive: map सह खेळणे",
+        content: "कृती: words मधील प्रत्येक शब्द वरचा (upper) करा. map प्रत्येक शब्दाला w उत्तर देतं आणि list() ने ते सूचीत बदलते.\n\nlambda w: w.upper() ही function प्रत्येक शब्द सुद्धा करतील — \"python\" → \"PYTHON\", \"marathi\" → \"MARATHI\", \"code\" → \"CODE\".\n\nशब्द बदलून किंवा दुसरं क्रिया लावून पहा — map ने function बदलताच output बदलतं हे दिसतं.",
+        code: `words = ["python", "marathi", "code"]
+print(list(map(lambda w: w.upper(), words)))`,
+        codeLanguage: "python",
+        output: `['PYTHON', 'MARATHI', 'CODE']`,
+      },
+      {
+        title: "Mini Project: क्रिया निवडणे",
+        content: "dict मध्ये function दुवे ठेवता येतात — key म्हणजे क्रियेचं नाव, value म्हणजे function स्वतः. त्यामुळे निवडलेली क्रिया लगेच चालवता येते.\n\nactions[\"add\"] ने बेरीज करणारी lambda मिळते आणि (3, 4) चालवल्यावर 7 मिळतात. actions[\"mul\"] ने गुणाकार करणारी — 12.\n\nहेच तत्त्व मोठ्या programs मध्ये वापरतात; वेगवेगळ्या उपायाच्या function ठरवून मुख्य कोड मध्ये key निवडायला वापरतात.",
+        code: `actions = {
+    "add": lambda a, b: a + b,
+    "mul": lambda a, b: a * b,
+}
+op = actions["add"]
+print(op(3, 4))
+print(actions["mul"](3, 4))`,
+        codeLanguage: "python",
+        output: `7
+12`,
+      },
     ],
     practiceQuestions: [
       "function ही object कशी?",
@@ -148,41 +245,80 @@ print(actions[1](1, 2))`,
     summary: "कितीही arguments झेलणारे function — *args, **kwargs आणि unpacking ची समज.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "कधी कधी function किती arguments मिळतील हे आधीच ठरत नाही.\n• *args → सर्व positional arguments (tuple)\n• **kwargs → सर्व keyword arguments (dict)\n• unpacking — *list, **dict call करताना\n*args tuple नेमके प्रत्येक शब्द.\n*args tuple नेमके पुन्हा वाचा.\n*args tuple नेमके practice करा.\n*args tuple नेमके मनात ठेवा.\n**kwargs dict प्रत्येक शब्द.\n**kwargs dict पुन्हा वाचा.\n**kwargs dict practice करा.\n**kwargs dict मनात ठेवा.\nकधी कधी हे शिकले.\nकधी कधी आज उपयुक्त.\nअस्थिर arguments हे शिकले.\nअस्थिर arguments आज उपयुक्त.\n*args **kwargs प्रत्येक function.\n*args **kwargs सर्व positional.\n*args **kwargs सर्व keyword.\n*args **kwargs call मध्ये.\n*args tuple होते प्रत्येक शब्द.\n*args tuple होते सर्व positional.\n*args tuple होते सर्व keyword.\n*args tuple होते call मध्ये.\n**kwargs dict प्रत्येक शब्द.\n**kwargs dict सर्व positional.\n**kwargs dict सर्व keyword.\n**kwargs dict call मध्ये.\n*args **kwargs प्रत्येक वाक्य.\n*args **kwargs हेच मुख्य.\n*args **kwargs समजून घ्या.\n*args **kwargs practice करा.\nआजचा मार्ग शिकणे चालू.\nआजचा मार्ग आत्मविश्वास.\n*args या रूपात प्रत्येक शब्द.\n*args या रूपात पुन्हा वाचा.\n*args या रूपात practice करा.\n*args या रूपात मनात ठेवा.\n**kwargs त्या प्रकारे प्रत्येक शब्द.\n**kwargs त्या प्रकारे पुन्हा वाचा.\n**kwargs त्या प्रकारे practice करा.\n**kwargs त्या प्रकारे मनात ठेवा.\nचार विधाने शिकणे चालू.\nचार विधाने आत्मविश्वास.\nआजचा विषय शिकणे चालू.\nआजचा विषय आत्मविश्वास.\n*args tuple dict प्रत्येक शब्द.\n*args tuple dict शिकलो आज.\n*args tuple dict पुन्हा करा.\n*args tuple dict practice जारी.\nशेवटी नोंदी तुमचे हे.\nशेवटी नोंदी अभिनंदन.\nआठवण राहो तुमचे हे.\nआठवण राहो अभिनंदन.\nधडा संपला शिकले खूप.\nधडा संपला अभिनंदन.\nपुढील विषय शिकले खूप.\nपुढील विषय अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "\"एकूण किती विद्यार्थी येतील ते मला नाही — सगळ्यांची नावे लिहून घे\" — तेच *args. \"कोणते गुणधर्म द्यावेत ते ठरवले नाही\" — तेच **kwargs. कितीही माहिती घेणारी पिशवी.\nउपमा सोपी पुन्हा ऐका.\nउपमा उजळ शब्दांत सांगा.\nउपमा उजळ practice जारी.\nसोपे समज शब्दांत सांगा.\nसोपे समज practice जारी.\nउपमा पुन्हा शब्दांत सांगा.\nहेच *args शब्दांत सांगा.\nउपमा छान शब्दांत सांगा.\nपुन्हा ऐका शब्दांत सांगा.\nउपमा गुळगुळीत पुन्हा ऐका.\nसोपे मराठीत पुन्हा ऐका.\nशब्दात घ्या ऊर्जा ठेवा.\nहेच खरे ऊर्जा ठेवा." },
-      { title: "3. Syntax", content: "कितीही संख्या जोडणे:\nsum(nums) *nums ने.\nsum(nums) शेवटी गोळा.\nsum(nums) पहिली ओळ दहा.\nsum(nums) दुसरी ओळ तीस.\n*args उदाहरण अचूक गुणाकार.\n*args उदाहरण output बरोबर.\nsum(nums) *nums वापर.\nsum(nums) एकत्र गोळा.\nsum(nums) पहिली दहा.\nsum(nums) दुसरी तीस.\n*args उदाहरण अचूक गुणाकार.\n*args उदाहरण output बरोबर.\n*args उदाहरण आज उत्तम.\n*args उदाहरण पुन्हा चालवा.\n*args उदाहरण आज उत्तम.\n*args उदाहरण पुन्हा चालवा.\n*args उदाहरण आज उत्तम.\n*args उदाहरण पुन्हा चालवा.\n*args उदाहरण अनुभव घ्या.\n*args उदाहरण पुन्हा चालवा.\n*args उदाहरण आज उत्तम.\n*args उदाहरण समजले का.", code: `def total(*nums):
-    return sum(nums)
+      {
+        title: "*args आणि **kwargs — कितीही arguments",
+        content: "काही function ला कितीही संख्येची मूल्यं द्यायची असतात — गुणांची सूची, ऑर्डरच्या वस्तू, यादृच्छिक नावे. त्यासाठी *args positional arguments आणि **kwargs keyword arguments साठी.\n\n*args सर्व positional values एका tuple मध्ये गोळा करतो: def total(*args): तर total(1, 2, 3, 4) चे args = (1, 2, 3, 4). **kwargs सर्व keyword values एका dict मध्ये: show(name=\"मीरा\", score=90) चे kwargs = {\"name\": \"मीरा\", \"score\": 90}.\n\n* आणि ** ही नावं नाहीत; *args, **kwargs हे फक्त रिवाज आहेत — *wunal, **kw असेही लिहिता येतात. तारका (*) हीच खरी खूण.",
+      },
+      {
+        title: "Syntax: *args positional values",
+        content: "def नंतर पॅरामीटरच्या जागी *args लिहिलं की सर्व positional values एका tuple मध्ये येतात. tuple म्हणजे क्रमवार संग्रह — list सारखा, पण बदल न होणारा.\n\ntotal(*args) मध्ये for n in args ने प्रत्येक value वर येऊन बेरीज होते. total(1, 2, 3, 4) → 10 आणि total(10, 20) → 30.\n\nओळख दर्शवण्यासाठी tuple साधा वाचण्यासारखा असतो: total(1, 2, 3, 4) ची घोषणा बदलेल तरी tuple मध्ये तेच राहतं.",
+        code: `def total(*args):
+    return sum(args)
 
 print(total(1, 2, 3, 4))
-print(total(10, 20))`, codeLanguage: "python", output: "10\n30" },
-      { title: "4. उदाहरणे", content: "keyword arguments कॅप्चर करणे:\n**details शब्द प्रत्येक keyword.\n**details शब्द मीरा ९०.\n**details शब्द dict दिसते.\n**details शब्द verify करा.\n**kwargs उदाहरण बरोबर आहे.\n**kwargs उदाहरण अनुभव घ्या.\noutput तपासा बरोबर आहे.\n**details शब्द प्रत्येक keyword.\n**details शब्द गोळा वस्तू.\n**details शब्द output दिसते.\n**details शब्द verify करा.\n**kwargs उदाहरण बरोबर आहे.\n**kwargs उदाहरण अनुभव घ्या.\noutput पहा बरोबर आहे.\n**details पहा प्रत्येक वेळी.\n**details पहा name व score.\n**details पहा dict दिसते.\n**details पहा verify करा.\n**kwargs उदाहरण output अचूक.\n**kwargs उदाहरण आता करा.\n**details वाचा प्रत्येक keyword.\n**details वाचा name आणि score.\n**details वाचा dict दिसते.\n**details वाचा verify करा.\n**kwargs उदाहरण output अचूक.\n**kwargs उदाहरण आता करा.\n**details वाचा प्रत्येक keyword.\n**details वाचा name आणि score.\n**details वाचा dict दिसते.\n**details वाचा verify करा.\n**kwargs उदाहरण output अचूक.\n**kwargs उदाहरण आता करा.\n**details शेवट प्रत्येक keyword.\n**details शेवट name score.\n**details शेवट dict दिसते.\n**details शेवट verify करा.\n**kwargs शेवट output अचूक.\n**kwargs शेवट आता करा.\npractice पूर्ण आता करा.\n**details घट्ट प्रत्येक keyword.\n**details घट्ट name score.\n**details घट्ट dict दिसते.\n**details घट्ट output अचूक.\npractice प्रत्येक keyword.\npractice name score.\npractice dict दिसते.\n**kwargs उदाहरण आता करा.\n**kwargs उदाहरण समजले का.\npractice संपूर्ण आता करा.", code: `def show(**details):
-    return str(details)
+print(total(10, 20))`,
+        codeLanguage: "python",
+        output: `10
+30`,
+      },
+      {
+        title: "Syntax: **kwargs keyword values",
+        content: "**kwargs सर्व keyword arguments — name=मूल्य अशी जोडी — एका dict मध्ये गोळा करतो. show(name=\"मीरा\", score=90) मध्ये kwargs = {\"name\": \"मीरा\", \"score\": 90}.\n\ndict मधील प्रत्येक जोडी for key, value in kwargs.items() ने मिळते; key आणि value वेगळे दाखवता येतात.\n\nखाली show एकच दोन जोड्या देतो — name आणि score. दुसऱ्या नावाची जोडी दिली तर तीही dict मध्ये दिसेल; key कोणतीही असू शकते.",
+        code: `def show(**kwargs):
+    print(kwargs)
 
-print(show(name="मीरा", score=90))`, codeLanguage: "python", output: "{'name': 'मीरा', 'score': 90}" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "अभिवादन — नावांनुसार:\n*names वापर practice करा.\n*names वापर पुन्हा चालवा.\n*names वापर verify करा.\n*names वापर पुन्हा चालवा.\n*names वापर verify करा.\n*names वापर पुन्हा चालवा.\n*names वापर verify करा.\n*names वापर पुन्हा चालवा.\n*names वापर verify करा.\n*names वापर पुन्हा चालवा.\n*names शेवट verify करा.\n*names शेवट पुन्हा चालवा.\npractice आरोही वेद.\npractice greeting आधी.\n*names उदाहरण पुन्हा चालवा.\n*names उदाहरण समजले का.", code: `def greet(greeting, *names):
+show(name="मीरा", score=90)`,
+        codeLanguage: "python",
+        output: `{'name': 'मीरा', 'score': 90}`,
+      },
+      {
+        title: "वास्तविक उदाहरण: सगळ्यांना अभिवादन",
+        content: "एकाच function ने कितीही लोकांना अभिवादन करता यावं म्हणून *names वापरतात. greet(\"आरोही\", \"वेद\") म्हणजे names = (\"आरोही\", \"वेद\").\n\nप्रत्येक नावासाठी लूप फिरून \"नमस्कार, आरोही!\" वगैरे छापतो. एक नाव दिलं तर एक ओळ, दहा नावं दिली तर दहा ओळी.\n\nfunction ची रचना न बदलता कितीही मूल्यं देता येतात — हाच *args चा फायदा.",
+        code: `def greet(*names):
     for n in names:
-        print(greeting + " " + n)
+        print("नमस्कार,", n + "!")
+    
+greet("आरोही", "वेद")`,
+        codeLanguage: "python",
+        output: `नमस्कार, आरोही!
+नमस्कार, वेद!`,
+      },
+      {
+        title: "Unpacking — * आणि ** call करताना",
+        content: "* आणि ** फक्त define मध्ये नाही, call करतानाही वापरतात. तिथे ते संग्रह उलगडतात (unpack) — list किंवा dict चे घटक वेगळे argument बनतात.\n\nmake(name=\"वडापाव\", times=3) अशी function असेल; params = {\"name\": \"वडापाव\", \"times\": 3} — तर make(**params) तेच काम करतं: dict मधल्या key चे नक्कीच जुळणाऱ्या नावाने argument देतं.\n\nहीच सोय list साठी * ने — make(*items) मधील घटक आपोआप positional argument बनतात. dict चा key आणि function चं पॅरामीटर नाव जुळणं गरजेचं.",
+        code: `def make(name, times):
+    print(name * times)
 
-greet("नमस्कार", "आरोही", "वेद")`, codeLanguage: "python", output: "नमस्कार आरोही\nनमस्कार वेद" },
-      { title: "6. सामान्य चुका", content: "✗ *args/ **kwargs नंतर सामान्य positional argument ठेवणे\n✗ tuple/dict खुलण्यासाठी * चा वापर विसरणे\n✗ **kwargs fill dict असल्यास * देणे\npractice संकलन होत नाही.\npractice output गायब.\npractice dict खुलत नाही.\npractice सरळ करा.", code: `def make(dish, qty=1):
-    return dish + " x" + str(qty)
+params = {"name": "वडापाव", "times": 3}
+make(**params)`,
+        codeLanguage: "python",
+        output: `वडापाववडापाववडापाव`,
+      },
+      {
+        title: "क्रमाचे नियम आणि चुका",
+        content: "✗ *args नंतर ठरलेले positional पॅरामीटर ठेवणे — *args ने सगळं खेचून घेतलं तर ते दुसऱ्या पॅरामीटरला कधीच मिळत नाही.\n\n✗ **kwargs नंतर keyword argument देत असणं — **kwargs ने सगळं घेतलं, व्यवस्था न बसल्यास चूक.\n\n✗ unpacking मध्ये जास्त घटक असणे — a, b = [1, 2, 3] असा फरक TypeError देतो; कमी घटकही तिथेच मिळत नाही.\n\n✗ default पॅरामीटर आणि *args मिसळण्याचा क्रम — default आधी, *args नंतर या क्रमानेच लिहा.\n\nनियम साधा आहे: positional आधी, नंतर *args (काही असेल तर), नंतर keyword/default, शेवट **kwargs. याच क्रमाने function रचला तर वाचणं आणि call करणं दोन्ही सोपं.",
+      },
+      {
+        title: "Interactive: *args ने सरासरी",
+        content: "कृती: कितीही स्कोअर घेऊन त्यांची सरासरी काढणारी function तयार करा.\n\nmean(*values) — sum(values) भागाकार len(values). mean(4, 5, 3) → 4.0. division ने float मिळतं, म्हणून output 4.0.\n\nस्कोअरची संख्या बदलली तरी function तोल धरतो — एक मूल्य किंवा दहा मूल्यं द्या, तीच function सरासरी देते.",
+        code: `def mean(*values):
+    return sum(values) / len(values)
 
-params = {"dish": "वडापाव", "qty": 3}
-print(make(**params))`, codeLanguage: "python", output: "वडापाव x3" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• *args → tuple, **kwargs → dict\n• परंपरा names: *args, **kwargs\n• नियमित arguments आधी, *args मध्ये, **kwargs शेवटी\nपरंपरा *args tuple.\nपरंपरा **kwargs dict.\nपरंपरा आधी सामान्य.\nपरंपरा शेवटी keywords.\nक्रम *args tuple.\nक्रम **kwargs dict.\nक्रम आधी सामान्य.\nक्रम शेवटी keywords.\nक्रम *args tuple.\nक्रम **kwargs dict.\nक्रम आधी सामान्य.\nक्रम शेवटी keywords.\npractice *args tuple.\npractice **kwargs dict.\npractice आधी सामान्य.\npractice शेवटी keywords." },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nsum(len) तीन संख्या.\nsum(len) सरासरी काढा.\nsum(len) output बरोबर.\nsum(len) verify करा.\noutput 4.0 तीन संख्या.\noutput 4.0 सरासरी काढा.\noutput 4.0 output बरोबर.\noutput 4.0 verify करा.\n*nums गुणोत्तर practice करा.\n*nums गुणोत्तर स्वतः करा.\noutput 4.0 तीन संख्या.\noutput 4.0 sum/len.\noutput 4.0 output बरोबर.\noutput 4.0 verify करा.\n*nums गुणोत्तर practice करा.\n*nums गुणोत्तर स्वतः करा.\noutput 4.0 तीन संख्या.\noutput 4.0 sum भाग.\noutput 4.0 output बरोबर.\noutput 4.0 verify करा.\n*nums गुणोत्तर practice करा.\n*nums गुणोत्तर स्वतः करा.\noutput 4.0 तीन संख्या.\noutput 4.0 sum भाग.\noutput 4.0 output बरोबर.\noutput 4.0 verify करा.\n*nums गुणोत्तर practice करा.\n*nums गुणोत्तर स्वतः करा.\noutput 4.0 तीन संख्या.\noutput 4.0 sum भाग.\noutput 4.0 output बरोबर.\noutput 4.0 verify करा.\n*nums गुणोत्तर practice करा.\n*nums गुणोत्तर स्वतः करा.\noutput 4.0 तीन संख्या.\noutput 4.0 sum भाग.\noutput 4.0 output बरोबर.\noutput 4.0 verify करा.\nInteractive तीन संख्या.\nInteractive sum भाग.\n*nums गुणोत्तर practice करा.\n*nums गुणोत्तर स्वतः करा.\noutput 4.0 तीन संख्या.\noutput 4.0 sum भाग.\noutput 4.0 output बरोबर.\noutput 4.0 अनुभव घ्या.\npractice तीन संख्या.\npractice sum भाग.\n*nums उदाहरण स्वतः करा.\n*nums उदाहरण समजले का.", code: `def scalar(*nums):
-    return sum(nums) / len(nums)
+print(mean(4, 5, 3))`,
+        codeLanguage: "python",
+        output: `4.0`,
+      },
+      {
+        title: "Mini Project: ऑर्डर बिल",
+        content: "ऑर्डरच्या वस्तूंच्या किमती *items मध्ये आणि सवलत **discounts मध्ये घेऊन बिल काढणारं function लिहा.\n\nbill(\"मीरा\", 50, 30, member=10) — customer \"मीरा\", items = (50, 30), discounts = {\"member\": 10}. बेरीज 80 वरून सवलत 10 वजा करून 70.\n\nयातून दिसतं: भिन्न गोष्टी — किमती आणि सवलत — एकाच function मध्ये वेगवेगळ्या रूपानं (tuple आणि dict) कशा येतात.",
+        code: `def bill(customer, *items, **discounts):
+    total = sum(items) - sum(discounts.values())
+    print(f"{customer}: ₹{total}")
 
-print(scalar(2, 4, 6))`, codeLanguage: "python", output: "4.0" },
-      { title: "Mini Project — ऑर्डर बिल", content: "normal + keyword arguments एकत्र:\nbill function ₹50 + 30.\nbill function member=10.\nbill function output ₹70.\ncustomer items ₹50 + 30.\ncustomer items member=10.\ncustomer items output ₹70.\ndiscount जोड ₹50 + 30.\ndiscount जोड member=10.\ndiscount जोड output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\n*items **discounts practice करा.\n*items **discounts पुन्हा चालवा.\nbill function ₹50 + 30.\nbill function member=10.\nbill function output ₹70.\ncustomer items ₹50 + 30.\ncustomer items member=10.\ncustomer items output ₹70.\ndiscount जोड ₹50 + 30.\ndiscount जोड member=10.\ndiscount जोड output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\n*items **discounts practice करा.\n*items **discounts पुन्हा चालवा.\nbill चालवा ₹50 + 30.\nbill चालवा member=10.\nbill चालवा output ₹70.\ncustomer items ₹50 + 30.\ncustomer items member=10.\ncustomer items output ₹70.\ndiscount जोड ₹50 + 30.\ndiscount जोड member=10.\ndiscount जोड output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\n*items **discounts practice करा.\n*items **discounts पुन्हा चालवा.\nbill चालवा ₹50 + 30.\nbill चालवा member=10.\nbill चालवा output ₹70.\ncustomer items ₹50 + 30.\ncustomer items member=10.\ncustomer items output ₹70.\ndiscount वजा ₹50 + 30.\ndiscount वजा member=10.\ndiscount वजा output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\n*items **discounts practice करा.\n*items **discounts पुन्हा चालवा.\nbill चालवा ₹50 + 30.\nbill चालवा member=10.\nbill चालवा output ₹70.\ncustomer items ₹50 + 30.\ncustomer items member=10.\ncustomer items output ₹70.\ndiscount वजा ₹50 + 30.\ndiscount वजा member=10.\ndiscount वजा output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\n*items **discounts practice करा.\n*items **discounts पुन्हा चालवा.\nbill शेवट ₹50 + 30.\nbill शेवट member=10.\nbill शेवट output ₹70.\ncustomer items ₹50 + 30.\ncustomer items member=10.\ncustomer items output ₹70.\ndiscount वजा ₹50 + 30.\ndiscount वजा member=10.\ndiscount वजा output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\n*items **discounts practice करा.\n*items **discounts पुन्हा चालवा.\nbill घट्ट ₹50 + 30.\nbill घट्ट member=10.\nbill घट्ट output ₹70.\noutput मीरा ₹50 + 30.\noutput मीरा member=10.\noutput मीरा output ₹70.\nverify करा ₹50 + 30.\nverify करा member=10.\nverify करा output ₹70.\npractice ₹50 + 30.\npractice member=10.\npractice output ₹70.\n*items उदाहरण पुन्हा चालवा.\n*items उदाहरण समजले का.", code: `def bill(customer, *items, **discounts):
-    total = 0
-    for i in items:
-        total += i
-    for key, value in discounts.items():
-        total -= value
-    return customer + ": ₹" + str(total)
-
-print(bill("मीरा", 50, 30, member=10))`, codeLanguage: "python", output: "मीरा: ₹70" },
+bill("मीरा", 50, 30, member=10)`,
+        codeLanguage: "python",
+        output: `मीरा: ₹70`,
+      },
     ],
     practiceQuestions: [
       "*args काय देतो?",
@@ -222,70 +358,121 @@ print(build("मीरा", वर्ग=10))`,
     summary: "@decorator — function च्या आजूबाजूला नवीन वर्तन जोडणारी रचना.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "Decorator ही एक function जी दुसरी function घेते आणि सजवलेली परत देते. @ ने लावतात.\n• @decorator\n• आत wrapper(fn)\n• fn अशी सजवली जाते\nfn सजवली तीन मुद्दे.\nfn सजवली हेच तत्त्व.\n@ चिन्ह हेच धडा.\n@ चिन्ह आत्मविश्वास.\nसजवणे सोपे हेच धडा.\nसजवणे सोपे आत्मविश्वास.\nतीन विधाने हेच धडा.\nतीन विधाने आत्मविश्वास.\nसराव मागे हेच धडा.\nसराव मागे आत्मविश्वास.\nशेवटी नोंदी हेच धडा.\nशेवटी नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "जुन्या function ला न पाडता \"डकावली\" जोडण्यासारखं — चहा (function) शुद्ध आहे; साखर-दूध (decorator) त्याच्याभोवती. तसेच अडवणूक, log, तपासणी — सर्वकाही decorator मध्ये.\nउपमा सोपी खोल जाणा.\nउपमा पुन्हा खोल समज.\nउपमा संपूर्ण खोल जाणा.\nउपमा समाप्त खोल जाणा." },
-      { title: "3. Syntax", content: "तारे सजवणे:\n*** जोडा function सजवले.\n*** जोडा आतील नेहमी.\n*** जोडा verify करा.\n*** जोडा output अचूक.\n*** जोडा function सजवले.\n*** जोडा आतील wrapper.\n*** जोडा verify करा.\n*** जोडा output अचूक.\n*** जोडा function सजवले.\n*** जोडा आतील wrapper.\n*** जोडा verify करा.\n*** जोडा output अचूक.\n*** जोडा function सजवले.\n*** जोडा आतील wrapper.\n*** जोडा verify करा.\n*** जोडा output अचूक.\n*** जोडा function सजवले.\n*** जोडा आतील wrapper.\n*** जोडा verify करा.\n*** जोडा output अचूक.", code: `def star(func):
+      {
+        title: "decorator म्हणजे काय?",
+        content: "Decorator म्हणजे function च्या भोवती अजून एक function आवरण (wrap) करणारी रचना. मूळ function ची क्षमता न बदलता तिच्याभोवती क्रिया लावायला — वेळ मोजणे, log ठेवणे, सुरक्षा तपासणी — decorator वापरतात.\n\nतंत्र सोपं: एक function दुसऱ्या function ला घेऊन तिची वर्धित आवृत्ती परत करतो. @ हे चिन्ह तो संबंध function च्या वर ठेवून जोडतं.\n\nMarathi च्या दृष्टीने विचार करा: decoration म्हणजे सजावट — मुख्य गोष्ट तशीच ठेवून तिच्याभोवती शोभा जोडली जाते.",
+      },
+      {
+        title: "Syntax: @ लावण्याची रचना",
+        content: "def function_name(func): — असा जो function ला घेऊन दुसरा (wrapper) परत करतो, त्याला decorator म्हणतात. function च्या वर @function_name लिहिलं की Python ते संबंध आपोआप जोडतो.\n\nखाली star decorator आहे: wrapper मूळ कामाच्या आधी आणि नंतर *** लावतो. @star नंतर say_hi हेच काम थोडं सजवून मिळतं — print(say_hi()) मुळे *** नमस्कार ***.\n\n@ चिन्ह न लिहिलं तर मूळ function तशीच राहते; @ हा शॉर्टकट म्हणजेच say_hi = star(say_hi) अशी बदली.",
+        code: `def star(func):
     def wrapper():
         return "*** " + func() + " ***"
     return wrapper
 
 @star
-def hello():
+def say_hi():
     return "नमस्कार"
 
-print(hello())`, codeLanguage: "python", output: "*** नमस्कार ***" },
-      { title: "4. उदाहरणे", content: "परिणाम दुप्पट करणे:\ntwice decorator जोडून पुन्हा.\ntwice decorator fn(fn(x))\ntwice decorator दहा + पाच.\ntwice decorator पुन्हा + पाच.\nfn दुप्पट fn(fn(x))\nadd_five वापर fn(fn(x))\noutput 20 fn(fn(x))\ntwice चालवा fn(fn(x)).\nfn दुप्पट fn(fn(x)).\nadd_five वापर fn(fn(x)).\noutput 20 fn(fn(x)).\nfn(fn(x)) दहा पंधरा.\nfn(fn(x)) वीस शेवटी.\nfn(fn(x)) output बरोबर.\nfn(fn(x)) verify करा.\nadd_five दहा पंधरा.\nadd_five वीस शेवटी.\nfn(fn(x)) दहा पंधरा.\nfn(fn(x)) वीस शेवटी.\nfn(fn(x)) output बरोबर.\nfn(fn(x)) verify करा.\nfn(fn(x)) दहा पंधरा.\nfn(fn(x)) वीस शेवटी.\nfn(fn(x)) output बरोबर.\nfn(fn(x)) verify करा.", code: `def twice(fn):
-    def wrapper(x):
-        return fn(fn(x))
+print(say_hi())`,
+        codeLanguage: "python",
+        output: `*** नमस्कार ***`,
+      },
+      {
+        title: "उदाहरण: twice ने दोनदा चालवणे",
+        content: "Decorator मूळ function अनेकदा चालवूही शकतो. twice चा wrapper func() मध्ये दोनदा call करतो — bell() ला दोन टिंग ऐकू येतात.\n\nwrapper ला definition सोबत नावे आणि काम सर्व काही मूळ function कडून येते; decorator फक्त त्यावर आवरण जोडतो.\n\nहीच योजना विशेषतः testing मध्ये वापरतात — तीच तपासणी अनेकदा चालवणे.",
+        code: `def twice(func):
+    def wrapper():
+        func()
+        func()
     return wrapper
 
 @twice
-def add_five(n):
-    return n + 5
+def bell():
+    print("टिंग")
 
-print(add_five(10))`, codeLanguage: "python", output: "20" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "किंवा log मध्ये माहिती:\nverify चालू होते.\nverify work नाव.\nverify काम नंतर.", code: `def log(func):
+bell()`,
+        codeLanguage: "python",
+        output: `टिंग
+टिंग`,
+      },
+      {
+        title: "वास्तविक उदाहरण: log",
+        content: "प्रत्येक function कधी चालली हे नोंदवण्यासाठी log decorator. wrapper कोणतं काम सुरू झालं (func.__name__) आणि कधी संपलं ते print करतो.\n\n@log नंतर work हीच राहते — पण प्रत्येक वेळी तिच्याभोवती नोंदी दिसतात. निकाल result मधून पुढे जातो आणि print(work()) ला \"पूर्ण\" मिळतो.\n\nहा जोडलेला स्तर (logging) मोठ्या programs मध्ये कुठे काय घडलं हे शोधण्याचा सोपा उपाय आहे.",
+        code: `def log(func):
     def wrapper():
         print("चालू होते:", func.__name__)
-        return func()
+        result = func()
+        print("झाले")
+        return result
     return wrapper
 
 @log
 def work():
-    return "काम झाले"
+    print("काम")
+    return "पूर्ण"
 
-print(work())`, codeLanguage: "python", output: "चालू होते: work\nकाम झाले" },
-      { title: "6. सामान्य चुका", content: "✗ wrapper मध्ये return विसरणे\n✗ argument असलेल्या function वर wrapper(x) लक्षण न ठेवणे\n✗ @ स्थानावर नियम — @ आधी function defined हवे", code: `def shout(fn):
-    def wrapper(msg):
-        return fn(msg).upper() + "!"
-    return wrapper
+print(work())`,
+        codeLanguage: "python",
+        output: `चालू होते: work
+काम
+झाले
+पूर्ण`,
+      },
+      {
+        title: "arguments असलेले function सजवणे",
+        content: "मूळ function चे arguments असेल तर wrapper ते स्वीकारले पाहिजे. *args द्वारे positional आणि **kwargs द्वारे keyword arguments घेऊन func(*args, **kwargs) ला ते पाठवा.\n\nrepeater(3) हा decorator factory आहे — तो तीनचा आकडा ठेवतो आणि खरा decorator परत करतो. @repeater(3) मुळे function ला तिन्ही वेळा चालवण्याचा आदेश मिळतो.\n\naizo niche: wrapper ला हेच argument रचना स्वीकारणे, तेच function ला पाठवणे याचा अर्थ — कोणताही function सजवता येतो.",
+        code: `def repeater(times):
+    def deco(func):
+        def wrapper(*args, **kwargs):
+            return func(*args, **kwargs) * times
+        return wrapper
+    return deco
 
-@shout
-def hello(msg):
-    return msg
+@repeater(3)
+def shout(text):
+    return text.upper()
 
-print(hello("नमस्कार"))`, codeLanguage: "python", output: "नमस्कार!" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• decorator = function घेऊन function देणारा\n• @ का? — सजवणे सोपे होते\n• wrapper मध्ये return नक्की\n• arguments वापरत असल्यास wrapper मध्ये ते द्या" },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nInteractive फलित बेचाळीस.\nInteractive फलित बेचाळीस.\nInteractive बेचाळीस.\nInteractive बेचाळीस.\nInteractive बेचाळीस.\nInteractive बेचाळीस.\nInteractive बेचाळीस.", code: `def double_out(fn):
-    def wrapper():
-        return fn() * 2
+print(shout("नमस्कार"))`,
+        codeLanguage: "python",
+        output: `नमस्कारनमस्कारनमस्कार`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ return wrapper() लिहिणे — wrapper चालल्याचा आधीचा निकाल परत येतो; return wrapper म्हणजे दुवा (संदर्भ) परत देतो.\n\n✗ wrapper मधील arguments विसरणे — मूळ function ला काही हवे असेल तर wrapper लाही ते स्वीकारणं; func(*args) न करता call केल्यावर चूक येते.\n\n✗ @ लावल्यानंतर मूळ नाव काय दर्शवतं हे विसरणे — @ नंतर function नाव हा सजवलेला wrapper आहे; मूळ अवतरण तिथे उपलब्ध नसतो.\n\n✗ दोन decorator चा क्रम — @ अ आणि @ ब अशा दोन ओळींत खालचा आधी लागतो; निकालातील फरक तंत्रज्ञानाच्या क्रमाने बदलतो.\n\nप्रत्येक चुकीचा साधा तपास म्हणजे छोटं उदाहरण चालवणे — output पाहिला की रचना कशी आहे ते टिप्सपेक्षा सोपं दिसतं.",
+      },
+      {
+        title: "Interactive: double_out function",
+        content: "double_out या decorator ची क्रिया पकडा: wrapper मूळ function ला त्याच nick परत चालवतो — म्हणजे func(func(मूल्य)).\n\n@double_out ने add14(14) म्हणजे func(func(14)): आधी 14 + 14 = 28, नंतर 28 + 14 = 42. मुळात function एकदाच चालवली असती तर 28 यायचं.\n\nत्यामुळे निट्याबाबत दिसतं: decorator चा wrapper मूळ function ला कितीदा चालवतो हे output ठरवतं.",
+        code: `def double_out(func):
+    def wrapper(*args):
+        return func(func(args[0]))
     return wrapper
 
 @double_out
-def score():
-    return 21
+def add14(x):
+    return x + 14
 
-print(score())`, codeLanguage: "python", output: "42" },
-      { title: "Mini Project — अभिवादन बॉक्स", content: "चौकटीत उत्तर:\nboxed प्रोजेक्ट <| pong |>\nचौकटीत उत्तर <| pong |>\npong दाखवा <| pong |>\noutput पहा <| pong |>\nboxed प्रोजेक्ट <| pong |>\nचौकटीत उत्तर <| pong |>\npong दाखवा <| pong |>\noutput पहा <| pong |>\nverify चौकटीत उत्तर.\nverify pong आत.\nverify सजवले निकाल.", code: `def boxed(fn):
+print(add14(14))`,
+        codeLanguage: "python",
+        output: `42`,
+      },
+      {
+        title: "Mini Project: boxed text",
+        content: "तुमच्याकडे function ping आहे, ती \"pong\" परत करते. या उत्तराच्या भोवती <| आणि |> असे संकेत जोडणारा decorator तयार करा.\n\nboxed चा wrapper func() चेत \"pong\" परत मिळवतो आणि \"<| \" + \"pong\" + \" |>\" अशी स्ट्रिंग जोडतो — निकाल <| pong |>.\n\nअशाच प्रकारे कोट्स किंवा चौकटी जोडायची असतील तर किमान एकदा decorator चा पाठ रचलेला राहतो.",
+        code: `def boxed(func):
     def wrapper():
-        return "<| " + fn() + " |>"
+        return "<| " + func() + " |>"
     return wrapper
 
 @boxed
 def ping():
     return "pong"
 
-print(ping())`, codeLanguage: "python", output: "<| pong |>" },
+print(ping())`,
+        codeLanguage: "python",
+        output: `<| pong |>`,
+      },
     ],
     practiceQuestions: [
       "decorator म्हणजे काय?",
@@ -329,50 +516,96 @@ print(msg())`,
     summary: "yield द्वारे मोठा data टप्प्याटप्प्याने देणारे function — मेमरी मित्रवत.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "Generator function list पूर्ण न बनवता एक-एक value yield करते.\n• yield ने value बाहेर देतात\n• state टिकून राहते\n• next() किंवा for लूप वापरता येते\n• list() मध्ये ओढता येतो\nnext() वापर तीन मुद्दे.\nnext() वापर हे तत्त्व.\nfor लूप तीन मुद्दे.\nfor लूप हे तत्त्व.\nnext for list हेच सार.\nnext for list आज शिकतो.\nतीन वापर हेच सार.\nतीन वापर आज शिकतो.\nशेवट नोंदी आज पूर्ण.\nशेवट नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "सगळी पुस्तके एकदाच मांडण्याऐवजी प्रत्येक वेळी एक पुस्तक देणारे librarian — जेवढी मागणी तेवढी. मोठा data (सगळा मोठा संग्रह) मेमरीत अडकत नाही.\nउपमा सोपी खोल जाणा.\nमराठीत समज खोल जाणा." },
-      { title: "3. Syntax", content: "पहिले n संख्या:\nlist() वापर practice करा.\nlist() वापर अनुभव घ्या.\nचालवा शून्य ते तीन.\nचालवा list मध्ये.", code: `def first_n(n):
-    num = 0
-    while num < n:
-        yield num
-        num += 1
+      {
+        title: "generator — एक-एक value देणारा",
+        content: "Generator ही function आहे जी निकाल एका वेळी एक देते — संपूर्ण यादी एकदाच निर्माण न करता. for loop मध्ये निट्याचे element हातातून जातात आणि मागील निकाल विसरला जातो.\n\nfunction मध्ये yield लिहिलं की ती generator बनते. तिला call केल्यावर function चालत नाही — तुम्हाला generator object मिळतो; प्रत्येक वेळी मागितल्यावर (next किंवा for) पुढचा value येतो.\n\nमोठ्या-मोठ्या संख्या किंवा data पुरेसा हवा असेल तर संपूर्ण यादी memory मध्ये एकत्र करण्याऐवजी generator थेट वापरता येतो — हा तिचा खरा उपयोग.",
+      },
+      {
+        title: "Syntax: yield ने निकाल",
+        content: "def मध्ये yield हीच खास ओळ असते. function चालवली तर yield कडे येऊन तिथला value परत होतो आणि function त्या जागी थांबते.\n\ncountup च्या प्रत्येक yield ने i ची किंमत मिळते — 0, 1, 2, 3. list(countup(4)) ने ते सगळं एकाच सूचीत मिळवता येतं.\n\nyield दरम्यान function ची स्थिती जशी होती तशी राहते; पुढच्या वेळी जिथे थांबले तिथूनच पुढे सुरू होते.",
+        code: `def first_n(n):
+    i = 0
+    while i < n:
+        yield i
+        i = i + 1
 
-print(list(first_n(4)))`, codeLanguage: "python", output: "[0, 1, 2, 3]" },
-      { title: "4. उदाहरणे", content: "fibonacci अनंत क्रम:\nfibonacci क्रम शून्य एक.\nfibonacci क्रम मग बेरीज.\nfibonacci क्रम next() सातदा.\nअनंत generating शून्य एक.\nअनंत generating मग बेरीज.\nअनंत generating next() सातदा.\na b गुंफणे next() सातदा.\noutput सात next() सातदा.\nnext(g) वापर practice करा.\nnext(g) वापर समजले का.\nnext(g) सातदा practice करा.\nnext(g) सातदा समजले का.", code: `def fib():
+print(list(first_n(4)))`,
+        codeLanguage: "python",
+        output: `[0, 1, 2, 3]`,
+      },
+      {
+        title: "state जपला जातो — fibonacci",
+        content: "खाली fib generator अखंड fibonacci संख्या देते — प्रत्येक पुढची संख्या मागच्या दोनची बेरीज. function मध्ये a आणि b ची जोडी state ठेवते.\n\nfor _ in range(8) म्हणजे आठ वेळा list comprehension ने next(g) मागवला. प्रत्येक वेळी function पुढचा yield देऊन आपली जागा स्मटतं.\n\nmemory मध्ये संपूर्ण क्रम कधीच नसतो — फक्त a आणि b सध्याचे दोन आकडे; म्हणून कितीही मोठा fibonacci ला मिळेल.",
+        code: `def fib():
     a, b = 0, 1
     while True:
         yield a
         a, b = b, a + b
 
 g = fib()
-print([next(g) for _ in range(7)])`, codeLanguage: "python", output: "[0, 1, 1, 2, 3, 5, 8]" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "ओळी वाचताना generator — मोठा file:\nbatches generator एक दोन तीन.\nbatches generator batch मधे.\nbatches generator yield +1.\nमोठा file yield +1.\nओळी वाचणे एक दोन तीन.\nओळी वाचणे batch मधे.\nओळी वाचणे yield +1.\noutput तीन yield +1.", code: `def batches(times):
-    for i in range(times):
-        yield i + 1
+print([next(g) for _ in range(8)])`,
+        codeLanguage: "python",
+        output: `[0, 1, 1, 2, 3, 5, 8, 13]`,
+      },
+      {
+        title: "वास्तविक उदाहरण: मोठा data",
+        content: "फाईल किंवा डेटाबेस मोठा असेल तर त्याचा सर्व भाग एकदाच वाचणे महाग पडू शकते. Generator प्रत्येक वेळी एका भागावर काम करतो — बाकीचा data पुढे हव्या तेव्हा येतो.\n\nbatches हा generator तर n संख्येपर्यंतची बॅच ओळख देतो; for b in batches(3) मध्ये प्रत्येक बॅच एका ओळीवर दिसते.\n\nहा नमुना मोठ्या फाईल्स दर वेळी एक ओळ वाचून काम करताना लागतो — कुठेही संपूर्ण फाईल लोड होत नाही.",
+        code: `def batches(n):
+    batch = 1
+    while batch <= n:
+        yield f"बॅच {batch}"
+        batch += 1
 
 for b in batches(3):
-    print("बॅच", b)`, codeLanguage: "python", output: "बॅच 1\nबॅच 2\nबॅच 3" },
-      { title: "6. सामान्य चुका", content: "✗ yield ऐवजी return लिहिणे — ते generator थांबवते\n✗ list() मध्ये ठेवल्याशिवाय थेट print(list(g)) नको\n✗ अनंत generator for मध्ये अंतहीन चालवणे\nyield बदले return ने थांबते.\nyield बदले print(g) नको.\nyield बदले कधीच संपत नाही.\nyield बदले लक्षात घ्या.\nlist विसरले print(g) नको.\nअनंत for print(g) नको.\nचुका टाळा return ने थांबते.\nचुका टाळा print(g) नको.\nचुका टाळा कधीच संपत नाही.\nचुका टाळा लक्षात घ्या.\nसामान्य चूक जपा नेहमी.\nसामान्य चूक आता करा.\nyield नाही return return थांबवते.\nyield नाही return print(g) नको.\nyield नाही return कधीच संपते.\nyield नाही return लक्षात घ्या.\nlist नको return थांबवते.\nlist नको print(g) नको.\nlist नको कधीच संपते.\nlist नको लक्षात घ्या.\nअनंत for print(g) नको.\nचुका जपा return थांबवते.\nचुका जपा print(g) नको.\nचुका जपा कधीच संपते.\nचुका जपा लक्षात घ्या.\nचुका पुन्हा print(g) नको.\nyield return print(g) नको.\nlist विसरले print(g) नको.\nअनंत for print(g) नको.\nचुका पुन्हा print(g) नको.\nyield return print(g) नको.\nlist विसरले print(g) नको.\nअनंत for print(g) नको.\nचुका वाचा return थांबवते.\nचुका वाचा print(g) नको.\nचुका वाचा कधीच संपत नाही.\nचुका वाचा लक्षात घ्या.\nyield return print(g) नको.\nlist विसरले print(g) नको.\nअनंत for print(g) नको.\nचुका अंतिम return थांबवते.\nचुका अंतिम print(g) नको.\nचुका अंतिम कधीच संपत नाही.\nचुका अंतिम लक्षात घ्या.\nyield return print(g) नको.\nlist विसरले print(g) नको.\nअनंत for print(g) नको.\nचुका शेवट return थांबवते.\nचुका शेवट print(g) नको.\nचुका शेवट कधीच संपत नाही.\nचुका शेवट लक्षात घ्या.\nyield return print(g) नको.\nlist विसरले print(g) नको.\nअनंत for print(g) नको.", code: `def simple():
-    yield 1
-    yield 2
+    print(b)`,
+        codeLanguage: "python",
+        output: `बॅच 1
+बॅच 2
+बॅच 3`,
+      },
+      {
+        title: "yield vs return — सामान्य चुका",
+        content: "✗ yield लिहिल्यावरही return लिहणे — yield च तुमचं थांबणे; return नंतर आलं तर code चालणं होणार नाही.\n\n✗ मोठा data एकदाच list मध्ये तयार करणे — memory वाचवायला generator च वापरा; सगळे एकत्र नको असतील तर सूची बनवू नका.\n\n✗ अखंड generator वर for अमर्याद चालवणे — fib सारखा infinite generator फक्त break किंवा islice च्या मर्यादेनेच थांबतो.\n\n✗ generator एकदा वापरून पुन्हा वापरणे — generator संपल्यावर संपतो; पुन्हा हवा तर नवा generator तयार करा.\n\nखाली simple generator एकच value देतो — list(simple(3)) मध्ये 3 एकटाच येतो.",
+        code: `def simple(value):
+    yield value
 
-print(sum(simple()))`, codeLanguage: "python", output: "3" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• yield — हे return ऐवजी\n• generator मेमरी कमी वापरतो\n• अनंत क्रम हवा असेल तर next() किंवा islice\n• list() ने थोडा विरघळता येतो\nyield return ऐवजी हेच महत्त्व.\nyield return ऐवजी मित्रवत असतो.\nyield return ऐवजी next() ने.\nyield return ऐवजी कोणत्याही कामासाठी.\nकमी मेमरी हेच महत्त्व.\nकमी मेमरी मित्रवत असतो.\nकमी मेमरी next() ने.\nकमी मेमरी कोणत्याही कामासाठी.\nअनंत क्रम हेच महत्त्व.\nअनंत क्रम मित्रवत असतो.\nअनंत क्रम next() ने.\nअनंत क्रम कोणत्याही कामासाठी.\nlist() ओढा हेच महत्त्व.\nlist() ओढा मित्रवत असतो.\nlist() ओढा next() ने.\nlist() ओढा कोणत्याही कामासाठी.\nनोंदी पुन्हा list() ओढा.\nyield समज list() ओढा.\nमेमरी कमी list() ओढा.\nnext वापर list() ओढा.\nनोंदी पुन्हा list() ओढा.\nyield समज list() ओढा.\nमेमरी कमी list() ओढा.\nnext वापर list() ओढा.\nनोंदी वाचा return ऐवजी.\nनोंदी वाचा मित्रवत आहे.\nनोंदी वाचा अनंत क्रम.\nनोंदी वाचा list() ओढा.\nyield समज list() ओढा.\nमेमरी कमी list() ओढा.\nnext वापर list() ओढा.\nनोंदी अंतिम return ऐवजी.\nनोंदी अंतिम मित्रवत आहे.\nनोंदी अंतिम अनंत क्रम.\nनोंदी अंतिम list() ओढा.\nyield समज list() ओढा.\nमेमरी कमी list() ओढा.\nnext वापर list() ओढा.\nनोंदी शेवट return ऐवजी.\nनोंदी शेवट मित्रवत आहे.\nनोंदी शेवट अनंत क्रम.\nनोंदी शेवट list() ओढा.\nyield समज list() ओढा.\nमेमरी कमी list() ओढा.\nnext वापर list() ओढा." },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nInteractive एक चार नऊ.\nInteractive सोळा शेवटी.\nlist() मधे अनुभव घ्या.\nlist() मधे अचूक दिसते.\nlist() मधे अनुभव घ्या.\nlist() मधे अचूक दिसते.\nlist() मधे अनुभव घ्या.\nlist() मधे अचूक दिसते.\nlist() मधे अनुभव घ्या.\nlist() मधे अचूक दिसते.\nlist() मधे अनुभव घ्या.\nlist() मधे अचूक दिसते.\nlist() मधे अनुभव घ्या.\nlist() मधे अचूक दिसते.", code: `def squares(n):
-    for i in range(1, n + 1):
-        yield i * i
+print(list(simple(3)))`,
+        codeLanguage: "python",
+        output: `[3]`,
+      },
+      {
+        title: "मेमरी मित्रवत — नोंदी",
+        content: "Generator म्हणजे memory चा मित्र: संपूर्ण यादी कधीच निर्माण होत नाही — फक्त सध्याचा निकाल हातात असतो.\n\nशेकडो हजार नोंदी असतील तर यादी बनवल्यास स्मृती खर्चाचा फटका बसतो; generator तोच data छोट्या 'तुकड्यांमध्ये' देतो.\n\nकाय अधिक दिसते: 10 लाख संख्या हव्या असल्या तरी आधीच्या document चा data घेण्याऐवजी generator काढून जेवढं लागतं तेवढंच next() करतो.",
+      },
+      {
+        title: "Interactive: squares generator",
+        content: "कृती: 1 पासून 4 पर्यंतच्या संख्यांचे वर्ग (square) देणारा generator तयार करा.\n\nsquares मध्ये n चा वर्ग yield होतो (n * n), नंतर n वाढवतात. list(squares()) → [1, 4, 9, 16].\n\nn चा वरचा कडा (<= 4) बदलून पहा — 1 ते कितीपर्यंत जायचं ते loop ची अट ठरवते.",
+        code: `def squares():
+    n = 1
+    while n <= 4:
+        yield n * n
+        n += 1
 
-print(list(squares(4)))`, codeLanguage: "python", output: "[1, 4, 9, 16]" },
-      { title: "Mini Project — रांगेतील तिकिटे", content: "प्रत्येक तिकिटावर दर्शवा:\nहे tickets अभिनंदन.\nहे tickets पुढील विषय.\nnext() तीनदा अभिनंदन.\nnext() तीनदा पुढील विषय.", code: `def tickets(start):
-    num = start
-    while True:
+print(list(squares()))`,
+        codeLanguage: "python",
+        output: `[1, 4, 9, 16]`,
+      },
+      {
+        title: "Mini Project: तिकीट क्रमांक",
+        content: "तिकिटांचे क्रमांक क्रमाक्रमाने सोडवण्यासाठी generator तयार करा — 101 पासून सुरू होऊन ठराविक संख्येपर्यंत.\n\ntickets प्रत्येक वेळी पुढचा क्रमांक yield करतो आणि वाढवतो. for t in tickets() ने 101, 102, 103 छापले जातात.\n\nक्रमांक कुठून, कुठपर्यंत द्यायचा हे फक्त variables ठरवतात — generator ची रचना भविष्यात मोठ्या क्रमांकासाठीही तशीच राहते.",
+        code: `def tickets():
+    num = 101
+    while num <= 103:
         yield num
         num += 1
 
-line = tickets(101)
-print(next(line))
-print(next(line))
-print(next(line))`, codeLanguage: "python", output: "101\n102\n103" },
+for t in tickets():
+    print(t)`,
+        codeLanguage: "python",
+        output: `101
+102
+103`,
+      },
     ],
     practiceQuestions: [
       "generator कसा तयार होतो?",
@@ -413,26 +646,80 @@ print(list(squares(4)))`,
     summary: "combinations, permutations, chain, count, product — संयोग साधणारे itertools.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "itertools मध्ये संयोग/संचविशेष ऑपरेशनसाठी साधने आहेत.\n• combinations → संच (क्रम नाही)\n• permutations → क्रम\n• chain → अनेक iterable जोडणे\n• product → कार्टेशियन गुणन\n• count, islice → अखंड क्रम\nchain जोडणे हेच सार.\nchain जोडणे आज शिकतो.\nproduct गुणन हेच सार.\nproduct गुणन आज शिकतो.\nचार मुद्दे आज पूर्ण.\nचार मुद्दे अभिनंदन.\nशेवट आज पूर्ण.\nशेवट अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "\"कोणकोणते जोडाटे जोडता येतील\" — combinations. \"कोणकोणत्या क्रमाने ठेवता येईल\" — permutations. या दोन्हीसाठी स्वतः loops लिहिण्याऐवजी तयार itertools वापरा — जसे तयार मसाले.\ncombinations कोणता क्रम.\ncombinations तयार वापर.\npermutations कोणता क्रम.\npermutations तयार वापर.\nमसाला कोणत्या जोड्या.\nमसाला कोणता क्रम.\nमसाला तयार वापर.\nमसाला itertools शक्ती." },
-      { title: "3. Syntax", content: "संच आणि क्रम:\nचालवा तीन पैकी दोन.\nचालवा दोन पैकी दोन.", code: `import itertools
-print(list(itertools.combinations([1, 2, 3], 2)))
-print(list(itertools.permutations([1, 2], 2)))`, codeLanguage: "python", output: "[(1, 2), (1, 3), (2, 3)]\n[(1, 2), (2, 1)]" },
-      { title: "4. उदाहरणे", content: "chain व product:\nचालवा एक दोन तीन चार.\nचालवा a b गुणन.", code: `import itertools
-print(list(itertools.chain([1, 2], [3, 4])))
-print(list(itertools.product([1, 2], ["a", "b"])))`, codeLanguage: "python", output: "[1, 2, 3, 4]\n[(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "अखंड संख्या — पहिल्या 4:\nचालवा पाच पासून.\nचालवा पहिले चार.", code: `import itertools
-print(list(itertools.islice(itertools.count(5), 4)))`, codeLanguage: "python", output: "[5, 6, 7, 8]" },
-      { title: "6. सामान्य चुका", content: "✗ list() विसरून iterator print करणे\n✗ combinations मोठ्या data वर (वाढ) न समजणे\n✗ product च्या क्रमाबद्दल चूक\nlist() विसरले iterator दिसते.\nlist() विसरले वाढ मोठी.\nlist() विसरले क्रम लक्षात.\nlist() विसरले verify करा.\nlist() विसरले iterator दिसते.\nlist() विसरले वाढ मोठी.\nlist() विसरले क्रम लक्षात.\nlist() विसरले verify करा.\nlist() विसरले iterator दिसते.\nlist() विसरले वाढ मोठी.\nlist() विसरले क्रम लक्षात.\nlist() विसरले verify करा.\nlist() विसरले iterator दिसते.\nlist() विसरले वाढ मोठी.\nlist() विसरले क्रम लक्षात.\nlist() विसरले verify करा.\nlist() विसरले iterator दिसते.\nlist() विसरले वाढ मोठी.\nlist() विसरले क्रम लक्षात.\nlist() विसरले verify करा.\nlist() शेवट iterator दिसते.\nlist() शेवट वाढ मोठी.\nlist() शेवट क्रम लक्षात.\nlist() शेवट verify करा.\nlist() विसरले iterator दिसते.\nlist() विसरले वाढ मोठी.\nlist() विसरले क्रम लक्षात.\nlist() विसरले verify करा.\nटाळा iterator दिसते.\nटाळा वाढ मोठी.\nटाळा क्रम लक्षात.", code: `import itertools
-groups = itertools.combinations(["अ", "ब"], 2)
-print(list(groups))`, codeLanguage: "python", output: "[('अ', 'ब')]" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• सगळे itertools iterator देतात\n• cycles लहान असतील ना — मोठ्या data वर काळजी\n• count() अमर्याद — islice ने मर्यादा\n• combinations vs permutations — क्रम महत्त्वाचा\ncombinations islice ने.\ncombinations क्रम बघा.\ncombinations data काळजी." },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nInteractive चार पैकी दोन.", code: `import itertools
-print(len(list(itertools.combinations([1, 2, 3, 4], 2))))`, codeLanguage: "python", output: "6" },
-      { title: "Mini Project — संघ जोड्या", content: "4 खेळाडूंच्या सगळ्या जोड्या:\nहे प्रोजेक्ट अभिनंदन.\nहे प्रोजेक्ट पुढील विषय.", code: `import itertools
-players = ["आरोही", "मीरा", "वेद", "सोहम"]
-for pair in itertools.combinations(players, 2):
-    print(pair[0], "सोबत", pair[1])`, codeLanguage: "python", output: "आरोही सोबत मीरा\nआरोही सोबत वेद\nआरोही सोबत सोहम\nमीरा सोबत वेद\nमीरा सोबत सोहम\nवेद सोबत सोहम" },
+      {
+        title: "itertools — संयोगांची साधने",
+        content: "itertools ही Python ची library आहे जी संग्रहांवर वेगवेगळी कामं करते — संयोग, क्रम, संग्रह जोडणे, अखंड क्रम इ. ही गणिताची जड कामं स्वतः लिहिण्याऐवजी तयार साधनातून होतात.\n\nती install करावी लागत नाही — standard library मध्येच आहे; import itertools लिहिलं की थेट उपलब्ध होते.\n\nयातलं प्रत्येक साधन iterator देते म्हणून result पाहायला सूचीत बदलावं लागतं — list(...) ने.",
+      },
+      {
+        title: "Syntax: combinations आणि permutations",
+        content: "combinations(संग्रह, r) दिलेल्या संग्रहातून r घटकांचे सर्व संयोग देतो — क्रम महत्त्वाचा नाही. permutations(संग्रह, r) मात्र क्रमही बदलून सर्व रचना देतो.\n\nlist(combinations([1, 2, 3], 2)) → [(1, 2), (1, 3), (2, 3)] — इथे (2, 1) नाही; कारण combination मध्ये संघाची सदस्यता महत्त्वाची, क्रम नाही.\n\nlist(permutations([1, 2], 2)) → [(1, 2), (2, 1)] — permutations मध्ये क्रम बदलल्याने दोन्ही रचना येतात.",
+        code: `from itertools import combinations, permutations
+
+print(list(combinations([1, 2, 3], 2)))
+print(list(permutations([1, 2], 2)))`,
+        codeLanguage: "python",
+        output: `[(1, 2), (1, 3), (2, 3)]
+[(1, 2), (2, 1)]`,
+      },
+      {
+        title: "chain आणि product — संग्रह जोडणे",
+        content: "chain(*संग्रह) अनेक संग्रह एकत्र करून एक लांब क्रम बनवतो. product(संग्रह, संग्रह) पहिल्याच्या प्रत्येक घटकाला दुसऱ्याच्या प्रत्येक घटकाशी जोडून सर्व संभाव्य जोड्या देतो.\n\nlist(chain([1, 2], [3, 4])) → [1, 2, 3, 4]. product ने [(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')] — 2 x 2 = 4 जोड्या.\n\nproduct म्हणजे कार्ड्सच्या डेकसारखे — सर्व शक्य जोड्या; chain म्हणजे भिन्न याद्या एकत्र मिसळणे.",
+        code: `from itertools import chain, product
+
+print(list(chain([1, 2], [3, 4])))
+print(list(product([1, 2], ["a", "b"])))`,
+        codeLanguage: "python",
+        output: `[1, 2, 3, 4]
+[(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]`,
+      },
+      {
+        title: "count आणि islice — अखंड क्रम",
+        content: "count(सुरवात) अखंड क्रम देतो — 5, 6, 7, ... असा कधीच न थांबणारा. islice(iterator, n) मात्र पहिले n घटक घेऊन थांबते.\n\nlist(islice(count(5), 4)) → [5, 6, 7, 8]. count स्वतः कधीच संपत नाही; islice ने मर्यादा आणली — त्यामुळे output थांबला.\n\nअखंड generator किंवा count वापरताना islice ही सुरक्षित मर्यादा असते; त्याशिवाय for loop कधीही संपत नाही.",
+        code: `from itertools import count, islice
+
+print(list(islice(count(5), 4)))`,
+        codeLanguage: "python",
+        output: `[5, 6, 7, 8]`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ import मध्ये नाव विसरणे — itertools.combinations वापरताना module नाव लिहा; from itertools import combinations लिहिलं तर नाव सरळ combinations ठेवा.\n\n✗ जास्त घटकांवर permutations किंवा product — 10 घटकांचे permutations 36 लाख; मर्यादाबद्ध output साठी islice किंवा छोटा r घ्या.\n\n✗ iterator पुन्हा वापरणे — एकदा combo संपल्यावर त्यात काही उरत नाही; पुन्हा हवा तर नवीन combinations कॉल करा.\n\nखाली संघाची पहिली जोडीच बघतो — combinations क्रमवार जोड्या देतो, त्यात पहिली ('अ', 'ब').",
+        code: `from itertools import combinations
+
+pairs = list(combinations(["अ", "ब", "क"], 2))
+print(pairs[0])`,
+        codeLanguage: "python",
+        output: `('अ', 'ब')`,
+      },
+      {
+        title: "मोठ्या data वर मर्यादा — नोंदी",
+        content: "itertools मधील बहुतेक साधने मर्यादा नसतानाही चालतात — count, cycle सारखे अखंड क्रम देणारी. त्यामुळे वापरताना मर्यादा आणणं ही आपली जबाबदारी.\n\nproduct आणि permutations ची संख्या घटकांची संख्या वाढताच झपाट्याने वाढते — मोठ्या संग्रहावर तो चालवण्यापूर्वी छोट्या sample वर तपासा.\n\nlist() ने सगळं रूपांतर मेमरीत खेचतं; फक्त जेवढं लागतं तेवढं for पुढे किंवा islice ने काढा — हीच साधी दक्षता.",
+      },
+      {
+        title: "Interactive: संयोग मोजणे",
+        content: "कृती: चार घटकांच्या संग्रहातून दोन घटकांचे किती संयोग निघतात ते मोजा.\n\nlist(combinations([10, 20, 30, 40], 2)) मध्ये एकूण 6 जोड्या येतात — nCr चा नियमच तो: 4 x 3 / 2 = 6.\n\nlen() ने थेट संख्या मिळते. r बदलून पहा — r=3 केलं तर 4 संयोग, r=1 केलं तर 4 संयोग.",
+        code: `from itertools import combinations
+
+print(len(list(combinations([10, 20, 30, 40], 2))))`,
+        codeLanguage: "python",
+        output: `6`,
+      },
+      {
+        title: "Mini Project: संघ जोड्या",
+        content: "चार खेळाडूंचे सर्व दोन-दोन जणांचे संघ तयार करा. combinations(players, 2) प्रत्येक शक्य जोड देते.\n\ncombination मध्ये क्रम महत्त्वाचा नाही, म्हणून आरोही-मीरा दिसेल पण मीरा-आरोही नाही — एकूण सहा वेगळे संघ.\n\nत्यामुळे स्पर्धेचे सामने, गट किंवा नियुक्त्या अशा परिस्थितीत combinations थेट उत्तर देतं.",
+        code: `from itertools import combinations
+
+players = ["आरोही", "मीरा", "वेद", "कल्याण"]
+for pair in combinations(players, 2):
+    print(pair[0], "आणि", pair[1])`,
+        codeLanguage: "python",
+        output: `आरोही आणि मीरा
+आरोही आणि वेद
+आरोही आणि कल्याण
+मीरा आणि वेद
+मीरा आणि कल्याण
+वेद आणि कल्याण`,
+      },
     ],
     practiceQuestions: [
       "combinations vs permutations?",
@@ -470,28 +757,76 @@ print(list(itertools.chain("ab", "cd")))`,
     summary: "re.search, findall, sub, compile — नमुन्यांच्या मदतीने text मध्ये अचूक शोध.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "Regex म्हणजे नमुन्यांची भाषा — \\d (संख्या), \\s (जागा), \\w (अक्षर), + (एक अधिक), * (शून्य अधिक), \\\\ असा.\n• re.search → पहिला सापडेल\n• re.findall → सगळे\n• re.sub → बदला\n• re.compile → पुन्हा वापरासाठी\nनमुने d s हेच सार.\nनमुने d s आज विस्तार.\nवाढता वापर हेच सार.\nवाढता वापर आज विस्तार.\nचार मुद्दे आज पूर्ण.\nचार मुद्दे अभिनंदन.\nशेवटी नोंदी आज पूर्ण.\nशेवटी नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "\"कोलेजात 'राघव' नावाचे सगळे विद्यार्थी शोध\" — गणना नव्हे, नमुन्यावर आधारित शोध. नमुन्यांचे नियम शिकून संख्या/जागा/अक्षरांचे कोंडणे सोपे होते." },
-      { title: "3. Syntax", content: "पाच अंकी संख्या शोधणे:", code: `import re
-text = "मोबाईल नंबर 98765 43210"
+      {
+        title: "regex म्हणजे नमुन्यांची भाषा",
+        content: "Regex म्हणजे नमुन्यांची भाषा — एक लहान नमुना लिहून त्याच साचा असणारे भाग शोधणे. उदा. 'कोलेजात राघव नावाचे सगळे विद्यार्थी शोधा' ही गणना नव्हे, नमुन्यावर आधारित शोध.\n\nमूलभूत खूणा: \\d — अंक, \\s — जागा, \\w — अक्षर किंवा अंक, + — एक किंवा अधिक, * — शून्य किंवा अधिक, {n} — नक्की n वेळा.\n\nre module ची मुख्य साधने: re.search — पहिला सापडेल, re.findall — सगळे सापडतात, re.sub — बदल करतो, re.compile — नमुना पुन्हा वापरण्यासाठी तयार ठेवतो.",
+      },
+      {
+        title: "Syntax: पहिला नमुना — re.search",
+        content: "पाच अंकी संख्या शोधण्याचा नमुना r'\\d{5}' असा आहे — {5} म्हणजे नक्की पाच अंक.\n\nखाली text मधून पाच अंकी संख्या बाहेर काढली आहे: re.search(r'\\d{5}', text) पहिली जुळणी शोधतो आणि m.group() तिची किंमत देतो.\n\nsearch फक्त पहिलाच निकाल देतो — या text मध्ये 98765 हाच एक निकाल.",
+        code: `import re
+
+text = "पिन 98765"
 m = re.search(r"\\d{5}", text)
-print(m.group())`, codeLanguage: "python", output: "98765" },
-      { title: "4. उदाहरणे", content: "सगळ्या संख्या व जागा बदलणे:", code: `import re
+print(m.group())`,
+        codeLanguage: "python",
+        output: `98765`,
+      },
+      {
+        title: "re.findall आणि re.sub",
+        content: "findall सर्व जुळण्या list मध्ये देतो: 'a1 b22' मधील सगळे अंक r'\\d' ने — output ['1', '2', '2'].\n\nsub बदल करतो: r'\\s+' (एक किंवा अधिक जागा) बदलल्या '_' ने — 'मीरा आज शाळेत' ते 'मीरा_आज_शाळेत'.\n\nfindall कधी पाहण्यासाठी आणि sub कधी स्वच्छता करण्यासाठी — दोन्हीच या ओळींवर दिसतात.",
+        code: `import re
+
 print(re.findall(r"\\d", "a1 b22"))
-print(re.sub(r"\\s+", "_", "मीरा आज शाळेत"))`, codeLanguage: "python", output: "['1', '2', '2']\nमीरा_आज_शाळेत" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "पिनकोड शोधणे:", code: `import re
-pincodes = "नागपूर 440001, पुणे 411001"
-print(re.findall(r"\\d{6}", pincodes))`, codeLanguage: "python", output: "['440001', '411001']" },
-      { title: "6. सामान्य चुका", content: "✗ r\"...\" वापरत नसल्यास backslash समजणे (\\d ला 'd' वाटू शकतो)\n✗ +/* चा गैरसमज — किती वेळा हे ठरवतात\n✗ सुरुवात/शेवट विचारणारे anchors (^ $) विसरणे", code: `import re
+print(re.sub(r"\\s+", "_", "मीरा आज शाळेत"))`,
+        codeLanguage: "python",
+        output: `['1', '2', '2']
+मीरा_आज_शाळेत`,
+      },
+      {
+        title: "वास्तविक उदाहरण: पिनकोड शोधणे",
+        content: "pincodes नावाच्या सूचीत प्रत्येक ठिकाणाच्या पिनची माहिती आहे. r'\\d{6}' ने सहा अंकी पिनकोड बाहेर काढला जातो.\n\nfindall प्रत्येक खर्चाच्या ओळीतील सहा अंक गोळा करतो — ['440001', '411001'].\n\nहाच नमुना मोबाईल क्रमांक, आधार आयडी किंवा खाते क्रमांक यांसारख्या अचूक लांबीच्या संख्यांसाठी लागतो.",
+        code: `import re
+
+pincodes = "पुणे 440001, नाशिक 411001"
+print(re.findall(r"\\d{6}", pincodes))`,
+        codeLanguage: "python",
+        output: `['440001', '411001']`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ raw string r'...' वापरत नसल्यास backslash गोंधळतो — r'\\d' मध्ये \\d हा नमुन्याचा भाग आहे; साध्या string मध्ये ती लकडी वेगळी उमटते.\n\n✗ + आणि * चा विपरीत वापर — + म्हणजे एक किंवा अधिक, * म्हणजे शून्य किंवा अधिक; किती वेळा हे ही चिन्हे ठरवतात.\n\n✗ anchors (^ आणि $) विसरणे — सुरुवात किंवा शेवट पकडायला ही चिन्हे हवीत; त्यांशिवाय नमुना कुठेही जुळू शकतो.\n\n✗ {n} चा अर्थ — {5} म्हणजे नक्की पाच वेळा, नऊ पेक्षा जास्त नाही.\n\nकडा तपासायचा असेल तर compile करून findall करा — खाली r'ल+' ने ल तेथे किती वेळा आहे ते दिसतं.",
+        code: `import re
+
 pat = re.compile(r"ल+")
-print(pat.findall("लललपलल"))`, codeLanguage: "python", output: "['ललल', 'लल']" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• findall → सगळे, search → पहिला\n• compile → वारंवार वापरासाठी\n• raw string r\"...\" नमुन्यातील backslash सुरक्षित ठेवते", },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nInteractive सचिन तेंडुलकर.\nInteractive जागा नाही.\nInteractive एकत्र नाव.\nInteractive सचिन तेंडुलकर.\nInteractive जागा नाही.\nInteractive एकत्र नाव.\nइंटरएक्टिव्ह सचिन तेंडुलकर.\nइंटरएक्टिव्ह एकत्र नवे.\nverify सचिन तेंडुलकर.\nverify एकत्र नाव.", code: `import re
+print(pat.findall("लललपलल"))`,
+        codeLanguage: "python",
+        output: `['ललल', 'लल']`,
+      },
+      {
+        title: "re.compile — नमुना पुन्हा वापरतो",
+        content: "एकच नमुना पुन्हा पुन्हा लागत असेल तर re.compile तो एकदा तयार करतो आणि नंतर pat फक्त वापरला जातो.\n\n• findall → सगळे, search → पहिला\n\n• compile → वारंवार वापरासाठी\n\n• raw string r'...' — नमुन्यातील backslash सुरक्षित ठेवते\n\nमोठ्या कोडमध्ये एकाच नमुन्याचा अनेक ठिकाणी वापर होतो; compile त्याला एका जागी ठेवतो आणि त्रुटी शक्यता कमी करतो.",
+      },
+      {
+        title: "Interactive: नावातील जागा काढणे",
+        content: "कृती: नावातील सगळ्या जागा काढून एकत्र नाव तयार करा.\n\nre.sub(r' ', '', name) ने प्रत्येक जागा '' (रिकाम्या string) ने बदलली — 'सचिन तेंडुलकर' ते 'सचिनतेंडुलकर'.\n\nआणखी नावांवर प्रयोग करा — उदा. 'मीरा कदम' वर ठेवून जागा नसलेलं नाव मिळतं हे पाहा.",
+        code: `import re
+
 name = "सचिन तेंडुलकर"
-print(re.sub(r" ", "", name))`, codeLanguage: "python", output: "सचिनतेंडुलकर" },
-      { title: "Mini Project — स्वच्छ मोबाईल नंबर", content: "दहा अंकी नंबर शोधा:", code: `import re
-mobiles = ["9876543210", "१२३४५"]
-print(re.findall(r"\\d{10}", mobiles[0]))`, codeLanguage: "python", output: "['9876543210']" },
+print(re.sub(r" ", "", name))`,
+        codeLanguage: "python",
+        output: `सचिनतेंडुलकर`,
+      },
+      {
+        title: "Mini Project: स्वच्छ मोबाईल नंबर",
+        content: "दहा अंकी मोबाईल नंबरचा नमुना r'\\d{10}' असा आहे. mobiles यादीतील पहिल्या नोंदीतून तो बाहेर काढतो.\n\nfindall फक्त दहा अंक परत करतो — ['9876543210']; जागा, कंस किंवा डॅश नसतात.\n\nनंबरमध्ये जागा किंवा टाके असले तरी \\d{10} फक्त अंकच निवडतो — बाकीचे थेट वगळले जातात.",
+        code: `import re
+
+mobiles = ["मोबाईल: 98765 43210"]
+print(re.findall(r"\\d{10}", mobiles[0]))`,
+        codeLanguage: "python",
+        output: `['9876543210']`,
+      },
     ],
     practiceQuestions: [
       "r\"...\" का वापरतात?",
@@ -529,9 +864,14 @@ print(re.findall(r"रक्कम\\d+", "रक्कम100 व रक्कम
     summary: "raise आणि स्वतःचे Exception वर्ग — चुकांना Meaningful नावे व messages.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "Python च्या exceptions शिवाय आपले स्वतःचे बनवता येतात.\n• class MyError(Exception): pass\n• raise MyError(\"message\")\n• except MyError as e:\n• यामुळे चुका ठराविक names ने पकडता येतात\nMeaningful names हेच सार.\nMeaningful names आज शिकतो.\nनावे meaningful हेच सार.\nनावे meaningful आज शिकतो.\nनावे वाचता हेच सार.\nनावे वाचता आज आणखी.\nMeaningful नावे हेच सार.\nMeaningful नावे आज पूर्ण.\nचार मुद्दे आज पूर्ण.\nचार मुद्दे अभिनंदन.\nशेवटी नोंदी आज पूर्ण.\nशेवटी नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "सर्व चुका \"एरर\" नावाने नाही; तुमच्याच दुकानाचे नियम — \"अपुरी रक्कम!\" किंवा \"चुकीचा PIN!\" — तसे स्वतःचे नियम ठरवून raise करा. वाचणारा ताबडतोब समजतो: काय चुकलं, कुठे." },
-      { title: "3. Syntax", content: "स्वतःचा exception वापरणे:", code: `class AgeError(Exception):
+      {
+        title: "स्वतःचे exception का बनवायचे?",
+        content: "Python मध्ये अनेक तयार exceptions आहेत — TypeError, ValueError इ. पण तुमच्या programme चे नियम वेगळे असतात: 'अपुरी रक्कम!', 'चुकीचा PIN!', 'शून्य मागणी!' अशा चुकांना खास नावे द्यायला स्वतःचे exception class बनवतात.\n\nमराठीत समज: सर्व चुका 'एरर' नावाने नाही. तुमच्याच दुकानाचे नियम असतात — ते ठरवून raise करा. वाचणारा लगेच समजतो: काय चुकलं आणि कुठे.\n\nरचना साधी: class नाव(Exception): pass यापासून सुरुवात. त्यानंतर raise नाव(\"message\") ने चूक निर्माण, आणि except नाव as e ने पकडणे.",
+      },
+      {
+        title: "Syntax: class आणि raise",
+        content: "स्वतःचा exception बनवायचा म्हणजे मुळ Exception वरून वारसा घेणारा class लिहावा. त्यात pass पुरेसा — मुख्य काम raise चे.\n\nraise AgeError(\"नकारात्मक वय!\") ही ओळ कोड न थांबवता चूक उभी करते. message तिचे वर्णन टाकते; पकडताना तेच वाचू शकतो.\n\nउदा. check(25) सारख्या स्थितीत अट न बसल्यास raise होत नाही — function सहज उत्तर देते. अट बसल्यास मात्र चूक उभी राहते.",
+        code: `class AgeError(Exception):
     pass
 
 def check(age):
@@ -539,8 +879,14 @@ def check(age):
         raise AgeError("नकारात्मक वय!")
     return "वय तपासले"
 
-print(check(25))`, codeLanguage: "python", output: "वय तपासले" },
-      { title: "4. उदाहरणे", content: "except द्वारे पकडणे:\nInsufficientFunds बॅलन्स तपासा.\nInsufficientFunds सात नऊ.\nInsufficientFunds अपवाद दाखवा.\nबॅलन्स उदाहरण बॅलन्स 100.\nबॅलन्स उदाहरण रक्कम 200.\nबॅलन्स उदाहरण except e मध्ये.\nwithdraw तपासा बॅलन्स 100.\nwithdraw तपासा रक्कम 200.\nwithdraw तपासा except e मध्ये.\n50 निघाले बॅलन्स 100.\n50 निघाले रक्कम 200.\n50 निघाले except e मध्ये.\n200 अपवाद बॅलन्स 100.\n200 अपवाद रक्कम 200.\nबॅलन्स खेळ बॅलन्स 100.\nबॅलन्स खेळ रक्कम 200.\nबॅलन्स खेळ except e.\nwithdraw सराव बॅलन्स 100.\nwithdraw सराव रक्कम 200.\nपहिला 50 बॅलन्स 100.\nपहिला 50 रक्कम 200.\nदुसरा अपवाद बॅलन्स 100.\nदुसरा अपवाद रक्कम 200.\nबॅलन्स सराव बॅलन्स 100.\nबॅलन्स सराव रक्कम 200.\nबॅलन्स सराव except e.\nwithdraw वापरा बॅलन्स 100.\nwithdraw वापरा रक्कम 200.\nwithdraw वापरा except e.\n50 मिळाले बॅलन्स 100.\n50 मिळाले रक्कम 200.\n200 अपवाद बॅलन्स 100.\n200 अपवाद रक्कम 200.\nबॅलन्स शेवट बॅलन्स 100.\nबॅलन्स शेवट रक्कम 200.\nबॅलन्स शेवट except e.\nwithdraw सराव बॅलन्स 100.\nwithdraw सराव रक्कम 200.\n50 मिळाले बॅलन्स 100.\n50 मिळाले रक्कम 200.\n200 अपवाद बॅलन्स 100.\n200 अपवाद रक्कम 200.\nबॅलन्स समाप्त बॅलन्स 100.\nबॅलन्स समाप्त रक्कम 200.\nबॅलन्स समाप्त except e.\nwithdraw सराव बॅलन्स 100.\nwithdraw सराव रक्कम 200.\n50 मिळाले बॅलन्स 100.\n50 मिळाले रक्कम 200.\n200 अपवाद बॅलन्स 100.\n200 अपवाद रक्कम 200.", code: `class InsufficientFunds(Exception):
+print(check(25))`,
+        codeLanguage: "python",
+        output: `वय तपासले`,
+      },
+      {
+        title: "except ने स्वतःचे exception पकडणे",
+        content: "raise ने उभे केलेले exception except मध्ये पकडता येते. तिथे त्या विशिष्ट चुकीवर नियंत्रित उत्तर मिळतं — programme कोसळत नाही.\n\nबँकेचे उदाहरण: withdraw(100, 50) मुळे 50 उरतात. पण withdraw(100, 200) मध्ये अट बसते — raise होतो — आणि except InsufficientFunds तो पकडून 'अपवाद: रक्कम जास्त!' दाखवतो.\n\nम्हणून output मध्ये आधी 50, नंतर अपवादाची ओळ. raise आणि except अशी जोडी चूकांचे काटेकोर व्यवस्थापन करते.",
+        code: `class InsufficientFunds(Exception):
     pass
 
 def withdraw(balance, amount):
@@ -548,12 +894,20 @@ def withdraw(balance, amount):
         raise InsufficientFunds("रक्कम जास्त!")
     return balance - amount
 
+print(withdraw(100, 50))
+
 try:
-    print(withdraw(100, 50))
     print(withdraw(100, 200))
 except InsufficientFunds as e:
-    print("अपवाद:", e)`, codeLanguage: "python", output: "50\nअपवाद: रक्कम जास्त!" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "पासवर्ड मजबूत तपासणे:\nWeakPassword लांबी तपासा.\nWeakPassword लहान वर्ज्य.\nWeakPassword अक्षरे हवी.", code: `class WeakPassword(Exception):
+    print("अपवाद:", e)`,
+        codeLanguage: "python",
+        output: `50
+अपवाद: रक्कम जास्त!`,
+      },
+      {
+        title: "वास्तविक उदाहरण: पासवर्ड तपासणी",
+        content: "सुरक्षा नियम स्वतःच्या exception ने कसे लागू होतात ते पहा. signup function पासवर्डची लांबी तपासते आणि अपुरा पासवर्ड असल्यास raise करते.\n\nलांबी 6 पेक्षा कमी असेल तर WeakPassword उभा होतो, message सह — ठरवलेला नियम वाचतो. पुरेसा लांब पासवर्ड मात्र सरळ 'खाते तयार झाले' देतो.\n\nआणखी नियम — किमान एक मोठे अक्षर, एक अंक इ. — अशाच क्रमाने जोडता येतात. प्रत्येक नियमाला स्वतःचे exception म्हणजे स्वच्छ कोड.",
+        code: `class WeakPassword(Exception):
     pass
 
 def signup(password):
@@ -561,16 +915,31 @@ def signup(password):
         raise WeakPassword("किमान 6 अक्षरे हवी")
     return "खाते तयार झाले"
 
-print(signup("अनिकेत123"))`, codeLanguage: "python", output: "खाते तयार झाले" },
-      { title: "6. सामान्य चुका", content: "✗ raise मध्ये message न देणे\n✗ broad except: ने सगळं गिळणे\n✗ exception class ऐवजी सामान्य वर्ग बनवणे (Exception पासून हवं)", code: `class EmptyBox(Exception):
+print(signup("अनिकेत123"))`,
+        codeLanguage: "python",
+        output: `खाते तयार झाले`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ raise मध्ये message न देणे — raise AgeError() लिहिलं तर समज मिळत नाही; message सहित raise करा.\n\n✗ broad except: ने सगळं गिळणे — except Exception जास्त सर्वसाधारण, सगळ्या चुका पकडतो. तुमच्या exception ची विशिष्ट नावे वापरा; अनोळखी चुका दिसाव्यात.\n\n✗ Exception वरून वारसा न घेणे — स्वतःचा वर्ग सामान्य class ठेवला तर Python च्या exception यंत्रणेत बसत नाही; तो Exception पासूनच बनवा.\n\nखाली EmptyBox raise करून तोच except मध्ये message सह पकडला आहे — हीच मूळ जोडी.",
+        code: `class EmptyBox(Exception):
     pass
 
 try:
     raise EmptyBox("डब्बा रिकामा!")
 except EmptyBox as e:
-    print("पकडला:", e)`, codeLanguage: "python", output: "पकडला: डब्बा रिकामा!" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• स्वतःचे exception Exception पासून\n• raise message लिहा — मदत होते\n• खास नावे — ठराविक त्रुटी वेगळ्या पकडता येतात\n• finally — नेहमी चालणारा भाग" },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nZeroQuantity मागणी तपासा.\nZeroQuantity शून्य वर्ज्य.\nZeroQuantity अन्यथा ठीक.\nZeroQuantity मागणी तपासा.\nZeroQuantity शून्य वर्ज्य.\nZeroQuantity तीन ठीक.", code: `class ZeroQuantity(Exception):
+    print("पकडला:", e)`,
+        codeLanguage: "python",
+        output: `पकडला: डब्बा रिकामा!`,
+      },
+      {
+        title: "नोंदी: raise, except, finally",
+        content: "स्वतःच्या exceptions च्या तीन मुख्य सूत्रं:\n\n• स्वतःचे exception नेहमी Exception पासून बनवा — class नाव(Exception):\n\n• raise ला message लिहा — पकडताना तेच काय गहाळ ते सांगतं, मदत होते\n\n• खास नावे — ठराविक त्रुटी वेगळ्या पकडता येतात, एकाच try मध्ये अनेक except लिहता येतात\n\nfinally सोबत: try ने काम, except ने चूक, finally ने 'नेहमी चालणारा भाग' — चूक झाली नाही तरी finally होतो. उदा. file बंद करणे.",
+      },
+      {
+        title: "Interactive: शून्य मागणी",
+        content: "order function मागणी (quantity) तपासते. मागणी शून्य झाल्यास ZeroQuantity उभा होतो; अन्यथा साधा उत्तर सापडतो.\n\norder(3) मध्ये अट बसत नाही — raise होत नाही, म्हणून 'ऑर्डर ठीक: 3' मिळतं.\n\nमागणी 0 केली तर काय होतं मनात आधी ठरवा; मग order(0) घालून पहा. raise चा मार्ग दिसतो त्याच वेळी except न पकडल्यास चूक बाहेर पडते हेही समजतं.",
+        code: `class ZeroQuantity(Exception):
     pass
 
 def order(qty):
@@ -578,8 +947,14 @@ def order(qty):
         raise ZeroQuantity("शून्य मागणी!")
     return "ऑर्डर ठीक: " + str(qty)
 
-print(order(3))`, codeLanguage: "python", output: "ऑर्डर ठीक: 3" },
-      { title: "Mini Project — जन्मतारीख पडताळणी", content: "दिवस मर्यादेची तपासणी:\nRangeError मर्यादा तपासा.\nRangeError बाहेर नको.\nRangeError तारीख पडताळा.\nday_check मर्यादा तपासा.\nday_check बाहेर नको.\nday_check तारीख पडताळा.\nRangeError १ ते ३१.\nRangeError बाहेर नको.\nRangeError तारीख पडताळा.\nday_check १ ते ३१.\nday_check बाहेर नको.\nday_check तारीख पडताळा.", code: `class RangeError(Exception):
+print(order(3))`,
+        codeLanguage: "python",
+        output: `ऑर्डर ठीक: 3`,
+      },
+      {
+        title: "Mini Project: जन्मतारीख पडताळणी",
+        content: "जन्मतारीखातील दिवस 1 ते 31 दरम्यान असणे अपेक्षित. day_check तो नियम तपासते आणि मर्यादेबाहेरील दिवसाला RangeError उभा करते.\n\nday_check(15) मध्ये दिवस नियमात बसतो — 'दिवस ठीक 15' मिळतं. day_check(32) केल्यास मात्र raise उभा होतो.\n\n31 च्या वरचा दिवस किंवा 1 च्या खाली — दोन्ही अटी elif ऐवजी साध्या and ने बसवल्या आहेत. नियम स्पष्ट दिसतात आणि चुका एका नावाने ओळखता येतात.",
+        code: `class RangeError(Exception):
     pass
 
 def day_check(d):
@@ -587,7 +962,10 @@ def day_check(d):
         raise RangeError("दिवस 1-31 दरम्यान!")
     return "दिवस ठीक " + str(d)
 
-print(day_check(15))`, codeLanguage: "python", output: "दिवस ठीक 15" },
+print(day_check(15))`,
+        codeLanguage: "python",
+        output: `दिवस ठीक 15`,
+      },
     ],
     practiceQuestions: [
       "स्वतःचा exception कसा बनवता?",
@@ -636,9 +1014,14 @@ except EmptyError as e:
     summary: "@dataclass — __init__, __repr__, == आपोआप — कमी कोड, स्वच्छ वस्तू.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "सामान्य data वस्तूसाठी @dataclass मिळते — __init__, __str__, __eq__ सगळं आपोआप.\n• from dataclasses import dataclass, field\n• @dataclass\n• class Point: x: int\n• default values व field(default_factory=...) ही जोडता\nसगळं सोपे हेच सार.\nसगळं सोपे आज शिकतो.\ndefault values हेच सार.\ndefault values आज शिकतो.\nमोठा class हेच सार.\nमोठा class आज शिकतो.\nfield default_factory हेच सार.\nfield default_factory आज आणखी.\nasdict साधन हेच सार.\nasdict साधन आज आणखी.\nasdict साधना हेच सार.\nasdict साधना आज विस्तार.\n@dataclass सार हेच सार.\n@dataclass सार आज पूर्ण.\nचार मुद्दे आज पूर्ण.\nचार मुद्दे अभिनंदन.\nशेवटी नोंदी आज पूर्ण.\nशेवटी नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "__init__ सारखी रटाळ रचना लिहिण्याऐवजी — फक्त गुणधर्म सांगतो, बाकीचं Python स्वतः लिहितं. \"फॉर्म भरा, machinery कागदपत्रं तयार करते\"." },
-      { title: "3. Syntax", content: "प्रथम dataclass:", code: `from dataclasses import dataclass
+      {
+        title: "dataclass — data वस्तू थोडक्यात",
+        content: "सामान्य data वस्तूसाठी @dataclass वापरतात — __init__, __str__ आणि __eq__ हे सर्व method आपोआप तयार होतात. 'फॉर्म भरा, बाकीचं Python तयार करतं' असं समजा.\n\nसुरुवात करण्यासाठी: from dataclasses import dataclass. वर्गावर @dataclass ही एक ओळ ठेवतात आणि गुणधर्म type सह लिहितात — class Point: x: int.\n\ndefault values देताही येतात. mutable default — list किंवा dict — हवं असल्यास field(default_factory=...) वापरतात; त्याविषयी पुढील section मध्ये विस्ताराने.",
+      },
+      {
+        title: "Syntax: @dataclass आणि गुणधर्म",
+        content: "Point मध्ये फक्त दोन गुणधर्म — x: int आणि y: int. @dataclass मुळे Python तीन method आपोआप बनवतो: __init__ (वस्तू बनवणे), __repr__ (स्वरूप दाखवणे) आणि __eq__ (बरोबरी तपासणे).\n\np = Point(3, 4) ने वस्तू बनते; print(p) मुळे Point(x=3, y=4) दिसतं — __repr__ ने रचना सुटसुटीत दिसते.\n\nखाली तिन्ही method पहा: print(p.x + p.y) मुळे 7, आणि Point(3, 4) == Point(3, 4) मुळे True — समान गुणधर्म म्हणजे समान वस्तू.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Point:
@@ -648,8 +1031,16 @@ class Point:
 p = Point(3, 4)
 print(p)
 print(p.x + p.y)
-print(Point(3, 4) == Point(3, 4))`, codeLanguage: "python", output: "Point(x=3, y=4)\n7\nTrue" },
-      { title: "4. उदाहरणे", content: "default value व method:\nProduct वर्ग नाव दूध.\nProduct वर्ग किंमत 56.\nProduct वर्ग दोन गुणा.\nprice default नाव दूध.\nprice default किंमत 56.\nprice default दोन गुणा.\ntotal method किंमत 56.\noutput 112 किंमत 56.\nProduct तपासा default शून्य.\nProduct तपासा किंमत 56.\nProduct तपासा गुणा दोन.\nदूध किंमत default शून्य.\nदूध किंमत किंमत 56.\nदूध किंमत गुणा दोन.\ntotal method किंमत 56.\noutput 112 किंमत 56.\nProduct सराव दूध 56.\nProduct सराव default शून्य.\nProduct सराव दोन गुणा.\nनाव किंमत दूध 56.\nनाव किंमत default शून्य.\nनाव किंमत दोन गुणा.\nmethod अंदाज दूध 56.\nmethod अंदाज default शून्य.\nmethod अंदाज दोन गुणा.\noutput 112 दूध 56.", code: `from dataclasses import dataclass
+print(Point(3, 4) == Point(3, 4))`,
+        codeLanguage: "python",
+        output: `Point(x=3, y=4)
+7
+True`,
+      },
+      {
+        title: "default values आणि method",
+        content: "गुणधर्माला default value देताही येते — price: int = 0 मध्ये किंमत दिली नाही तर 0 गृहीत.\n\ndataclass मध्ये method हे गुणधर्मांप्रमाणेच लिहितात. total(self, qty) किंमत × प्रमाण काढते. r = Product(\"दूध\", 56) मग r.total(2) → 112.\n\ndefault value असलेला गुणधर्म नेहमी शेवटी लिहा — कागदपत्रांच्या क्रमानुसार गुणधर्म एकमेकांत मिसळू नयेत म्हणून हा नियम.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Product:
@@ -660,8 +1051,14 @@ class Product:
         return self.price * qty
 
 r = Product("दूध", 56)
-print(r.total(2))`, codeLanguage: "python", output: "112" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "mutable default टाळण्यासाठी field:", code: `from dataclasses import dataclass, field
+print(r.total(2))`,
+        codeLanguage: "python",
+        output: `112`,
+      },
+      {
+        title: "field — mutable default सुरक्षित करणे",
+        content: "list किंवा dict सारखा mutable default थेट लिहिला तर सर्व वस्तू त्याच संग्रहावर अवलंबून राहतात — हा धोका आहे. त्याऐवजी field(default_factory=list) वापरतात; तो प्रत्येक वस्तूला नवी list बनवतो.\n\nTeam मध्ये name आणि players ही list आहे. t.players.append(\"आरोही\") नंतर दुसरा खेळाडू जोडला.\n\nprint(t) मुळे Team(name='मावळे', players=['आरोही', 'वेद']) दिसतो — प्रत्येक वस्तूची स्वतःची list असते.",
+        code: `from dataclasses import dataclass, field
 
 @dataclass
 class Team:
@@ -671,17 +1068,32 @@ class Team:
 t = Team("मावळे")
 t.players.append("आरोही")
 t.players.append("वेद")
-print(t)`, codeLanguage: "python", output: "Team(name='मावळे', players=['आरोही', 'वेद'])" },
-      { title: "6. सामान्य चुका", content: "✗ mutable default — list/dict थेट default देणे (सुरक्षेसाठी field)\n✗ types न लिहिणे\n✗ @dataclass विसरणे — मग साधा class", code: `from dataclasses import dataclass
+print(t)`,
+        codeLanguage: "python",
+        output: `Team(name='मावळे', players=['आरोही', 'वेद'])`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ mutable default थेट देणे — players: list = [] असं लिहिल्यास सर्व वस्तू एकच list वाटून घेतात; field(default_factory=list) हा सुरक्षित मार्ग.\n\n✗ types न लिहिणे — dataclass मध्ये x: int असं type लिहा; त्यावाचून आपोआप तयार होणारा __init__ चुकतो.\n\n✗ @dataclass विसरणे — तर मग वर्ग साधाच राहतो आणि कुठलेही method आपोआप तयार होत नाहीत.\n\nखाली Note हा साधा dataclass — एक गुणधर्म text, वस्तू आणि तिचे मूल्य.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Note:
     text: str
 
 n = Note("अभ्यास")
-print(n.text)`, codeLanguage: "python", output: "अभ्यास" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• __init__/__repr__/__eq__ आपोआप\n• मोठ्या class साठी कमी कोड\n• mutable default हवे तर field(default_factory=...)\n• dataclasses.asdict सारखी साधनेही" },
-      { title: "8. Interactive", content: "खेळण्यासाठी:\nBook तपासा पाने 320.\nBook तपासा दोन्ही print.\nश्रीमान योगी पाने 320.\nदोन गुणधर्म पाने 320.\noutput एकत्र पाने 320.\nBook सराव पाने 320.\nBook सराव दोन्ही print.\nश्रीमान योगी पाने 320.\nदोन गुणधर्म पाने 320.\noutput एकत्र पाने 320.", code: `from dataclasses import dataclass
+print(n.text)`,
+        codeLanguage: "python",
+        output: `अभ्यास`,
+      },
+      {
+        title: "नोंदी: आपोआप येणारे method",
+        content: "dataclass च्या आणा-जाण्याच्या चार मुद्दे:\n\n• __init__/__repr__/__eq__ हे आपोआप तयार होतात\n\n• मोठ्या class साठी कमी कोड — गुणधर्म लिहिले की बाकी Python सांभाळतं\n\n• mutable default हवे तर field(default_factory=list) अशा रूपाने लिहा\n\n• dataclasses.asdict सारखी साधनेही उपलब्ध — dataclass ला सामान्य dict मध्ये बदलते\n\nही उपकरणं मोठ्या projects मध्ये data मॉडेल स्वच्छ ठेवतात — कमी कोड, कमी चुका.",
+      },
+      {
+        title: "Interactive: Book वस्तू",
+        content: "कृती: दोन गुणधर्म असलेल्या Book dataclass मधून पुस्तकाची माहिती दाखवा.\n\nBook मध्ये title आणि pages हे दोन गुणधर्म. b = Book(\"श्रीमान योगी\", 320) ने वस्तू बनते आणि print(b.title, b.pages) मुळे श्रीमान योगी 320 दिसतं.\n\nपाने किंवा शीर्षक बदलून नवी वस्तू बनवा — समान गुणधर्मांमुळे दोन वस्तू समान ठरतात हेही तपासता येतं.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Book:
@@ -689,8 +1101,14 @@ class Book:
     pages: int
 
 b = Book("श्रीमान योगी", 320)
-print(b.title, b.pages)`, codeLanguage: "python", output: "श्रीमान योगी 320" },
-      { title: "Mini Project — वैयक्तिक कार्ड", content: "डेटाक्लास पासून दोन ओळींनी माहिती:", code: `from dataclasses import dataclass
+print(b.title, b.pages)`,
+        codeLanguage: "python",
+        output: `श्रीमान योगी 320`,
+      },
+      {
+        title: "Mini Project: वैयक्तिक कार्ड",
+        content: "प्रत्येक खेळाडूसाठी नाव आणि संघ ठेवणारं कार्ड dataclass बनवा — दोन गुणधर्मांनी दोन ओळीत माहिती.\n\nc = Card(\"आरोही\", \"मावळे\") ने वस्तू बनते; print(c.name, \"-\", c.team) मुळे आरोही - मावळे दिसतं.\n\nअशाच छोट्या data वस्तू — खेळाडू, पुस्तक, उत्पादन — dataclass मुळे कमी कोडात मिळतात.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Card:
@@ -698,7 +1116,10 @@ class Card:
     team: str
 
 c = Card("आरोही", "मावळे")
-print(c.name, "-", c.team)`, codeLanguage: "python", output: "आरोही - मावळे" },
+print(c.name, "-", c.team)`,
+        codeLanguage: "python",
+        output: `आरोही - मावळे`,
+      },
     ],
     practiceQuestions: [
       "@dataclass काय तयार करतो?",
@@ -742,29 +1163,81 @@ print(Student("आरोही", 92))`,
     summary: "csv.reader/writer आणि json.dumps/loads — वास्तविक data फाइल्सवर काम.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "वस्तुस्थितीतील data फाइल्समध्ये असतो:\n• CSV — पंक्ती/स्तंभ म्हणून (spreadsheet)\n• JSON — key/value म्हणून (API)\n• import csv, import json\n• writer/dumper — बाहेर; reader/loader — आत\nचार मुद्दे आज पूर्ण.\nचार मुद्दे अभिनंदन.\nशेवटी नोंदी आज पूर्ण.\nशेवटी नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "CSV म्हणजे टेबल — रंगा-रेघेत गोळा ठेवलेला data. JSON म्हणजे दुसऱ्या program ला परत देणारी \"रसीद\" — key: value. या दोन सार्वत्रिक रूपांमुळे programs एकमेकांना data समजता येतो." },
-      { title: "3. Syntax", content: "CSV लिहिणे व वाचणे:", code: `import csv
+      {
+        title: "CSV आणि JSON — data ची सार्वत्रिक रूपे",
+        content: "Programs एकमेकांशी data वापरतात — तो पाठवण्यासाठी एक प्रमाणित रूप हवं. CSV आणि JSON ही दोन अशीच सर्वत्र चालणारी रूपे आहेत.\n\nCSV म्हणजे टेबल — स्वल्पविरामाने विभक्त पंक्ती. प्रत्येक पंक्तीवर cart मधील एक वस्तू आणि तिची किंमत असते.\n\nJSON म्हणजे दुसऱ्या program ला परत देणारी 'रसीद' — key: value च्या जोड्या. या दोन रूपांमुळे कोणताही program दुसऱ्याकडून आलेला data समजू शकतो.",
+      },
+      {
+        title: "Syntax: CSV लिहिणे आणि वाचणे",
+        content: "csv module ने फाईल मधील टेबल सहज हाताळता येतं. लिहिण्यासाठी csv.writer, वाचण्यासाठी csv.reader.\n\ncart.csv मध्ये पहिला writerows दोन पंक्ती लिहितो — शीर्षक आणि मूल्य. मग तीच फाईल csv.reader ने उघडल्यावर प्रत्येक पंक्ती list म्हणून दिसते.\n\nलक्षात घ्या: किंमत 10, 25 हे आकडे csv मधून वाचल्यावर string ('10', '25') राहतात — टेबलचा data म्हणून शब्दांतच ठरतो.",
+        code: `import csv
+
 with open("cart.csv", "w", newline="") as f:
     csv.writer(f).writerows([["माल", "किंमत"], ["पोळी", 10], ["दही", 25]])
+
 with open("cart.csv") as f:
     for row in csv.reader(f):
-        print(row)`, codeLanguage: "python", output: "['माल', 'किंमत']\n['पोळी', '10']\n['दही', '25']" },
-      { title: "4. उदाहरणे", content: "JSON मध्ये रूपांतर (Pretty print):", code: `import json
+        print(row)`,
+        codeLanguage: "python",
+        output: `['माल', 'किंमत']
+['पोळी', '10']
+['दही', '25']`,
+      },
+      {
+        title: "Syntax: JSON — dumps आणि pretty print",
+        content: "json module data ला string किंवा फाईल रूपात नेते. dict डेटा JSON string मध्ये नेण्यासाठी dumps; उलटे करण्यासाठी loads.\n\ndata हा dict — नाव आणि गुणांची यादी. json.dumps(data, ensure_ascii=False, indent=2) सुबक स्वरूपासह string देतो.\n\nindent=2 ने प्रत्येक स्तर नव्या ओळीत; ensure_ascii=False ने देवनागरी तशीच राहते — विस्कळीत Unicode कोडमध्ये बदलत नाही.",
+        code: `import json
+
 data = {"नाव": "आरोही", "गुण": [90, 85, 95]}
-print(json.dumps(data, ensure_ascii=False, indent=2))`, codeLanguage: "python", output: "{\n  \"नाव\": \"आरोही\",\n  \"गुण\": [\n    90,\n    85,\n    95\n  ]\n}" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "API कडून JSON वाचणे:", code: `import json
+print(json.dumps(data, ensure_ascii=False, indent=2))`,
+        codeLanguage: "python",
+        output: `{
+  "नाव": "आरोही",
+  "गुण": [
+    90,
+    85,
+    95
+  ]
+}`,
+      },
+      {
+        title: "वास्तविक उदाहरण: JSON वाचणे",
+        content: "दुसऱ्या service कडून मिळालेला API response हा JSON string असतो. तो Python च्या objects मध्ये उघडण्यासाठी json.loads वापरतात.\n\ninfo = json.loads('{\"नाव\": \"वेद\", \"वर्ग\": 9}') हा string dict मध्ये बदलतो. मग info[\"नाव\"] वेद सांगतं — नेहमीप्रमाणे subscript ने.\n\nAPI मोठा आणि nested असतो तेव्हा हीच पद्धत — JSON dict मध्ये उघडून त्याची रचना नीट हाताळता येते.",
+        code: `import json
+
 info = json.loads('{"नाव": "वेद", "वर्ग": 9}')
-print(info["नाव"])`, codeLanguage: "python", output: "वेद" },
-      { title: "6. सामान्य चुका", content: "✗ ensure_ascii न देणे — देवनागरी \\uXXXX रूपात जाऊ शकते\n✗ open() नंतर with विसरणे — file बंद होत नाही\n✗ csv सोबत newline=\"\" चा वापर न करणे\nensure_ascii हेक्स नको.", code: `import json
-print(json.dumps({"भाषा": "मराठी"}, ensure_ascii=False))`, codeLanguage: "python", output: "{\"भाषा\": \"मराठी\"}" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• csv.reader पंक्ती पंक्ती list देते\n• JSON keys string\n• dumps/loads — string; dump/load — file\n• ensure_ascii=False हे सर्व भाषेसाठी\nensure_ascii list मिळते.\nensure_ascii JSON नियम.\nensure_ascii file व string.\nensure_ascii भाषा सर्व." },
-      { title: "8. Interactive", content: "खेळण्यासाठी:", code: `import json
+print(info["नाव"])`,
+        codeLanguage: "python",
+        output: `वेद`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ ensure_ascii न देणे — देवनागरी Unicode \\uXXXX रूपात जाऊ शकते; ensure_ascii=False दिलं तर text तसाच दिसतो.\n\n✗ open() नंतर with विसरणे — फाईल बंद होत नाही आणि data गहाळ होऊ शकतो; with हा ब्लॉक फाईल आपोआप बंद करतो.\n\n✗ csv लिहिताना newline=\"\" न देणे — विंडोजवर दुहेरी ओळी दिसू शकतात; newline=\"\" ही सुरक्षितता.\n\nखाली ensure_ascii=False चा परिणाम — मराठी text JSON मध्ये चक्क तसाच दिसतो, \\uXXXX रूपात जात नाही.",
+      },
+      {
+        title: "नोंदी: dumps/loads आणि dump/load",
+        content: "चार शब्दांची जोडणी तयार ठेवा:\n\n• dumps — dict/object ते JSON string\n\n• loads — JSON string ते dict/object\n\n• dump — dict/object थेट फाईल मध्ये\n\n• load — फाईल मधून dict/object\n\nCSV च्या ओळी csv.reader पंक्ती-पंक्ती list देतात; JSON keys ही नेहमी string असतात. ensure_ascii=False हा नियम मराठीसह सर्व भाषांसाठी लावा.",
+      },
+      {
+        title: "Interactive: config गोठवणे",
+        content: "कृती: config या dict ला JSON string मध्ये नेऊन पुन्हा dict मध्ये आणा — म्हणजे एकाच cycle मध्ये जतन आणि परत.\n\njson.dumps(config) ने string बनते; json.loads तेच परत dict करते. दोन्हीमुळे आपलेच output मिळते.\n\nअशा रीतीने सेटिंग्स सेव्ह करणे सहज होते — mode आणि vol ही मूल्यं ठेवून, नंतर फाईल मध्येही तोच नमुना.",
+        code: `import json
+
 config = {"mode": "dark", "vol": 70}
-print(json.loads(json.dumps(config)))`, codeLanguage: "python", output: "{'mode': 'dark', 'vol': 70}" },
-      { title: "Mini Project — स्कोअर जतन", content: "गुण संच JSON मध्ये:\nस्कोअर जतन गुण 85 92.\nस्कोअर जतन dumps करा.\nस्कोअर जतन ensure off.\nआरोही वेद गुण 85 92.\nसंच dumps गुण 85 92.\noutput दोन गुण 85 92.\nस्कोअर सराव गुण 85 92.\nआरोही वेद गुण 85 92.\nसंच dumps गुण 85 92.\noutput दोन गुण 85 92.\nस्कोअर विस्तार 85 92.\nस्कोअर विस्तार dumps करा.\nस्कोअर विस्तार ensure off.\nआरोही वेद 85 92.\nदोन गुण 85 92.\nदोन गुण dumps करा.\nदोन गुण ensure off.\noutput दोन 85 92.\nस्कोअर वापरा 85 92.\nस्कोअर वापरा dumps करा.\nस्कोअर वापरा ensure off.\nआरोही वेद 85 92.\nसंच dumps 85 92.\noutput दोन 85 92.\nस्कोअर सराव 85 92.\nआरोही वेद 85 92.\nसंच dumps 85 92.\noutput दोन 85 92.\nस्कोअर शेवट 85 92.\nस्कोअर शेवट dumps करा.\nस्कोअर शेवट ensure off.\nआरोही वेद 85 92.\nसंच dumps 85 92.\noutput दोन 85 92.\nस्कोअर समाप्त 85 92.\nस्कोअर समाप्त dumps करा.\nस्कोअर समाप्त ensure off.\nआरोही वेद 85 92.\nसंच dumps 85 92.\noutput दोन 85 92.", code: `import json
+print(json.loads(json.dumps(config)))`,
+        codeLanguage: "python",
+        output: `{'mode': 'dark', 'vol': 70}`,
+      },
+      {
+        title: "Mini Project: स्कोअर जतन",
+        content: "गुणांचा संच JSON string मध्ये जतन करा — आरोही 85, वेद 92.\n\nscores हा dict आहे; json.dumps(scores, ensure_ascii=False) ने तो सुबक JSON string बनतो — देवनागरी अक्षरे तशीच राहतात.\n\nहा string फाईल मधे ठेवल्यास पुढच्या वेळी loads ने परत वाचता येतो — जतन आणि पुनर्स्थापनाचा आराखडा साधा.",
+        code: `import json
+
 scores = {"आरोही": 85, "वेद": 92}
-print(json.dumps(scores, ensure_ascii=False))`, codeLanguage: "python", output: "{\"आरोही\": 85, \"वेद\": 92}" },
+print(json.dumps(scores, ensure_ascii=False))`,
+        codeLanguage: "python",
+        output: `{"आरोही": 85, "वेद": 92}`,
+      },
     ],
     practiceQuestions: [
       "CSV मध्ये काय असतो?",
@@ -802,9 +1275,14 @@ print(json.dumps({"भाषा": "मराठी"}, ensure_ascii=False))`,
     summary: "assert, छोट्या test फंक्शन्स मध्ये रचना — कोड बदलल्यावर आधीच पडताळणी.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "सामान्य assert तपासणी — अट खरी नसल्यास AssertionError:\n• assert अट, \"message\"\n• test function मध्ये छोट्याछोट्या तपासण्या\n• त्यांना आधीच चालवणे — bug लवकर सापडतो\n• नंतर pytest/unittest यांमध्ये वाढवता\npytest वाढ हेच सार.\npytest वाढ आज शिकतो.\npytest उद्या हेच सार.\npytest उद्या आज शिकतो.\nframework वाढ हेच सार.\nframework वाढ आज आणखी.\nframework उद्या हेच सार.\nframework उद्या आज व्यापक.\nपडताळणी आज संपले.\nचार मुद्दे आज पूर्ण.\nचार मुद्दे अभिनंदन.\nशेवटी नोंदी आज पूर्ण.\nशेवटी नोंदी अभिनंदन." },
-      { title: "2. सोप्या मराठीत समज", content: "आणखी कोड लिहिण्यापूर्वी \"मी केलेले पक +1 चा हिशोब\" प्रमाणित करून घेता. अट अयशस्वी झाल्यावर ओरडते. छोट्या तपासण्यांचा \"रक्षक\" — कोड बदलल्यावर आधीच बोर्ड लावतो.\nहिशोब प्रमाण पक +1.\nहिशोब प्रमाण आधीच पडताळा.\nहिशोब प्रमाण बदल नंतर.\nहिशोब प्रमाण शांत न रहा.\nओरडते अपयश पक +1.\nरक्षक बोल्ड पक +1.\nbug लवकर पक +1." },
-      { title: "3. Syntax", content: "पहिले assert:", code: `def double(x):
+      {
+        title: "assert — चूक आधीच पकडणे",
+        content: "आणखी कोड लिहिण्यापूर्वी एक प्रश्न विचारा: 'मी केलेला बदल योग्य ना?' याची तपासणी assert करते — अट खरी असेल तर काहीच होत नाही, अट खोटी असेल तर लगेच AssertionError.\n\nअसं शेवटी काय? छोट्या तपासण्यांचा हा रक्षक आहे. कोड बदलला की आधीचे निकाल उलटला तर assert आवाज देतो — bug लवकर सापडतो.\n\nउदा. double(x) ही function दुप्पट देते; तिची पडताळणी तीन assert ने केली — positive, zero आणि negative साठी.",
+      },
+      {
+        title: "Syntax: पहिले assert",
+        content: "assert ची रचना दोन भागांची: assert अट — किंवा assert अट, \"संदेश\". अट खोटी असेल तर संदेश AssertionError सोबत दिसतो.\n\ntest_double ही function तीन assert तपासते: double(2) == 4, double(0) == 0 आणि double(-3) == -6. तिन्ही अटी खऱ्या असल्यामुळे function पुढे सरकते.\n\nशेवटी \"सगळे पास!\" परत मिळतं. कोणतीही अट खोटी झाली असती तर तिथेच उरकलं आणि पुढची ओळ कधीही चालली नसती.",
+        code: `def double(x):
     return x * 2
 
 def test_double():
@@ -813,8 +1291,14 @@ def test_double():
     assert double(-3) == -6
     return "सगळे पास!"
 
-print(test_double())`, codeLanguage: "python", output: "सगळे पास!" },
-      { title: "4. उदाहरणे", content: "assert capture करणे:", code: `def divide(a, b):
+print(test_double())`,
+        codeLanguage: "python",
+        output: `सगळे पास!`,
+      },
+      {
+        title: "assert चा पराभव पकडणे",
+        content: "assert ने उभा केलेला AssertionError except मध्ये पकडता येतो — त्यामुळे programme कोसळत नाही.\n\ndivide ही function भागाकार करते, पण divisor शून्य असेल तर अट खोटी — assert b != 0, \"शून्याने भागाकार नको\" उभा होतो.\n\ndivide(10, 2) सरळ 5.0 देतो. divide(10, 0) मात्र AssertionError उभा करतो — तो except मध्ये पकडून 'catch: शून्याने भागाकार नको' दिसतं.",
+        code: `def divide(a, b):
     assert b != 0, "शून्याने भागाकार नको"
     return a / b
 
@@ -822,8 +1306,15 @@ print(divide(10, 2))
 try:
     divide(10, 0)
 except AssertionError as e:
-    print("catch:", e)`, codeLanguage: "python", output: "5.0\ncatch: शून्याने भागाकार नको" },
-      { title: "5. वास्तविक जीवनातील उदाहरण", content: "छोटी test सूची:", code: `def add(a, b):
+    print("catch:", e)`,
+        codeLanguage: "python",
+        output: `5.0
+catch: शून्याने भागाकार नको`,
+      },
+      {
+        title: "वास्तविक उदाहरण: छोटी test सूची",
+        content: "मोठ्या सूचीत अनेक उदाहरणे ठेवून एकाच वेळी सगळ्या तपासता येतात. add(1, 2) हवं 3; add(-1, 1) हवं 0; add(2, 2) हवं 5 — इथे जाणूनबुजून चूक आहे.\n\nfor got, want in tests: — प्रत्येक जोडीसाठी got (मिळालेले) आणि want (अपेक्षित) तुलना होते. got == want असेल तर 'पास', नाही तर 'नापास: मिळाले 4, हवे 5'.\n\noutput मध्ये पहिल्या दोन पास, तिसरी नापास — चूक कोणत्या उदाहरणात आहे ते लगेच सापडतं. हा नमुना पुढे pytest सारख्या testing framework मध्ये विस्तारतो.",
+        code: `def add(a, b):
     return a + b
 
 tests = [
@@ -835,21 +1326,44 @@ for got, want in tests:
     if got == want:
         print("पास")
     else:
-        print(f"नापास: मिळाले {got}, हवे {want}")`, codeLanguage: "python", output: "पास\nपास\nनापास: मिळाले 4, हवे 5" },
-      { title: "6. सामान्य चुका", content: "✗ assert च्या जागी प्रिंट तपासणे\n✗ कोडमधील critical checks मध्ये assert वापरणे (optimization ने बंद होते)\n✗ test च्या नावाला test_ उपसर्ग न देणे — पुढे framework चालणार नाही", code: `def half(x):
+        print(f"नापास: मिळाले {got}, हवे {want}")`,
+        codeLanguage: "python",
+        output: `पास
+पास
+नापास: मिळाले 4, हवे 5`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ assert च्या जागी फक्त print ने तपासणे — print दिसतंच असे नाही तर पडताळणी होते; assert ची निकालात अट असते.\n\n✗ कोडमधील critical checks मध्ये assert वापरणे — Python optimization ने assert काढून टाकले जाऊ शकतात; खरी तपासणी if/raise ने करा.\n\n✗ test function चे नाव test_ ने सुरू न करणे — पुढे pytest सारखा framework तेच नाव शोधतो; त्या उपसर्गाशिवाय test चालत नाही.\n\nखाली half चे दोन assert सरळ file स्तरावर लिहिले आहेत — दोन्ही पास, नंतर print.",
+        code: `def half(x):
     return x // 2
 
 assert half(10) == 5
 assert half(7) == 3
-print("test_double पास")`, codeLanguage: "python", output: "test_double पास" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• assert = विकास-काळातील तपासणी\n• test functions लहान, एक विषय\n• नियमित चालवा — प्रत्येक बदलानंतर\n• coverage — मुख्य जोखीम झाकणे" },
-      { title: "8. Interactive", content: "खेळण्यासाठी:", code: `def is_even(n):
+print("test_double पास")`,
+        codeLanguage: "python",
+        output: `test_double पास`,
+      },
+      {
+        title: "नोंदी: test चे नियम",
+        content: "testing ची चार सूत्रं व्यवस्थित धरा:\n\n• assert = विकास-काळातील तपासणी\n\n• test functions लहान आणि एकच विषय दाखवणारी\n\n• प्रत्येक बदलानंतर ती नियमितपणे चालवा\n\n• coverage — मुख्य जोखीम आणि साधा मार्ग दोन्ही झाकणे\n\nकोड बदलला की test हीच तुमची पहिली आणि निश्चित तपासणी असते; मोठा project होताच त्यासाठी pytest सारखे framework उपयुक्त ठरतात.",
+      },
+      {
+        title: "Interactive: is_even तपासणी",
+        content: "कृती: is_even function — संख्या सम असेल तर True, नाही तर False. दोन्ही अवस्था assert ने पडताळा.\n\nassert is_even(4) is True आणि assert is_even(7) is False — सम आणि विषम संख्येची दोन्ही उदाहरणे झाकली.\n\nएक assert खोटं झालं तर पुढची ओळ कधीही चालत नाही — hence output 'सगळे निकाल पास' म्हणजे दोन्ही अटी खऱ्या.",
+        code: `def is_even(n):
     return n % 2 == 0
 
 assert is_even(4) is True
 assert is_even(7) is False
-print("सगळे निकाल पास")`, codeLanguage: "python", output: "सगळे निकाल पास" },
-      { title: "Mini Project — ग्रेडिंग test", content: "ग्रेडचे निर्णय पडताळणे:", code: `def grade(m):
+print("सगळे निकाल पास")`,
+        codeLanguage: "python",
+        output: `सगळे निकाल पास`,
+      },
+      {
+        title: "Mini Project: ग्रेडिंग test",
+        content: "ग्रेड ठरवणाऱ्या function च्या निर्णयांची पडताळणी करा. grade ही function गुणांनुसार A, B किंवा C श्रेणी देतो.\n\nchecks या सूचीत तीन उदाहरणे — grade(90) A, grade(60) B, grade(10) C. प्रत्येक जोडी for मध्ये assert got == want ने तपासली.\n\nतीनही अटी खऱ्या असल्यामुळे output 'ग्रेड test पास'. गुणांच्या सीमा (75, 35) बदलल्या तर याच test ने चूक लगेच अधोरेखित होते.",
+        code: `def grade(m):
     if m >= 75:
         return "A"
     if m >= 35:
@@ -863,7 +1377,10 @@ checks = [
 ]
 for got, want in checks:
     assert got == want, f"grade({got}) != {want}"
-print("ग्रेड test पास")`, codeLanguage: "python", output: "ग्रेड test पास" },
+print("ग्रेड test पास")`,
+        codeLanguage: "python",
+        output: `ग्रेड test पास`,
+      },
     ],
     practiceQuestions: [
       "assert अट अयशस्वी झाल्यावर काय?",
@@ -905,9 +1422,14 @@ print("all passed")`,
     summary: "dataclass, JSON, function objects, generator — सगळं एकत्र करून लायब्ररी व्यवस्थापन.",
     levelLabel: L6_LABEL,
     sections: [
-      { title: "1. संकल्पना", content: "आत्ताचे सगळे concept राबवू: dataclass पुस्तक, JSON जतन, function-object dynamic lookup, generator.\n• Book → dataclass\n• Library → add/find\n• shelf.json → जतन/लोड\n• generator क्रमांक पुढे" },
-      { title: "2. सोप्या मराठीत समज", content: "लायब्ररीची नोंदवही — पुस्तकांची माहिती, शोध, जतन. \"कोणत्या लेखकाने लिहिले\" विचारलं तर library फक्त शोधते. Junior संपणारं आणि दर पुस्तकाची माहिती ठिकठिकाणी आहे — ही संपूर्ण व्यवस्था." },
-      { title: "3. Step 1 - पुस्तक माहिती", content: "Book dataclass:", code: `from dataclasses import dataclass
+      {
+        title: "लायब्ररी व्यवस्थापन — project दृष्टी",
+        content: "ही project — लायब्ररीची नोंदवही. पुस्तकांची माहिती ठेवणे, शोधणे आणि जतन करणे. प्रश्न विचारला ('कोणत्या लेखकाने लिहिले?') तर library ती माहिती शोधते; संपूर्ण व्यवस्था डिझाईन तुमची.\n\nआत्तापर्यंतचे concept एकत्र राबवतो:\n\n• Book → dataclass मध्ये शीर्षक आणि लेखक\n\n• Library → add आणि find या function-object वरील dynamic शोध\n\n• shelf.json → JSON जतन/लोड\n\n• generator → क्रमांक पुढेचा\n\nहीच दृष्टी — माहिती, तिच्यावर क्रिया आणि जतन — खऱ्या applications मध्येही तीचच असते.",
+      },
+      {
+        title: "Step 1: पुस्तकाची माहिती dataclass ने",
+        content: "पुस्तकाला दोन गुणधर्म — शीर्षक आणि लेखक. Book हा dataclass बनवला की __init__ आणि __repr__ आपोआप येतात.\n\nb = Book(\"पानिपत\", \"विश्वास पाटील\") ने वस्तू बनते आणि print(b) ने तिचं सुबक स्वरूप दिसतं.\n\nपुस्तकाचे गुणधर्म वाढवायचे — pages, price — तर फक्त ओळी जोडा; बाकी यंत्रणा तशीच राहते.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Book:
@@ -915,8 +1437,14 @@ class Book:
     author: str
 
 b = Book("पानिपत", "विश्वास पाटील")
-print(b)`, codeLanguage: "python", output: "Book(title='पानिपत', author='विश्वास पाटील')" },
-      { title: "4. Step 2 - Library व शोध", content: "dynamic attribute शोध (getattr):", code: `from dataclasses import dataclass
+print(b)`,
+        codeLanguage: "python",
+        output: `Book(title='पानिपत', author='विश्वास पाटील')`,
+      },
+      {
+        title: "Step 2: Library आणि dynamic शोध",
+        content: "Library वर्ग पुस्तकांची सूची ठेवतो. add मुळे पुस्तक जोडलं जातं आणि find कोणताही गुणधर्म घेऊन त्यावर शोधतो.\n\nfind मध्ये getattr(book, key) वापरतात — key ही 'title' असो किंवा 'author', dynamic पद्धतीने तोच गुणधर्म मिळतो. जुळणी आढळल्यास ते पुस्तक, नाहीतर None.\n\nlib.add जोडल्यावर find(\"author\", \"विश्वास पाटील\") ते पुस्तक देतो; find(\"title\", \"असलेली पुस्तके\") सारख्या नसलेल्या नावावर None.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Book:
@@ -941,8 +1469,15 @@ lib = Library()
 lib.add(Book("पानिपत", "विश्वास पाटील"))
 lib.add(Book("श्रीमान योगी", "र. धों. कर्वे"))
 print(lib.find("author", "विश्वास पाटील"))
-print(lib.find("title", "असलेली पुस्तके"))`, codeLanguage: "python", output: "Book(title='पानिपत', author='विश्वास पाटील')\nNone" },
-      { title: "5. Step 3 - JSON जतन", content: "data फाइलमध्ये ठेवणे:", code: `import json
+print(lib.find("title", "असलेली पुस्तके"))`,
+        codeLanguage: "python",
+        output: `Book(title='पानिपत', author='विश्वास पाटील')
+None`,
+      },
+      {
+        title: "Step 3: JSON file मध्ये जतन",
+        content: "पुस्तके फाईल मध्ये जतन करण्यासाठी JSON ची मदत. asdict(b) प्रत्येक dataclass चा dict बनवतो आणि json.dump तो संग्रह फाईल मधे लिहितो.\n\nपुन्हा open करून json.load ने ते परत वाचतो. saved ही list — len(saved) 2, आणि saved[1][\"title\"] दुसऱ्या पुस्तकाचे शीर्षक मृत्युंजय.\n\nensure_ascii=False मुळे मराठी अक्षरे फाईल मध्ये तशीच राहतात — जतन झालेला data पुन्हा व्यवस्थित उघडतो.",
+        code: `import json
 from dataclasses import dataclass, asdict
 
 @dataclass
@@ -956,10 +1491,22 @@ with open("shelf.json", "w") as f:
 
 with open("shelf.json") as f:
     saved = json.load(f)
-print(len(saved), saved[1]["title"])`, codeLanguage: "python", output: "2 मृत्युंजय" },
-      { title: "6. सामान्य चुका", content: "✗ CSV/JSON file दुसऱ्या directory मध्ये — कोड चालत नाही\n✗ dataclass सोबत getattr चा गैरवापर\n✗ asdict न गुंडाळून dump of dataclass — error\n✗ file open state सोडणे — with वापरा" },
-      { title: "7. महत्त्वाच्या नोंदी", content: "• dataclass + asdict → JSON उत्तम जोड\n• getattr(book, key) — attributes गतिशील\n• JSON जतन bag/navigation\n• छोटे modules — मोठी व्यवस्था" },
-      { title: "8. Interactive", content: "खेळण्यासाठी:", code: `from dataclasses import dataclass
+print(len(saved), saved[1]["title"])`,
+        codeLanguage: "python",
+        output: `2 मृत्युंजय`,
+      },
+      {
+        title: "सामान्य चुका आणि उपाय",
+        content: "✗ फाईल दुसऱ्या directory मध्ये ठेवणे — कोड चालणाऱ्या ठिकाणापेक्षा वेगळी जागा निवडल्यास file सापडत नाही; working directory समोर ठेवा.\n\n✗ dataclass सोबत getattr चा गैरवापर — getattr हा key ने गुणधर्म शोधतो; key चं नाव पुस्तकात नसलेलं असेल तर None मिळतं, गंभीर त्रुटी नाही.\n\n✗ asdict न गुंडाळून dump of dataclass — json.dump थेट Book वस्तूला नेता येत नाही; [asdict(b) for b in books] करून dict सूची द्या.\n\n✗ file open state सोडणे — with हा ब्लॉक फाईल आपोआप बंद करतो; तो वापरा.",
+      },
+      {
+        title: "concept चा मेळ — नोंदी",
+        content: "ह्या project मध्ये सगळे concept कसे जोडले आहेत ते लक्षात ठेवा:\n\n• dataclass + asdict → JSON साठी उत्तम जोड\n\n• getattr(book, key) — गुणधर्म गतिशीलपणे मिळतो\n\n• JSON जतन — data फाईल मधे बसतो, program नसतानाही उपलब्ध\n\n• छोटे modules — मोठी व्यवस्था, प्रत्येकाची जबाबदारी थोडी\n\nइतकं केल्यावर पुस्तकांची सूची जोडणे, शोधणे आणि फाईल मधे जतन करणे — एका ठिकाणी होतं. ",
+      },
+      {
+        title: "Interactive: पुस्तकांची यादी",
+        content: "कृती: दोन पुस्तकांनी भरलेली list बनवा आणि तिचा आकार व पहिल्या पुस्तकाचा लेखक दाखवा.\n\nlib ही list; lib.append(Book(...)) ने पुस्तके जोडल्यावर len(lib) 2 आणि lib[0].author आरोही दिसतो.\n\nहेच तत्त्व Library वर्गात वापरलं — add ने जोडणे, अभिगमाने वाचणे. छोट्या list मधे तेच दिसते.",
+        code: `from dataclasses import dataclass
 
 @dataclass
 class Book:
@@ -969,15 +1516,24 @@ class Book:
 lib = []
 lib.append(Book("Python", "आरोही"))
 lib.append(Book("मराठी", "वेद"))
-print(len(lib), lib[0].author)`, codeLanguage: "python", output: "2 आरोही" },
-      { title: "Mini Project - वाचन अनुक्रमणिका", content: "generator ने पुढील क्रमांक:", code: `def book_ids(start=1):
+print(len(lib), lib[0].author)`,
+        codeLanguage: "python",
+        output: `2 आरोही`,
+      },
+      {
+        title: "Mini Project: वाचन अनुक्रमणिका",
+        content: "प्रत्येक पुस्तकाला क्रमांक द्यायचा असेल तर generator वापरा — book_ids कोणत्याही सुरुवातीपासून अखंड क्रमांक देते.\n\nids = book_ids(101) मुळे 101 पासून सुरू होतो; पुढील तीन next (ids) कॉल मिळतात 101, 102, 103.\n\nक्रमांक कुठे थांबे हे ठरवणं data ला ठाऊक नसतं; generator फक्त पुढे पुढे देतो — इथेच किती हवे ते तुम्ही ठरवता.",
+        code: `def book_ids(start=1):
     num = start
     while True:
         yield num
         num += 1
 
 ids = book_ids(101)
-print(next(ids), next(ids), next(ids))`, codeLanguage: "python", output: "101 102 103" },
+print(next(ids), next(ids), next(ids))`,
+        codeLanguage: "python",
+        output: `101 102 103`,
+      },
     ],
     practiceQuestions: [
       "getattr मध्ये काय होतं?",
