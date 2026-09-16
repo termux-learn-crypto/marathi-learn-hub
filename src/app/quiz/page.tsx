@@ -30,7 +30,7 @@ export default function QuizPage() {
               return (
                 <div key={cat.id}>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className={`w-6 h-6 rounded ${cat.color} flex items-center justify-center text-sm`}>{cat.icon}</span>
+                    <span className={`category-box w-6 h-6 rounded bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-sm`}>{cat.icon}</span>
                     <h2 className="font-semibold">{cat.name}</h2>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

@@ -10,7 +10,7 @@ import { TutorialCard } from "@/components/Cards";
 import { Fragment } from "react";
 import TutorialActions from "./TutorialActions";
 import AdUnit from "@/components/AdUnit";
-import { siteUrl } from "@/lib/site";
+import { siteUrl, telegramUrl } from "@/lib/site";
 
 interface Props {
   params: { slug: string };
@@ -264,6 +264,22 @@ export default function TutorialDetailPage({ params }: Props) {
 
         {/* Practice/Complete button */}
         <TutorialActions slug={tutorial.slug} marathiTitle={tutorial.marathiTitle} showComplete />
+
+        {/* Community CTA */}
+        <div className="mt-10 p-6 rounded-2xl bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-center">
+          <h3 className="text-lg font-semibold marathi">🤔 तुम्हाला अजून प्रश्न आहेत?</h3>
+          <p className="text-gray-600 dark:text-gray-300 mt-2 marathi">
+            आमच्या Telegram group मध्ये सामील व्हा आणि तुमचे doubts आमच्या समुदायात सोडवा!
+          </p>
+          <a
+            href={telegramUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+          >
+            📱 Telegram Group मध्ये सामील व्हा
+          </a>
+        </div>
 
         {/* Related topics */}
         {relatedTuts.length > 0 && (

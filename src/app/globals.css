@@ -27,6 +27,40 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+/* Smooth dark/light mode transitions for theme-aware elements */
+a, button, input, select, textarea, .card-hover, .category-box, .chip {
+  transition-property: background-color, border-color, color, box-shadow, transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+/* Smooth scroll for in-page CTA anchors (sticky navbar offset) */
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Gradient category icon boxes */
+.category-box {
+  background-size: 100% 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.category-box:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Filter pills */
+.filter-pill {
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+.filter-pill-active {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
 .marathi {
   font-family: 'Noto Sans Devanagari', sans-serif;
 }

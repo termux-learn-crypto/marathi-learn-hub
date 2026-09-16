@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { categories } from "@/data/categories";
+import { telegramUrl } from "@/lib/site";
+
+const groupUrl = telegramUrl();
+
+const socials = [
+  { href: "https://github.com/termux-learn-crypto/marathi-learn-hub", label: "GitHub", icon: "🐙" },
+  { href: groupUrl, label: "Telegram", icon: "📱" },
+];
 
 export default function Footer() {
   return (
@@ -23,6 +31,7 @@ export default function Footer() {
               <li><Link href="/tutorials" className="hover:text-primary-600">Tutorials</Link></li>
               <li><Link href="/projects" className="hover:text-primary-600">Projects</Link></li>
               <li><Link href="/quiz" className="hover:text-primary-600">Quiz</Link></li>
+              <li><Link href="/community" className="hover:text-primary-600">Community</Link></li>
               <li><Link href="/glossary" className="hover:text-primary-600">शब्दकोश (Glossary)</Link></li>
             </ul>
           </div>
@@ -51,8 +60,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Marathi Learn Hub • मोफत मराठी शिक्षा
+        <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                >
+                  <span>{s.icon}</span>
+                  {s.label}
+                </a>
+              ))}
+            </div>
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Marathi Learn Hub • Open Source & 100% मोफत
+            </p>
+          </div>
         </div>
       </div>
     </footer>

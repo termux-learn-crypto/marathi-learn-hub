@@ -12,14 +12,16 @@ export function CategoryCard({ id }: { id: string }) {
   return (
     <Link
       href={`/category/${cat.id}`}
-      className="card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+      className="card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-transparent hover:ring-2 hover:ring-primary-400/50 dark:hover:ring-primary-500/40"
     >
-      <div className={`w-12 h-12 rounded-lg ${cat.color} flex items-center justify-center text-2xl mb-3`}>
+      <div
+        className={`category-box w-12 h-12 rounded-lg bg-gradient-to-br ${cat.gradient} flex items-center justify-center text-2xl mb-3`}
+      >
         {cat.icon}
       </div>
       <h3 className="font-semibold marathi">{cat.name}</h3>
       <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{cat.description}</p>
-      <span className="inline-block mt-3 text-xs font-medium text-primary-600 bg-primary-50 dark:bg-primary-900/50 px-2 py-1 rounded">
+      <span className={`inline-block mt-3 text-xs font-medium px-2 py-1 rounded ${cat.chip}`}>
         {count} lessons
       </span>
     </Link>
@@ -43,7 +45,7 @@ export function TutorialCard({ tutorial }: { tutorial: Tutorial }) {
       className="card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
     >
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs">{cat?.icon} {cat?.name}</span>
+        <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${cat?.chip || ""}`}>{cat?.icon} {cat?.name}</span>
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${diffColor}`}>{diffLabel}</span>
       </div>
       <h3 className="font-semibold marathi mb-2">{tutorial.marathiTitle}</h3>
@@ -71,7 +73,7 @@ export function ProjectCard({ project }: { project: Project }) {
       className="card-hover block p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
     >
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs">{cat?.icon} {cat?.name}</span>
+        <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${cat?.chip || ""}`}>{cat?.icon} {cat?.name}</span>
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${diffColor}`}>{project.difficulty}</span>
       </div>
       <h3 className="font-semibold marathi mb-2">{project.marathiTitle}</h3>

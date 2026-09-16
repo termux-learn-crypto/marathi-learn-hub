@@ -14,6 +14,7 @@ const navItems = [
   { href: "/quiz", label: "🧩 Quiz" },
   { href: "/tools", label: "🧰 Tools" },
   { href: "/glossary", label: "📖 Glossary" },
+  { href: "/community", label: "👥 Community" },
   { href: "/notes", label: "📒 My Progress" },
   { href: "/search", label: "🔎 Search" },
 ];
