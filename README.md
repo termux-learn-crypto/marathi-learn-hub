@@ -4,13 +4,15 @@
 
 ## ✨ Features
 
-- **14 Categories** — Computer, Web, Python, Android, AI, Electronics, Electrical, Linux, Termux, Cyber Security, DIY, Digital Skills, Freelancing, General Knowledge
+- **450+ Marathi lessons across 14 categories** — Computer, Web, Python, Android, AI, Electronics, Electrical, Linux, Termux, Cyber Security, DIY, Digital Skills, Freelancing, General Knowledge
 - **Interactive Code Editor** — Browser मध्येच HTML/CSS/JS run करा (Python output simulated; backend/Pyodide नंतर जोडता येईल)
-- **Quiz System** — प्रत्येक topic नंतर quiz; scores LocalStorage मध्ये save
-- **Search** — Marathi + English दोन्ही भाषांतून
-- **Projects** — Step-by-step मार्गदर्शनासह
-- **Progress Tracking** — Completed lessons, bookmarks, quiz scores (LocalStorage)
-- **Dark/Light Mode** — Mobile-first design
+- **Per-topic Quizzes & Scores** — प्रत्येक lesson नंतर quiz; scores LocalStorage मध्ये save
+- **13 Hands-on Projects** — Step-by-step मार्गदर्शनासह
+- **Search** — Marathi + English दोन्ही भाषांतून (noindex, no crawl bloat)
+- **79-term Glossary** — मराठीत tech terms explained
+- **Developer Tools** — Binary Converter, Text Analyzer, Age Calculator
+- **Progress Tracking & Notes** — Completed lessons, bookmarks, quiz scores, personal notes (LocalStorage)
+- **Dark/Light Mode** — Mobile-first, SEO-ready, PWA-installable
 - **No Login Required** — सर्व content खुले
 
 ## 🚀 Quick Start
@@ -47,28 +49,51 @@ Then `npm run build` works. This is a Termux-only issue — on a normal Linux/ma
 
 ```
 src/
-├── app/                    # Pages (App Router)
-│   ├── page.tsx            # Home
-│   ├── learn/              # सर्व lessons
-│   ├── categories/         # सर्व categories
-│   ├── tutorials/          # सर्व tutorials
-│   ├── tutorial/[slug]/    # Topic detail (code, quiz, related)
-│   ├── projects/           # सर्व projects
-│   ├── project/[id]/       # Project detail
-│   ├── quiz/               # Quiz hub
-│   ├── search/             # Search (Marathi+English)
-│   ├── tools/              # Binary converter, text analyzer, age calc
-│   ├── notes/              # My progress + notes
-│   ├── about/              # About
-│   └── contact/            # Contact
-├── components/             # Navbar, Footer, Cards, CodeEditor, QuizPlayer
-├── data/                   # categories.ts, tutorials.ts, projects.ts
-└── lib/                    # storage.ts (LocalStorage helpers)
+├── app/                          # Pages (App Router)
+│   ├── page.tsx                  # Home
+│   ├── learn/                    # सर्व lessons
+│   ├── categories/               # सर्व categories
+│   ├── category/[id]/            # Category detail
+│   ├── tutorials/                # सर्व tutorials
+│   ├── tutorial/[slug]/          # Topic detail (code, quiz, related)
+│   ├── projects/                 # सर्व projects
+│   ├── project/[id]/             # Project detail
+│   ├── quiz/                     # Quiz hub
+│   ├── search/                   # Search (Marathi+English, noindex)
+│   ├── tools/                    # Binary converter, text analyzer, age calc
+│   ├── notes/                    # Progress + notes (LocalStorage, noindex)
+│   ├── glossary/                 # Tech glossary
+│   ├── about/                    # About
+│   └── contact/                  # Contact
+├── components/                   # Navbar, Footer, Cards, CodeEditor, QuizPlayer
+├── data/
+│   ├── categories.ts             # 14 categories
+│   ├── projects.ts               # 13 projects
+│   ├── glossary.ts               # 79 terms
+│   └── tutorials/                # 450 lessons, organized by category
+│       ├── python/               # python-level1…8
+│       ├── web/html|css|js/      # 28 subject files + web-extra
+│       ├── computer/             # foundation + level1
+│       ├── ai/                   # ai-level1, ai-level2, ai-extra
+│       ├── electronics/          # 5 level files + arduino extra
+│       ├── android/              # android-level1 + extra
+│       └── …                     # linux, termux, electrical, cyber,
+│                                 # digital, freelancing, diy, general
+├── lib/                          # site.ts, ads.ts, lesson-dates.ts, storage.ts
+└── public/
+    ├── icons/                    # PWA icons (192, 512)
+    ├── manifest.json             # PWA manifest
+    └── sw.js                     # Service worker (offline app shell)
 ```
 
 ## 📝 Content
 
-सर्व content `src/data/` मध्ये आहे — नवीन tutorial/quiz/project जोडण्यासाठी तेथे entries वाढवा.
+सर्व content `src/data/` मध्ये आहे — नवीन tutorial/quiz/project जोडण्यासाठी:
+
+- `src/data/tutorials/<category>/` मध्ये नवीन lesson file जोडा (`slug`, `categoryId` सह)
+- `src/data/tutorials.ts` मध्ये तो file import + `tutorials` array मध्ये spread करा
+- `scripts/audit-quiz.js` (duplicate slugs / quiz validity) आणि `scripts/audit-refs.js` (broken related refs) चालवा
+- Quiz/related refs सर्व lessons मध्ये एकसारखे असतील याची खात्री करा
 
 **Marathi + English** — प्रत्येक lesson मध्ये मराठी explanation + English technical terms.
 
@@ -81,4 +106,7 @@ src/
 
 ## 📱 PWA
 
-`public/manifest.json` मध्ये PWA setup आहे — app icon/files नंतर जोडता येतील.
+Installable (manifest + 192/512 icons + `theme_color` + `start_url`). Service worker
+(`public/sw.js`) provides an **offline app shell** — cached home page, manifest, icons
+and `/_next/static/` assets, with network-first navigation. Full lesson content needs
+an internet connection (server-rendered).

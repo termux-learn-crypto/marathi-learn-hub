@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { siteUrl } from "@/lib/site";
 import { adsenseClient, adsenseSlot } from "@/lib/ads";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 
 const defaultTitle = "Marathi Learn Hub — मोफत मराठी शिक्षा";
 const defaultDesc = "मराठीमध्ये कोडिंग, वेब, Python आणि तंत्रज्ञान शिका. Free tutorials, quizzes and interactive projects — Learn programming and tech in Marathi.";
@@ -77,6 +78,7 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen antialiased">
+        <ServiceWorkerRegister />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

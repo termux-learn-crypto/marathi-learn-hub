@@ -1,8 +1,10 @@
 {
+  "id": "/",
   "name": "Marathi Learn Hub - मोफत मराठी शिक्षा",
   "short_name": "MarathiLearn",
   "description": "मोफत शिका • प्रयोग करा • वाढा - Marathi free learning platform",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f8fafc",
   "theme_color": "#0ea5e9",

@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBox from "@/components/SearchBox";
 import { searchTutorials, toTutorialSummary } from "@/data/tutorials";
 import { projects } from "@/data/projects";
 import { TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default async function SearchPage({
   searchParams,
