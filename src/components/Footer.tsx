@@ -28,6 +28,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-3">Learn</h4>
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
               <li><Link href="/learn" className="hover:text-primary-600">सर्व Lessons</Link></li>
+              <li><Link href="/paths" className="hover:text-primary-600">Learning Paths</Link></li>
               <li><Link href="/tutorials" className="hover:text-primary-600">Tutorials</Link></li>
               <li><Link href="/projects" className="hover:text-primary-600">Projects</Link></li>
               <li><Link href="/quiz" className="hover:text-primary-600">Quiz</Link></li>
