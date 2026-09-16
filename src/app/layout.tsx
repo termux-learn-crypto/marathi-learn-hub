@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { siteUrl } from "@/lib/site";
+import { adsenseClient, adsenseSlot } from "@/lib/ads";
 
 const defaultTitle = "Marathi Learn Hub — मोफत मराठी शिक्षा";
 const defaultDesc = "मराठीमध्ये कोडिंग, वेब, Python आणि तंत्रज्ञान शिका. Free tutorials, quizzes and interactive projects — Learn programming and tech in Marathi.";
@@ -66,12 +67,14 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("mlh_dark_mode");if(t!==null){var d=t==="true"}else{d=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches}if(d){document.documentElement.classList.add("dark")}}catch(e){}})();`,
           }}
         />
-        <script
-          async
-          id="adsense-script"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8509787083957252"
-          crossOrigin="anonymous"
-        />
+        {adsenseSlot && (
+          <script
+            async
+            id="adsense-script"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body className="min-h-screen antialiased">
         <script

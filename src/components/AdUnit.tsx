@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
-const ADSENSE_CLIENT =
-  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-8509787083957252";
-const ADSENSE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_SLOT || "";
+import { useEffect } from "react";
+import { adsenseClient, adsenseSlot } from "@/lib/ads";
 
 declare global {
   interface Window {
@@ -13,33 +10,18 @@ declare global {
 }
 
 export default function AdUnit() {
-  const injected = useRef(false);
-
   useEffect(() => {
-    if (!ADSENSE_CLIENT || !ADSENSE_SLOT) {
+    if (!adsenseSlot || !window.adsbygoogle) {
       return;
     }
-
-    if (!document.getElementById("adsense-script")) {
-      const script = document.createElement("script");
-      script.id = "adsense-script";
-      script.async = true;
-      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
-      script.crossOrigin = "anonymous";
-      document.head.appendChild(script);
-    }
-
-    if (!injected.current) {
-      injected.current = true;
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch {
-        // ad slot unavailable
-      }
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {
+      // ad slot unavailable
     }
   }, []);
 
-  if (!ADSENSE_CLIENT || !ADSENSE_SLOT) {
+  if (!adsenseSlot) {
     return null;
   }
 
@@ -48,8 +30,8 @@ export default function AdUnit() {
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
-        data-ad-client={ADSENSE_CLIENT}
-        data-ad-slot={ADSENSE_SLOT}
+        data-ad-client={adsenseClient}
+        data-ad-slot={adsenseSlot}
         data-ad-format="auto"
         data-full-width-responsive="true"
       />

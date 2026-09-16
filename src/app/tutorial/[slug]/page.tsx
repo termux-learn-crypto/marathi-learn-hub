@@ -11,6 +11,7 @@ import { TutorialCard } from "@/components/Cards";
 import { Fragment } from "react";
 import TutorialActions from "./TutorialActions";
 import AdUnit from "@/components/AdUnit";
+import { adFreq } from "@/lib/ads";
 import { siteUrl, telegramUrl } from "@/lib/site";
 
 interface Props {
@@ -83,6 +84,11 @@ export default async function TutorialDetailPage({ params }: Props) {
     .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
   const diffLabel = tutorial.level === "beginner" ? "सोपे" : tutorial.level === "intermediate" ? "मध्यम" : "अवघड";
+
+  const freq = adFreq(tutorial.minutes);
+  const midIdx = Math.floor(tutorial.sections.length / 2);
+  const showMid = freq >= 3 && tutorial.sections.length >= 4;
+  const showEnd = freq >= 2;
 
   const base = siteUrl();
   const tutorialUrl = `${base}/tutorial/${tutorial.slug}`;
@@ -208,7 +214,7 @@ export default async function TutorialDetailPage({ params }: Props) {
                 </div>
               )}
               </section>
-              {(idx + 1) % 4 === 0 && <AdUnit />}
+              {(showMid && idx === midIdx) && <AdUnit />}
             </Fragment>
           ))}
         </div>
@@ -233,7 +239,7 @@ export default async function TutorialDetailPage({ params }: Props) {
           <QuizPlayer slug={tutorial.slug} quiz={tutorial.quiz} />
         </section>
 
-        <AdUnit />
+        {showEnd && <AdUnit />}
 
         {/* Coding Challenge */}
         {tutorial.challenge && (
