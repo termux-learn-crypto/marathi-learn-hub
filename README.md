@@ -24,26 +24,21 @@ npm run build      # Production build
 npm start          # Production server
 ```
 
-## ⚠️ Termux/Android Note (SWC Workaround)
+## ⚠️ Termux/Android Note (WASM Workaround)
 
-Next.js uses SWC (a native binary) for compilation, but on Android/Termux the `@next/swc-android-arm64` package **doesn't exist** for Next 14. To build on Termux:
+Next.js uses SWC (a native binary) for compilation, but on Android/Termux the native `@next/swc-*` package doesn't exist for this platform. To build on Termux the compile step runs via the WASM fallback:
 
-1. Install WASM SWC fallback:
+1. The WASM package (must match your Next version):
    ```bash
-   npm install @next/swc-wasm-nodejs@14.2.33 --no-save
+   npm i -D "@next/swc-wasm-nodejs@15.5.25" --no-save
    ```
-   (matches the version Next 14.2.35 expects internally)
-
-2. Patch `node_modules/next/dist/build/swc/index.js` to force WASM-first on Android:
-   ```js
-   // Change line ~226:
-   async function loadBindings(useWasmBinary = false) {
-   // to:
-   async function loadBindings(useWasmBinary = PlatformName === "android") {
+2. The SWC loader patch (`loadBindings` → WASM-first on Android) is applied automatically:
+   ```bash
+   node scripts/patch-next-swc.js
    ```
-   (the `PlatformName` constant is already defined above)
+   It's also wired as a `postinstall` hook, so it re-applies after every `npm install` — no manual `node_modules` edits needed. Idempotent, and a no-op on any non-Android platform.
 
-Then `npm run build` works. This is a Termux-only issue — on a normal Linux/macOS/Windows machine you don't need this.
+Then `npm run build` works. This is a Termux-only issue — on a normal Linux/macOS/Windows machine you don't need it.
 
 ## 📁 Structure
 
