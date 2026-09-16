@@ -3,6 +3,9 @@ import { tutorials } from "@/data/tutorials";
 import { categories } from "@/data/categories";
 import { projects } from "@/data/projects";
 import { siteUrl } from "@/lib/site";
+import { getLessonDates } from "@/lib/lesson-dates";
+
+const lessonDates = getLessonDates();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl();
@@ -26,11 +29,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "/" ? 1 : 0.7,
   }));
 
-  const tutorialPages: MetadataRoute.Sitemap = tutorials.map((t) => ({
-    url: `${base}/tutorial/${t.slug}`,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  const tutorialPages: MetadataRoute.Sitemap = tutorials.map((t) => {
+    const lastModified = lessonDates[t.slug];
+    return {
+      url: `${base}/tutorial/${t.slug}`,
+      lastModified: lastModified ? new Date(lastModified) : undefined,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    };
+  });
 
   const categoryPages: MetadataRoute.Sitemap = categories.map((c) => ({
     url: `${base}/category/${c.id}`,
