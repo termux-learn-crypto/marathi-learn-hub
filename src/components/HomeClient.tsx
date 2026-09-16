@@ -4,6 +4,7 @@ import { useState, type ReactNode } from "react";
 import { TutorialCard, SectionHeader } from "@/components/Cards";
 import type { Category } from "@/data/categories";
 import type { TutorialSummary } from "@/data/tutorials";
+import ContinueLearning from "@/components/ContinueLearning";
 
 const quickFilters = [
   { id: "all", icon: "🌐", label: "सर्व", chip: "bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300" },
@@ -69,6 +70,8 @@ export default function HomeClient({
           ))}
         </div>
       </section>
+
+      <ContinueLearning />
 
       {children}
 

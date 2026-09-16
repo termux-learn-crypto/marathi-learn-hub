@@ -11,6 +11,7 @@ import QuizPlayer from "@/components/QuizPlayer";
 import { TutorialCard } from "@/components/Cards";
 import { Fragment } from "react";
 import TutorialActions from "./TutorialActions";
+import TrackVisit from "@/components/TrackVisit";
 import AdUnit from "@/components/AdUnit";
 import { adFreq } from "@/lib/ads";
 import { siteUrl, telegramUrl } from "@/lib/site";

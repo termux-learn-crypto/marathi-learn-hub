@@ -6,6 +6,7 @@ const KEYS = {
   bookmarks: "mlh_bookmarks",
   quizScores: "mlh_quiz_scores",
   darkMode: "mlh_dark_mode",
+  lastVisited: "mlh_last_visited",
 };
 
 function safeGet(key: string): string | null {
@@ -125,6 +126,25 @@ export function useDarkMode() {
 
 const NOTES_KEY = "mlh_notes";
 
+// === Last visited ===
+export interface LastVisited {
+  slug: string;
+  date: string;
+}
+
+export function saveLastVisited(slug: string) {
+  safeSet(KEYS.lastVisited, JSON.stringify({ slug, date: new Date().toISOString() }));
+}
+
+export function getLastVisited(): LastVisited | null {
+  const raw = safeGet(KEYS.lastVisited);
+  try {
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
 // === Notes ===
 export interface Note {
   id: string;
@@ -168,6 +188,7 @@ export interface BackupData {
     bookmarks: string[];
     quizScores: QuizScore[];
     notes: Note[];
+    lastVisited: LastVisited | null;
   };
 }
 
@@ -181,6 +202,7 @@ export function exportAll(): BackupData {
       bookmarks: getBookmarks(),
       quizScores: getQuizScores(),
       notes: getNotes(),
+      lastVisited: getLastVisited(),
     },
   };
 }
@@ -198,6 +220,7 @@ export function importAll(json: string): boolean {
   safeSet(KEYS.bookmarks, JSON.stringify(parsed.data.bookmarks ?? []));
   safeSet(KEYS.quizScores, JSON.stringify(parsed.data.quizScores ?? []));
   safeSet(NOTES_KEY, JSON.stringify(parsed.data.notes ?? []));
+  if (parsed.data.lastVisited) safeSet(KEYS.lastVisited, JSON.stringify(parsed.data.lastVisited));
   return true;
 }
 
@@ -206,6 +229,7 @@ export function resetAll() {
   safeSet(KEYS.bookmarks, JSON.stringify([]));
   safeSet(KEYS.quizScores, JSON.stringify([]));
   safeSet(NOTES_KEY, JSON.stringify([]));
+  safeSet(KEYS.lastVisited, JSON.stringify(null));
 }
 
 // === Progress hook ===

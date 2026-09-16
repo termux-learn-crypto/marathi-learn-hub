@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ContinueLearning from "@/components/ContinueLearning";
 import Footer from "@/components/Footer";
 import { tutorials } from "@/data/tutorials";
 import { categories } from "@/data/categories";
@@ -24,6 +25,7 @@ export default function LearnPage() {
   return (
     <>
       <Navbar />
+      <ContinueLearning />
       <main className="max-w-7xl mx-auto px-4 py-8">
         <SectionHeader
           title="📚 Learn - शिका"
