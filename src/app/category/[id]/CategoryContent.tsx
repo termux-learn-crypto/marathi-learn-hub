@@ -13,6 +13,8 @@ import TutorialFilters, {
   TutorialFiltersState,
 } from "@/components/TutorialFilters";
 import { useMemo, useState } from "react";
+import Link from "next/link";
+import { getPathsByCategory } from "@/data/learningPaths";
 
 export default function CategoryContent({
   cat,
@@ -24,6 +26,9 @@ export default function CategoryContent({
   catProjects: Project[];
 }) {
   const [filters, setFilters] = useState<TutorialFiltersState>(defaultTutorialFilters);
+
+  const starter = catTutorials.find((t) => t.level === "beginner") ?? catTutorials[0];
+  const path = getPathsByCategory(cat.id)[0];
 
   const filtered = useMemo(() => applyTutorialFilters(catTutorials, filters), [catTutorials, filters]);
 
@@ -44,6 +49,35 @@ export default function CategoryContent({
             <p className="text-gray-600 dark:text-gray-400 mt-1">{cat.description}</p>
           </div>
         </div>
+
+        {starter && catTutorials.length > 0 && (
+          <div className="mb-6 rounded-2xl border border-primary-200 dark:border-primary-800 bg-primary-50/50 dark:bg-primary-900/20 p-5">
+            <h2 className="font-bold marathi mb-2">🚩 कुठून सुरुवात करू?</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              {path ? (
+                <>
+                  या श्रेणीसाठी एक <span className="font-semibold">Learning Path</span> उपलब्ध आहे —{" "}
+                  <Link href={`/path/${path.id}`} className="text-primary-600 dark:text-primary-300 font-semibold underline">
+                    इथून सुरुवात करा
+                  </Link>
+                  {" "}आणि step-by-step पुढे जा.
+                </>
+              ) : (
+                <>
+                  {"Level 1"} किंवा सगळ्यांत सोपं lesson निवडून सुरुवात करा.
+                </>
+              )}
+            </p>
+            {starter && (
+              <Link
+                href={`/tutorial/${starter.slug}`}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium marathi"
+              >
+                ▶️ पहिलं lesson सुरू करा: {starter.marathiTitle}
+              </Link>
+            )}
+          </div>
+        )}
 
         <SectionHeader
           title="📖 Lessons"

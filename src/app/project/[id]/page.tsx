@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getProject, projects } from "@/data/projects";
+import { tutorials } from "@/data/tutorials";
 import { getCategory } from "@/data/categories";
 import CodeEditor from "@/components/CodeEditor";
 
@@ -53,6 +54,10 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   const cat = project.categoryId ? getCategory(project.categoryId) : undefined;
 
+  const prereqTutorials = tutorials
+    .filter((t) => t.project === project.id)
+    .sort((a, b) => a.title.localeCompare(b.title));
+
   return (
     <>
       <Navbar />
@@ -95,6 +100,28 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </span>
               ))}
             </div>
+          </section>
+        )}
+
+        {prereqTutorials.length > 0 && (
+          <section className="mb-8 rounded-2xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-6">
+            <h2 className="text-xl font-bold marathi mb-2">📚 आधी हे lessons पूर्ण करा</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              हा project करायच्या आधी या lessons मधून जरूर जा — मग प्रोजेक्ट सोपा वाटेल.
+            </p>
+            <ul className="space-y-2">
+              {prereqTutorials.map((t) => (
+                <li key={t.slug}>
+                  <Link
+                    href={`/tutorial/${t.slug}`}
+                    className="flex items-center justify-between gap-2 px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-400 transition-colors"
+                  >
+                    <span className="font-medium marathi">{t.marathiTitle}</span>
+                    <span className="text-xs text-gray-500 shrink-0">⏱ {t.minutes} min</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 
