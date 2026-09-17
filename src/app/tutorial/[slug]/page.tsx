@@ -280,7 +280,7 @@ export default async function TutorialDetailPage({ params }: Props) {
         )}
 
         {/* Quiz */}
-        <section className="mt-10">
+        <section id="quiz" className="mt-10 scroll-mt-24">
           <h2 className="text-2xl font-bold marathi mb-4">🧩 Quiz - तुम्ही किती शिकलात?</h2>
           <QuizPlayer slug={tutorial.slug} quiz={tutorial.quiz} relatedLessons={relatedTuts.map((t) => ({ slug: t.slug, marathiTitle: t.marathiTitle, title: t.title, level: t.level }))} />
         </section>

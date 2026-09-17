@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBox from "@/components/SearchBox";
-import { searchTutorials, toTutorialSummary } from "@/data/tutorials";
+import { searchTutorials, toTutorialSummary, tutorials } from "@/data/tutorials";
+import { searchGlossary } from "@/data/glossary";
 import { projects } from "@/data/projects";
 import { TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
 
@@ -22,6 +23,17 @@ export default async function SearchPage({
   const query = q.trim();
 
   const matchedTutorials = searchTutorials(query);
+  const matchedGlossary = searchGlossary(query);
+  const matchedQuiz = query
+    ? tutorials
+        .map((t) => ({
+          tutorial: t,
+          questions: t.quiz?.filter((qq) =>
+            qq.question.toLowerCase().includes(query.toLowerCase())
+          ) ?? [],
+        }))
+        .filter((r) => r.questions.length > 0)
+    : [];
   const matchedProjects = query
     ? projects.filter(
         (p) =>
@@ -45,7 +57,7 @@ export default async function SearchPage({
 
         <p className="text-sm text-gray-500 mb-4">
           {query
-            ? `"${query}" साठी ${matchedTutorials.length + matchedProjects.length} निकाल`
+            ? `"${query}" साठी ${matchedTutorials.length + matchedProjects.length + matchedGlossary.length + matchedQuiz.reduce((n, r) => n + r.questions.length, 0)} निकाल`
             : `सर्व ${matchedTutorials.length} lessons`}
         </p>
 
@@ -55,6 +67,48 @@ export default async function SearchPage({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {matchedTutorials.map((t) => (
                 <TutorialCard key={t.slug} tutorial={toTutorialSummary(t)} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {matchedGlossary.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-xl font-semibold mb-4">📖 Glossary</h2>
+            <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+              {matchedGlossary.map((g) => (
+                <div key={g.term} className="p-4">
+                  <div className="flex items-start justify-between gap-4 flex-wrap">
+                    <h3 className="font-semibold text-primary-700 dark:text-primary-300">{g.term}</h3>
+                    <span className="text-sm px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 font-medium marathi">
+                      {g.marathiMeaning}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-gray-600 dark:text-gray-300 text-sm">{g.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {matchedQuiz.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-xl font-semibold mb-4">🧩 Quiz Questions</h2>
+            <div className="space-y-3">
+              {matchedQuiz.map((r) => (
+                <div
+                  key={r.tutorial.slug}
+                  className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4"
+                >
+                  <a href={`/tutorial/${r.tutorial.slug}#quiz`} className="font-semibold text-primary-700 dark:text-primary-300 marathi hover:underline">
+                    {r.tutorial.marathiTitle}
+                  </a>
+                  <ul className="mt-2 space-y-1 marathi text-sm text-gray-600 dark:text-gray-300">
+                    {r.questions.map((qq, i) => (
+                      <li key={i}>• {qq.question}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </div>
@@ -71,7 +125,7 @@ export default async function SearchPage({
           </div>
         )}
 
-        {query && matchedTutorials.length === 0 && matchedProjects.length === 0 && (
+        {query && matchedTutorials.length === 0 && matchedProjects.length === 0 && matchedGlossary.length === 0 && matchedQuiz.length === 0 && (
           <div className="text-center py-12">
             <div className="text-5xl mb-4">🔍</div>
             <h3 className="text-lg font-semibold">काहीही सापडले नाही</h3>

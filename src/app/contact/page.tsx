@@ -1,84 +1,84 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { telegramUrl } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "संपर्क करा | Marathi Learn Hub",
+  description: "Marathi Learn Hub च्या साठी Telegram group आणि GitHub Issues द्वारे संपर्क करा.",
+};
+
+const GITHUB_REPO = "https://github.com/termux-learn-crypto/marathi-learn-hub";
+const GITHUB_ISSUES = `${GITHUB_REPO}/issues/new`;
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-    // In production this would send an email or save to backend
-  };
-
   return (
     <>
       <Navbar />
       <main className="max-w-3xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-4xl font-extrabold marathi mb-6 text-center">📩 संपर्क करा</h1>
-        <p className="text-center text-gray-500 mb-8 marathi">
-          तुमच्या सूचना, प्रश्न किंवा feedback आम्हाला पाठवा.
+        <p className="text-center text-gray-500 mb-10 marathi">
+          तुमच्या सूचना, प्रश्न किंवा feedback — आम्ही इथे सक्रिय आहोत:
         </p>
 
-        {sent ? (
-          <div className="p-8 rounded-2xl bg-green-50 dark:bg-green-900/30 text-center">
-            <div className="text-5xl mb-4">✅</div>
-            <h2 className="text-xl font-semibold mb-2">धन्यवाद!</h2>
-            <p className="text-gray-600 dark:text-gray-300 marathi">
-              तुमचा message आम्हाला मिळाला. लवकरच तुम्हाला उत्तर देऊ.
-            </p>
-            <button
-              onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
-              className="mt-4 px-4 py-2 text-sm rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-            >
-              नवीन message लिहा
-            </button>
+        <div className="space-y-5">
+          <a
+            href={telegramUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-6 rounded-2xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
+          >
+            <span className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-2xl shrink-0">
+              ✈️
+            </span>
+            <div>
+              <h2 className="text-lg font-semibold marathi">Telegram Community</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-300 marathi mt-1">
+                doubts विचारा, community मध्ये चर्चा करा. सर्वात जलद उत्तर येथे मिळेल.
+              </p>
+            </div>
+          </a>
+
+          <a
+            href={GITHUB_ISSUES}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <span className="w-12 h-12 rounded-xl bg-gray-800 dark:bg-gray-600 text-white flex items-center justify-center text-2xl shrink-0">
+              🐙
+            </span>
+            <div>
+              <h2 className="text-lg font-semibold marathi">GitHub Issue</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-300 marathi mt-1">
+                bug आढळला, नवीन topic सुचवायचं असेल किंवा सुधारणा हवी असेल — Issue खोला.
+              </p>
+            </div>
+          </a>
+
+          <div className="flex items-center gap-4 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+            <span className="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-2xl shrink-0">
+              📧
+            </span>
+            <div>
+              <h2 className="text-lg font-semibold marathi">ईमेल</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-300 marathi mt-1">
+                सविस्तर प्रतिसादासाठी:{" "}
+                <a href="mailto:contact@marathi-learn-hub.example" className="text-primary-600 underline">
+                  contact@marathi-learn-hub.example
+                </a>
+              </p>
+            </div>
           </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-1 marathi">तुमचे नाव</label>
-              <input
-                type="text"
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-primary-500"
-                placeholder="तुमचे नाव"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">ईमेल</label>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 outline-none focus:ring-2 focus:ring-primary-500"
-                placeholder="you@example.com"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1 marathi">तुमचा Message</label>
-              <textarea
-                required
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 outline-none min-h-[150px] focus:ring-2 focus:ring-primary-500 marathi"
-                placeholder="तुमचा message..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg marathi"
-            >
-              📨 Send Message
-            </button>
-          </form>
-        )}
+        </div>
+
+        <p className="text-center text-xs text-gray-400 mt-10">
+          Project open-source आहे —{" "}
+          <a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer" className="underline">
+            GitHub
+          </a>{" "}
+          वर स्रोत कोड पहा.
+        </p>
       </main>
       <Footer />
     </>

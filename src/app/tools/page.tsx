@@ -133,6 +133,91 @@ function AgeCalculator() {
   );
 }
 
+function HexConverter() {
+  const [value, setValue] = useState("");
+  const [result, setResult] = useState<{ mode: "dec" | "hex"; value: string } | null>(null);
+
+  const convert = (input: string) => {
+    setValue(input);
+    if (!input.trim()) {
+      setResult(null);
+      return;
+    }
+    const trimmed = input.trim();
+    if (/^#?[0-9a-fA-F]{1,8}$/.test(trimmed.replace(/^#/, ""))) {
+      const clean = trimmed.replace(/^#/, "");
+      setResult({ mode: "hex", value: parseInt(clean, 16).toString(10) });
+    } else {
+      const num = parseInt(trimmed, 10);
+      if (!isNaN(num)) setResult({ mode: "dec", value: num.toString(16).toUpperCase() });
+      else setResult(null);
+    }
+  };
+
+  return (
+    <div className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
+      <h3 className="text-xl font-bold marathi mb-4">🅰️ Hex <span className="text-sm font-normal text-gray-500">/ Decimal</span></h3>
+      <p className="text-xs text-gray-500 mb-3 marathi">#FF आणि 255 दोन्ही स्वीकारतो — कोणतीही संख्या लिहा.</p>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => convert(e.target.value)}
+        placeholder="उदा. 255 किंवा FF"
+        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 outline-none mb-3 focus:ring-2 focus:ring-primary-500 font-mono"
+      />
+      {result && (
+        <div className="p-3 rounded-lg bg-green-50 dark:bg-green-900/30 font-mono text-lg break-all">
+          {result.mode === "hex" ? `Decimal: ${result.value}` : `Hex: ${result.value}`}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ColorPicker() {
+  const [color, setColor] = useState("#6366f1");
+
+  const hex = color;
+  const rgb = `${parseInt(color.slice(1, 3), 16)}, ${parseInt(color.slice(3, 5), 16)}, ${parseInt(color.slice(5, 7), 16)}`;
+
+  return (
+    <div className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
+      <h3 className="text-xl font-bold marathi mb-4">🎨 Color Picker</h3>
+      <div
+        className="w-full h-24 rounded-xl mb-4 border border-gray-200 dark:border-gray-600"
+        style={{ backgroundColor: color }}
+      ></div>
+      <input
+        type="color"
+        value={color}
+        onChange={(e) => setColor(e.target.value)}
+        className="w-full h-12 rounded-lg border border-gray-300 dark:border-gray-600 cursor-pointer"
+        aria-label="Color picker"
+      />
+      <div className="mt-4 space-y-2">
+        <div className="flex justify-between items-center p-2 rounded bg-gray-50 dark:bg-gray-700 text-sm font-mono">
+          <span>HEX</span>
+          <button
+            onClick={() => navigator.clipboard?.writeText(hex)}
+            className="text-primary-600 dark:text-primary-300 font-semibold"
+          >
+            {hex} 📋
+          </button>
+        </div>
+        <div className="flex justify-between items-center p-2 rounded bg-gray-50 dark:bg-gray-700 text-sm font-mono">
+          <span>RGB</span>
+          <button
+            onClick={() => navigator.clipboard?.writeText(`rgb(${rgb})`)}
+            className="text-primary-600 dark:text-primary-300 font-semibold"
+          >
+            rgb({rgb}) 📋
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ToolsPage() {
   return (
     <>
@@ -146,13 +231,15 @@ export default function ToolsPage() {
           <BinaryConverter />
           <TextCounter />
           <AgeCalculator />
+          <HexConverter />
+          <ColorPicker />
         </div>
 
         <div className="mt-8 rounded-2xl border border-dashed border-gray-300 dark:border-gray-600 p-8 text-center">
           <div className="text-4xl mb-3">🔧</div>
           <h3 className="text-lg font-semibold mb-2">आणखी Tools लवकरच</h3>
           <p className="text-gray-500 marathi">
-            हेक्स converter, unit converter, color picker आणि अजून बरीच उपयुक्त साधने नवीन version मध्ये जोडली जातील.
+            unit converter, cipher tools आणि इतर साधने नवीन version मध्ये जोडली जातील.
           </p>
         </div>
       </main>

@@ -56,8 +56,20 @@ export default function CodeEditor({ code, language = "html", initialOutput }: C
   const [codeValue, setCodeValue] = useState(code);
   const [doc, setDoc] = useState<string>("");
   const [pyState, setPyState] = useState<"idle" | "loading" | "ready" | "error">("idle");
+  const [copied, setCopied] = useState(false);
   const jsFrame = useRef<HTMLIFrameElement | null>(null);
   const pyodideRef = useRef<any>(null);
+
+  const handleCopy = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(codeValue);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // Clipboard blocked; select textarea content as fallback.
+      setCopied(false);
+    }
+  }, [codeValue]);
 
   // Listen for messages coming back from the sandboxed JS iframe.
   useEffect(() => {
@@ -181,6 +193,12 @@ export default function CodeEditor({ code, language = "html", initialOutput }: C
             className="px-3 py-1 rounded bg-green-600 hover:bg-green-700 text-white font-medium"
           >
             ▶ Run
+          </button>
+          <button
+            onClick={handleCopy}
+            className="px-3 py-1 rounded bg-gray-600 hover:bg-gray-500 text-white font-medium"
+          >
+            {copied ? "✅ Copied" : "📋 Copy"}
           </button>
         </div>
       </div>
