@@ -13,37 +13,37 @@ export const cssLevel8: Tutorial[] = [
     minutes: 36,
     summary: "navigation patterns आणि states.",
     sections: [
-      { title: "1. nav कल्पना", content: "nav हे पहिलं.\nएकाच जागी मार्ग.\nशेवट स्पष्ट.\nक्रम स्थिर.\nस्क्रीन प्रत्येक.", code: `nav ul {
+      { title: "1. nav कल्पना", content: "nav हा पेजचा मुख्य मार्ग दाखवतो — घर, बातम्या, संपर्क असे दुवे एकाच जागी एकत्र. वापरकर्ता कुठे जायचे हे इथे शोधतो; म्हणून स्थान स्थिर आणि क्रम स्पष्ट ठेवतात.\nflex ही रचना आडवी मांडते आणि gap: 8px ने प्रत्येक दुव्यामध्ये समान अंतर देते. एवढ्या दोन ओळींनी सुबक आणि सर्व स्क्रीनवर चालणारा नव तयार होतो.\nहा पाया घट्ट असेल तर sidebar, active स्थिती आणि mobile मेनू असलेला संपूर्ण नव या रचनेवर बसतो — सुरुवातीचा नियमच पुढील सगळे ठरवतो.", code: `nav ul {
   display: flex;
   gap: 8px;
 }`, codeLanguage: "css" },
-      { title: "2. sidebar रचना", content: "sidebar अनुलंब.\nउंची पूर्ण.\nजागा स्थिर.\nस्क्रोल आत.\nआधार मजबूत.\nकोड सुबक.", code: `.sidebar {
+      { title: "2. sidebar रचना", content: "sidebar हा उभा मेनू — पेजच्या एका बाजूला दुवे एकावर एक मांडलेले. मुख्य सामग्रीसोबत हे ठिकाण वेगळे राहते आणि मोठ्या पेजमध्ये मार्ग कायम दिसतो.\ngrid मध्ये gap: 4px ने दुव्यांमधील अंतर लहान पण नेमके; प्रत्येक दुव्याला padding: 10px 14px मुळे क्लिक करण्याचे क्षेत्र मोठे होते. मोठे क्षेत्र म्हणजे सोपा क्लिक — विशेषतः मोबाइलवर.\nअशी रचना मजबूत आधार देते आणि स्क्रोल होतानाही दुवे गाठता येतात. पुढील थर याच पायावर उभे होतात.", code: `.sidebar {
   display: grid;
   gap: 4px;
 }
 .sidebar a {
   padding: 10px 14px;
 }`, codeLanguage: "css" },
-      { title: "3. active स्थिती", content: "active भाग स्पष्ट.\nरंग नेमका.\naria-current जोड.\nया आधार.\nवाचक मार्ग.\nनियम स्वच्छ.", code: `.nav a[aria-current="page"] {
+      { title: "3. active स्थिती", content: "सध्या उघडलेले पेज नवमध्ये वेगळे दिसावे म्हणून active स्थिती. वापरकर्ता कुठे आहे हे लगेच कळते — दिशा नियंत्रणाचा हा पहिला आधार.\nHTML मध्ये त्या दुव्याला aria-current=\"page\" देतात; CSS ने .nav a[aria-current=\"page\"] निवडून background व color बदलतो. हेच चिन्ह स्क्रीन रीडरलाही नेमकी जागा सांगते.\nकेवळ रंगावर अवलंबून न राहता background आणि color असे दोन संकेत दिल्याने स्थिती अधिक स्पष्ट होते आणि प्रवेश्यता वाढते.", code: `.nav a[aria-current="page"] {
   background: #eef2ff;
   color: #4f46e5;
 }`, codeLanguage: "css" },
-      { title: "4. indicator थर", content: "indicator खाली.\nborder अंतर.\nरंग स्थिर.\ntransition गुळगुळीत.\nhover दृश्य.\nकोड सोपा.", code: `.nav a {
+      { title: "4. indicator थर", content: "active दाखवण्याची दुसरी रीत म्हणजे खाली रंगीत border — indicator थर. मजकुराचा रंग न बदलता ही रेषा दुवा निवडलेला असल्याचे दाखवते.\nसुरुवातीला border-bottom: 2px solid transparent ठेवतो, त्यामुळे जागा आरक्षित राहते; hover वेळी border-color: #6366f1 देऊन दुवा जिवंत दिसतो. transparent पाया layout हलण्यापासून थांबवतो.\nही पद्धत शांत आणि आधुनिक दिसते — फक्त border रंग बदलतो, म्हणून संक्रमण गुळगुळीत आणि कोड साधा राहतो.", code: `.nav a {
   border-bottom: 2px solid transparent;
 }
 .nav a:hover {
   border-color: #6366f1;
 }`, codeLanguage: "css" },
-      { title: "5. mobile मेनू", content: "mobile बटण.\nmenu लपवा.\nडाव हलवा.\nfocus सुरक्षित.\nscroll आत.\nसवय नेमकी.", code: `@media (width < 640px) {
+      { title: "5. mobile मेनू", content: "लहान स्क्रीनवर संपूर्ण नव दाबून बसतो, म्हणून तो लपवून बटण वापरतात. mobile मेनूचा CSS नियम — @media (width < 640px) मध्ये .nav ला display: none.\nयामुळे जागा मोकळी होते आणि सामग्रीला श्वास मिळतो; बटणावर क्लिक केले की JavaScript ने नव उघडला जातो. CSS फक्त कोणती स्थिती दिसेल हे ठरवतो.\nकुंपण 640px एकाच ठिकाणी ठेवा जेणेकरून मोबाइल आणि डेस्कटॉप व्यवस्था स्पष्ट वेगळ्या राहतात. हा नियम मोबाइल-प्रथम रचनेचा पाया आहे.", code: `@media (width < 640px) {
   .nav {
     display: none;
   }
 }`, codeLanguage: "css" },
-      { title: "6. आधार तपास", content: "flex आधार मजबूत.\ngrid उत्तम.\nwidget स्थिर.\ndisplay बदल.\nकोड वाचता.\nआधार घट्ट.", code: `.nav {
+      { title: "6. आधार तपास", content: "कोणत्याही ब्राउझर आणि स्क्रीनवर नव कसा पडतो ते तपासण्यासाठी flex-wrap उपयुक्त. जागा कमी पडली तर दुवे स्वतः खाली उतरतात — तुटत नाहीत.\nflex सह flex-wrap म्हणजे लहान-मोठ्या प्रत्येक रुंदीवर समान रचना; दुवा कापला जात नाही. अशा खात्रीमुळे कोड सुरक्षित राहतो.\nआधार घट्ट असेल तर पुढे breadcrumb, tabs सारखे भाग सहज बसतात. छोटे नियम संपूर्ण नव स्थिर ठेवतात.", code: `.nav {
   display: flex;
   flex-wrap: wrap;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "nav गॅप द्या.\nएक नियम.", code: `.nav {
+      { title: "Mini Project", content: "आता सगळे नियम एकत्र आणून एक लहान नव बनवूया. प्रथम .nav ला display: flex आणि gap: 6px द्या — दुवे आडवे आणि समान अंतराने मांडले जातील.\nनंतर एका दुव्याला aria-current=\"page\" देऊन active शैली जोडा; हीच सवय पुढील धड्यांत कामी येते. त्यानंतर 640px खाली mobile बटणाची तयारी ठेवा.\nएवढ्यावर नव वापरासाठी तयार होतो. हा छोटा सराव Level 8 च्या मार्ग रचनेचा सारांश आहे.", code: `.nav {
   display: flex;
   gap: 6px;
 }`, codeLanguage: "css" },
@@ -75,31 +75,31 @@ export const cssLevel8: Tutorial[] = [
     minutes: 36,
     summary: "breadcrumb separation आणि semantics.",
     sections: [
-      { title: "1. breadcrumb", content: "breadcrumb मार्ग.\nघर सुरुवात.\nभाग क्रम.\nशेवट सध्या.\nआधार मजबूत.", code: `.crumbs {
+      { title: "1. breadcrumb", content: "breadcrumb हा मार्ग दाखवणारा क्रम — घर, बातम्या, लेख अशा खोल दुव्यांची साखळी. वापरकर्ता कुठून आला आणि कुठे आहे हे पटकन समजते.\nflex-wrap ने हा क्रम सुबक गुंडाळतो; जागा कमी पडली तर भाग खाली सरकतात पण क्रम तुटत नाही. छोट्या पडद्यावर हीच सुरक्षा असते.\nप्रत्येक दुवा मागे नेऊ शकतो, त्यामुळे परत जाणे सोपे होते. मार्ग स्पष्ट दिसल्याने वापरकर्त्याचा आत्मविश्वास वाढतो आणि पेजची खोली दिसते.", code: `.crumbs {
   display: flex;
   flex-wrap: wrap;
 }`, codeLanguage: "css" },
-      { title: "2. विभाजक", content: "separator स्थिर.\n::before शैली.\nस्लॅश स्वतः.\nरंग कमी.\nवाचक मार्ग.", code: `.crumbs li + li::before {
+      { title: "2. विभाजक", content: "भागांमध्ये स्लॅश किंवा बाण विभाजक — मार्ग वाचायला सोपा करतो. हा separator CSS ने ::before pseudo-element द्वारे जोडतात, त्यामुळे HTML स्वच्छ राहतो.\n.crumbs li + li::before मध्ये content: \"/\" हे स्लॅश तयार करते; margin-inline: 8px ने सभोवती अंतर आणि color: #94a3b8 ने हलका रंग. भाग स्पष्ट वेगळे दिसतात.\nप्रत्येक भागाबरोबर हा नियम आपोआप लागतो — नवीन दुवा जोडला तरी कोड बदलत नाही. विभाजकाची ही रचना सडपातळ आणि पुनर्वापरयोग्य आहे.", code: `.crumbs li + li::before {
   content: "/";
   margin-inline: 8px;
   color: #94a3b8;
 }`, codeLanguage: "css" },
-      { title: "3. aria-label", content: "aria-label खास.\nnav semantic.\nप्रवेश्यता वाढ.\nवाचक नियम.\nसवय योग्य.", code: `nav[aria-label="Breadcrumb"] ol {
+      { title: "3. aria-label", content: "breadcrumb रचनेला अर्थ देण्यासाठी nav[aria-label=\"Breadcrumb\"] असा विशेष नव. कोणता मार्ग कोणता हे स्क्रीन रीडरलाही स्पष्ट होते.\nCSS मध्ये हीच निवड करून ol ला list-style: none आणि display: flex देतात — यादीचे गुण काढून दुवे आडवे मांडले जातात.\nप्रवेश्यता केवळ रंगाची नाही; योग्य label ने साधनेही मार्ग समजून घेतात. कमीत कमी कोडमध्ये रचना सुरेख आणि अर्थपूर्ण बनते.", code: `nav[aria-label="Breadcrumb"] ol {
   list-style: none;
   display: flex;
 }`, codeLanguage: "css" },
-      { title: "4. एलिप्सिस", content: "लांब मार्ग कापा.\ntext-overflow.\nआधीचा भाग लपा.\nअंतिम स्पष्ट.\nरचना नीट.\nकोड छोटा.", code: `.crumbs li:first-child ~ li {
+      { title: "4. एलिप्सिस", content: "खूप लांब मार्ग असेल तर सुरुवातीचे भाग लपवून शेवट स्पष्ट ठेवतात. .crumbs li:first-child ~ li ला display: none देऊन फक्त अंतिम भाग दिसतो.\nहा नियम पहिल्या दुव्यानंतरचे सर्व भाग लपवतो — वापरकर्ता कुठे आहे हे नेहमी दृश्य राहते. मर्यादित जागेत हा तोल आवश्यक आहे.\nदिशा मिळते आणि पुरेसा संदर्भही राहतो. लहान स्क्रीनवर हा एलिप्सिस नियम विशेष उपयुक्त ठरतो.", code: `.crumbs li:first-child ~ li {
   display: none;
 }`, codeLanguage: "css" },
-      { title: "5. घर शॉर्ट", content: "घर शॉर्ट.\nआयकॉन छोटा.\nकर्ण्य जपा.\nस्लॅश उजवी.\nमराठी मार्ग.\nदृश्य स्वच्छ.", code: `.crumb-home {
+      { title: "5. घर शॉर्ट", content: "घर हा मार्गाचा पहिला दुवा — सामान्यतः आयकॉनने सांकेतिक. font-weight: 700 देऊन तो ठळक करतात आणि क्रमाची सुरुवात स्पष्ट होते.\nमजकुराऐवजी आयकॉन असल्यास स्लॅश त्याच्या उजवीकडे नेमका बसतो; ही बारीक रचना दृश्य तोल सुधारते.\nघर क्लिक केले की मुख्य पेज उघडते — परत येण्याची सवय वापरकर्त्याला सोयीस्कर. छोटा नियम, परंतु दिशेच्या समजुतीत मोठा फरक करतो.", code: `.crumb-home {
   font-weight: 700;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "flex आधार सर्वत्र.\nseparator जुने.\nlist-style reset.\nसवय चांगली.\nआधार घट्ट.", code: `.crumbs ol {
+      { title: "6. आधार", content: "breadcrumb चा पाया म्हणजे ol चे reset — list-style: none, margin: 0 आणि padding: 0. मूळ यादीचे गुण व अंतर काढून स्वच्छ मार्ग तयार होतो.\nflex आधारामुळे जुन्या ब्राउझरमध्येही हा क्रम स्थिर राहतो. सर्वत्र समान तळ असल्याने नवीन नियम अचूक लागू होतो.\nअसा पाया मजबूत असेल तर विभाजक, aria-label आणि इतर थर सहज बसतात. छोटे reset मोठ्या रचनांचा आधार असतो.", code: `.crumbs ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "breadcrumb विभाजक.\nएक नियम.", code: `.crumbs {
+      { title: "Mini Project", content: "आता एक छोटा breadcrumb मार्ग बनवूया — flex ने दुवे आडवे मांडा आणि ol ला list-style: none, margin: 0, padding: 0 ने reset करा.\nनंतर li + li::before मध्ये content: \"/\" ने विभाजक जोडा; margin-inline व color ने तो हलका ठेवा. अंतिम दुवा font-weight ने ठळक करा.\nएवढ्या नियमांनी मार्ग वाचनीय आणि प्रवेश्य होतो. हा पाया पुढील tabs धड्यातील मार्ग संकल्पनांना तयार करतो.", code: `.crumbs {
   display: flex;
 }`, codeLanguage: "css" },
     ],
@@ -130,29 +130,29 @@ export const cssLevel8: Tutorial[] = [
     minutes: 36,
     summary: "tabs roles आणि state नियम.",
     sections: [
-      { title: "1. tabs कल्पना", content: "tabs भाग.\ntablist role.\nea च निवड.\npanel दिसे.\nकीबोर्ड मार्ग.\nनियम स्पष्ट.", code: `[role="tablist"] {
+      { title: "1. tabs कल्पना", content: "tabs हे एकाच भागात अनेक विभाग — tablist मध्ये [role=\"tab\"] असलेले दुवे आणि त्यांना जोडलेले panels. क्लिक केल्यावर संबंधित भाग बदलतो.\n[role=\"tablist\"] ला display: flex आणि gap: 4px देऊन टॅब आडवे मांडतात. ही रचना कीबोर्डनेही वापरता येते.\nफक्त एकच panel दिसत असल्याने जागा वाचते आणि सामग्री संक्षिप्त राहते. पर्यायांचा क्रम स्थिर असल्याने निवड करणे सोपे जाते.", code: `[role="tablist"] {
   display: flex;
   gap: 4px;
 }`, codeLanguage: "css" },
-      { title: "2. state नियम", content: "aria-selected true.\nसक्रिय रंग.\nचालू panel.\nhidden लपवा.", code: `[role="tab"][aria-selected="true"] {
+      { title: "2. state नियम", content: "निवडलेला टॅब स्पष्ट दिसावा — aria-selected=\"true\" हे चिन्ह ते ठरवते. [role=\"tab\"][aria-selected=\"true\"] निवडून background आणि color बदलतो.\nसक्रिय टॅबला background: #eef2ff आणि color: #4f46e5 मिळतो; बाकी टॅब नेहमीसारखे राहतात. रीडरलाही हे चिन्ह वाचता येते.\nरंगाबरोबरच हा attribute एक वेगळा संकेत — स्थिती दोन मार्गांनी स्पष्ट होते. प्रवेश्यता वाढवण्याची हीच योग्य पद्धत.", code: `[role="tab"][aria-selected="true"] {
   background: #eef2ff;
   color: #4f46e5;
 }`, codeLanguage: "css" },
-      { title: "3. focus रिंग", content: "focus दाखवा.\noutline जोड.\nकीबोर्ड सुरक्षित.\nrole सुरक्षित.\nआधार भक्कम.\nवापर नेमका.", code: `[role="tab"]:focus-visible {
+      { title: "3. focus रिंग", content: "कीबोर्डने टॅबवर पोहोचल्यावर स्पष्ट रिंग हवी — :focus-visible ही निवड फक्त कीबोर्ड वापरावर लागू होते, माऊसवर नाही.\noutline: 2px solid #6366f1 आणि outline-offset: 2px देऊन रिंग विशेष दिसते. कोणता दुवा किंवा टॅब निवडला आहे ते लगेच कळते.\nहा नियम लहान पण प्रवेश्यता मानकांचा गाभा. एवढ्यामुळे keyboard वापरकर्त्याला स्थिती कधीही अदृश्य राहत नाही.", code: `[role="tab"]:focus-visible {
   outline: 2px solid #6366f1;
   outline-offset: 2px;
 }`, codeLanguage: "css" },
-      { title: "4. panel शैली", content: "panel सुबक.\nधार मजबूत.\ntabindex नेमका.\nवाचक भाषा.\nविभाग स्पष्ट.", code: `[role="tabpanel"] {
+      { title: "4. panel शैली", content: "tabpanel हा निवडलेल्या टॅबचा मजकूर भाग. [role=\"tabpanel\"] ला padding: 16px आणि border: 1px solid #e2e8f0 देऊन तो वेगळा दिसतो.\nborder मुळे panel च्या सीमा स्पष्ट होतात — मजकूर कोठे संपतो ते दिसते. padding ने मजकुराला आतील श्वास मिळतो.\nप्रत्येक टॅबला स्वतःचा panel असतो; त्यामुळे सामग्रीची विभागणी स्वच्छ आणि रचना वाचण्यास सोपी राहते.", code: `[role="tabpanel"] {
   padding: 16px;
   border: 1px solid #e2e8f0;
 }`, codeLanguage: "css" },
-      { title: "5. संकेत नियम", content: "उजवी डावी बाण.\nHome End.\nकीबोर्ड वळण.\njavaScript लागू.\nनियम CSS.\nसवय योग्य.", code: `[role="tablist"] {
+      { title: "5. संकेत नियम", content: "टॅब बदलण्यासाठी उजवी-डावी बाण, Home/End असे कीबोर्ड संकेत वापरतात. हे नियंत्रण JavaScript मध्ये लिहितात.\nCSS चा थर म्हणजे [role=\"tablist\"] ला overflow-x: auto — जागा कमी पडल्यास टॅब आडवा स्क्रोल होतो; कीबोर्ड मार्ग स्थिर राहतो.\nअशा रीतीने CSS आणि JavaScript यांची जबाबदारी वेगळी ठेवतात — प्रत्येकाचे काम स्पष्ट व सांभाळणे सोपे.", code: `[role="tablist"] {
   overflow-x: auto;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "tabs आधार मजबूत.\nrole स्थिर.\nfallback भाग.\nअनभिप्रेत खुला.\nकोड सुरक्षित.\nआधार घट्ट.", code: `[role="tabpanel"] {
+      { title: "6. आधार", content: "tabs व्यवस्था नेहमी सर्वांना मोकळी राहू द्या — [role=\"tabpanel\"] ला display: block असा पाया. JavaScript लोड न झाल्यासही panel दृश्य राहते.\nrole आणि fallback नियम लिहिल्यास स्क्रीन रीडर व जुने ब्राउझरही रचना उमटवतात — सामग्री कधीही लपलेली राहत नाही.\nअसा आधार मजबूत असेल तर एनिमेशन व रंगाचे थर निर्भयपणे बसवता येतात. प्रवेश्यता आधी, सजावट मागून.", code: `[role="tabpanel"] {
   display: block;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "tabs सक्रिय दाखवा.\nborder नियम.", code: `[role="tab"][aria-selected="true"] {
+      { title: "Mini Project", content: "आता टॅबची सक्रिय स्थिती नीट दाखवूया. [role=\"tab\"][aria-selected=\"true\"] ला border-bottom: 3px solid #6366f1 द्या — खाली ठळक रेषा.\nरेषा नेमकी आणि स्थिर असते; टॅबगटातील उर्वरित टॅब नेहमीसारखे राहतात. flex मांडणीतील अंतर जुळते.\nया एका नियमाने निवडलेला टॅब लगेच ओळखता येतो. focus-visible रिंग सोबत दिल्यास कीबोर्ड वापरकर्त्यासाठी व्यवस्था पूर्ण होते.", code: `[role="tab"][aria-selected="true"] {
   border-bottom: 3px solid #6366f1;
 }`, codeLanguage: "css" },
     ],
@@ -183,32 +183,32 @@ export const cssLevel8: Tutorial[] = [
     minutes: 36,
     summary: "form states, focus आणि helper.",
     sections: [
-      { title: "1. form रचना", content: "form नियम स्पष्ट.\nlabel जोडले.\nerror जागा.\nमराठी मजकूर.\nसखोल प्रश्न.\nरचना सुबक.", code: `.field {
+      { title: "1. form रचना", content: "form हा प्रश्न विचारण्याची जागा — नाव, इमेल, संदेश अशी मजकूर क्षेत्रे. रचना स्पष्ट असेल तर भरणे सोपे जाते.\n.field च्या display: grid आणि gap: 6px ने label आणि input यांचे अंतर नेमके; प्रत्येक प्रश्न उभ्या क्रमाने मांडला जातो.\nभविष्यात error किंवा helper मजकूर जोडण्याची जागा या रचनेत आरक्षित असते. संपूर्ण form नंतर स्वच्छ आणि नीट भरता येतो.", code: `.field {
   display: grid;
   gap: 6px;
 }`, codeLanguage: "css" },
-      { title: "2. required star", content: "required तारका.\n::after जोड.\nरंग स्थिर.\nवाचक नाव.\nस्वतःचा संकेत.\n::after जोड वापर सोपा आहे.\n::after जोड अचूक गुण देतो.\n::after जोड प्रत्येक वेळी शिकवतो.", code: `.required label::after {
+      { title: "2. required star", content: "आवश्यक प्रश्न दाखवण्यासाठी label च्या शेवटी तारका लावतात. .required label::after मध्ये content: \" *\" आणि color: #ef4444.\n::after मुळे HTML मध्ये काहीही जोडावे लागत नाही — CSS स्वतः तारका तयार करतो; सर्व आवश्यक क्षेत्रांना हा चिन्ह आपोआप मिळतो.\nतारका गडद लाल रंगाची — दृष्टीला स्पष्ट. label ला for ने input शी जोडल्यास हे सूत्र प्रवेश्य राहते.", code: `.required label::after {
   content: " *";
   color: #ef4444;
 }`, codeLanguage: "css" },
-      { title: "3. state शैली", content: "valid invalid.\nबॉर्डर रंग.\nआधार वाढ.\nमर्यादा स्पष्ट.\nवाचनीय जपा.\nसवय आराम.", code: `input:invalid {
+      { title: "3. state शैली", content: "input भरताना त्याची स्थिती बदलते — valid म्हणजे जुळते, invalid म्हणजे चुकते. CSS या स्थिती रंगांनी दाखवते.\ninput:invalid ला border-color: #f87171 लाल; input:valid ला #22c55e हिरवा. ब्राउझर स्वतः तपासणी करतो — JavaScript ची गरज नाही.\nकेवळ रंगावर अवलंबू नका; मजकूर सूचना सोबत असाव्यात. अशा नियमांनी चुक लगेच दिसते आणि भरण्याची सवय सुधारते.", code: `input:invalid {
   border-color: #f87171;
 }
 input:valid {
   border-color: #22c55e;
 }`, codeLanguage: "css" },
-      { title: "4. focus शैली", content: "focus ring छान.\noutline offset.\nकीबोर्ड स्पष्ट.\nआधार मजबूत.\nसंवाद सुखद.", code: `input:focus-visible {
+      { title: "4. focus शैली", content: "कीबोर्डने input वर पोहोचल्यावर focus रिंग दिसावी — input:focus-visible ला outline: 2px solid #6366f1 आणि outline-offset: 2px.\noffset मुळे रिंग किनारीपासून थोडी बाहेर येते म्हणून कोणत्याही background वर स्पष्ट दिसते; सध्या कोणता प्रश्न भरला जातो हे कळते.\nफॉर्ममध्ये ही स्थिती खूप महत्त्वाची. टच आणि कीबोर्ड दोन्हीसाठी संवाद सुखद बनतो.", code: `input:focus-visible {
   outline: 2px solid #6366f1;
   outline-offset: 2px;
 }`, codeLanguage: "css" },
-      { title: "5. सहायता मजकूर", content: "helper छोटा.\nरंग नेमका.\nगहिरा आधार.\nplaceholder नको.\nमजकूर स्पष्ट.\nवाचक सुख.", code: `.hint {
+      { title: "5. सहायता मजकूर", content: "प्रश्नासोबत छोटी सूचना helper म्हणून देतात — उत्तर कोणत्या स्वरूपात हवे ते सांगते. .hint ला font-size: 0.875rem आणि color: #64748b.\nplaceholder मध्ये ही माहिती टाकू नका; ती input च्या आतच झाकली जाते आणि तांत्रिक अडचणी सोबत आणते. स्वतंत्र helper मजकूर कायम दिसतो.\nहलका रंग आणि लहान आकार असला तरी तो निर्देशाचा भाग राहतो. प्रश्न आणि सूचना यांची जोडी स्पष्ट असेल तर आधार मजबूत.", code: `.hint {
   font-size: 0.875rem;
   color: #64748b;
 }`, codeLanguage: "css" },
-      { title: "6. आधार तपास", content: "form आधार सर्वत्र.\n:user-invalid नवे.\nstate पारखणे.\nप्रवेश्यता जपा.\nकोड सुरक्षित.\nआधार घट्ट.", code: `input:user-invalid {
+      { title: "6. आधार तपास", content: ":user-invalid हा नवीन selector — वापरकर्त्याने input ला स्पर्श केल्यानंतरच invalid स्थिती दाखवतो. आधीच कायम लाल नसल्याने त्रास कमी होतो.\ninput:user-invalid ला border-color: #ef4444 द्या; जुन्या ब्राउझरसाठी :invalid असा पाया ठेवावा. दोन्ही नियम सांभाळता येतात.\nअशा प्रगतीशील व्यवस्थेने वृद्ध आणि नवीन ब्राउझरमध्ये form स्थिर राहतो. सवय चांगली राखली तर कोड भविष्यात टिकतो.", code: `input:user-invalid {
   border-color: #ef4444;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "field ग्याप द्या.\nएक नियम.", code: `.field {
+      { title: "Mini Project", content: "आता एका field ची संपूर्ण रचना बनवूया. .field ला display: grid आणि gap: 6px द्या — label आणि input उभे नेमके नियंत्रित.\nआवश्यक असल्यास .required label::after ने तारका जोडा; focus-visible ने कीबोर्ड रिंग दाखवा; helper मजकूर छोटा आणि हलका ठेवा.\nही दोन-तीन ओळींची रचना संपूर्ण form मध्ये पुन्हा वापरता येते. भाग एका जागी परिभाषित झाल्यास form अधिक नीट राहते.", code: `.field {
   display: grid;
   gap: 6px;
 }`, codeLanguage: "css" },
@@ -240,12 +240,12 @@ input:valid {
     minutes: 36,
     summary: "custom switch आणि states.",
     sections: [
-      { title: "1. switch कल्पना", content: "switch पर्याय.\ncheckbox लपवा.\nनवा दृश्य.\nडाव उजवी.\nनियम CSS.\nआधार मजबूत.", code: `.switch {
+      { title: "1. switch कल्पना", content: "switch हा दोन-स्थिती पर्याय — चालू/बंद, होय/नाही. मूळ checkbox असतो, पण दृश्यासाठी सुंदर रचना CSS बनवते.\n.switch ला position: relative, width: 52px आणि height: 28px देतात — track चा आकार. डाव-उजवीकडे हालचालीचा हा पाया.\nमूळ checkbox प्रवेश्यता नियमाने या रचनेतच राहतो; फक्त दृश्य बदलते. कीबोर्ड वापरकर्त्यांसाठी हीच योग्यता निर्णायक असते.", code: `.switch {
   position: relative;
   width: 52px;
   height: 28px;
 }`, codeLanguage: "css" },
-      { title: "2. thumb रचना", content: "thumb वर्तुळ.\ntransition गती.\nchecked सरकते.\ntransform हलवा.\nरंग बदल.\nकोड सुबक.", code: `.switch::after {
+      { title: "2. thumb रचना", content: "track वर सरकणारा वर्तुळ thumb. .switch::after मध्ये content: \"\" आणि absolute position ने तो track च्या आत बसवतात.\nwidth 22px आणि height 22px ने वर्तुळ; border-radius: 9999px ने पूर्ण गोल. transition: transform 0.2s ने हालचाल गुळगुळीत होते.\ntop: 3px आणि left: 3px ने thumb नेमक्या जागी बसतो. हा थर track वर स्थिर असतो आणि checked नियमाला तयार होतो.", code: `.switch::after {
   content: "";
   position: absolute;
   top: 3px;
@@ -256,25 +256,25 @@ input:valid {
   background: white;
   transition: transform 0.2s;
 }`, codeLanguage: "css" },
-      { title: "3. checked नियम", content: "checked सक्रिय.\nरंग नवा.\nthumb हलकी.\nसरकता गती.\nनियम स्पष्ट.\nवापर नेमका.", code: `.switch input:checked + .track {
+      { title: "3. checked नियम", content: "checked असताना track आणि thumb दोन्ही बदलतात — .switch input:checked + .track ला background: #22c55e हिरवा.\nthumb ला transform: translateX(24px) देऊन उजवीकडे सरकतो; checked स्थिती दोन्ही बदलांनी स्पष्ट होते.\ntransition शिवाय हे झेपेने होईल; translateX थांबण्याचे स्थान track रुंदीशी जुळते. स्थिती बदलाचा अनुभव नेमका आणि आनंददायी.", code: `.switch input:checked + .track {
   background: #22c55e;
 }
 .switch input:checked + .track::after {
   transform: translateX(24px);
 }`, codeLanguage: "css" },
-      { title: "4. focus सुरक्षा", content: "focus ring.\nkeyboard सुख.\noutline जोड.\nskip नको.\nआधार भक्कम.", code: `.switch input:focus-visible + .track {
+      { title: "4. focus सुरक्षा", content: "switch ची कीबोर्ड दृश्यता — input:focus-visible + .track ला outline: 2px solid #6366f1 आणि outline-offset: 2px.\nही रिंग track च्या सभोवती दिसते; कीबोर्डने switch वर आल्यावर स्थान कळते. click करण्यापूर्वी दृश्य स्पष्ट असते.\nप्रवेश्यता नियमाचा हा महत्त्वाचा भाग — focus कधीही अदृश्य ठेवू नये. छोट्या गुंतवणुकीने आत्मविश्वास वाढतो.", code: `.switch input:focus-visible + .track {
   outline: 2px solid #6366f1;
   outline-offset: 2px;
 }`, codeLanguage: "css" },
-      { title: "5. disabled स्थिती", content: "disabled फिके.\nरंग नियम.\nवाचक आदर.\nसंकेत स्पष्ट.\nसवय योग्य.", code: `.switch input:disabled + .track {
+      { title: "5. disabled स्थिती", content: "न वापरण्यासारखा पर्याय disabled करतात. input:disabled + .track ला opacity: 0.5 — track फिके दिसतो.\nहा संकेत सांगतो हे सध्या बदलता येणार नाही; क्लिकला प्रतिसाद ब्राउझर संपवतो. रचना तशीच राहते, फक्त स्वर मंद.\nफिकेपणा सोबत contrast राखा — स्थिती समजते पण संपूर्ण अदृश्य होत नाही. वाचन सुखद आणि नियंत्रण स्पष्ट राहते.", code: `.switch input:disabled + .track {
   opacity: 0.5;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "switch आधार नवा.\ncheckbox जुना.\nappearance नियम.\nकाटेकोर वापर.\nआधार घट्ट.", code: `.track {
+      { title: "6. आधार", content: "switch चा पाया म्हणजे track — appearance: none ने मूळ तरटे रूप काढून टाकतात. border-radius: 9999px आणि background: #e2e8f0.\nजुन्या ब्राउझरला appearance न समजल्यास तो नियम उपेक्षित होतो आणि मूळ checkbox तसाच दिसतो — रचना कधीही मोडत नाही.\nअसा आधार घट्ट म्हणजे thumb आणि checked यांचे नियम निर्भयपणे जोडता येतात. प्रगतीशील वाढीचा हा नमुना.", code: `.track {
   appearance: none;
   border-radius: 9999px;
   background: #e2e8f0;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "track रंग द्या.\nएक नियम.", code: `.track {
+      { title: "Mini Project", content: "एक छोटा switch बनवूया. .track ला appearance: none, border-radius: 9999px आणि background: #e2e8f0 द्या — स्वच्छ track.\n.switch मध्ये relative position आणि निश्चित रुंदी; thumb साठी ::after वर्तुळ. checked होताच हिरवा रंग आणि translateX हालचाल.\nही रचना checkbox वर बसते म्हणून कीबोर्ड आणि रीडर सुरक्षित राहतात. संपूर्ण switch स्थिर आणि सुंदर दिसतो.", code: `.track {
   background: #e2e8f0;
 }`, codeLanguage: "css" },
     ],
@@ -305,35 +305,35 @@ input:valid {
     minutes: 36,
     summary: "skeleton आणि shimmer नियम.",
     sections: [
-      { title: "1. skeleton", content: "skeleton रिकामा.\nलोड आधी.\nआकार थर.\nरंग हलका.\nवाचक धीर.\nनियम स्पष्ट.", code: `.skeleton {
+      { title: "1. skeleton", content: "सामग्री लोड होईपर्यंत जागा दाखवणारा skeleton — रिकाम्या रंगीत आकृती. लोडिंग होत असल्याचे कळते आणि रचना दिसते.\n.skeleton ला background: #e2e8f0 आणि border-radius: 8px देतात — हलके राखाडी ठोकळे. आकार सामग्रीच्या जवळचा ठेवतात.\nहा थर लोडिंगचा कंटाळा कमी करतो. त्वरित उडी देणाऱ्या रचनेपेक्षा हा अनुभव शांत आणि स्थिर असतो.", code: `.skeleton {
   background: #e2e8f0;
   border-radius: 8px;
 }`, codeLanguage: "css" },
-      { title: "2. shimmer नियम", content: "shimmer ढंग.\n::after सुरळीत.\ngradient हलणे.\nanimation चालू.\nस्पार्क दृश्य.", code: `.skeleton::after {
+      { title: "2. shimmer नियम", content: "skeleton वर हलणारी चमक म्हणजे shimmer. .skeleton::after मध्ये linear-gradient ची बारीक पट्टी हलते.\ngradient 90deg ने आडवा; animation: shimmer 1.5s infinite ने सतत लहर. ही हालचाल लोडची उत्सुकता वाढवते.\n::after साठी display: block आणि height: 100% आवश्यक — ठोकळ्याच्या चौकटीतच लहर राहते. नियम लहान, अनुभव मात्र सजीव.", code: `.skeleton::after {
   content: "";
   display: block;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
   animation: shimmer 1.5s infinite;
 }`, codeLanguage: "css" },
-      { title: "3. width तोल", content: "आकार वेगळा.\nरुंदी प्रमाण.\navatar वर्तुळ.\nपंक्ती सुबक.", code: `.s-avatar {
+      { title: "3. width तोल", content: "एकाच पेजवर avatar आणि मजकूर skeleton असतील तर आकार वेगळे ठेवा. .s-avatar ला width: 48px आणि height: 48px.\nborder-radius: 9999px ने avatar पूर्ण वर्तुळ; मजकुराच्या ओळी रुंद आणि चपट्या. अशा तोलाने skeleton प्रत्यक्षासारखे दिसते.\nलोड झाल्यावर खऱ्या सामग्रीची जागा होते; आकार जुळले असल्याने रचनेची झेप कमी होते आणि अनुभव गुळगुळीत राहतो.", code: `.s-avatar {
   width: 48px;
   height: 48px;
   border-radius: 9999px;
 }`, codeLanguage: "css" },
-      { title: "4. reduced सह", content: "reduced थांबा.\nanimation नको.\nस्थिर आधार.\nसवलत द्या.\nप्रवेश्यता जपा.", code: `@media (prefers-reduced-motion: reduce) {
+      { title: "4. reduced सह", content: "प्रत्येक वापरकर्ता हालचाल सहन करत नाही. prefers-reduced-motion: reduce असेल तर shimmer पूर्ण थांबवा.\n@media प्रश्नामध्ये .skeleton::after ला animation: none देतात. सामग्री तीच राहते, फक्त गती नाही.\nही सवलत गती संवेदनशील वापरकर्त्यांसाठी आहे. प्रवेश्यता आदर दाखवण्याची ही सोपी पद्धत प्रत्येक animation मध्ये वापरावी.", code: `@media (prefers-reduced-motion: reduce) {
   .skeleton::after {
     animation: none;
   }
 }`, codeLanguage: "css" },
-      { title: "5. state बदल", content: "लोड संपला.\nskeleton लुप्त.\nसामग्री दिसे.\nरचना जुळता.\nआधार स्थिर.\nनियम कडक.", code: `.loaded .skeleton {
+      { title: "5. state बदल", content: "लोड झाल्यावर skeleton लपवून सामग्री दाखवतात. .loaded .skeleton ला display: none — loaded class घातल्यावर हा नियम लागतो.\nJavaScript class बदलतो आणि CSS नोंदी घेते; रचना समान राहते. दोन्ही अवस्था एकाच पेजमध्ये आहेत.\nskeleton ने आधीच जागा तयार केल्याने सामग्री आल्यावर झेप होत नाही. संक्रमण शांत आणि वापरकर्त्याला सुखद.", code: `.loaded .skeleton {
   display: none;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "skeleton आधार सर्व.\nkeyframes इच्छा.\nसर्वांसाठी खुला.\nकोड सुरक्षित.\nआधार घट्ट.\nसराव वाढ.", code: `@keyframes shimmer {
+      { title: "6. आधार", content: "shimmer हालचालीसाठी keyframes हवे — @keyframes shimmer मध्ये from translateX(-100%) ते to translateX(100%).\nही फ्रेम gradient आडवा फिरवते; animation इतरत्र घोषित केला. जुन्या ब्राउझरला keyframes न समजल्यास skeleton स्थिर राहतो.\nआधार मजबूत असेल तर हालचाल केवळ सजावट राहते. सराव वाढला की उत्तम थर जोडले जातात.", code: `@keyframes shimmer {
   from { transform: translateX(-100%); }
   to { transform: translateX(100%); }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "skeleton आधार द्या.\nएक नियम.", code: `.skeleton {
+      { title: "Mini Project", content: "एक साधा skeleton बनवूया. .skeleton ला background: #e2e8f0 आणि border-radius: 8px द्या — लोडिंगचा शांत पाया.\navatar साठी .s-avatar वर्तुळ आणि ओळींसाठी अर्धवट रुंद ठोकळे तयार करा; shimmer साठी ::after व gradient animation जोडा.\nसोबत prefers-reduced-motion मध्ये animation: none लिहा — सर्वांना आदर. हा छोटा लोडर पुढील state नियमांना तयार आहे.", code: `.skeleton {
   background: #e2e8f0;
 }`, codeLanguage: "css" },
     ],
@@ -364,30 +364,30 @@ input:valid {
     minutes: 36,
     summary: "data table स्क्रोल आणि cards.",
     sections: [
-      { title: "1. table रचना", content: "table data.\nव्यवस्था स्पष्ट.\nसीमा स्पष्ट.\nस्क्रोल सुरक्षा.\nखोली स्वतः.\nनियम स्पष्ट.", code: `.table-wrap {
+      { title: "1. table रचना", content: "table ही माहिती सारणी — ओळी आणि स्तंभ व्यवस्थित. पण लहान स्क्रीनवर ती दाबून बसते; म्हणून wrapper आवश्यक.\n.table-wrap ला overflow-x: auto देऊन आडवा स्क्रोल मिळतो; table स्वतः मोठी राहते, परंतु वाहक सरकतो.\nदोन्ही बाजूंमध्ये जागा संतुलित ठेवा; स्तंभ शोधणे सोपे व्हावे. ही रचना मोठ्या माहितीसाठी सर्वात सुरक्षित.", code: `.table-wrap {
   overflow-x: auto;
 }`, codeLanguage: "css" },
-      { title: "2. header स्थिर", content: "th sticky.\nscroll आत.\nपार्श्वभूमी स्थिर.\nरंग जपा.\nरचना ठेवा.", code: `th {
+      { title: "2. header स्थिर", content: "स्क्रोल करताना स्तंभांची नावे कायम दिसावी — th ला position: sticky आणि top: 0. हेडर वर अडकून राहतो.\nbackground: #f1f5f9 देऊन विशेष भाग; स्क्रोलने मजकूर त्याच्या मागून निघून जातो पण नाव कायम दिसते.\nही सोय दीर्घ table मध्ये वाचन सोपे करते — नेहमी कोणता स्तंभ विचारात आहे हे कळत राहते.", code: `th {
   position: sticky;
   top: 0;
   background: #f1f5f9;
 }`, codeLanguage: "css" },
-      { title: "3. zebra नियम", content: "zebra वाचन.\nपर्याय रंग.\nआधार मध्यम.\nवर हायलाइट.\nदृश्य शांत.", code: `tbody tr:nth-child(even) {
+      { title: "3. zebra नियम", content: "ओळी अधिक वाचनीय करण्यासाठी पर्यायी रंग — zebra. tbody tr:nth-child(even) ची background: #f8fafc.\nसम क्रमाच्या ओळी हलक्या रंगतात; विषम मूळ राहतात. नजर पटकन एका ओळीवरून पुढील ओळीकडे सरकते.\nरंगातील फरक मऊ ठेवा — खूप जोरदार रंग वाचनाला त्रास देतो. मोठ्या table मध्ये ही छोटी सवय खूप वेळ वाचवते.", code: `tbody tr:nth-child(even) {
   background: #f8fafc;
 }`, codeLanguage: "css" },
-      { title: "4. card मोड", content: "लहान screen.\ntable लुप्त.\ncard रचना.\ndata लेबल.\nदृश्य बदल.\nकोड वाचता.", code: `@media (width < 640px) {
+      { title: "4. card मोड", content: "अत्यंत लहान स्क्रीनवर table च्या ऐवजी cards दाखवतात. @media (width < 640px) मध्ये td::before ला content: attr(data-label) देतात.\nप्रत्येक सेल आता स्वतःच्या नावासह उभा दिसतो; स्तंभ नाव मजकुराबरोबरच येते. प्रत्येक cell ला block रूप हवे.\nहे बदल मोबाइलवर वाचनीयता वाढवते. जुन्या ब्राउझरलाही हे नियम समजतात म्हणून रचना सर्वत्र उपयुक्त.", code: `@media (width < 640px) {
   td::before {
     content: attr(data-label);
   }
 }`, codeLanguage: "css" },
-      { title: "5. अंतिम स्तंभ", content: "अंतिम क्रम.\ndefault स्थिर.\nभाग गुळगुळीत.\nmargin आधार.\nव्यवस्था नीट.\nवापर नेमका.", code: `.total {
+      { title: "5. अंतिम स्तंभ", content: "शेवटचा स्तंभ बहुधा एकूण किंवा स्थिती दाखवतो. .total ला font-weight: 700 देऊन ठळक करतात — आकडे लक्षात येतात.\nसंख्यांची मांडणी उजवीकडे ठेवा; आर्थिक माहितीमध्ये ही सवय विशेष उपयुक्त. रंग आणि padding न बदलता केवळ वजन वाढवा.\nविशिष्ट स्तंभ ठळक केल्याने महत्त्वाची माहिती पटकन गवसते. संपूर्ण table साठी खास नियमाची गरज नाही.", code: `.total {
   font-weight: 700;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "table आधार मजबूत.\nsticky जुने.\noverflow सर्वत्र.\ncard नवा.\nकोड सुरक्षित.\nआधार घट्ट.", code: `table {
+      { title: "6. आधार", content: "table च्या पायामध्ये width: 100% आणि border-collapse: collapse — स्तंभ संपूर्ण जागा भरतात आणि दुहेरी कड येत नाहीत.\nborder-collapse जवळच्या सेलच्या किनारी एकत्र करतो; रचना स्वच्छ दिसते. हा आधार आधुनिक आणि जुन्या दोन्ही.\nzebra, sticky किंवा card मोड काहीही जोडले तरी हा पाया स्थिर राहतो. मोठ्या माहितीसाठी ही गरजेची सवय.", code: `table {
   width: 100%;
   border-collapse: collapse;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "table wrap द्या.\nएक नियम.", code: `.table-wrap {
+      { title: "Mini Project", content: "एक responsive table बनवूया. .table-wrap ला overflow-x: auto द्या आणि table ला width: 100% सह border-collapse: collapse करा.\nहेडरसाठी th ला position: sticky आणि zebra पर्यायी रंग द्या; शेवटचा स्तंभ font-weight ने ठळक करा.\nलहान स्क्रीनसाठी td::before मध्ये data-label दाखवा. डेस्कटॉपवर table आणि मोबाइलवर cards — डेटा कधीही हरवत नाही.", code: `.table-wrap {
   overflow-x: auto;
 }`, codeLanguage: "css" },
     ],
@@ -418,31 +418,31 @@ input:valid {
     minutes: 36,
     summary: "toast स्टॅक आणि animation.",
     sections: [
-      { title: "1. toast", content: "toast वर्ल्ड.\nकोपरा उजवी.\nगती सुरळीत.\nदृश्य स्पष्ट.\nआधार मजबूत.", code: `.toast {
+      { title: "1. toast", content: "toast ही कोपऱ्यातील छोटी सूचना — संदेश, स्थिती किंवा देखावा. पेज न झाकता वर बसते आणि लक्ष वेधते.\n.toast ला position: fixed ने स्क्रीनवर खिळतात; bottom: 16px आणि right: 16px ने कोपरा. स्क्रोल केल्यावरही ती दिसते.\nआठवण किंवा पुष्टी देण्यासाठी ही रचना अचूक आहे. कमी जागेत महत्त्वाची माहिती देते.", code: `.toast {
   position: fixed;
   bottom: 16px;
   right: 16px;
 }`, codeLanguage: "css" },
-      { title: "2. स्टॅक रचना", content: "अनेक toast.\nक्रम खाली.\nभाग सुबक.\nजागा तोल.\nकोड सहज.\nव्यवस्था नीट.", code: `.toast-stack {
+      { title: "2. स्टॅक रचना", content: "अनेक toast एकत्र आल्यास क्रमवार स्टॅक तयार करतात. .toast-stack ला display: grid आणि gap: 8px देतात.\nनवीन toast खाली जोडला जातो; जुन्याचा क्रम स्थिर राहतो. प्रत्येक सूचनेला वेगळी जागा मिळते.\nकोपऱ्यातील हा ढिग बाहेर ठेवल्याने पेजच्या सामग्रीशी संघर्ष होत नाही. अनेक सूचनाही स्वच्छ वाचता येतात.", code: `.toast-stack {
   display: grid;
   gap: 8px;
 }`, codeLanguage: "css" },
-      { title: "3. रंग स्तर", content: "error warning.\nsuccess info.\nरंग नेमका.\nवाचक फरक.\nआयकॉन जोड.", code: `.toast-error {
+      { title: "3. रंग स्तर", content: "सूचनेचा प्रकार रंगांनी दाखवतात — error, warning, success. .toast-error ला border-inline-start: 4px solid #ef4444.\nडाव्या धारीवरील रंगीत पट्टा संदेशाचा स्वर सांगते; रंग ओळखता न येणाऱ्यांसाठी आयकॉन सोबत जोडा.\nप्रत्येक प्रकाराला नेमका रंग आणि स्पष्ट चिन्ह द्या. रंग एकटा अर्थ देऊ नये; शब्द आणि रंग दोन्ही मिळून अर्थ ठरतो.", code: `.toast-error {
   border-inline-start: 4px solid #ef4444;
 }`, codeLanguage: "css" },
-      { title: "4. auto दृश्य", content: "auto गायब.\nसजीव गती.\nslide बाहेर.\nसमय नियंत्रण.\njavaScript गरज.\nCSS गती.", code: `.toast {
+      { title: "4. auto दृश्य", content: "toast काही सेकंदांनी आपोआप गायब होतो. CSS मध्ये animation: slide-in 0.3s ease ने येण्याची हालचाल सांभाळतो.\nगायब होण्याची वेळ JavaScript ठरवते; दोन्हींची जबाबदारी वेगळी. गती आणि वेळ यांचे नियंत्रण स्पष्ट.\nप्रवेश्यता विचारात सूचना इतक्या लवकर गायब करू नका — मजकूर वाचण्यास पुरेसा वेळ द्या.", code: `.toast {
   animation: slide-in 0.3s ease;
 }`, codeLanguage: "css" },
-      { title: "5. animation", content: "slide इन.\nfade हळू.\nwithdrawn नको.\nसवय योग्य.", code: `@keyframes slide-in {
+      { title: "5. animation", content: "toast च्या येण्याची गती @keyframes slide-in — from transform: translateX(100%) ते to translateX(0).\nनियम आडव्या दिशेने बाहेरून आत आणतात; ease वक्र हळूवारपणा देतो. हालचाल 0.3s सारखी लहान राहू द्या.\nअति गती लक्ष विचलित करते; मऊ आणि संक्षिप्त हालचाल नेहमी योग्य. हा नियम स्टॅकबरोबरही चालतो.", code: `@keyframes slide-in {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "fixed आधार मजबूत.\ninset नवा.\nसर्व screen.\nz-index उच्च.\nकोड सुरक्षित.\nआधार घट्ट.", code: `.toast-stack {
+      { title: "6. आधार", content: "स्टॅकचा आधार म्हणजे position: fixed सह inset-inline-end: 16px आणि inset-block-end: 16px.\nही logical properties — writing-mode बदलल्यावरही कोपरा योग्य राहतो. z-index उंच देऊन झाकण्याचा त्रास टाळतात.\nखाली-उजवीकडचे स्थान सर्वांत सामान्य आणि अडथळा होत नाही. स्थिर आधारावर सूचना नेहमी दिसतात.", code: `.toast-stack {
   position: fixed;
   inset-inline-end: 16px;
   inset-block-end: 16px;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "toast गती द्या.\nएक नियम.", code: `.toast {
+      { title: "Mini Project", content: "एक छोटा toast द्या. .toast ला animation: slide-in 0.3s ease आणि keyframes मध्ये translateX मधून आत येण्याची हालचाल द्या.\nस्टॅकसाठी fixed position सह inset-inline-end आणि inset-block-end ने कोपरा निश्चित करा; error साठी border रंग जोडा.\nप्रत्येक सूचना स्वतःला समान वेळ देते. ही रचना आता अनेक प्रकार हाताळण्यास तयार आहे.", code: `.toast {
   animation: slide-in 0.3s ease;
 }`, codeLanguage: "css" },
     ],
@@ -473,32 +473,32 @@ input:valid {
     minutes: 36,
     summary: "print media आणि page नियम.",
     sections: [
-      { title: "1. print कल्पना", content: "print @media.\nकागद थर.\nरचना साधी.\nरंग कमी.\nमजकूर ठोस.\nनियम स्पष्ट.", code: `@media print {
+      { title: "1. print कल्पना", content: "छपाईसाठी वेगळी शैली — @media print मध्ये नियम लिहितात. कागदावर पेज स्क्रीनप्रमाणे दिसत नाही.\nbody ला background: white करतात — मुद्रण शाई वाचवते; रंगछटा कागदावर निरुपयोगी. मजकूर ठोस राहतो.\nस्क्रीनवरील रंग-फरक कागदावर विस्कळीत दिसतो. मजकूर वाचनीयता आणि कागदाचा अपव्यय टाळणे ही छपाई रचनेची सवय.", code: `@media print {
   body {
     background: white;
   }
 }`, codeLanguage: "css" },
-      { title: "2. hidden भाग", content: "nav भाग लपा.\ntoast नको.\nस्क्रीनचे कड.\nमुद्रण स्वच्छ.\nसवय योग्य.", code: `@media print {
+      { title: "2. hidden भाग", content: "कागदावर नको असलेले भाग लपवतात — nav, toast, बटणे. @media print मध्ये display: none !important द्या.\n!important सामर्थ्य देते — स्क्रीन शैलीशी झगडून कागद स्वच्छ ठेवते. स्क्रीनवर महत्त्वाचे, पण छपाईत नको.\nभाग निवडताना घोटाळा टाळा; फक्त उपयोगी तुकडे ठेवा. छपाई मजकूर-केंद्रित आणि कागद-सन्मानी असते.", code: `@media print {
   nav,
   .toast {
     display: none !important;
   }
 }`, codeLanguage: "css" },
-      { title: "3. page नियम", content: "@page मार्जिन.\nsize नेमका.\nआधार जुना.\nकागद तोल.\nमुद्रण सुबक.\nवापर नेमका.", code: `@page {
+      { title: "3. page नियम", content: "@page ने कागदाच्या पानाची मांडणी नियंत्रित होते — margin: 2cm. सर्व पानांवर समान काठ.\nहे नियम फक्त मुद्रणाला लागतात; स्क्रीनवर परिणाम नाही. जवळजवळ सर्व ब्राउझर सपोर्ट करतात.\nsize ने पानाचा आकार आणि orientation ने दिशा ठरवता येते. छपाई नियंत्रणाचा हा एकत्रित ठिकाण आहे.", code: `@page {
   margin: 2cm;
 }`, codeLanguage: "css" },
-      { title: "4. break नियम", content: "break-inside avoid.\nभाग संपूर्ण.\nविभाग नवा.\nवाचन संयोजन.\nरचना शांत.", code: `.card {
+      { title: "4. break नियम", content: "छपाईमध्ये भाग मध्येच तुटू नये — .card ला break-inside: avoid. कार्ड संपूर्ण एकाच पानावर राहते.\ntable पंक्ती, चित्रे, मथळे यांनाही हाच नियम लागू होतो; अर्धवट कार्ड वाचण्याचे त्रास नाहीत.\nनवीन पानासाठी break-before असा दुसरा नियम. महत्त्वाचा भाग एकत्र राहिला तर छापलेले वाचन सुखद होते.", code: `.card {
   break-inside: avoid;
 }`, codeLanguage: "css" },
-      { title: "5. links वाचता", content: "link url दाखवा.\n::after जोड.\nprint केवळ.\nवाचक मार्ग.\n::after जोड आत्मविश्वास वाढतो.\n::after जोड दररोज थोडे सरावा.\n::after जोड प्रयोग करायला घ्या.\n::after जोड शिकणे प्रगत होते.", code: `a[href]::after {
+      { title: "5. links वाचता", content: "छपाईवर दुव्याचा url दाखवा — a[href]::after मध्ये content: \" (\" attr(href) \")\" लिहितात.\nप्रत्येक दुव्याच्या मागे त्याचा पत्ता उमटतो; वाचकाला काय-काय कुठे नेते हे कळते. स्क्रीनवर ही गरज नसते.\nकागदावर दुवा क्लिक होऊ शकत नाही, म्हणून पत्ता लिहून ठेवण्याची ही छपाईची सोय महत्त्वाची.", code: `a[href]::after {
   content: " (" attr(href) ")";
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "print आधार जुना.\n@page खुला.\nA4 सामान्य.\ncolor-adjust नवा.\nकोड सुरक्षित.\nआधार घट्ट.", code: `@media print {
+      { title: "6. आधार", content: "छपाईला नेहमी रंगाचा अर्थ नको — a[href] ला color: inherit द्या. दुवा आजूबाजूच्या मजकुरासारखाच दिसतो.\nस्क्रीनवर निळे दुवे नेहमी; पण कागदावर मजकूर समान रंग ठेवा. शाई वाचवण्याची ही सवय.\nजुन्या ब्राउझरमधील पाया सुरक्षित — @media print सर्वत्र वाचला जातो. छपाईचे नियम कडक आणि टिकाऊ असतात.", code: `@media print {
   a[href] {
     color: inherit;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "page margin द्या.\nएक नियम.", code: `@page {
+      { title: "Mini Project", content: "छपाईची तयारी करूया. @page मध्ये margin: 2cm लिहा — कागदाला समान काठ द्या.\n@media print मध्ये nav लपवा आणि a[href]::after ने दुव्यांचे पत्ते उमटवा; .card ला break-inside: avoid द्या.\nमुख्य वाचन भाग स्वच्छ ठेवा आणि मजकूराचा रंग स्थिर द्या. कागदावर ही रचना संपूर्ण पेजसाठी योग्य.", code: `@page {
   margin: 2cm;
 }`, codeLanguage: "css" },
     ],
@@ -529,29 +529,29 @@ input:valid {
     minutes: 36,
     summary: "holy grail subgrid आणि flows.",
     sections: [
-      { title: "1. holy grail", content: "holy grail रचना.\nheader sidebar.\nmain भाग.\nfooter तळ.\nनवीन grid.\nनियम स्पष्ट.", code: `.layout {
+      { title: "1. holy grail", content: "holy grail म्हणजे प्रसिद्ध रचना — header वर, sidebar बाजूला, main मध्ये, footer खाली. संपूर्ण पेज एका नजरेत दिसते.\ngrid-template-areas ने नकाशा लिहितो: \"header header\" \"side main\" \"footer footer\". भाग आपोआप या ठिकाणी बसतात.\nएकाच नियमाने संपूर्ण व्यवस्था बदलता येते — नावांची अदलाबदल पुरेशी. मोठ्या व्यवस्थेसाठी हा शक्तिशाली पाया.", code: `.layout {
   display: grid;
   grid-template-areas: "header header" "side main" "footer footer";
 }`, codeLanguage: "css" },
-      { title: "2. 12-column", content: "12 column व्यवस्था.\nspan नियम.\nभाग मोजा.\nरचना लवचिक.", code: `.col-4 {
+      { title: "2. 12-column", content: "लवचिक column रचनेसाठी 12 स्तंभांचे grid आणि span. .col-4 ला grid-column: span 4.\nएक भाग चार स्तंभ व्यापतो; अनेक भाग मिळून संपूर्ण रचना. अंतर आणि गणित व्यवस्थित जमते.\nही 12 भागांची रीत framework मध्ये सामान्य. ती स्वतःच्या grid मध्येही लवचिक बनवता येते — breakpoints ने आधार बदलतो.", code: `.col-4 {
   grid-column: span 4;
 }`, codeLanguage: "css" },
-      { title: "3. auto-flow", content: "auto-flow दिशा.\ndense भरणे.\nभाग जुळता.\nरचना सुबक.\nस्क्रीन प्रत्येक.\nनियम स्पष्ट.", code: `.mosaic {
+      { title: "3. auto-flow", content: "grid मध्ये भागांची प्रवाह दिशा auto-flow ठरवतो. .mosaic ला grid-auto-flow: dense — छिद्रे भरून व्यवस्था घट्ट होते.\ndense क्रम कोणताही भाग सोडत नाही; असमान आकारांचा गठ्ठा सुबक बसतो. फोटो ग्रिड सारख्या गद्दीत उपयुक्त.\nसामग्रीचा क्रम महत्त्वाचा असेल तर dense टाळा; अन्यथा वाचनाचा क्रम विस्कळीत होऊ शकतो.", code: `.mosaic {
   grid-auto-flow: dense;
 }`, codeLanguage: "css" },
-      { title: "4. subgrid", content: "subgrid खोल.\nभाग एकरेषा.\nकार्ड थर.\ncolumn समान.\nआधार नवीन.", code: `.card {
+      { title: "4. subgrid", content: "subgrid हा grid च्या आत दुसरा grid — पालकाच्या रेषा वापरतो. .card ला grid-template-rows: subgrid.\nकार्डाखातील ओळी बाहेरच्या पंक्तींशी नीट जुळतात; मजकूर उंची समान राहते. एकच नियंत्रण सर्वांना.\nहा नवीन आधार आहे — जुन्या ब्राउझरमध्ये नसतो. @supports सह fallback द्या आणि रचना कधीही मोडू नये.", code: `.card {
   display: grid;
   grid-template-rows: subgrid;
 }`, codeLanguage: "css" },
-      { title: "5. stagger नियम", content: "stagger सजावट.\nदिशा पाळा.\noffset थर.\nजागा वाचा.\nरचना सजीव.", code: `.item:nth-child(even) {
+      { title: "5. stagger नियम", content: "कार्ड रचना स्थिर आणि सजीव दिसण्यासाठी stagger नियम. .item:nth-child(even) ला margin-top: 24px.\nपर्यायी भाग खाली सरकतात — ग्रिडमध्ये हलकीशी जिवंतपणाची भावना येते. थोडासा फरक पुरेसा.\nगोंधळ नको असेल तर मर्यादित वापरा; सामग्रीचा क्रम महत्त्वाचा असेल तर हा नियम टाळा.", code: `.item:nth-child(even) {
   margin-top: 24px;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "grid आधार मजबूत.\nsubgrid नवीन.\nflex साधा.\nदोन्ही जोडा.\nकोड सुरक्षित.\nआधार घट्ट.", code: `@supports (grid-template-rows: subgrid) {
+      { title: "6. आधार", content: "subgrid ची सुसंगतता तपासण्यासाठी @supports (grid-template-rows: subgrid) वापरतात.\nआत subgrid नियम देतो; पाठिंबा नसल्यास साधा grid पडतो — सामग्री कधीही मोडत नाही. ही प्रगतीशील वाढ.\nजुन्या ब्राउझरसाठी flex साधा पर्याय ठेवा. अशा सवयीने मोठ्या व्यवस्थेत रचना सुरक्षित राहते.", code: `@supports (grid-template-rows: subgrid) {
   .card {
     grid-template-rows: subgrid;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "layout grid द्या.\nएक नियम.", code: `.layout {
+      { title: "Mini Project", content: "एक grid layout बनवूया. .layout ला display: grid द्या आणि grid-template-areas ने header, main, footer ठरवा.\nअसमान भागांसाठी span वापरा आणि auto-flow dense लागू करा; subgrid साठी @supports fallback जोडा.\nएवढ्या नियमांनी संपूर्ण layout लवचिक आणि मोबाइल सज्ज राहते. Level च्या अधिक रचना पॅटर्नसाठी ही तयारी.", code: `.layout {
   display: grid;
 }`, codeLanguage: "css" },
     ],
@@ -582,32 +582,32 @@ input:valid {
     minutes: 36,
     summary: "color-scheme आणि टोकन योजना.",
     sections: [
-      { title: "1. dark कल्पना", content: "dark थीम.\ncolor-scheme हलका.\nटोकन फिरवा.\nरात्री शांत.\nआधार नवीन.\nउपयोग साधा.", code: `html {
+      { title: "1. dark कल्पना", content: "रात्रीची थीम — dark mode. अंधारात वाचन सोपे आणि बॅटरीला दिलासा. html ला color-scheme: dark द्या.\nयामुळे scrollbar आणि form असे मूळ भागही गडद दिसतात; ब्राउझर स्वतः रंग जुळवतो. थीम सुसंगत बनते.\nहा छोटा नियम मोठे काम करतो. कस्टम रंगांच्या थरांना इथून सुरुवात करावी हाच पाया ठरतो.", code: `html {
   color-scheme: dark;
 }`, codeLanguage: "css" },
-      { title: "2. रंग टोकन", content: "surface रात्री.\nink उजळा.\nएकच स्रोत.\nबदल स्थिर.\nव्यवस्था शुद्ध.", code: `:root[data-theme="dark"] {
+      { title: "2. रंग टोकन", content: "dark थीमचे नियंत्रण CSS variables — टोकन. :root[data-theme=\"dark\"] मध्ये --surface: #0f172a आणि --ink: #e2e8f0.\nहे मूल्य एकदा ठरवा आणि सर्वत्र var(--surface) वापरा. एका ठिकाणी बदल केला की संपूर्ण रचना बदलते.\nरंग स्रोत एकच — सातत्य आणि दुरुस्ती सोपी. surface पार्श्वभूमी, ink मजकूर; टोकननी थीम खऱ्या अर्थाने नियंत्रित होते.", code: `:root[data-theme="dark"] {
   --surface: #0f172a;
   --ink: #e2e8f0;
 }`, codeLanguage: "css" },
-      { title: "3. auto नियम", content: "prefers स्वतः.\nवापरकर्ता सेटिंग.\nआज्ञा माना.\nटोकन बदल.\nदृश्य स्पष्ट.\nनियम योग्य.", code: `@media (prefers-color-scheme: dark) {
+      { title: "3. auto नियम", content: "वापरकर्त्याच्या निवडीचा आदर — prefers-color-scheme: dark मध्ये :root चे टोकन बदलतात.\nब्राउझरच्या सेटिंगवरून नियम आपोआप लागू होतो; अतिरिक्त JavaScript लागत नाही. राखीव भाग पडत नाही.\nsystem preference हा नियम सर्वांत योग्य. वापरकर्त्याची निवड केंद्रस्थानी ठेवा; साइट स्वतः न ठरवता.", code: `@media (prefers-color-scheme: dark) {
   :root {
     --surface: #0f172a;
     --ink: #e2e8f0;
   }
 }`, codeLanguage: "css" },
-      { title: "4. हायलाइट", content: "योग्य रंग.\ncontrast जपा.\nहाय भाग.\nभाग वेगळा.\nवाचक सुख.", code: `.highlight {
+      { title: "4. हायलाइट", content: "dark मध्ये विशेष भाग स्पष्ट दिसावा म्हणून contrast जपतात. .highlight ला background: #1e293b आणि color: #f8fafc.\nमजकूर उजळ आणि पार्श्वभूमी थोडी हलकी; दोन्ही मिळून वाचनीयता वाढते. नियम सातत्य व रंग संतुलित.\nखूप गडद रंग टाकू नका — मजकूर झाकला जातो. हायलाइट असा असावा की सामग्रीची ओळख नेमकी होते.", code: `.highlight {
   background: #1e293b;
   color: #f8fafc;
 }`, codeLanguage: "css" },
-      { title: "5. transition", content: "थीम बदल.\ntransition रंग.\nरीळ गुळगुळीत.\nसजीव दृश्य.\nकोड लहान.\nसवय नेमकी.", code: `body {
+      { title: "5. transition", content: "थीम बदलताना धक्का नको — transition. body ला background-color 0.3s आणि color 0.3s.\nरंग बदल हळूवार आणि डोळ्यांना सुसह्य होतो. वेळ कमीच ठेवा; खूप मोठा वेळ त्रासदायक होतो.\nप्रत्येक गुणधर्माला स्वतंत्र transition लिहा. रात्री-दिवस स्विचचा अनुभव गुळगुळीत राहतो.", code: `body {
   transition: background-color 0.3s, color 0.3s;
 }`, codeLanguage: "css" },
-      { title: "6. आधार", content: "dark आधार नवीन.\nजुने media.\nदुहेरी टोकन.\nसर्व ब्राउझर.\nकोड सुरक्षित.\nआधार घट्ट.", code: `@media (prefers-color-scheme: dark) {
+      { title: "6. आधार", content: "जुन्या ब्राउझरमध्येही dark नियम सुरक्षित ठेवा. @media (prefers-color-scheme: dark) मध्ये * च्या color-scheme: dark द्या.\nसर्व घटकांना मूळ वातावरण मिळते; बाकी नियम टोकनवर चालतात. रचना कधीही मोडत नाही.\nहा पाया थीमचे काम शांत करतो. टोकन आणि media यांचा जुळलेला आधार प्रत्येक ब्राउझरवर.", code: `@media (prefers-color-scheme: dark) {
   * {
     color-scheme: dark;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "dark color द्या.\nएक नियम.", code: `html {
+      { title: "Mini Project", content: "dark theme ची सुरुवात करू. html ला color-scheme: dark द्या — मूळ नियंत्रण मिळते.\nटोकन — :root[data-theme=\"dark\"] मध्ये --surface आणि --ink ठरवा; prefers-color-scheme ने auto बदल द्या.\nविशेष भागांचे contrast व transition जुळवा. एवढ्यात रंग, वाचनीयता आणि झेप — रात्रीचा अनुभव तयार होतो.", code: `html {
   color-scheme: dark;
 }`, codeLanguage: "css" },
     ],
@@ -638,34 +638,34 @@ input:valid {
     minutes: 36,
     summary: "सर्व Level 8 तंत्रांचा संग्रह.",
     sections: [
-      { title: "1. ध्येय", content: "component portal.\nnav मार्ग.\nटॅब व्यवस्था.\nform रचना.\ntable स्क्रोल.\nथीम दोन्ही.", code: `:root {
+      { title: "1. ध्येय", content: "या धड्याचे ध्येय — Level 8 च्या तंत्रांचे मिळून एक component portal. nav, tabs, form, table आणि रात्रीची थीम.\nसुरुवात टोकनांनी — :root मध्ये --surface आणि --ink निश्चित करा; नंतर तेच व्हेरिएबल सर्व भागांमध्ये वापरा.\nरंगाचा स्रोत एक; एकदा ठरवल्यावर संपूर्ण रचना तयार होते. पुढील थर विभागांमध्ये गुंफला जातो.", code: `:root {
   --surface: #ffffff;
   --ink: #0f172a;
 }`, codeLanguage: "css" },
-      { title: "2. nav भाग", content: "nav एकत्र.\nsidebar स्थिर.\nbreadcrumb खाली.\nमार्ग स्पष्ट.\nरचना सुबक.", code: `.app-nav {
+      { title: "2. nav भाग", content: "portal चा पहिला भाग nav. .app-nav ला display: flex आणि gap: 8px देऊन दुवे आडवे मांडतात; border-bottom: 1px solid #e2e8f0 धार.\nsidebar स्थिर आणि breadcrumb खाली — तिन्ही मार्ग एकत्र. aria-current ने active स्थिती स्पष्ट होते.\nरचना सुबक आणि प्रत्येक स्क्रीनवर स्थिर. portal ची पहिली छाप इथून बनते.", code: `.app-nav {
   display: flex;
   gap: 8px;
   border-bottom: 1px solid #e2e8f0;
 }`, codeLanguage: "css" },
-      { title: "3. tabs भाग", content: "tabs निवड.\npanel जोड.\naria नियम.\nशैली स्थिर.\nवाचक मार्ग.", code: `[role="tab"][aria-selected="true"] {
+      { title: "3. tabs भाग", content: "दुसरा भाग tabs. [role=\"tab\"][aria-selected=\"true\"] ला border-bottom: 3px solid #6366f1 — निवडलेल्या टॅबची रेषा.\ntablist आणि tabpanel चे role नियम सोबत; कीबोर्ड संकेतांनी सुरक्षा. aria चिन्हे प्रत्येक ब्राउझरवर वाचता येतात.\nसामग्री समान रचनेत विभागली जाते; active ठिकाण ओळखता येते. portal चा हा भाग स्पष्ट व प्रवेश्य.", code: `[role="tab"][aria-selected="true"] {
   border-bottom: 3px solid #6366f1;
 }`, codeLanguage: "css" },
-      { title: "4. form भाग", content: "form प्रश्न.\nlabel जोड.\nerror कमी.\nरचना स्पष्ट.\nआधार घट्ट.\nवाचनीय वाढ.", code: `.field {
+      { title: "4. form भाग", content: "portal मध्ये form चे प्रश्न. .field च्या display: grid आणि gap: 6px द्वारे प्रत्येक प्रश्न उभा व्यवस्थित मांडला जातो.\nlabel आणि input जोडलेले; आवश्यकता ::after ने तारका देऊन दाखवली. user-invalid ने चुकीचे संकेत मिळतात.\nसहाय्य मजकूर हलका आणि स्पष्ट — भरण्याचा आधार नेहमी मजबूत. portal चा हा भाग वापरकर्त्याचा सहभाग.", code: `.field {
   display: grid;
   gap: 6px;
 }`, codeLanguage: "css" },
-      { title: "5. table गती", content: "table लपवा.\ncard मोड.\ndata लेबल.\nरचना बदल.\nदृश्य स्पष्ट.", code: `@media (width < 640px) {
+      { title: "5. table गती", content: "डेटा भाग table. लहान स्क्रीनवर @media (width < 640px) मध्ये td::before ला data-label द्या.\nमोठ्या स्क्रीनवर ती table म्हणून दिसते; हेडर sticky आणि zebra रंग. दोन्ही अवस्थांमध्ये सामग्री समान.\nकार्ड मोडमुळे मोबाइलवर वाचन सोपे; स्तंभांची नावे प्रत्येक सेलबरोबर येतात. रूप बदलले, डेटा तसाच.", code: `@media (width < 640px) {
   td::before {
     content: attr(data-label);
   }
 }`, codeLanguage: "css" },
-      { title: "6. थीम स्थिर", content: "dark टोकन.\nprint भाग.\nरात्री शांत.\nवारसा मजबूत.\nसंग्रह सजीव.", code: `@media (prefers-color-scheme: dark) {
+      { title: "6. थीम स्थिर", content: "शेवटी थीम. prefers-color-scheme: dark मध्ये टोकन बदलतात; @media print साठी स्वतंत्र नियम.\nportal अंधार किंवा प्रकाशात पूर्ण विलीन होतो; फक्त व्हेरिएबल बदलतात. transition गुळगुळीत राहतो.\nप्रवेश्यता आणि छपाई नियम सोबत — portal कोणत्याही परिस्थितीत उपयुक्त. हा संग्रह पूर्ण होतो.", code: `@media (prefers-color-scheme: dark) {
   :root {
     --surface: #0f172a;
     --ink: #e2e8f0;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "brand टोकन.\nसर्व भाग.", code: `:root {
+      { title: "Mini Project", content: "portal ची बांधणी संपवा — :root मध्ये --brand: #4f46e5 ठरवा. हा ब्रांड रंग संपूर्ण रचनेत पसरतो.\nnav, tabs, form आणि table आता याच टोकनाला जुळतात; कीबोर्ड रिंग सारखे प्रवेश्यता नियम सोबत असतात.\nबदल एका जागी केल्यावर संपूर्ण portal बदलते — सांभाळणे सोपे होते. Level 8 च्या कौशल्यांचा हा सजीव सारांश.", code: `:root {
   --brand: #4f46e5;
 }`, codeLanguage: "css" },
     ],

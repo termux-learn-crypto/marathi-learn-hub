@@ -99,21 +99,6 @@ export default function Home() {
           <LearningPaths />
         </HomeClient>
 
-        {/* Categories Grid */}
-        <section className="py-8">
-          <SectionHeader
-            title="📚 Categories"
-            subtitle="तुमच्या आवडीचा विषय निवडा"
-            link="/categories"
-            linkText="सर्व पहा"
-          />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {categories.map((cat) => (
-              <CategoryCard key={cat.id} cat={cat} count={categoryCounts.get(cat.id) ?? 0} />
-            ))}
-          </div>
-        </section>
-
         {/* Latest Projects */}
         <section className="py-8">
           <SectionHeader
@@ -129,7 +114,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Marathi Learn Hub — Value Pillars */}
+        {/* Categories Grid */}
+        <section className="py-8">
+          <SectionHeader
+            title="📚 Categories"
+            subtitle="तुमच्या आवडीचा विषय निवडा"
+            link="/categories"
+            linkText="सर्व पहा"
+          />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {categories.map((cat) => (
+              <CategoryCard key={cat.id} cat={cat} count={categoryCounts.get(cat.id) ?? 0} />
+            ))}
+          </div>
+        </section>
+
         <section className="py-12">
           <div className="bg-gradient-to-br from-primary-50 to-marathi-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 md:p-12">
             <SectionHeader

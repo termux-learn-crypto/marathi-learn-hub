@@ -51,6 +51,16 @@ export function TutorialCard({ tutorial }: { tutorial: TutorialSummary }) {
         <span>⏱ {tutorial.minutes} min</span>
         <span className="text-primary-600 font-medium">वाचा ➡️</span>
       </div>
+      {tutorial.quiz && tutorial.quiz.length > 0 && (
+        <span className="text-xs px-2 py-1 rounded bg-primary-100 text-primary-600 mt-1">
+          🟢 क्विज
+        </span>
+      )}
+      {tutorial.project !== undefined && (
+        <span className="text-xs px-2 py-1 rounded bg-primary-100 text-primary-600 mt-1">
+          📁 प्रोजेक्ट
+        </span>
+      )}
     </Link>
   );
 }

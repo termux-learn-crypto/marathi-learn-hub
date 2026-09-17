@@ -8,15 +8,15 @@ import { useDarkMode } from "@/lib/storage";
 const navItems = [
   { href: "/", label: "🏠 Home" },
   { href: "/learn", label: "📚 Learn" },
-  { href: "/categories", label: "📂 Categories" },
-  { href: "/tutorials", label: "📝 Tutorials" },
   { href: "/projects", label: "🛠️ Projects" },
   { href: "/quiz", label: "🧩 Quiz" },
+  { href: "/search", label: "🔎 Search" },
   { href: "/tools", label: "🧰 Tools" },
   { href: "/glossary", label: "📖 Glossary" },
   { href: "/community", label: "👥 Community" },
   { href: "/notes", label: "📒 My Progress" },
-  { href: "/search", label: "🔎 Search" },
+  { href: "/about", label: "ℹ️ About" },
+  { href: "/contact", label: "📧 Contact" },
 ];
 
 export default function Navbar() {
@@ -25,7 +25,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <header
+      className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800"
+    >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
@@ -83,14 +85,13 @@ export default function Navbar() {
 
         {mobileOpen && (
           <nav className="lg:hidden pb-4">
-            <div className="grid grid-cols-2 gap-1">
+            <div className="space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`px-3 py-2 rounded-md text-sm ${pathname === item.href ? "bg-primary-50 dark:bg-primary-900/50 text-primary-700" : "hover:bg-gray-100 dark:hover:bg-gray-800"}`}
-                >
+                  className="px-3 py-2 rounded-md text-sm">
                   {item.label}
                 </Link>
               ))}

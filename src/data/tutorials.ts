@@ -182,7 +182,7 @@ export function searchTutorials(query: string): Tutorial[] {
 
 export type TutorialSummary = Pick<
   Tutorial,
-  "slug" | "marathiTitle" | "summary" | "minutes" | "level" | "categoryId" | "levelLabel"
+  "slug" | "marathiTitle" | "summary" | "minutes" | "level" | "categoryId" | "levelLabel" | "quiz" | "project"
 >;
 
 export function toTutorialSummary(t: Tutorial): TutorialSummary {
@@ -194,5 +194,7 @@ export function toTutorialSummary(t: Tutorial): TutorialSummary {
     level: t.level,
     categoryId: t.categoryId,
     levelLabel: t.levelLabel,
+    quiz: t.quiz,
+    project: t.project,
   };
 }

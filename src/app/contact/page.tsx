@@ -72,6 +72,8 @@ export default function ContactPage() {
           </div>
         </div>
 
+        
+
         <p className="text-center text-xs text-gray-400 mt-10">
           Project open-source आहे —{" "}
           <a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer" className="underline">

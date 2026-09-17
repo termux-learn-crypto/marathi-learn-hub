@@ -29,7 +29,7 @@ export default function LearnPage() {
       <main className="max-w-7xl mx-auto px-4 py-8">
         <SectionHeader
           title="📚 Learn - शिका"
-          subtitle={`सर्व categories मधील lessons (एकूण ${filtered.length})`}
+          subtitle={`सर्व categories मधील lessons (एकूण ${tutorials.length})`}
         />
         <TutorialFilters
           filters={filters}

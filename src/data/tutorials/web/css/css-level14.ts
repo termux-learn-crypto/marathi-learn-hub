@@ -13,28 +13,28 @@ export const cssLevel14: Tutorial[] = [
     minutes: 40,
     summary: "@container ठोस नियम.",
     sections: [
-      { title: "1. container कल्पना", content: "container-type नियम.\nआत अनुकूलन.\n@media पेक्षा सशक्त.", code: `.card {
+      { title: "1. container कल्पना", content: "वेब पेजमधील अनेक भाग वेगवेगळ्या रुंदीत दिसतात — कार्डची रांग, पॅनेल, साइडबार. एखादा भाग अरुंद असेल तर त्याची रचना वेगळी आणि रुंद असेल तर वेगळी असावी असे वाटते. इथेच container queries ची गरज पडते.\nmedia queries संपूर्ण स्क्रीनची रुंदी पाहतात; पण container queries एखाद्या घटकाला container घोषित करून त्याच्या रुंदीवर लक्ष ठेवतात. हे करायला container-type: inline-size हा नियम लिहितात.\nयाने .card हा घटक एक container बनतो — त्याच्या आतल्या शैली त्याच्या रुंदीला सामोऱ्या जातात. जणू प्रत्येक खोलीला आपला वातानुकूलन नियंत्रण — घटक कुठेही ठेवला, तरी तो स्वतःच्या आकारानुसार बदलतो.", code: `.card {
   container-type: inline-size;
 }`, codeLanguage: "css" },
-      { title: "2. @container नियम", content: "@container मध्ये.\nरुंदी पाहा.\niframe छान.\nरचना स्पष्ट.", code: `@container (min-width: 400px) {
+      { title: "2. @container नियम", content: "container ठरला की आतल्या शैली नियंत्रित करण्यासाठी @container हा नियम वापरतात.\n@container (min-width: 400px) म्हणजे जेव्हा container ची रुंदी 400px पेक्षा जास्त होते, तेव्हा आतील नियम लागू होतात. उदाहरणात .card चा flex-direction row होतो, म्हणजे घटक आडवे रांगेत बसतात; अरुंद जागेत ते उभे राहतात.\niframe सारख्या embedded घटकांमध्ये हे खूप उपयुक्त — बाहेरची स्क्रीन कितीही मोठी असो, आतला चौकट लहान असेल तर रचना त्याच ठिकाणी समजून बदलते.\nअसा नियम लिहिल्यावर रचना प्रत्येक ठिकाणी स्पष्ट आणि स्वयंचलित बनते — तुम्ही फक्त मर्यादा सांगता, ब्राउझर उर्वरित व्यवस्था पाहतो.", code: `@container (min-width: 400px) {
   .card {
     flex-direction: row;
   }
 }`, codeLanguage: "css" },
-      { title: "3. container-name", content: "नाव नेमके.\ncontainer-name नियम.\nलक्ष्य स्पष्ट.", code: `.news {
+      { title: "3. container-name", content: "एकाच पेजवर अनेक containers असू शकतात; तेव्हा कोणत्या container ला नियम द्यायचा हे स्पष्ट करण्यासाठी नाव देतात.\ncontainer-name ने container ला एक ओळखीचे नाव मिळते. उदाहरणात .news ला aside असे नाव दिले आहे आणि / नंतर container-type लिहिले आहे. मग @container aside (min-width: 400px) असे लिहून नक्की याच container ला नियम लावता येतो.\nनाव नसेल तर जवळचा container आपोआप निवडला जातो; नाव असल्यावर लक्ष्य नेमके ठरते.\nअनेक भाग एकाच पेजवर वेगवेगळ्या प्रकारे बदलत असतील तर नाव दिल्याशिवाय गोंधळ होऊ शकतो. नावामुळे प्रत्येक container चा नियम वेगळा आणि स्पष्ट राहतो.", code: `.news {
   container: aside / inline-size;
 }`, codeLanguage: "css" },
-      { title: "4. style query", content: "style query.\n@container style.\nvariable तपास.", code: `@container style(--theme: dark) {
+      { title: "4. style query", content: "style query हा @container चा आणखी एक प्रकार — रुंदी नव्हे, तर एखाद्या CSS property किंवा variable ची स्थिती तपासतो.\n@container style(--theme: dark) म्हणजे जेव्हा container च्या भागात --theme या व्हेरिएबलचे मूल्य dark असते, तेव्हा आतील शैली लागू होते — .card ची पार्श्वभूमी गडद होते.\nथीम बदलताना ही क्षमता मौल्यवान: पेजवर dark theme चालू झाली की प्रत्येक कार्ड आपोआप रंग बदलते.\nरुंदी आणि थीम दोन्ही तपासता येत असल्याने container queries केवळ आकारच नव्हे, तर परिस्थितीलाही सामोऱ्या जातात — रचना अधिक बुद्धिमान होते.", code: `@container style(--theme: dark) {
   .card {
     background: #111;
   }
 }`, codeLanguage: "css" },
-      { title: "5. कंडिशन नियम", content: "कंडिशन नेमकी.\nmin max.\nउंची नियम.", code: `@container (min-width: 300px) and (max-width: 500px) {
+      { title: "5. कंडिशन नियम", content: "कधीकधी एकच मर्यादा पुरेशी नसते — रुंदी एखाद्या दरम्यान असेल तरच नियम लागू हवा असतो. तेव्हा and ने दोन कंडिशन्स जोडतात.\nउदाहरणात @container (min-width: 300px) and (max-width: 500px) — रुंदी 300 ते 500px दरम्यान असेल तरच .media चा flex-direction column होतो, म्हणजे घटक उभे रांगेत जातात.\nमध्यम आकारात एक रचना आणि छोट्या-मोठ्या आकारात दुसरी — अशा तीन अवस्था नेमक्या सांगता येतात.\nmin आणि max दोन्ही लिहिल्यावर नियमाची व्याख्या अचूक मिळते आणि अनपेक्षित ठिकाणी शैली लागण्याचा धोका टळतो. मर्यादा जितक्या स्पष्ट, तितकी रचना स्थिर.", code: `@container (min-width: 300px) and (max-width: 500px) {
   .media {
     flex-direction: column;
   }
 }`, codeLanguage: "css" },
-      { title: "6. तुलना media", content: "media असते.\ncontainer असते.\nभेद स्पष्ट.\nसवय नेमकी.", code: `.card {
+      { title: "6. तुलना media", content: "media queries आणि container queries दोन्ही 'query' आहेत, पण त्यांचा पाया वेगळा — @media संपूर्ण ब्राउझरची स्क्रीन पाहते, तर @container फक्त एका घटकाची रुंदी.\nहेच उदाहरण पहा: .card हा container ठरवला आणि @container (min-width: 450px) मध्ये .body चे grid-template-columns 1fr 1fr केले — म्हणजे कार्ड मोठे असेल तरच आत दोन स्तंभ निघतील.\nस्क्रीन मोठी असूनही कार्ड अरुंद असेल, तर @media चा नियम लागू होत नाही; पण @container चा होतो — कारण तो स्वतःच्या भागाचे मोजमाप करतो.\nम्हणून आधुनिक रचनांमध्ये @container ला प्राधान्य देतात; एका घटकाची रचना स्वयंपूर्ण बनते.", code: `.card {
   container-type: inline-size;
 }
 @container (min-width: 450px) {
@@ -42,7 +42,7 @@ export const cssLevel14: Tutorial[] = [
     grid-template-columns: 1fr 1fr;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "कार्ड container.\ntype एक.", code: `.products {
+      { title: "Mini Project", content: "आता संपूर्ण धड्याचे सार प्रत्यक्षात आणूया: मालाच्या कार्डांची रांग एका container मध्ये मांडा.\n.products ला container-type: inline-size द्या — मग त्याच्या आतील प्रत्येक कार्ड त्याच्या रुंदीवर प्रतिक्रिया देईल.\nएकच भाग लिहिला, पण त्याचा परिणाम संपूर्ण रांगेवर होतो: अरुंद रांगेत कार्ड उभे, मोठ्या रांगेत आडवे.\nहा प्रयोग केल्यावर media आणि container यांचा फरक पक्का समजतो; तुमची रचना प्रत्येक टप्प्यावर हुशारीने बदलण्यास तयार होते.", code: `.products {
   container-type: inline-size;
 }`, codeLanguage: "css" },
     ],
@@ -75,25 +75,25 @@ export const cssLevel14: Tutorial[] = [
     minutes: 40,
     summary: ":has() पालक निवड.",
     sections: [
-      { title: "1. has कल्पना", content: ":has() नियम.\nमुल तपास.\nपालक निवड.", code: `.card:has(img) {
+      { title: "1. has कल्पना", content: ":has() हा एक प्रकारचा निवडक आहे जो पालक घटकाला त्याच्या आतल्या मुलांच्या आधारे ओळखतो — अशी निवड पूर्वी केवळ JavaScript ने शक्य होती.\nउदाहरणात .card:has(img) म्हणजे ज्या कार्डमध्ये चित्र आहे, तोच कार्ड निवडला जाईल; चित्र नसलेला कार्ड तसाच राहतो.\nमुलगा, थेट मुलगा किंवा स्थिती — असे कोणतेही निकष कंसात लिहिता येतात आणि ब्राउझर ते तपासून पालकाला शैली देतो.\nयामुळे रचना, रंग किंवा मांडणी दिलेल्या अटीवर आधारित बनते; वाचनीयता आणि स्पष्टता दोन्ही सुधारतात.", code: `.card:has(img) {
   display: block;
 }`, codeLanguage: "css" },
-      { title: "2. :checked थर", content: ":has(:checked).\nनिवड स्पष्ट.\nrow खूण.\nरचना स्पष्ट.", code: `tr:has(input:checked) {
+      { title: "2. :checked थर", content: ":has(:checked) च्या सहाय्याने निवडलेल्या नियंत्रणाच्या स्थितीवर टेबलच्या ओळीचा रंग ठरवता येतो.\nउदाहरणात tr:has(input:checked) — ज्या ओळीत निवडलेले input असेल, त्या ओळीला #f0fdf4 हा हिरवा पार्श्वभूमी रंग मिळतो.\nफॉर्म, कार्ट किंवा मोठ्या सूचीमध्ये वापरकर्त्याची निवड त्वरित स्पष्ट होते; JavaScript ची गरज नसते.\nयामुळे निवड आणि दृश्य परिणाम एकाच नियमात जुळतात आणि वापरकर्त्याला नेमके कुठे काय निवडले ते कळते.", code: `tr:has(input:checked) {
   background: #f0fdf4;
 }`, codeLanguage: "css" },
-      { title: "3. मेनू नियम", content: ":has(> a).\nथेट मुल.\nमेनू रंग.", code: `nav li:has(> ul)::after {
+      { title: "3. मेनू नियम", content: ":has(> a) मध्ये > चिन्ह फक्त थेट मुलगा दर्शवते — खोल नातेवाईक नव्हे.\nउदाहरणात nav li:has(> ul)::after — ज्या मेनू घटकाच्या खाली थेट उप-सूची असेल, त्याच्या शेवटी ▾ ही खूण जोडली जाते.\nम्हणजे ड्रॉपडाउन असलेला प्रत्येक मेनू आयटम आपोआप ओळखला जातो आणि सर्वांना छोटी खूण मिळते.\nथेट मुलाचा नियम नेमका असल्याने चुकीचा घटक निवडण्याची शक्यता कमी होते.", code: `nav li:has(> ul)::after {
   content: "\\25BE";
 }`, codeLanguage: "css" },
-      { title: "4. गट थर", content: ":has(:focus-within).\nगट उजळ.\nफॉर्म क्षेत्र.", code: `.field:has(:focus-within) {
+      { title: "4. गट थर", content: ":has(:focus-within) फॉर्मच्या गटाला उजळण्यासाठी उत्तम — आतल्या कोणत्याही क्षेत्रावर लक्ष केंद्रित झाले की गटाचा किनारा रंगतो.\nउदाहरणात .field:has(:focus-within) — जेव्हा वापरकर्ता फील्डच्या आत टंकित करतो, तेव्हा बॉर्डर #0d9488 होते आणि गट स्पष्ट होतो.\nHTML मध्ये कसलीही अतिरिक्त कक्षा जोडावी लागत नाही; संपूर्ण नियंत्रण CSS ला देता येते.\nवापरकर्ता ज्या फील्डमध्ये काम करत आहे ते लगेच दिसल्याने फॉर्म अधिक मैत्रीपूर्ण आणि सुवाच्य बनतो.", code: `.field:has(:focus-within) {
   border-color: #0d9488;
 }`, codeLanguage: "css" },
-      { title: "5. कार्ड नियम", content: ":has(img).\nचित्र कार्ड.\nस्लाइड मोठा.", code: `.slide:has(img) {
+      { title: "5. कार्ड नियम", content: ":has(img) च्या सहाय्याने चित्र असलेले कार्ड वेगळ्या रचनेत दाखवता येते; चित्र नसलेले कार्ड मागील रचनेत राहते.\nउदाहरणात .slide:has(img) — चित्र असलेल्या स्लाइडला grid-template-columns 1fr 1fr मिळते, म्हणजे चित्र आणि मजकूर शेजारी बसतात.\nकार्डच्या रांगा एकाच CSS नियमाने सुसंगत होतात आणि सर्वांना समान दृश्य प्रमाण लाभते.\nचित्रविहीन आयटम किंवा साधे मजकूर कार्ड वेगळे ठेवण्यासाठी हा दृष्टिकोन लवचिक ठरतो.", code: `.slide:has(img) {
   grid-template-columns: 1fr 1fr;
 }`, codeLanguage: "css" },
-      { title: "6. तुलना नियम", content: ":has(:not()).\nजटिल टाळा.\ncycle नको.\nसवय नेमकी.", code: `.box:has(:not(.empty)) {
+      { title: "6. तुलना नियम", content: ":has(:not()) सारखे जटिल संयोजन शक्य असले तरी प्रयोग करताना सावधगिरी हवी — अतिरिक्त तपासणीमुळे ब्राउझरला अधिक श्रम लागतो.\nउदाहरणात .box:has(:not(.empty)) — रिकामे नसलेल्या बॉक्सला दृश्य किनारा मिळतो; पण एकाच नियमात अनेक :has जोडू नयेत.\n:has ला स्वतःच्या मुलाच्या आधारे पुन्हा स्वतःकडे पाठवणारा नियम cycle निर्माण करतो और अनिश्चित परिणाम देतो, म्हणून तो टाळा.\nसाधी आणि स्पष्ट पद्धत निवडा; गुंतागुंत नंतर देखभाल कठीण करते.", code: `.box:has(:not(.empty)) {
   border: 2px solid #334155;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "सूची निवड.\nhas एक.", code: `li:has(strong) {
+      { title: "Mini Project", content: "आता धड्याचा सार प्रत्यक्षात आणा: strong मजकूर असलेल्या सूचीतील घटक ठळक दाखवा.\nli:has(strong) हा नियम फक्त अशा सूची आयटमला लक्ष्य करतो ज्यात मजबूत मजकूर किंवा नोंद आहे; बाकी आयटम साधे राहतात.\nएकच नियम संपूर्ण सूचीत तर्कशुद्ध फरक निर्माण करतो आणि मुख्य मुद्दे वाचकाला लगेच दिसतात.\nहा प्रयोग केल्यावर :has() च्या सामर्थ्याचा नीट अनुभव येतो; तुमचे पालक-आधारित निवड कौशल्य पक्के होते.", code: `li:has(strong) {
   font-weight: 700;
 }`, codeLanguage: "css" },
     ],
@@ -126,22 +126,22 @@ export const cssLevel14: Tutorial[] = [
     minutes: 40,
     summary: "color-mix() दोन रंग.",
     sections: [
-      { title: "1. color-mix कल्पना", content: "color-mix() नियम.\nदोन रंग.\nप्रमाण सेट.", code: `.chip {
+      { title: "1. color-mix कल्पना", content: "color-mix() फंक्शन दोन रंगांना दिलेल्या प्रमाणात मिसळून एक नवीन रंग तयार करते — रंगचक्रावर दर वेळी हाताने नवा कोड शोधण्याची गरज संपते.\nin srgb म्हणजे मिश्रण sRGB जागेत होते; नंतर दोन रंग आणि त्यांची टक्केवारी लिहितात.\nउदाहरणात लाल 70% आणि पांढरा उरलेला मिळून एक मऊ टिंट तयार होतो.\nब्राउझरच सर्व गणना करतो, त्यामुळे प्रत्येक वेळी सुसंगत आणि अचूक रंग मिळतो.", code: `.chip {
   background: color-mix(in srgb, red 70%, white);
 }`, codeLanguage: "css" },
-      { title: "2. शेड थर", content: "hover थर.\nमूळ रंग.\nरंग मऊ.\nरचना स्पष्ट.", code: `.btn:hover {
+      { title: "2. शेड थर", content: "hover च्या वेळी रंग बदलण्यासाठी color-mix हा आदर्श साधन — तो जुळणारा गडद शेड आपोआप देऊ शकतो.\nउदाहरणात .btn:hover मध्ये टील रंग 85% आणि काळा उरलेले मिश्रण केले आहे, त्यामुळे बटणावर उंदीर आणताच एक सजीव अंधार जाणवतो.\nअलग hex कोड लिहिण्याची गरज राहत नाही; मूळ रंग आणि प्रमाण बदलून शेड नियंत्रित होते.\nयामुळे थीम एकाच रंगावर आधारित राहते आणि संपूर्ण डिझाइनमध्ये सुसंगतता टिकते.", code: `.btn:hover {
   background: color-mix(in srgb, #0d9488 85%, black);
 }`, codeLanguage: "css" },
-      { title: "3. किनार नियम", content: "border रंग.\ncolor-mix जोड.\nध्वनी वाढ.", code: `.card {
+      { title: "3. किनार नियम", content: "किनाऱ्यांचे (border) रंग कधीकधी मुख्य रंगापेक्षा हलके हवेत असतात; color-mix ते लगेच देतो.\nउदाहरणात .card चा किनारा oklab जागेत टील 40% आणि पांढरा उरलेला मिसळून तयार झाला आहे.\noklab मध्ये मिसळल्यावर रंग अधिक नैसर्गिक आणि डोळ्यांना समतोल दिसतो.\nअशा प्रकारे कार्डचा किनारा मुख्य रंगाशी जुळतो, पण जास्त जड नसल्याने रचना खुली वाटते.", code: `.card {
   border: 1px solid color-mix(in oklab, #0d9488 40%, white);
 }`, codeLanguage: "css" },
-      { title: "4. मृदू थर", content: "क्रिया स्थिती.\nअर्धे प्रमाण.\nसजीव दिसे.", code: `.btn:disabled {
+      { title: "4. मृदू थर", content: "क्रिया बंद (disabled) केलेल्या बटणांना सहसा मऊ रंग देतात जेणेकरून ते निष्क्रिय भासतात.\nउदाहरणात .btn:disabled मध्ये टील 40% आणि पांढरा उरलेला मिसळून एक फिकट, शांत थर मिळतो.\nवापरकर्ता नकळतपणे ओळखतो की या बटणावर क्लिक करता येणार नाही.\nरंग आणि स्थिती यांचा संबंध एका ओळीत स्पष्ट होतो, त्यामुळे फॉर्म अधिक प्रवेशयोग्य होतात.", code: `.btn:disabled {
   background: color-mix(in srgb, #0d9488 40%, white);
 }`, codeLanguage: "css" },
-      { title: "5. प्रमाण नियम", content: "प्रमाण नेमके.\nटक्केवारी.\nएक तर अंत.", code: `.tint {
+      { title: "5. प्रमाण नियम", content: "color-mix ची खरी ताकद टक्केवारीच्या नेमक्या नियंत्रणात आहे — 60% म्हणजे स्पष्ट टिंट, 20% म्हणजे जवळजवळ पांढरा.\nउदाहरणात .tint साठी oklab मध्ये #155e75 60% आणि पांढरा उरलेला मिसळला आहे.\nएकच मूळ रंग ठेवून विविध प्रमाणांतून हलका ते गडद अशी संपूर्ण मालिका मिळते.\nथीममध्ये एकसूत्रता राखण्यासाठी हे आश्चर्यकारकपणे उपयुक्त — प्रत्येक टिंट एकाच नियमातून जन्मतो.", code: `.tint {
   background: color-mix(in oklab, #155e75 60%, white);
 }`, codeLanguage: "css" },
-      { title: "6. आधार थर", content: "आधार नवा.\nजुने साधे.\nपडताळा नीट.\nसवय नेमकी.", code: `.safe-tint {
+      { title: "6. आधार थर", content: "जुन्या ब्राउझरमध्ये color-mix काम करत नाही म्हणून आधार (fallback) रंग नेहमी लिहावा.\nप्रथम .safe-tint ला साधा #d9f2ee रंग दिला आहे; मग @supports ने color-mix समजणारे ब्राउझर तपासले जातात.\n@supports च्या आतच नवीन नियम दिल्यावर जुने ब्राउझर जुना रंग आणि नवे ब्राउझर ओकलाब मिश्रण वापरतात.\nअशा पडताळणीने प्रत्येक साधनावर रचना सुंदर आणि सुरक्षित राहते.", code: `.safe-tint {
   background: #d9f2ee;
 }
 @supports (background: color-mix(in srgb, red, white)) {
@@ -149,7 +149,7 @@ export const cssLevel14: Tutorial[] = [
     background: color-mix(in oklab, #0d9488 20%, white);
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "बटण शेड.\ncolor-mix एक.", code: `.btn-primary {
+      { title: "Mini Project", content: "धड्याचा सराव करण्यासाठी मुख्य बटणाचा ठोस शेड color-mix ने तयार करा.\n.btn-primary मध्ये टील 90% आणि काळा उरलेला मिसळून एक खोल, स्पष्ट रंग मिळतो.\nएकाच मूळ रंगातून बटणांचा सामान्य आणि hover असा दोन्ही थर निर्माण करता येतो.\nप्रमाण कमी-जास्त करून कसा परिणाम बदलतो ते पडताळा; रंग व्यवस्थापन आता सोपे झाल्याचे लक्षात येईल.", code: `.btn-primary {
   background: color-mix(in srgb, #0d9488 90%, black);
 }`, codeLanguage: "css" },
     ],
@@ -182,23 +182,23 @@ export const cssLevel14: Tutorial[] = [
     minutes: 40,
     summary: "oklch() हलका रंग नियंत्रण.",
     sections: [
-      { title: "1. oklch कल्पना", content: "oklch() नियम.\nहलका जागा.\nदृश्य साम्य.", code: `.brand {
+      { title: "1. oklch कल्पना", content: "oklch() ही रंग जागा आहे जी मानवी दृष्टीच्या जवळ जाते — L (हलकीपणा), C (रंग तीव्रता) आणि H (रंग प्रकार) अशा तीन नेमक्या मूल्यांनी रंग ठरतो.\nउदाहरणात oklch(0.7 0.15 160) — 0.7 lightness, 0.15 chroma आणि 160 हा हिरव्या भागातील hue दर्शवतो.\nhex सारख्या जुन्या स्वरूपापेक्षा येथे प्रत्येक वैशिष्ट्य वेगळे वाचता येते.\nत्यामुळे रंग बदलताना नेमके कोणते गुणधर्म सुधारायचे हे स्पष्ट कळते.", code: `.brand {
   color: oklch(0.7 0.15 160);
 }`, codeLanguage: "css" },
-      { title: "2. L थर", content: "L मूल्य नेमकी.\nहलका पातळी.\nतुलना स्पष्ट.\nरचना स्पष्ट.", code: `.muted {
+      { title: "2. L थर", content: "L हे oklch चे पहिले मूल्य हलकीपणा ठरवते — 0 म्हणजे काळा, 1 म्हणजे पांढरा; दरम्यानचे मूल्य मध्यम टोन.\nउदाहरणात .muted साठी L = 0.9 म्हणजे अतिशय हलका मजकूर जो गौण भागासाठी योग्य आहे.\nहलके मजकूरासाठी फक्त L वाढवला आणि chroma कमी ठेवल्यावर रंग शांत दिसतो.\nएकाच hue ठेवून विविध हलकीपणाचे थर तयार करता येतात — ही टायपोग्राफीसाठी उत्तम पद्धत.", code: `.muted {
   color: oklch(0.9 0.05 160);
 }`, codeLanguage: "css" },
-      { title: "3. chroma नियम", content: "C मूल्य.\nरंग वेगळा.\nखूप टाळा.", code: `.loud {
+      { title: "3. chroma नियम", content: "C (chroma) रंगाची तीव्रता किंवा जिवंतपणा ठरवते — 0 म्हणजे राखाडी, वाढला की रंग अधिक ठळक.\nउदाहरणात .loud साठी C = 0.25 आणि hue 25 म्हणजे एक तेजस्वी, जवळजवळ नारिंगी-लाल रंग निघतो.\nजास्त chroma प्रत्येक ठिकाणी योग्य नसतो; मुख्य भागांसाठी ठळक आणि सहाय्यक भागांसाठी कमी ठेवा.\nतीव्र रंगाची ताकद नेमकी नियंत्रित करता येणे हे oklch चे मोठे वैशिष्ट्य.", code: `.loud {
   color: oklch(0.6 0.25 25);
 }`, codeLanguage: "css" },
-      { title: "4. hue थर", content: "H प्रकार.\nनिळा हिरवा.\nक्रम नेमका.", code: `.cool {
+      { title: "4. hue थर", content: "H हे रंगचक्रावरील प्रकार ठरवते — 25 लाल-नारिंगी, 160 हिरवा, 250 निळा अशी मूल्ये.\nउदाहरणात .cool मध्ये hue 250 म्हणजे थंड निळसर रंग, जो शांत आणि व्यावसायिक लुक देतो.\nhue एकसारखा ठेवून L आणि C बदलल्यास एकाच कुटुंबातील रंग मिळतात.\nरंगांचा क्रम आणि सुसंगतता ओळखणे सोपे होते, त्यामुळे डिझाइन टीममध्ये समन्वय वाढतो.", code: `.cool {
   color: oklch(0.55 0.1 250);
 }`, codeLanguage: "css" },
-      { title: "5. मालिका नियम", content: "डार्क थर.\nएकच hue.\nटोन योग्य.", code: `:root {
+      { title: "5. मालिका नियम", content: "एकाच hue ठेवून lightness बदलल्यास रंगांची सुसंगत मालिका (scale) मिळते — थीमसाठी आदर्श.\nउदाहरणात :root मध्ये --brand हा 0.65 lightness वर ठेवला आणि --brand-dark 0.45 वर;\nदोन्हींचा chroma आणि hue (180) एकसारखा असल्याने ते नैसर्गिकपणे जुळतात.\nअशा प्रकारे variable द्वारे रंगांना नावे देतो आणि संपूर्ण प्रकल्पात एकाच ठिकाणी बदल करून सर्वत्र परिणाम घेतो.", code: `:root {
   --brand: oklch(0.65 0.18 180);
   --brand-dark: oklch(0.45 0.16 180);
 }`, codeLanguage: "css" },
-      { title: "6. तुलना थर", content: "hex थर.\noklch अगोदर.\nआधार साधा.\nसवय नेमकी.", code: `:root {
+      { title: "6. तुलना थर", content: "नवीन रंग जागा वापरताना जुन्या ब्राउझरचा आधार सोबत ठेवणे आवश्यक.\nप्रथम --accent ला hex मूल्य #0d9488 दिले आहे जे सर्व ब्राउझर समजतात.\nमग @supports (color: oklch(...)) ने समर्थन तपासून नवोन्मेषी ब्राउझरमध्ये --accent ला oklch मूल्य देतो.\nजुन्या साधनांवर hex आणि नव्यावर oklch — दोन्हींवर रचना बरोबर दिसते.", code: `:root {
   --accent: #0d9488;
 }
 @supports (color: oklch(0.7 0.15 160)) {
@@ -206,7 +206,7 @@ export const cssLevel14: Tutorial[] = [
     --accent: oklch(0.65 0.18 180);
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "टोन नियम.\noklch एक.", code: `.button {
+      { title: "Mini Project", content: "धड्याचा सार: मुख्य बटणासाठी एक स्थिर आणि समतोल रंग oklch ने निवडा.\n.button ला oklch(0.65 0.18 180) दिल्यावर एक सजीव हिरवट-नील रंग मिळतो.\nहेच मूल्य पुढील धड्यात color-mix मध्ये वापरल्यावर रंगसंगती स्वयंचलितच राहते.\nL, C, H चे मूल्य हाताळून रंग कसा बदलतो हे प्रयोग करून पाहा; रंग व्यवस्थापन आता पारदर्शक झाले.", code: `.button {
   background: oklch(0.65 0.18 180);
 }`, codeLanguage: "css" },
     ],
@@ -239,30 +239,30 @@ export const cssLevel14: Tutorial[] = [
     minutes: 40,
     summary: "light-dark() रंग वातावरण.",
     sections: [
-      { title: "1. light-dark कल्पना", content: "color-scheme नियम.\nlight dark.\nएक मूल्य.", code: `:root {
+      { title: "1. light-dark कल्पना", content: "light-dark() फंक्शन दोन रंग देते — पहिला हलक्या थीमसाठी आणि दुसरा गडद थीमसाठी; ब्राउझर योग्य तो निवडतो.\ncolor-scheme: light dark या नियमाने घोषित केले की आपले पृष्ठ दोन्ही थीमला सिद्ध आहे.\nउदाहरणात body चा पार्श्वभूमी रंग हलक्या थीममध्ये पांढरा आणि गडद थीममध्ये #0f172a होतो; मजकूर रंग त्याच्या उलट.\nएकच नियम लिहिला तरी वापरकर्त्याच्या सिस्टम थीमनुसार संपूर्ण पृष्ठ आपोआप रुपांतरित होते.", code: `:root {
   color-scheme: light dark;
 }
 body {
   background: light-dark(white, #0f172a);
   color: light-dark(#0f172a, white);
 }`, codeLanguage: "css" },
-      { title: "2. फॉर्म थर", content: "फॉर्म रंग.\nसिस्टम थीम.\nकोड सोपा.\nरचना स्पष्ट.", code: `input {
+      { title: "2. फॉर्म थर", content: "फॉर्म घटकांना थीमसोबत जुळवणे कठीण असते कारण ब्राउझर त्यांना स्वतःचा रंग देतो; light-dark हे सुलभ करते.\nउदाहरणात input ची पार्श्वभूमी हलक्या थीममध्ये पांढरी आणि गडद थीममध्ये #1e293b होते; मजकूर रंगही बदलतो.\ncolor-scheme घोषित केल्यावर सिस्टम थीमचे वाचन आपोआप होते, त्यामुळे मीडिया क्वेरी लिहिण्याची गरज नाही.\nफॉर्म आता नेहमी सभोवतालच्या डिझाइनशी सुसंगत आणि सुवाच्य राहतो.", code: `input {
   background: light-dark(white, #1e293b);
   color: light-dark(#0f172a, white);
 }`, codeLanguage: "css" },
-      { title: "3. कार्ड नियम", content: "कार्ड रंग.\nदोन पालट.\nसममूल्य.", code: `.card {
+      { title: "3. कार्ड नियम", content: "कार्डसारख्या पुनरावृत्त घटकांसाठी light-dark विशेष सोयीचे — दोन्ही थीमसाठी रंग एकत्र लिहिता येतात.\nउदाहरणात .card ची पार्श्वभूमी हलक्या थीममध्ये #ffffff आणि गडद थीममध्ये #111c2e होते.\nप्रत्येक थीमसाठी वेगळा नियम लिहिणे (duplicate) वाचले, देखभाल सोपी झाली.\nहलक्या थीमची कार्ड काठावर दिसतात, गडद थीमची मऊ निळसर होतात — दोन्ही अपेक्षित लुक.", code: `.card {
   background: light-dark(#ffffff, #111c2e);
 }`, codeLanguage: "css" },
-      { title: "4. किनार थर", content: "किनार हलका.\nदृश्य वेगळा.\nरंग तोल.", code: `.btn {
+      { title: "4. किनार थर", content: "थीम बदलताना किनारे स्वच्छ ठेवण्यासाठी light-dark उत्तम — रंगांमध्ये समतोल आपोआप राहतो.\nउदाहरणात .btn चा किनारा हलक्या थीममध्ये #cbd5e1 (हलका राखाडी) आणि गडद थीममध्ये #334155 होतो.\nदोन्ही थीममध्ये किनारा स्पष्ट पण आक्रमक नाही, म्हणून बटण सुंदर दिसते.\nअशा ठिकाणी light-dark लिहिल्यावर dark/light दोन्ही लुकसाठी वेगळे मीडिया ब्लॉक शिल्लक राहत नाहीत.", code: `.btn {
   border: 1px solid light-dark(#cbd5e1, #334155);
 }`, codeLanguage: "css" },
-      { title: "5. स्वतः नियम", content: "color-scheme ठरवा.\nस्वतः प्रमाण.", code: `:root {
+      { title: "5. स्वतः नियम", content: "कधीकधी वापरकर्त्याच्या सिस्टम ची पर्वा न करता आपणच थीम ठरवायची असते; color-scheme ने ते शक्य आहे.\ncolor-scheme: dark लिहिल्यावर सिस्टम हलकी असली तरी light-dark दुसरे मूल्य (गडद) निवडते.\nउदाहरणात body नेहमी #0f172a पार्श्वभूमीवर राहते, कारण आपणच dark थीम ठरवली.\nस्वतःचा स्विच द्यायचा असेल किंवा अॅपने ठरवलेली थीम लागू करायची असेल तर ही पद्धत उपयुक्त.", code: `:root {
   color-scheme: dark;
 }
 body {
   background: light-dark(white, #0f172a);
 }`, codeLanguage: "css" },
-      { title: "6. आधार थर", content: "जुने साधे.\nmedia तपास.\nपडताळा नीट.\nसवय नेमकी.", code: `body {
+      { title: "6. आधार थर", content: "light-dark ला आश्रय न देणाऱ्या ब्राउझरसाठी जुनी आणि सिद्ध पद्धत आधार म्हणून ठेवता येते.\nउदाहरणात प्रथम body ला फक्त पांढरा रंग दिला आहे; सर्वांना समजतो.\nमग @media (prefers-color-scheme: dark) च्या आत गडद रंग — अशाप्रकारे जुने ब्राउझर मीडिया क्वेरीने आणि नवे light-dark ने चालतात.\nआधार पडताळणीमुळे रचना कोणत्याही वातावरणात डगमगत नाही.", code: `body {
   background: white;
 }
 @media (prefers-color-scheme: dark) {
@@ -270,7 +270,7 @@ body {
     background: #0f172a;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "थीम स्विच.\nlight-dark एक.", code: `:root {
+      { title: "Mini Project", content: "धड्याचा सराव: संपूर्ण थीम प्रणाली एका नियमाने चालवा.\n:root वर color-scheme: light dark घोषित करा जेणेकरून संपूर्ण पृष्ठ दोन्ही थीमला ग्राहक होईल.\nमग body चे रंग light-dark ने द्या — हलक्या थीममध्ये पांढऱ्यावर काळा, गडद थीममध्ये #0f172a वर पांढरा मजकूर.\nसिस्टम थीम फिरवून पहा; एका ओळीत संपूर्ण रूपांतर होताना दिसेल, JavaScript शिवाय.", code: `:root {
   color-scheme: light dark;
 }
 body {
@@ -309,22 +309,22 @@ body {
     minutes: 40,
     summary: "@scope नियम तोल.",
     sections: [
-      { title: "1. scope कल्पना", content: "@scope नियम.\nक्षेत्र स्पष्ट.\nबाहेर काही नाही.", code: `@scope (.card) {
+      { title: "1. scope कल्पना", content: "@scope हा नियम एखाद्या घटकाच्या क्षेत्रातील शैली मर्यादित करतो — बाहेरच्या मजकुरावर त्याचा परिणाम होत नाही.\nउदाहरणात @scope (.card) च्या आत h2 ला रंग दिला आहे; फक्त .card च्या आतले h2 तो रंग घेतील.\nपूर्वी वर्ग-काळ्या (class) नावांचा वापर वाढवून हा अडथळा टाळावा लागत असे.\nमर्यादा लिहून देतो आणि उर्वरित व्यवस्था ब्राउझरला सोपी — कोड स्वच्छ आणि वाचनीय राहतो.", code: `@scope (.card) {
   h2 {
     color: #0d9488;
   }
 }`, codeLanguage: "css" },
-      { title: "2. खोल थर", content: "ओळख कमी.\nनियम सुरक्षित.\nमर्यादा स्पष्ट.\nरचना स्पष्ट.", code: `@scope (.list) to (.item) {
+      { title: "2. खोल थर", content: "@scope च्या दुसऱ्या भागात आपल्याला कोठपर्यंत शैली पोहोचवायची नाही ते सांगता येते — to या नियमाने.\nउदाहरणात @scope (.list) to (.item) — .list चा प्रारंभ पण .item च्या आत खोलवर नियम आढळत नाही.\nत्यामुळे उपयुक्तता कमी मजकुराचे relevancy वाढते आणि शैली अनपेक्षित ठिकाणी गळून जात नाहीत.\nमर्यादा जितकी नेमकी, तितकी रचना अंदाजे वर्तन — प्रत्येक डेव्हलपरची इच्छा.", code: `@scope (.list) to (.item) {
   p {
     margin: 0;
   }
 }`, codeLanguage: "css" },
-      { title: "3. एकत्र नियम", content: "@scope एकत्र.\nनाव मिळते.\nअव्यवस्था नाही.", code: `@scope (.teaser) {
+      { title: "3. एकत्र नियम", content: "@scope चा खरा फायदा गुंतागुंतीच्या रचनांमध्ये दिसतो — कोड सोपा, समजण्यास सुलभ.\nउदाहरणात @scope (.teaser) मध्ये .title ला फॉन्ट-आकार दिला आहे आणि बाहेर f केलेला नाही.\nएकाच ठिकाणी संबंधित शैली एकत्र राहतात, म्हणून कोणती शैली कोणत्या क्षेत्राची हे लगेच कळते.\nअव्यवस्था आणि संघर्ष कमी; project मोठा असला तरी व्यवस्थापन टिकते.", code: `@scope (.teaser) {
   .title {
     font-size: 1.2rem;
   }
 }`, codeLanguage: "css" },
-      { title: "4. आधार नियम", content: "आधार तपासा.\nसोपा नियम.\nबाहेर मर्यादा.", code: `.teaser .title {
+      { title: "4. आधार नियम", content: "@scope न समजणाऱ्या ब्राउझरसाठी आधार नियम पहिले लिहितात; नंतर @scope ने नवीन मूल्ये देतात.\nप्रथम .teaser .title ला 1.1rem दिला आहे — हा वर्ग-आधारित जुना मार्ग सर्वत्र चालतो.\nमग @scope (.teaser) मध्ये त्याच .title ला 1.25rem — नव्या ब्राउझरमध्ये मोठा आकार.\nसुसंगत चढ-उतार मिळाला आणि संपूर्ण समर्थन टिकले; प्रगती सुरक्षित मार्गाने होते.", code: `.teaser .title {
   font-size: 1.1rem;
 }
 @scope (.teaser) {
@@ -332,14 +332,14 @@ body {
     font-size: 1.25rem;
   }
 }`, codeLanguage: "css" },
-      { title: "5. खोल थर", content: "scope nested.\nखोल घरटे.\nनियम व्यवस्थित.", code: `@scope (.app) {
+      { title: "5. खोल थर", content: "@scope च्या आत पुन्हा @scope लिहिता येतो — अशा घरट्याने खोल रचना व्यवस्थित होतात.\nउदाहरणात @scope (.app) मध्ये @scope (.panel) — पॅनेलच्या आतले button संपूर्ण रुंदी घेते, बाहेरच्या push नको.\nप्रत्येक क्षेत्र आपल्या मर्यादेतच राहते, म्हणून अनेक घटक असले तरी शैली गचाळ होत नाहीत.\nखोल घरटे रचनेला सुव्यवस्थित आणि भविष्यातील बदलांसाठी लवचिक बनवतात.", code: `@scope (.app) {
   @scope (.panel) {
     button {
       width: 100%;
     }
   }
 }`, codeLanguage: "css" },
-      { title: "6. तुलना थर", content: "BEM थर.\nscope आधुनिक.\nनिवड सोपी.\nसवय नेमकी.", code: `.card__title {
+      { title: "6. तुलना थर", content: "जुनी BEM पद्धत वर्गाच्या नावांमध्ये (card__title) संबंध लपवते; @scope ते स्पष्ट नियमांमध्ये करते.\nBEM मध्ये प्रत्येक भागाला अनोखे नाव lihave लागते, कोड पुनरावृत्त होतो.\n@scope (.card) मध्ये .title लिहिल्यावर संबंध त्या क्षेत्रातच ठरतो आणि नावे छोटी राहतात.\nदोन्हीचा परिणाम एकसारखा पण लेखन आणि देखभाल @scope मध्ये सोपे — तुमची निवड स्पष्ट.", code: `.card__title {
   color: #0d9488;
 }
 @scope (.card) {
@@ -347,7 +347,7 @@ body {
     color: #0d9488;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "कार्ड scope.\n@scope एक.", code: `@scope (.card) {
+      { title: "Mini Project", content: "धड्याचा सराव करण्यासाठी एका कार्डमधील शीर्षक सोप्या पद्धतीने नियंत्रित करा.\n@scope (.card) च्या आत h2 चा रंग लिहा; बाहेरच्या मजकुरावर परिणाम होता कामा नये.\nदुसऱ्या स्थानी कार्ड नसलेला h2 तसाच राहतो, म्हणून मर्यादेचा अर्थ लागतो.\nएकाच पेजवर अनेक भाग असूनही शैली नेमकी आणि स्वतंत्र राहते याचा अनुभव घ्या.", code: `@scope (.card) {
   h2 {
     color: #0d9488;
   }
@@ -384,32 +384,32 @@ body {
     minutes: 40,
     summary: "text-wrap balance pretty.",
     sections: [
-      { title: "1. balance कल्पना", content: "text-wrap balance.\nओळ समान.\nशीर्ष नीट.", code: `h2 {
+      { title: "1. balance कल्पना", content: "text-wrap: balance मजकुराच्या ओळी समान वाटते — शीर्षकाच्या ओळी सुंदर आणि संतुलित दिसतात.\nखोल मजकूर असलेल्या ओळी लहान दिसत नाहीत; सर्व ओळी जवळजवळ सारखी रुंदी घेतात.\nउदाहरणात h2 वर balance ठेवल्यावर शीर्षकाची मांडणी जास्त आकर्षक आणि व्यावसायिक दिसते.\nजास्तीत जास्त 6 ओळी हेच सीमा; शीर्षकांसाठी हे नियंत्रण योग्य आहे.", code: `h2 {
   text-wrap: balance;
 }`, codeLanguage: "css" },
-      { title: "2. pretty थर", content: "text-wrap pretty.\nशेवट सुबक.\nपरिच्छेद नीट.\nरचना स्पष्ट.", code: `p {
+      { title: "2. pretty थर", content: "text-wrap: pretty दीर्घ परिच्छेदांच्या शेवटच्या ओळी सुबक करते — एकटा शब्द किंवा लहान टुकरा वाचकाला त्रास देत नाही.\nउदाहरणात p वर pretty ठेवल्यावर शेवटची ओळ पूर्ण शब्दाने संपते आणि परिच्छेद संतुलित दिसतो.\nहे टायपोग्राफीसाठी आणि दीर्घ मजकुरासाठी विशेष उपयुक्त.\nbalance लहान मजकुरावर आणि pretty मोठ्या परिच्छेदांवर — दोन्ही वेगवेगळ्या कामांसाठी.", code: `p {
   text-wrap: pretty;
 }`, codeLanguage: "css" },
-      { title: "3. मर्यादा नियम", content: "balance खर्च.\nकमी मजकूर.\nमोठे शीर्ष.", code: `.hero h1 {
+      { title: "3. मर्यादा नियम", content: "weight मोजण्यासाठी balance ला ब्राउझरचे अतिरिक्त श्रम लागतात; त्यामुळे जास्त मजकरावर वापर नको.\nउदाहरणात .hero h1 वर balance ठेवला आहे — फक्त लहान, मोठे शीर्षक.\nमोठे परिच्छेद किंवा संपूर्ण-पृष्ठ मजकूर ठेवल्यास गतीवर परिणाम होऊ शकतो.\nनियम मर्यादित ठिकाणीच लावा — शीर्षकांसाठी चांगले, सर्वत्र नाही.", code: `.hero h1 {
   text-wrap: balance;
 }`, codeLanguage: "css" },
-      { title: "4. एकत्र थर", content: "typography सोपा.\nप्रमाण योग्य.\ntext-wrap जोड.", code: `.hero {
+      { title: "4. एकत्र थर", content: "अचूक टायपोग्राफी साधण्यासाठी रुंदी आणि text-wrap एकत्र वापरा.\nउदाहरणात .hero ला max-width 60ch दिल्यावर मजकूर जास्त मोठा पसरत नाही; वाचनीयता वाढते.\nमग .hero h1 वर balance ठेवल्यावर शीर्षकाच्या ओळी समतोल आकारात येतात.\nरुंदीची मर्यादा आणि समान ओळी — दोन्हींमुळे शीर्षक आणि परिच्छेद व्यावसायिक दिसतात.", code: `.hero {
   max-width: 60ch;
 }
 .hero h1 {
   text-wrap: balance;
 }`, codeLanguage: "css" },
-      { title: "5. आधार नियम", content: "आधार जुने.\nसोपा जोड.\nपडताळा नीट.", code: `h2 {
+      { title: "5. आधार नियम", content: "text-wrap समजत नसलेल्या ब्राउझरसाठी योग्य आधार ठेवा — हा नियम अजून वाढत आहे.\nउदाहरणात h2 वर balance लिहिले आहे; न समजणाऱ्या ब्राउझरमध्ये तो अव्हेरला जातो.\nपुढे overflow-wrap: normal दिल्यास मजकूर नेहमीप्रमाणे दीर्घ शब्दांना अडवत नाही.\nअशा टप्प्यात आधार लिहिण्याचा खेळच बरा — नवीन वैशिष्ट्याचा फायदा घेता येतो.", code: `h2 {
   text-wrap: balance;
   overflow-wrap: normal;
 }`, codeLanguage: "css" },
-      { title: "6. तुलना थर", content: "normal थर.\nbalance नवा.\nकधी वापर.\nसवय नेमकी.", code: `h1 {
+      { title: "6. तुलना थर", content: "सामान्य text-wrap: normal मध्ये ओळींची रचना यादृच्छिक असते; balance ही ती सुधारते.\nउदाहरणात h1 वर balance आणि p वर pretty — प्रत्येक घटकाला योग्य वर्तन.\nशीर्षकासाठी balanced आकार, परिच्छेदासाठी सुबक शेवट; दोन्ही वाचकाला आराम.\nकुठे कोणता नियम लावायचा हे ठरवल्यावर टायपोग्राफी नैसर्गिकपणे सुधारते.", code: `h1 {
   text-wrap: balance;
 }
 p {
   text-wrap: pretty;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "शीर्ष सम.\nbalance एक.", code: `.headline {
+      { title: "Mini Project", content: "धड्याचा सार म्हणून एका मुख्य मथळ्याच्या ओळी समान करा.\n.headline वर text-wrap: balance ठेवल्यावर मथळ्याच्या सर्व ओळी जवळजवळ समान आकारात येतात.\nपेजची प्राथमिक शीर्षके आता जास्त आकर्षक आणि संतुलित दिसतील.\nरुंदी कमी-जास्त करून ओळींचे व्यवस्थापन पहा; टायपोग्राफीचा आत्मविश्वास वाढतो.", code: `.headline {
   text-wrap: balance;
 }`, codeLanguage: "css" },
     ],
@@ -442,30 +442,30 @@ p {
     minutes: 40,
     summary: "animation-timeline scroll नियम.",
     sections: [
-      { title: "1. scroll नियम", content: "animation-timeline.\nscroll source.\nगती जोड.", code: `.progress {
+      { title: "1. scroll नियम", content: "animation-timeline मुळे अॅनिमेशन स्क्रोलवर चालते — टाइमर किंवा JavaScript शिवाय.\nscroll च्या आधारे घटकाच्या वर्तनाची गती वापरून अॅनिमेशन होते; प्रगत दिसतो नाही.\nउदाहरणात .progress मध्ये grow हे अॅनिमेशन स्क्रोल प्रगतीबरोबर चालते — पुढे सरकल्यावर बार वाढतो.\nlinear ला चिकटून वर्तन साधे राहते आणि दोन्ही दिशांना झटके नाहीत.", code: `.progress {
   animation: grow linear both;
   animation-timeline: scroll();
 }`, codeLanguage: "css" },
-      { title: "2. view थर", content: "view() timeline.\nदृश्य स्थिती.\nप्रगती नेमकी.\nरचना स्पष्ट.", code: `.card {
+      { title: "2. view थर", content: "view() timeline मधून घटकाच्या दृश्य क्षेत्रात प्रवेश-निर्गमनाची स्थिती तपासता येते.\nउदाहरणात .card वर fade अॅनिमेशन view() बरोबर चालते; जेव्हा कार्ड दृश्यात प्रवेश करते तेव्हा सुरू.\nanimation-range entry 10% exit 90% द्वारे सुरूवात आणि शेवटचे क्षण नेमके ठरवता येतात.\nजणू कार्ड स्क्रोलसोबत हळूहळू दिसते आणि खाली गेल्यावर नाहीसे होते.", code: `.card {
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry 10% exit 90%;
 }`, codeLanguage: "css" },
-      { title: "3. keyframes नियम", content: "keyframes जोड.\nauto मूल्ये.\nटोके नवे.", code: `@keyframes grow {
+      { title: "3. keyframes नियम", content: "स्क्रोलचे अॅनिमेशन keyframes द्वारेच परिभाषित होते — प्रत्येक टप्प्यावर मूल्ये निश्चित करतात.\nउदाहरणात from { scale: 0 } ते to { scale: 1 } — घटक लहान ते संपूर्ण आकारात येतो.\nkeyframes सामान्य अॅनिमेशनसारखेच लिहिले जातात; बदल फक्त टाइमलाइनचा.\nस्पष्ट सुरुवात आणि शेवट म्हणजे ब्राउझर नेहमी योग्य वर्तन करतो.", code: `@keyframes grow {
   from { scale: 0; }
   to { scale: 1; }
 }`, codeLanguage: "css" },
-      { title: "4. बार नियम", content: "एक बार.\nशीर्ष नियम.\nगती स्पष्ट.", code: `header .bar {
+      { title: "4. बार नियम", content: "सर्वात सामान्य वापर — पृष्ठाच्या शीर्षावरील प्रगती पट्टा स्क्रोलबरोबर वाढतो.\nउदाहरणात header .bar ला transform-origin left आणि grow अॅनिमेशन scroll वर ठेवले आहे.\nस्क्रोल केल्यावर पट्टा डावीकडून उजवीकडे वाढतो — शीर्षस्थानी निश्चित.\nवाचकाला लेखाची प्रगती कळते, सोपे आणि प्रभावी अॅनिमेशन.", code: `header .bar {
   transform-origin: left;
   animation: grow linear both;
   animation-timeline: scroll();
 }`, codeLanguage: "css" },
-      { title: "5. range थर", content: "एंट्री मध्ये.\nrange नेमकी.\nस्लाइड मऊ.", code: `.slide {
+      { title: "5. range थर", content: "अॅनिमेशन कधी सुरू झाला आणि कधी संपला हे animation-range ने नेमके ठरवता येते.\nउदाहरणात .slide वर rise अॅनिमेशन view() बरोबर; range cover 0 च्या ते cover 40%.\nम्हणजे स्लाइड दृश्याच्या पहिल्या 40% भागातच संपूर्ण हालचाल दाखवते, मागे स्थिर राहते.\nअशा नेमक्या मर्यादांनी अॅनिमेशनचा ताल, गती आणि दृश्य परिणाम नियंत्रित होतो.", code: `.slide {
   animation: rise linear both;
   animation-timeline: view();
   animation-range: cover 0 cover 40%;
 }`, codeLanguage: "css" },
-      { title: "6. आधार नियम", content: "एक टेकनिक.\nसोपा toggle.\nआधार मर्यादा.\nसवय नेमकी.", code: `.fixed {
+      { title: "6. आधार नियम", content: "scroll-driven अॅनिमेशन समजत नसलेल्या ब्राउझरची काळजी आधार नियमांनी घ्यावी.\nउदाहरणात .fixed ला प्रथम transform: scale(1) दिले — सर्वत्र स्थिर.\nमग @supports (animation-timeline: view()) च्या आत .card वर rise अॅनिमेशन जोडतात.\nटाळणारे ब्राउझर स्थिर, समर्थन करणारे सजीव — दोन्ही ठिकाणी रचना बरोबर.", code: `.fixed {
   transform: scale(1);
 }
 @supports (animation-timeline: view()) {
@@ -474,7 +474,7 @@ p {
     animation-timeline: view();
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "बार प्रगती.\nscroll एक.", code: `.progress {
+      { title: "Mini Project", content: "धड्याचा सार: स्क्रोलवर चालणारा प्रगती बार तयार करा.\n.progress वर grow अॅनिमेशन आणि animation-timeline: scroll() द्या.\nपृष्ठ अशा प्रकारे सरकल्यावर बार आपोआप वाढतो — JavaScript लागत नाही.\nअंदाजे वर्तन आणि भव्य लुक; स्क्रोलची जादू आता तुमच्या रचनेत आली.", code: `.progress {
   animation: grow linear both;
   animation-timeline: scroll();
 }`, codeLanguage: "css" },
@@ -509,31 +509,31 @@ p {
     minutes: 40,
     summary: "view-transition-name स्थिती.",
     sections: [
-      { title: "1. view कल्पना", content: "view transitions.\nपान बदल.\nसजीव थर.", code: `::view-transition-old(root),
+      { title: "1. view कल्पना", content: "View Transitions मुळे पानांमधील बदल सहज आणि प्रभावी दिसतात — मागील आणि नवीन अवस्थेतील संपूर्ण पृष्ठाला जोडू शकतात.\n::-view-transition-old(root) आणि ::-view-transition-new(root) या स्यूडो-एलिमेंट्स मागील आणि नवीन अवस्थांचे आवरण (थर) दर्शवतात.\nउदाहरणात दोन्हीचा animation-duration 0.4s ठेवल्यावर पान बदलताना गुळगुळीत क्रॉसफेड होते.\nब्राउझर स्वतःच अॅनिमेशन बनवतो; तुम्ही फक्त कालावधी नियंत्रित करता.", code: `::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.4s;
 }`, codeLanguage: "css" },
-      { title: "2. name नियम", content: "view-transition-name.\nमुल थर.\nस्वतंत्र गती.\nरचना स्पष्ट.", code: `.avatar {
+      { title: "2. name नियम", content: "view-transition-name मुळे एखादा घटक स्वतंत्र थर म्हणून ओळखला जातो — त्याला स्वतःची हालचाल मिळते.\nउदाहरणात .avatar ला name avatar दिल्यावर पान बदलताना चित्र वेगळ्या प्रकारे सरकते किंवा आकार बदलते.\nपार्श्वभूमी जलद बदलते पण avatar हा प्रमुख घटक वेगळ्या गतीने अॅनिमेट होतो.\nअशा प्रकारे 'एक पान दुसऱ्या पानात' वाटणारा प्रभाव निर्माण होतो, फक्त CSS ने.", code: `.avatar {
   view-transition-name: avatar;
 }`, codeLanguage: "css" },
-      { title: "3. सूची थर", content: "सूची नवीन.\nनिवड स्पष्ट.\nखूणपट्टी.", code: `.selected {
+      { title: "3. सूची थर", content: "सूचीमधून एक घटक निवडल्यावर त्याची स्थिती बदलते; view-transition-name ने तो स्पष्ट दिसतो.\nउदाहरणात .selected ला name selection दिल्यावर निवडलेला घटक खुणेसारखा वेगळ्या थरात जातो.\nसूची जलद बदलते पण निवडलेला घटक संपूर्णपणे लक्ष्य करतो.\nवापरकर्त्याला निवड रंग, आकार आणि स्थिती कशी बदलते ते पाहता येते — अभिप्राय स्पष्ट.", code: `.selected {
   view-transition-name: selection;
 }`, codeLanguage: "css" },
-      { title: "4. आधार नियम", content: "आधार साधा.\nविस्तार नाही.\nपडताळा नीट.", code: `@supports (view-transition-name: none) {
+      { title: "4. आधार नियम", content: "view transition समजत नसलेल्या ब्राउझरसाठी आधार नियमाने सुरुवात करा — अॅनिमेशनशिवायही रचना काम करावी.\nउदाहरणात साधा परिच्छेद लिहिला आणि @supports (view-transition-name: none) तपासला.\nसमर्थन करणारे ब्राउझर मगच avatar वर name जोडतात; बाकीत स्थिर राहते.\nअशी पडताळणी रचना अनेक वातावरणांमध्ये सुरक्षित ठेवते.", code: `@supports (view-transition-name: none) {
   .avatar {
     view-transition-name: avatar;
   }
 }`, codeLanguage: "css" },
-      { title: "5. गती थर", content: "क्रिया नेमकी.\nथवा मऊ.\nवेग योग्य.", code: `::view-transition-group(selection) {
+      { title: "5. गती थर", content: "एखाद्या विशिष्ट घटकाच्या संक्रमणाचा कालावधी गटाद्वारे नियंत्रित करता येतो — ::view-transition-group(selection).\nउदाहरणात selection गटाचा animation-duration 0.5s ठेवल्यावर निवडलेल्या घटकाची हालचाल मऊ होते.\nजेव्हा हालचाल खूप जलद किंवा खूप आकस्मिक वाटते तेव्हा कालावधी वाढवला जातो.\nगतीचे बारीक नियंत्रण आणि वापरकर्त्याला जाणवणारी सुस्पष्टता — दोन्ही साध्य होते.", code: `::view-transition-group(selection) {
   animation-duration: 0.5s;
 }`, codeLanguage: "css" },
-      { title: "6. तुलना थर", content: "जुने थर.\nview हलका.\nनिवड नेमकी.\nसवय नेमकी.", code: `.page {
+      { title: "6. तुलना थर", content: "जुनी पद्धत पृष्ठाला पूर्णपणे बदलत असे — हलक्या घटकांसाठी unconditional conditional transition आवश्यक.\nउदाहरणात .page ची पार्श्वभूमी स्थिर; केवळ selection गट position absolute घेते.\nम्हणजे फक्त निवडलेला घटक वेगळ्या थरात उठतो, पार्श्वभूमीसह संपूर्ण पान शांत राहते.\nनेमके कोणत्या घटकाला वेगळे अॅनिमेशन द्यायचे ते ठरवल्यावर बदल किमान आणि प्रभावी होतात.", code: `.page {
   background: white;
 }
 ::view-transition-group(selection) {
   position: absolute;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "कार्ड निवड.\nview एक.", code: `.card {
+      { title: "Mini Project", content: "धड्याचा सराव: कार्डला पानांमध्ये सजीव बदलणारा थर द्या.\n.card वर view-transition-name: card ठेवल्यावर कार्ड संपूर्ण पानांत शेअर झाल्यास मऊ बदल होतो.\nपान बदलताना कार्ड एका ठिकाणाहून दुसऱ्या ठिकाणी जाताना दिसते.\nसामान्य क्रॉसफेड आणि नेमके घटक — दोन्हींचा फरक प्रत्यक्ष पडताळून घ्या.", code: `.card {
   view-transition-name: card;
 }`, codeLanguage: "css" },
     ],
@@ -566,11 +566,11 @@ p {
     minutes: 40,
     summary: "grid-template-rows subgrid.",
     sections: [
-      { title: "1. subgrid कल्पना", content: "subgrid नियम.\nमुल ग्रिड.\nपालक आधार.", code: `.panel {
+      { title: "1. subgrid कल्पना", content: "subgrid हा ग्रिडचा खोल थर आहे — आतील ग्रिड पालक ग्रिडच्या रचनेचेच पालन करतो.\nउदाहरणात .panel ला display: grid आणि grid-template-columns: subgrid दिल्यावर स्तंभ पालकांसारखेच राहतात.\nस्वतःची रुंदी न ठरवता घटक पालकाच्या ट्रॅकवर अवलंबून राहतो, त्यामुळे सोपा आकार.\nपालक आणि मुलाचे संरेखन आता एकसूत्री राहते — गणनेची गरज नाही.", code: `.panel {
   display: grid;
   grid-template-columns: subgrid;
 }`, codeLanguage: "css" },
-      { title: "2. संरेखण थर", content: "स्तंभ जुळतात.\nसमान रुंदी.\nकार्ड व्यवस्थित.\nरचना स्पष्ट.", code: `.row {
+      { title: "2. संरेखण थर", content: "कार्डच्या रांगांमध्ये स्तंभ संरेखित ठेवण्यासाठी subgrid आदर्श — प्रत्येक कार्ड एकाच ग्रिडवर चालते.\nउदाहरणात .row मध्ये auto-fit ने स्तंभ तयार होतात आणि .row > * मधील कार्डांना grid-template-rows: subgrid दिले आहे.\nप्रत्येक कार्ड पालकाच्या पंक्तींचे पालन करते; खालची ओळही कार्डाच्या ग्रिडशी जुळते.\nभिन्न आकार असलेले कार्ड देखील एका स्थिर संरेखनात मांडले जातात, त्यामुळे रचना व्यवस्थित दिसते.", code: `.row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
@@ -579,16 +579,16 @@ p {
   grid-template-rows: subgrid;
   grid-row: span 2;
 }`, codeLanguage: "css" },
-      { title: "3. पंक्ती थर", content: "पंक्ती subgrid.\nउंची तोल.\nसारणी नीट.", code: `.shelf {
+      { title: "3. पंक्ती थर", content: "केवळ स्तंभ नव्हे, तर पंक्ती देखील subgrid शक्य — grid-template-rows: subgrid मुळे उंची समजून सारणी बनते.\nउदाहरणात .shelf मध्ये पंक्ती subgrid आहेत; मुलांची उंची सर्वांसाठी समान.\nअशा प्रकारे विविध सामुग्री असलेले घटक एका प्रमाणात उंच दिसतात.\nतुलना आणि वाचन सुलभ — प्रत्येक घटक एका ग्रिडच्या पंक्तीवर राहतो.", code: `.shelf {
   display: grid;
   grid-template-rows: subgrid;
 }`, codeLanguage: "css" },
-      { title: "4. कस्टम थर", content: "रचना साधा.\nभाग लक्ष्य.\nनियंत्रण स्पष्ट.", code: `.dashboard {
+      { title: "4. कस्टम थर", content: "काहीवेळा केवळ काही घटक पालक ग्रिडशी जुळवायचे असतात; subgrid लवचिकपणे ते निवडता येते.\nउदाहरणात .dashboard चे स्तंभ subgrid आहेत आणि gap 1rem दिल्यावर अंतर स्पष्ट.\nरचना साधी राहते पण प्रत्येक विभाग पालकाच्या ट्रॅकवर संरेखित होतो.\nस्वतःची रुंदी मोजण्यापेक्षा फक्त subgrid दिला — नियंत्रण आणि संरेखन दोन्ही.", code: `.dashboard {
   display: grid;
   grid-template-columns: subgrid;
   gap: 1rem;
 }`, codeLanguage: "css" },
-      { title: "5. आधार नियम", content: "आधार जुना.\nसाधा फॉलबॅक.\nपडताळा नीट.", code: `.panel {
+      { title: "5. आधार नियम", content: "subgrid समजत नसलेल्या ब्राउझरसाठी आधार नियम नेहमी लिहा — साधे ग्रिड सुरू ठेवा.\nउदाहरणात .panel ला प्रथम फक्त display: grid दिला; हा सर्वत्र चालतो.\nमग @supports (grid-template-rows: subgrid) च्या आत पंक्ती subgrid जोडतात.\nसंरेखणास समर्थन नसलेले ब्राउझर नेहमी मांडतात; नव्यात संरेखण उत्तम.", code: `.panel {
   display: grid;
 }
 @supports (grid-template-rows: subgrid) {
@@ -596,12 +596,12 @@ p {
     grid-template-rows: subgrid;
   }
 }`, codeLanguage: "css" },
-      { title: "6. तुलना थर", content: "नवीन नियम.\nflex तोल.\nकधी वापर.\nसवय नेमकी.", code: `.card {
+      { title: "6. तुलना थर", content: "flex सह त्याच संरेखन हाताने मोजावे लागते; subgrid ने ते ब्राउझर करतो.\nउदाहरणात .card मध्ये grid-template-rows: subgrid आणि grid-row: span 3 दिल्यावर कार्ड 3 पंक्तींवर पसरते.\nflex मध्ये प्रत्येक घटक स्वतःचा आकार घेतो; subgrid मध्ये सर्व ग्रिडवर संरेखित.\nजेव्हा समान संरेखनाचे कार्ड ग्रिडात हवे तेव्हा subgrid योग्य — साधे आणि नेमके.", code: `.card {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "सूची नीट.\nsubgrid एक.", code: `.card-list {
+      { title: "Mini Project", content: "धड्याचा सार: कार्डांची सूची सुसंगत रचनेत मांडा.\n.card-list ला display: grid आणि gap 1rem द्या; कार्डांचा ग्रिड साधा असतो.\nनंतर .card-list .card मध्ये grid-template-rows: subgrid ठेवल्यावर पंक्ती पालकांसारख्या होतात.\nसर्व कार्ड एकाच संरेखनावर राहतात; विविध मजकूर असले तरी रचना व्यवस्थित दिसते.", code: `.card-list {
   display: grid;
   gap: 1rem;
 }
@@ -640,33 +640,33 @@ p {
     minutes: 40,
     summary: "prefers-reduced-motion नियम.",
     sections: [
-      { title: "1. reduced कल्पना", content: "prefers-reduced-motion.\nगती हलकी.\nसन्मान नीट.", code: `@media (prefers-reduced-motion: reduce) {
+      { title: "1. reduced कल्पना", content: "काही वापरकर्ते गतीसाठी संवेदनशील असतात; prefers-reduced-motion त्यांच्या पसंतीची आदर करते.\nउदाहरणात @media (prefers-reduced-motion: reduce) मध्ये सर्व अॅनिमेशन जवळजवळ 0 वेळेत संपतात.\n* ला animation-duration 0.01ms दिल्यावर हालचाल अगदी कमी — चकरा टाळतात.\n!important मुळे इतर नियमांची जाणीव न होता हा नियम प्रबळ राहतो, अॅनिमेशन नेहमी सुस्थिर.", code: `@media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
   }
 }`, codeLanguage: "css" },
-      { title: "2. contrast थर", content: "prefers-contrast.\nउजळ थर.\nवाचन सोपे.\nरचना स्पष्ट.", code: `@media (prefers-contrast: more) {
+      { title: "2. contrast थर", content: "prefers-contrast वापरकर्त्याची उच्च कॉन्ट्रास्ट पसंती ओळखते आणि त्यानुसार रचना सुधारते.\nउदाहरणात @media (prefers-contrast: more) मध्ये body ला filter: contrast(1.1) दिल्यावर मजकूर अधिक स्पष्ट होतो.\nकमी स्पष्ट दिसणाऱ्या वाचकांसाठी हे मोठे आरामदायक आहे.\nरंग आणि तीव्रता वाढवल्यावर मजकूर, चिन्हे आणि भाग अधिक सुवाच्य बनतात.", code: `@media (prefers-contrast: more) {
   body {
     filter: contrast(1.1);
   }
 }`, codeLanguage: "css" },
-      { title: "3. theme नियम", content: "prefers-color-scheme.\nsystem थीम.\nस्वयं जोड.", code: `@media (prefers-color-scheme: dark) {
+      { title: "3. theme नियम", content: "prefers-color-scheme वापरकर्त्याची गडद/हलकी थीम पसंती ओळखते — सिस्टम सेटिंगवर आधारित.\nउदाहरणात @media (prefers-color-scheme: dark) मध्ये --bg आणि --fg variable बदलतो.\nजेथे color-scheme तपासता येते तेथे थीम स्वयंचलित; वापरकर्त्याने सेट केलेली थीम आदर.\nएकदा variable चालू केल्यावर संपूर्ण पृष्ठ आपोआप गडद अवस्थेत जाते.", code: `@media (prefers-color-scheme: dark) {
   :root {
     --bg: #0f172a;
     --fg: white;
   }
 }`, codeLanguage: "css" },
-      { title: "4. कमी गती", content: "animation थांबवा.\nक्रिया स्थिर.\nसरकता बंद.", code: `@media (prefers-reduced-motion: reduce) {
+      { title: "4. कमी गती", content: "केवळ वेळच नव्हे, तर transition देखील कमी करावा लागतो — reduce च्या वेळी सर्व हालचाल थांबवा.\nउदाहरणात @media (prefers-reduced-motion: reduce) मध्ये .card चा transition: none दिला आहे.\nस्लाइड, फ्लिप आणि इतर गतीच्या क्रिया आता सरळ, हालचाल न करता घडतात.\nवापरकर्त्याची सोय राखली पाहिजे; गती विषयी काळजी घेतल्यास प्रवेश्यता सुधारते.", code: `@media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;
   }
 }`, codeLanguage: "css" },
-      { title: "5. दोन्ही नियम", content: "दोन्ही स्थिती.\nनियम स्पष्ट.\nसन्मान सर्व.", code: `@media (prefers-reduced-motion: no-preference) {
+      { title: "5. दोन्ही नियम", content: "no-preference म्हणजे वापरकर्त्याला गतीची पसंती आहे — अशा वेळी मध्यम अॅनिमेशन ठीक राहतात.\nपहिला नियम reduce मध्ये हालचाल थांबवतो;\nउदाहरणात @media (prefers-reduced-motion: no-preference) मध्ये .hero ला rise अॅनिमेशन मिळते.\nदोन नियम एकत्र लिहिल्यावर गतीसाठी आधार आणि नियमन दोन्ही साध्य होते.", code: `@media (prefers-reduced-motion: no-preference) {
   .hero {
     animation: rise 0.6s ease-out;
   }
 }`, codeLanguage: "css" },
-      { title: "6. नियम थर", content: "पुढे वापर.\nसर्व ठिकाणी.\nसाइट उजळ.\nसवय नेमकी.", code: `@media (prefers-reduced-motion: reduce) {
+      { title: "6. नियम थर", content: "प्रवेश्यता एकाच वेळी अनेक ठिकाणी सुनिश्चित करण्यासाठी सर्व अॅनिमेशन एकत्र थांबवता येतात.\nउदाहरणात *, *::before आणि *::after — प्रत्येक घटकाला लक्ष्य केले आहे.\nanimation-duration 0.01ms आणि transition: none !important मुळे कोणतीही हालचाल राहत नाही.\nएक ठिकाण घोषित केल्यावर संपूर्ण साइट कमी-गती मोडमध्ये जाते — देखभाल सोपी.", code: `@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -674,7 +674,7 @@ p {
     transition: none !important;
   }
 }`, codeLanguage: "css" },
-      { title: "Mini Project", content: "गती सन्मान.\nreduced एक.", code: `@media (prefers-reduced-motion: reduce) {
+      { title: "Mini Project", content: "धड्याचा सार आणा: एका बॅनरची हालचाल वापरकर्त्याच्या गती पसंतीनुसार नियंत्रित करा.\n@media (prefers-reduced-motion: reduce) मध्ये .banner चा animation: none करा.\nसामान्य वापरकर्त्यांना बॅनरचे अॅनिमेशन पूर्ण दिसेल, संवेदनशीलांसाठी स्थिर.\nगती आणि प्रवेश्यता एकत्र आणली आणि सर्वांसाठी आरामदायी रचना बनली.", code: `@media (prefers-reduced-motion: reduce) {
   .banner {
     animation: none;
   }
@@ -711,31 +711,31 @@ p {
     minutes: 40,
     summary: "Level 14 साधने एकत्र.",
     sections: [
-      { title: "1. कार्ड container", content: "container-type.\nआत अनुकूलन.\nकार्ड टिकते.", code: `.card {
+      { title: "1. कार्ड container", content: "धड्यात शिकलेल्या साधनांचा संग्रह आता एका प्रकल्पात उतरतो — सगळी तंत्रे एकत्र.\nप्रथम .card वर container-type: inline-size दिल्यास कार्ड स्वतःच्या आकाराच्या आधारे बदलते.\nहे वैशिष्ट्य आधीपासून आलेल्या container queries सोबत जुळते.\nरुंदी बदलताच आतील रचना आपोआप दुरुस्त होते — स्वयंचलित अनुकूलन.", code: `.card {
   container-type: inline-size;
 }`, codeLanguage: "css" },
-      { title: "2. रंग थर", content: "oklch रंग.\ncolor-mix थर.\nमऊ नियम.", code: `.card {
+      { title: "2. रंग थर", content: "दुसरा घटक रंग — oklch चा आधार आणि color-mix चे मिश्रण एकत्र आणू.\nउदाहरणात .card ला color-mix(in srgb, oklch(0.65 0.18 180) 85%, white) दिल्यावर सजीव पण मऊ रंग मिळतो.\noklch मूळ रंग आणि मिश्रण सुद्धा रंगाची तीव्रता नियंत्रित करते.\nरंग प्रणाली एकाच ठिकाणी संग्रहित — वातावरणात थीम तयार झाली.", code: `.card {
   background: color-mix(in srgb, oklch(0.65 0.18 180) 85%, white);
 }`, codeLanguage: "css" },
-      { title: "3. डार्क थर", content: "light-dark जोड.\nथीम जुळे.", code: `:root {
+      { title: "3. डार्क थर", content: "गडद थीमची सोय light-dark ने जोडू — संपूर्ण पृष्ठ दोन्ही थीमला सिद्ध करू.\n:root वर color-scheme: light dark ठरवल्यावर पृष्ठ सिस्टम सेटिंग वाचते.\nमग .card ला light-dark(white, #111c2e) दिल्यावर हलक्या थीममध्ये पांढरे आणि गडद थीममध्ये निळसर कार्ड मिळते.\nप्रत्येक कार्ड आणि बॅनर आपोआप थीमसोबत बदलतो.", code: `:root {
   color-scheme: light dark;
 }
 .card {
   background: light-dark(white, #111c2e);
 }`, codeLanguage: "css" },
-      { title: "4. स्क्रोल थर", content: "scroll timeline.\nप्रगती बार.\nसजीव नीट.", code: `.bar {
+      { title: "4. स्क्रोल थर", content: "स्क्रोल-आधारित प्रगती बारही या प्रकल्पात जोडतो — गतीची भाषा पूर्ण होते.\n.bar वर grow अॅनिमेशन आणि animation-timeline: scroll() दिल्यावर स्क्रोलबरोबर वाढतो.\nजणू पृष्ठ सरकल्यावर प्रगती दिसते; JavaScript ची गरज नसते.\nगती आणि स्क्रोल यांचा संबंध सजीवपणे दिसतो.", code: `.bar {
   animation: grow linear both;
   animation-timeline: scroll();
 }`, codeLanguage: "css" },
-      { title: "5. संरेखित थर", content: "subgrid तोल.\nओळ एक.\nसंरेखण स्पष्ट.", code: `.row > * {
+      { title: "5. संरेखित थर", content: "ग्रिडची ताकद subgrid ने आणू — सर्व कार्ड एकाच पंक्तीवर संरेखित राहतात.\nघटकांच्या रुंदीत फरक असू द्या; .row > * ला grid-template-rows: subgrid दिल्यावर पंक्ती पालकांसारख्या.\nप्रत्येक घटकाला स्वतःच्या आधारे मोजण्यापेक्षा समान संरेखन मिळते.\nजास्तीत जास्त घटक एकाच उंचीवर दिसतात; रचना स्पष्ट.", code: `.row > * {
   grid-template-rows: subgrid;
 }`, codeLanguage: "css" },
-      { title: "6. गती सन्मान", content: "prefers थर.\nगती हलकी.\nसर्व आराम.", code: `@media (prefers-reduced-motion: reduce) {
+      { title: "6. गती सन्मान", content: "शेवटी प्रवेश्यता — वापरकर्त्याच्या गती पसंतीचे सन्मान करणे आवश्यक.\n@media (prefers-reduced-motion: reduce) मध्ये .bar चा animation: none करा.\nस्क्रोल-अॅनिमेशन संवेदनशील वापरकर्त्यांना काढून टाकले जाते; बाकीच्यांना पूर्ण गती.\nया टप्प्याने गती आणि रंग दोन्ही प्रणाली सर्वांसाठी आरामदायी होतात.", code: `@media (prefers-reduced-motion: reduce) {
   .bar {
     animation: none;
   }
 }`, codeLanguage: "css" },
-      { title: "Final Project", content: "सर्व जोड.", code: `.card {
+      { title: "Final Project", content: "अंतिम असाइनमेंटमध्ये आधी शिकलेल्या साधनांची संपूर्ण जोडणी करा.\n.container-type आणि grid-template-rows जोडून कार्ड प्रतिसादशील आणि संरेखित राहतात.\n.deliverable ने संपूर्ण रचना एकत्र आली; पूर्वीचे धडे जुळून प्रकल्प तयार होतो.\nआता तुमचे CSS संग्रह तयार — Motion & Color चा पूर्ण अनुभव मिळाला.", code: `.card {
   container-type: inline-size;
 }
 .row > * {
