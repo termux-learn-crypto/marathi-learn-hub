@@ -1,26 +1,57 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
+import { saveQuizScore } from "@/lib/storage";
+
+interface QuizQuestion {
+  question: string;
+  options: string[];
+  correct: number;
+}
+
+interface WrongAnswer {
+  question: string;
+  yourAnswer: string;
+  correctAnswer: string;
+}
+
+interface RelatedLesson {
+  slug: string;
+  marathiTitle: string;
+  title: string;
+  level: "beginner" | "intermediate" | "advanced";
+}
+
 interface QuizPlayerProps {
   slug: string;
-  quiz: { question: string; options: string[]; correct: number }[];
+  quiz: QuizQuestion[];
+  relatedLessons?: RelatedLesson[];
   onComplete?: (score: number, total: number) => void;
 }
 
-import { useState } from "react";
-import { saveQuizScore } from "@/lib/storage";
-
-export default function QuizPlayer({ slug, quiz, onComplete }: QuizPlayerProps) {
+export default function QuizPlayer({ slug, quiz, relatedLessons, onComplete }: QuizPlayerProps) {
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [saved, setSaved] = useState(false);
+  const [wrongAnswers, setWrongAnswers] = useState<WrongAnswer[]>([]);
 
   const handleSelect = (index: number) => {
     if (selected !== null) return;
     setSelected(index);
     if (index === quiz[current].correct) {
       setScore((s) => s + 1);
+    } else {
+      setWrongAnswers((wa) => [
+        ...wa,
+        {
+          question: quiz[current].question,
+          yourAnswer: quiz[current].options[index],
+          correctAnswer: quiz[current].options[quiz[current].correct],
+        },
+      ]);
     }
   };
 
@@ -37,8 +68,18 @@ export default function QuizPlayer({ slug, quiz, onComplete }: QuizPlayerProps) 
     }
   };
 
+  const reset = () => {
+    setCurrent(0);
+    setSelected(null);
+    setScore(0);
+    setShowResult(false);
+    setSaved(false);
+    setWrongAnswers([]);
+  };
+
   if (showResult) {
     const pct = Math.round((score / quiz.length) * 100);
+    const needsRevision = pct < 50;
     return (
       <div className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 text-center border border-green-200 dark:border-green-800">
         <div className="text-5xl mb-3">{pct >= 80 ? "🏆" : pct >= 50 ? "👍" : "💪"}</div>
@@ -54,14 +95,48 @@ export default function QuizPlayer({ slug, quiz, onComplete }: QuizPlayerProps) 
         <p className="text-xs text-gray-500">
           {saved ? "✅ Score तुमच्या progress मध्ये save झाला आहे" : ""}
         </p>
+
+        {wrongAnswers.length > 0 && (
+          <div className="mt-6 text-left">
+            <h4 className="font-semibold marathi mb-3">📝 पुनरावलोकन (चुकलेले प्रश्न)</h4>
+            <div className="space-y-3">
+              {wrongAnswers.map((wa, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl border border-red-200 dark:border-red-800 bg-white dark:bg-gray-800 p-4"
+                >
+                  <p className="font-medium marathi text-gray-800 dark:text-gray-200">{wa.question}</p>
+                  <p className="mt-2 text-sm text-red-600 dark:text-red-400 marathi">
+                    ❌ तुमचे उत्तर: {wa.yourAnswer}
+                  </p>
+                  <p className="text-sm text-green-600 dark:text-green-400 marathi">
+                    ✅ बरोबर उत्तर: {wa.correctAnswer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {needsRevision && relatedLessons && relatedLessons.length > 0 && (
+          <div className="mt-6 text-left">
+            <h4 className="font-semibold marathi mb-2">📚 आधी हे lessons वाचा:</h4>
+            <div className="flex flex-wrap gap-2">
+              {relatedLessons.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/tutorial/${r.slug}`}
+                  className="px-3 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-900/60 transition-colors marathi"
+                >
+                  {r.marathiTitle}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
         <button
-          onClick={() => {
-            setCurrent(0);
-            setSelected(null);
-            setScore(0);
-            setShowResult(false);
-            setSaved(false);
-          }}
+          onClick={reset}
           className="mt-4 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg"
         >
           पुन्हा प्रयत्न करा
