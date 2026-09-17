@@ -56,21 +56,7 @@ export default function ContactPage() {
             </div>
           </a>
 
-          <div className="flex items-center gap-4 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <span className="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-2xl shrink-0">
-              📧
-            </span>
-            <div>
-              <h2 className="text-lg font-semibold marathi">ईमेल</h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 marathi mt-1">
-                सविस्तर प्रतिसादासाठी:{" "}
-                <a href="mailto:contact@marathi-learn-hub.example" className="text-primary-600 underline">
-                  contact@marathi-learn-hub.example
-                </a>
-              </p>
-            </div>
           </div>
-        </div>
 
         
 
