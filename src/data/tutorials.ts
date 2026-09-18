@@ -83,6 +83,11 @@ import { androidExtra } from "./tutorials/android/android-extra";
 import { aiLevel1 } from "./tutorials/ai/ai-level1";
 import { aiLevel2 } from "./tutorials/ai/ai-level2";
 import { aiExtra } from "./tutorials/ai/ai-extra";
+import { aiMlFoundation } from "./tutorials/ai/ai-ml-foundation";
+import { aiDataScience } from "./tutorials/ai/ai-data-science";
+import { aiDeepLearning } from "./tutorials/ai/ai-deep-learning";
+import { aiPractical } from "./tutorials/ai/ai-practical-ai";
+import { aiExpert } from "./tutorials/ai/ai-expert";
 import { electronicsLevel1 } from "./tutorials/electronics/electronics-level1";
 import { electronicsLevel2 } from "./tutorials/electronics/electronics-level2";
 import { electronicsLevel3 } from "./tutorials/electronics/electronics-level3";
@@ -147,6 +152,11 @@ export const tutorials: Tutorial[] = [
   ...aiLevel1,
   ...aiLevel2,
   ...aiExtra,
+  ...aiMlFoundation,
+  ...aiDataScience,
+  ...aiDeepLearning,
+  ...aiPractical,
+  ...aiExpert,
   ...electronicsLevel1,
   ...electronicsLevel2,
   ...electronicsLevel3,

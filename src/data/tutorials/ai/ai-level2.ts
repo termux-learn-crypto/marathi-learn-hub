@@ -607,5 +607,6 @@ Bot: मला ते नीट समजलं नाही. पुन्हा
     ],
     related: ["ai-career", "ai-prompts", "python-functions"],
     prev: "ai-project-spam",
+    next: "ml-intro-methods",
   },
 ];

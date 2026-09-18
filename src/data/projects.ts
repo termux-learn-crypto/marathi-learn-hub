@@ -579,6 +579,132 @@ void loop() {
     codeLanguage: "cpp",
     components: ["NodeMCU/ESP8266", "DHT11", "BMP180", "Breadboard", "Wires"],
   },
+  {
+    id: "ai-ollama",
+    categoryId: "ai",
+    title: "Local LLM Assistant",
+    marathiTitle: "Ollama ने तुमच्या यंत्रावर offline Assistant",
+    difficulty: "मध्यम",
+    minutes: 30,
+    summary: "Ollama install करा, एक LLM चालवा आणि terminal वरून प्रश्न विचारून उत्तरे घ्या — सर्व offline.",
+    steps: [
+      "Ollama install करा",
+      "एक लहान model pull करा (llama3.2:1b)",
+      "ollama run ने पहिला प्रश्न विचारा",
+      "Ollama API (port 11434) python requests ने वापरा",
+      "एक script बनवा जी सलग प्रश्नांची उत्तरे देते",
+    ],
+    code: `import requests
+while True:
+    q = input("आपण> ")
+    if q == "exit": break
+    r = requests.post("http://localhost:11434/api/generate",
+        json={"model": "llama3.2:1b", "prompt": q, "stream": False})
+    print("bot>", r.json()["response"])`,
+    codeLanguage: "python",
+  },
+  {
+    id: "ai-image-classifier",
+    categoryId: "ai",
+    title: "फोटो Classifier App",
+    marathiTitle: "HuggingFace ने फोटो classify करणारे छोटे app",
+    difficulty: "सोपे",
+    minutes: 25,
+    summary: "Camera वरून फोटो घ्या, pretrained model ने classify करा आणि label+confidence दाखवा.",
+    steps: [
+      "HuggingFace transformers install करा",
+      "image-classification pipeline तयार करा",
+      "फोटो load आणि resize करा",
+      "परिणामातील label आणि score दाखवा",
+      "वेगवेगळे फोटो try करा",
+    ],
+    code: `from transformers import pipeline
+clf = pipeline("image-classification")
+r = clf("my-photo.jpg")
+print(r[0]["label"], round(r[0]["score"], 3))`,
+    codeLanguage: "python",
+  },
+  {
+    id: "ai-recommendation",
+    categoryId: "ai",
+    title: "Movie Recommender",
+    marathiTitle: "तुम्हाला कोणता मराठीपट आवडेल?",
+    difficulty: "सोपे",
+    minutes: 25,
+    summary: "थोड्या ratings आणि genre वरून cosine similarity ने movies सुचवणारे system बनवा.",
+    steps: [
+      "movies वर feature table बनवा (genre one-hot)",
+      "cosine similarity matrix काढा",
+      "एका movie साठी top-3 सुचवा",
+      "आवडलेले movie निवडून system test करा",
+    ],
+    code: `import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
+m = pd.DataFrame([
+ {"movie":"Thor","action":1,"sci-fi":1},
+ {"movie":"Avatar","action":1,"sci-fi":1,"romance":1},
+ {"movie":"Titanic","action":0,"romance":1},
+]).set_index("movie")
+sim = pd.DataFrame(cosine_similarity(m), index=m.index, columns=m.index)
+print(sim["Avatar"].sort_values(ascending=False).drop("Avatar"))`,
+    codeLanguage: "python",
+  },
+  {
+    id: "ai-voice-assistant",
+    categoryId: "ai",
+    title: "Mini Voice Assistant",
+    marathiTitle: "बोलून उत्तर देणारा सोपा assistant",
+    difficulty: "अवघड",
+    minutes: 40,
+    summary: "Speech-to-text ने बोलणे ऐका, LLM ने उत्तर, ते text-to-speech ने बोलून दाखवा.",
+    steps: [
+      "Whisper/transformers STT pipeline तयार करा",
+      "Ollama LLM ने उत्तर घ्या",
+      "pyttsx3/espeak ने बोलून दाखवा",
+      "तीनही भाग एका script मध्ये जोडा",
+    ],
+    code: `import requests
+from transformers import pipeline
+import subprocess
+stt = pipeline("automatic-speech-recognition")
+text = stt("ask.wav")["text"]
+r = requests.post("http://localhost:11434/api/generate",
+    json={"model": "llama3.2:1b", "prompt": text, "stream": False})
+subprocess.run(["espeak-ng", r.json()["response"]])`,
+    codeLanguage: "python",
+  },
+  {
+    id: "ai-llm-chatbot",
+    categoryId: "ai",
+    title: "Chatbot API + UI",
+    marathiTitle: "FastAPI + Streamlit ने chatbot बनवा",
+    difficulty: "मध्यम",
+    minutes: 35,
+    summary: "history सह chatbot: FastAPI मागे API, Streamlit समोर chat UI — local LLM सोबत.",
+    steps: [
+      "FastAPI endpoint बनवा जी messages history घेते",
+      "Ollama ला messages पाठवा उत्तर घ्या",
+      "Streamlit chat UI बनवा",
+      "history session मध्ये ठेवा",
+      "एकत्र चालवून चॅट करा",
+    ],
+    code: `import streamlit as st
+import requests
+st.title("AI Chatbot")
+if "msgs" not in st.session_state:
+    st.session_state.msgs = []
+for m in st.session_state.msgs:
+    st.chat_message(m["role"]).write(m["content"])
+q = st.chat_input("माझा प्रश्न")
+if q:
+    st.session_state.msgs.append({"role": "user", "content": q})
+    r = requests.post("http://localhost:11434/api/chat",
+        json={"model": "llama3.2:1b", "messages": st.session_state.msgs})
+    st.session_state.msgs.append(
+        {"role": "assistant", "content": r.json()["message"]["content"]})
+    st.rerun()`,
+    codeLanguage: "python",
+  },
 ];
 
 export function getProject(id: string): Project | undefined {

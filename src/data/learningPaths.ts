@@ -154,25 +154,35 @@ export const learningPaths: LearningPath[] = [
     icon: "🤖",
     gradient: "from-violet-500 to-purple-400",
     title: "AI & Machine Learning",
-    marathiTitle: "AI समजा — data पासून chatbot पर्यंत",
+    marathiTitle: "AI समजा — basics पासून LLM पर्यंत (100 धडे)",
     description:
-      "AI म्हणजे काय, data कसा चालतो, NLP, image recognition आणि शेवटी स्वतःचा chatbot.",
+      "AI म्हणजे काय, data toolkit, machine learning, deep learning, LLM आणि career पर्यंत संपूर्ण मार्ग.",
     difficulty: "मध्यम",
     phases: [
       {
         title: "सुरुवात",
         english: "Beginner",
-        steps: ["ai-data"],
+        steps: ["ai-data", "ml-intro-methods", "ds-numpy"],
       },
       {
-        title: "मध्यम",
-        english: "Intermediate",
-        steps: ["ai-nlp", "ai-image-recognition"],
+        title: "Machine Learning",
+        english: "ML Foundation",
+        steps: ["ml-linear-regression", "ml-decision-tree", "ml-scikit-learn"],
+      },
+      {
+        title: "Deep Learning",
+        english: "Deep Learning",
+        steps: ["dl-neuron", "dl-cnn", "dl-transformers"],
+      },
+      {
+        title: "Practical AI",
+        english: "Practical AI",
+        steps: ["ai-huggingface", "ai-ollama", "ai-llm-chatbot"],
       },
       {
         title: "प्रोजेक्ट",
         english: "Capstone Project",
-        steps: ["ai-project-chatbot"],
+        steps: ["ai-project-chatbot", "ai-career-llm"],
       },
     ],
   },
