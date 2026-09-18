@@ -13,12 +13,26 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "custom element, त्यांची व्याख्या आणि वापर — मोठ्या साइट्सवर reusable UI चा आधार.",
     sections: [
+      {
+        title: "Web Components — स्वतंत्र, पुन्हा वापरता येणारे घटक म्हणजे काय?",
+        content: "custom element, त्यांची व्याख्या आणि वापर — मोठ्या साइट्सवर reusable UI चा आधार.\nWeb Components म्हणजे तुमचे स्वतःचे HTML घटक जे ब्राउझरलाही माहीत होतात.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Web Components — स्वतंत्र, पुन्हा वापरता येणारे घटक चे फायदे आणि महत्त्व",
+        content: "✓ नियम: महत्त्वाची माहिती attributes मधूनच द्या.\n✓ Web Components चे मोठे फायदे — encapsulation आणि reuse.\n✓ लहान पेजसाठी गरज नाही — थेट semantic HTML पुरेसे.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ HTML-only शिकताना नियम लक्षात ठेवा — वापर नंतर JavaScript ने.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. customizable elements", content: "Web Components म्हणजे तुमचे स्वतःचे HTML घटक जे ब्राउझरलाही माहीत होतात.\n\nआधार म्हणजे custom element — तुमच्या दिलेले name attribute किंवा class ची जोडणी.\n\ncustom element ने हा प्रकार स्पष्ट होतो: <app-chart data-kind=\"वेळ\">.\n\nब्राउझर unknown tag ला साधा मजकूर म्हणून वागवतो; custom element ते बदलते.\n\nआता आधुनिक ब्राउझर custom elements स्वतः ओळखतात.", code: `<h2>घटक नाव नियम</h2>
 <ul>
   <li>custom element नावात dash आवश्यक.</li>
   <li>टॅग आधी विचारावा की तो custom आहे.</li>
   <li>आत एकच मुख्य रचना ठेवा.</li>
-</ul>`, codeLanguage: "html" },
+</ul>`, codeLanguage: "html" ,
+        output: "घटक नाव नियम\n<ul>\ncustom element नावात dash आवश्यक.\nटॅग आधी विचारावा की तो custom आहे.\nआत एकच मुख्य रचना ठेवा.",},
       { title: "2. नावाचा नियम", content: "custom element च्या नावात एक dash किंवा अधिक तर असायलाच हवा.\n\nस्टँडर्ड टॅगला dash nasate — त्यामुळे clash होत नाही.\n\nउदा. app-button ठीक, button नाही; web-card ठीक, card नाही.\n\nदुसरा नियम: एकदा बनवलेले नाव पुन्हा बदलू नका.\n\nregister झालेले घटक ब्राउझर री-यूज करतो.", code: `<p>बरोबर: app-card, site-menu, data-grid</p>
 <p>चुकीचे: card, menu, grid</p>`, codeLanguage: "html" },
       { title: "3. class आणि lifecycle", content: "custom element ची व्याख्या JavaScript class ने होते.\n\nएक class म्हणजे element चा आधार — attributes, content, क्रिया.\n\nonCreated म्हणजे बनताना; connected म्हणजे पेजवर येताना.\n\nहे चक्र \"lifecycle\" म्हणतात — बनणे, जोडणे, काढणे.\n\nHTML-only शिकताना नियम लक्षात ठेवा — वापर नंतर JavaScript ने.", code: `<p>lifecycle टप्पे:</p>
@@ -75,9 +89,23 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "shadow root, open/closed modes आणि घटकातील अंतर्गत संरचना कशी वेगळी ठेवायची.",
     sections: [
+      {
+        title: "Shadow DOM — लपलेल्या जागेची रचना म्हणजे काय?",
+        content: "shadow root, open/closed modes आणि घटकातील अंतर्गत संरचना कशी वेगळी ठेवायची.\nती घटकाच्या inner रचनेत स्वतःचा अलग जग दाखवते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Shadow DOM — लपलेल्या जागेची रचना चे फायदे आणि महत्त्व",
+        content: "✓ आधी open, नंतर गरज असल्यास closed.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ पण debugging आणि शिक्षणासाठी अडचण निर्माण करतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. shadow root प्रकार", content: "ती घटकाच्या inner रचनेत स्वतःचा अलग जग दाखवते.\n\nopen मोड म्हणजे बाहेरून पाहता येते; closed म्हणजे नाही.\n\nनियम: बहुतांश वेळा open ठेवा — debugging सोपे.\n\nclosed फक्त गोपनीय रचनेसाठी.", code: `<p>shadow root सह घटक:</p>
 <p>बाहेरून लपलेली रचना</p>
-<p>आत साधी रचना आणि शैली</p>`, codeLanguage: "html" },
+<p>आत साधी रचना आणि शैली</p>`, codeLanguage: "html" ,
+        output: "shadow root सह घटक:\nबाहेरून लपलेली रचना\nआत साधी रचना आणि शैली",},
       { title: "2. host घटक", content: "पहिला घटकच host म्हणतात — जो shadow root धारण करतो.\n\nउदा. app-panel हा host; त्यात shadow root राहतो.\n\nhost च्या आतले सर्व घटक लपले राहतात.\n\nबाहेरच्या id/class host ला लागतात, आतल्यांना नाही.\n\nही अलगता encapsulation चा आधार.", code: `<app-panel title="माझी पट्टी">
   <p>content थेट host मध्ये.</p>
 </app-panel>`, codeLanguage: "html" },
@@ -126,13 +154,27 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "template रचना, slot जोडणी आणि content वेगळे ठेवण्याची यंत्रणा.",
     sections: [
+      {
+        title: "Template आणि Slot — नमुने आणि जोडणी म्हणजे काय?",
+        content: "template रचना, slot जोडणी आणि content वेगळे ठेवण्याची यंत्रणा.\ntemplate घटक म्हणजे HTML मधला नमुना / साचा.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Template आणि Slot — नमुने आणि जोडणी चे फायदे आणि महत्त्व",
+        content: "✓ जेव्हा जेव्हा गरज पडते, template ची प्रत पेजवर येते.\n✓ जागा कमी आणि वेग अधिक — मोठ्या सूचीसाठी महत्त्वाचे.\n✓ चार महत्त्वाची स्तर — template, host, shadow, slot.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. template घटक", content: "template घटक म्हणजे HTML मधला नमुना / साचा.\n\nत्यातला मजकूर ब्राउझर रेंडर करत नाही — तो राहतो आणि नंतर वापरला जातो.\n\nजेव्हा जेव्हा गरज पडते, template ची प्रत पेजवर येते.\n\nउदा. सूचीचे item चे स्वरूप एकदा लिहून अनेक वेळा वापरता येते.\n\nहे वेगळे ठेवणे rendering ची गती वाढवते.", code: `<template id="कार्ड">
   <div class="कार्ड">
     <h3>शीर्षक</h3>
     <p>वर्णन</p>
   </div>
 </template>
-<p>template दिसत नाही — प्रती नंतर येतात.</p>`, codeLanguage: "html" },
+<p>template दिसत नाही — प्रती नंतर येतात.</p>`, codeLanguage: "html" ,
+        output: "<template id=\"कार्ड\">\nशीर्षक \n वर्णन\nशीर्षक\nवर्णन\n</template>\ntemplate दिसत नाही — प्रती नंतर येतात.",},
       { title: "2. content वेगळे", content: "template मधली रचना स्टाईल आणि JS सोबत जोडता येते.\n\nपेज load होता तेव्हा template साठी allocation नाही.\n\nजागा कमी आणि वेग अधिक — मोठ्या सूचीसाठी महत्त्वाचे.\n\nशिकताना नियम: template हे व्याकरणचे साधन.\n\nरचना आणि data वेगळे ठेवण्याची सवय.", code: `<template id="menuit">
   <li><a href="#">दुवा</a></li>
 </template>`, codeLanguage: "html" },
@@ -180,9 +222,19 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "manifest, service worker चा विचार आणि installable वेब अॅप — HTML पासूनच सुरुवात.",
     sections: [
+      {
+        title: "का शिकावे? PWA — प्रगत वेब अनुप्रयोगाचा पाया चे फायदे आणि महत्त्व",
+        content: "✓ cache ची शुद्धता आणि नियम येथे महत्त्वाचे.\n✓ हा धडा फक्त पाया आहे — JavaScript ची गरज नंतर.\n✓ पुढील स्तरावर JavaScript शिकताना हा पाया उपयोगी.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. manifest म्हणजे काय", content: "PWA ची ओळख manifest ने होते.\n\nmanifest ही एक JSON फाइल — अॅपचे नाव, रंग, चिन्ह.\n\n<link rel=\"manifest\"> ने ती पेजशी जोडतात.\n\nती install होण्याचा पाया.\n\nHTML च्या head मधूनच ही सुरुवात होते.", code: `<link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#104060">
-<p>manifest installable अॅपची पहिली ओळख.</p>`, codeLanguage: "html" },
+<p>manifest installable अॅपची पहिली ओळख.</p>`, codeLanguage: "html" ,
+        output: "<meta name=\"theme-color\" content=\"#104060\">\nmanifest installable अॅपची पहिली ओळख.",},
       { title: "2. installability नियम", content: "ब्राउझर evidence मांडून install करण्याचा प्रस्ताव देतो.\n\nHTTPS हवा — सुरक्षित आणि विश्वासार्ह जोडणी.\n\nसर्व्हिस worker नोंदणी हवी — घटक नेटवर्कशिवाय चालतो.\n\nअॅपचे नाव, चिन्ह आणि रंग भरलेले हवे.\n\nवापरकर्ता किमान एक वेळ पेज उघडतो.", code: `<p>offset नियम:</p>
 <p>https + worker + manifest</p>`, codeLanguage: "html" },
       { title: "3. service worker कल्पना", content: "तो नेटवर्क रिक्वेस्ट थांबवून उत्तर शोधतो.\n\nकाही content offline दाखवणे — वाई वापरता.\n\nतो network आणि cache व्यवस्थेचे नियंत्रण करतो.\n\nHTML-only शिकताना तो कल्पना आहे, कोड नाही.", code: `<p>service worker साठी तयारी:</p>
@@ -238,8 +290,22 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "localStorage, sessionStorage आणि cookies यांची तुलना — कुठे काय डेटा ठेवायचा.",
     sections: [
+      {
+        title: "ब्राउझर Storage — ठिकाणे आणि टिकाऊपणा म्हणजे काय?",
+        content: "localStorage, sessionStorage आणि cookies यांची तुलना — कुठे काय डेटा ठेवायचा.\nlocalStorage म्हणजे ब्राउझरची टिकाऊ मेमरी.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? ब्राउझर Storage — ठिकाणे आणि टिकाऊपणा चे फायदे आणि महत्त्व",
+        content: "✓ ही वस्तुस्थिती अस्थायी गरजांसाठी आदर्श.\n✓ कुठे काय ठेवायचं याची निवड महत्त्वाची.\n✓ उपयोगकर्त्याची थीम निवड localStorage मध्ये.\n✓ हे तीनच उपाय 90% गरजा भागवतात.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. localStorage", content: "localStorage म्हणजे ब्राउझरची टिकाऊ मेमरी.\n\nडेटा त्या ठिकाणी टिकतो — टॅब बंद केल्याने जात नाही.\n\nkey-value पद्धतीने simple data ठेवता येते.\n\nमर्यादा सुमारे 5 MB — मोठा data नको.\n\nफक्त string मूल्ये — वस्तू JSON मध्ये बदलाव्या लागतात.", code: `<p>localStorage उदाहरणे:</p>
-<p>कायमचे नाव, थीम, खात्री.</p>`, codeLanguage: "html" },
+<p>कायमचे नाव, थीम, खात्री.</p>`, codeLanguage: "html" ,
+        output: "localStorage उदाहरणे:\nकायमचे नाव, थीम, खात्री.",},
       { title: "2. sessionStorage", content: "sessionStorage सत्राबरोबर नष्ट होतो.\n\nही वस्तुस्थिती अस्थायी गरजांसाठी आदर्श.\n\nउदा. wizard च्या पायऱ्यांची मध्यावस्था.\n\ndata आणि गोपनीयता यांची शिल्लक राहते.", code: `<p>sessionStorage साठी:</p>
 <p>wizard, टॅब state, अस्थायी संदेश.</p>`, codeLanguage: "html" },
       { title: "3. cookies तुलना", content: "cookies सर्व्हरला माहीत असतात — प्रत्येक रिक्वेस्टमध्ये.\n\nलहान मर्यादा ~4 KB — फक्त session माहिती.\n\nsecure, httpOnly असे गुणधर्म सुरक्षा देतात.\n\nlocalStorage सर्व्हर देत नाही — अधिक private.\n\nकुठे काय ठेवायचं याची निवड महत्त्वाची.", code: `<p>तुलना:</p>
@@ -286,10 +352,20 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "HTTP methods, status codes, headers आणि caching ची मूलभूत शिकवण.",
     sections: [
+      {
+        title: "का शिकावे? HTTP — विधी, स्थिती आणि विचारणा चे फायदे आणि महत्त्व",
+        content: "✓ महत्त्वाचा data POST ने — इतिहासात नको.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. HTTP म्हणजे काय", content: "HTTP हा मजकूराचा व्यवहाराचा नियम — browser आणि server दरम्यान.\n\nब्राउझर request पाठवतो; server response मध्ये return करतो.\n\nहे संवाद सोपे — कोड आणि headers अभ्यासा.\n\nमागणी, उत्तर, स्थिती — हा क्रम.\n\nवेबच्या कामकाजाचा पाया म्हणजे HTTP.", code: `<form action="#" method="post">
   <label>नाव: <input name="n"></label>
   <button type="submit">सबमिट</button>
-</form>`, codeLanguage: "html" },
+</form>`, codeLanguage: "html" ,
+        output: "<form action=\"#\" method=\"post\">\nनाव:\nसबमिट",},
       { title: "2. methods", content: "GET डेटा वाचतो; POST नवीन; PUT संपूर्ण बदल.\n\nPATCH आंशिक बदल; DELETE काढतो.\n\nHTML फॉर्म GET आणि POST वापरतो.\n\nदुवे नेहमी GET — डेटा बदलणे नको.", code: `<p>HTML मधील methods:</p>
 <p>GET — वाचन, POST — रचना.</p>`, codeLanguage: "html" },
       { title: "3. status codes", content: "200 म्हणजे ठीक; 404 म्हणजे सापडले नाही.\n\n403 मनाई; 500 server त्रुटी; 301 कायम बदल.\n\nवापरकर्त्याला कोड दिसत नाही — पण दिशा देतो.\n\n404 पेज मराठीत चांगले — स्पष्ट संदेश.\n\nstatus codes debugging ची पहिली खूण.", code: `<p>सामान्य कोड:</p>
@@ -336,6 +412,19 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "hreflang, variants, og डीप आणि knowledge panel — मेटा ज्या पलीकडे जातो.",
     sections: [
+      {
+        title: "Advanced Meta — शोध, भाषा आणि समृद्ध परिणाम म्हणजे काय?",
+        content: "hreflang, variants, og डीप आणि knowledge panel — मेटा ज्या पलीकडे जातो.\nhreflang म्हणजे भाषिक आवृत्त्यांची जोडणी.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Advanced Meta — शोध, भाषा आणि समृद्ध परिणाम चे फायदे आणि महत्त्व",
+        content: "✓ canonical चे दोन उपयोग:\n\nprint आवृत्ती, सॉर्ट आवृत्ती, पृष्ठभाग.\n✓ JSON-LD च्या महत्त्वामुळे structural data हवा.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. hreflang", content: "hreflang म्हणजे भाषिक आवृत्त्यांची जोडणी.\n\nएकच पेज अनेक भाषांत — search engine सांगा.\n\nalternate आणि hreflang attribute मराठी आवृत्ती दर्शवते.\n\nहे search यंत्राला भाषा कळते.\n\nअनेक भाषांसाठी प्रत्येकातला दुवा हवा.", code: `<link rel="alternate" hreflang="mr" href="https://example.com/mr/">
 <link rel="alternate" hreflang="en" href="https://example.com/en/">`, codeLanguage: "html" },
       { title: "2. canonical बहु-आवृत्ती", content: "canonical चे दोन उपयोग:\n\nprint आवृत्ती, सॉर्ट आवृत्ती, पृष्ठभाग.\n\nएकच अधिकृत URL निवडा आणि search engine ला सांगा.\n\nही काळजी duplicate शिक्षा टाळते.\n\nएकाच पेजवर फक्त एकच canonical ठीक.", code: `<link rel="canonical" href="https://example.com/mars/2026/">`, codeLanguage: "html" },
@@ -344,7 +433,8 @@ export const htmlLevel4: Tutorial[] = [
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">`, codeLanguage: "html" },
       { title: "4. knowledge panel", content: "Organization, Person, Product डेटा panels बनवतो.\n\nJSON-LD च्या महत्त्वामुळे structural data हवा.\n\nमराठी संस्थांसाठी name आणि स्थान भरा.\n\nहे rich result चा पुढचा टप्पा.", code: `<p>knowledge panel साठी data:</p>
-<p>नाव, पत्ता, लोगो — संरचना JSON-LD ने.</p>`, codeLanguage: "html" },
+<p>नाव, पत्ता, लोगो — संरचना JSON-LD ने.</p>`, codeLanguage: "html" ,
+        output: "knowledge panel साठी data:\nनाव, पत्ता, लोगो — संरचना JSON-LD ने.",},
       { title: "5. robots.txt आणि sitemap", content: "robots.txt directory-level नियम देतो — HTML नाही.\n\nsitemap.xml ही URL सूची — शोधकर्त्यासाठी.\n\nहे search जगाचे दिशादर्शक — HTML च्या सोबत.\n\nmeta robots पेजवर; फायली रूटवर.\n\nदोन्ही मिळून काम करतात.", code: `<p>रूट फाइली:</p>
 <p>robots.txt सूचना, sitemap.xml सूची.</p>`, codeLanguage: "html" },
       { title: "6. मेटा समन्वय", content: "सर्व मेटा एकत्रित — भाषा, जोडण्या, rich data.\n\nhreflang भाषा; canonical दुवा; og वाटणी.\n\nहे सर्व head मध्ये तयार राहते.\n\nप्रत्येक पेजवर नियमित तपास करा.\n\nमेटा शुद्ध असल्यास search चांगले उत्तर देते.", code: `<head>
@@ -392,10 +482,24 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "CSRF, XSS, autocomplete संवेदनशील fields आणि सुरक्षित फॉर्म रचना.",
     sections: [
+      {
+        title: "Form Security — संरक्षणाचे नियम म्हणजे काय?",
+        content: "CSRF, XSS, autocomplete संवेदनशील fields आणि सुरक्षित फॉर्म रचना.\nCSRF म्हणजे दुसर्या साइटकडून येणारा हल्ला.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Form Security — संरक्षणाचे नियम चे फायदे आणि महत्त्व",
+        content: "✓ क्रियांच्या ठिकाणी POST चा उपयोग निश्चित.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. CSRF अर्थ", content: "CSRF म्हणजे दुसर्या साइटकडून येणारा हल्ला.\n\nवापरकर्ता लॉगिन असताना हल्ला request पाठवतो.\n\nटोकन हे संरक्षण — सर्व्हर दिलेले unique मूल्य.\n\nअसे form मध्ये टॉकन गुप्त field म्हणून असतो.\n\nसर्व्हर टॉकनशिवाय क्रिया मानत नाही.", code: `<form action="#" method="post">
   <input type="hidden" name="csrftoken" value="अनोखा"><br>
   <button type="submit">सुरक्षित</button>
-</form>`, codeLanguage: "html" },
+</form>`, codeLanguage: "html" ,
+        output: "<form action=\"#\" method=\"post\">\nसुरक्षित",},
       { title: "2. XSS प्रतिबंध", content: "XSS म्हणजे बाह्य script भरवणे.\n\nवापरकर्त्याचे input तसेच पाठवणे धोकादायक.\n\nनियम: पाठवण्यापूर्वी escape आणि encode.\n\n< आणि > दर्शवण्यासाठी entity वापरा — कंस आत जाऊ देऊ नका.\n\nसर्व्हरवर तपासणे बंधनकारक.", code: `<p>मजकूर दिसला आणि सुरक्षित:</p>
 <p>&lt;script&gt; असे लिहिल्यास चालत नाही.</p>`, codeLanguage: "html" },
       { title: "3. संवेदनशील fields", content: "क्रेडिट कार्ड, पिन, अर्ज — autocomplete नको.\n\nautocomplete=\"off\" फक्त अस्थायी नाही — प्रत्येक संदर्भ.\n\nnew-password आणि current-password ने मदत.\n\nनियम: गुप्त data मोकळा ठेवू नका.\n\nHTTPS अनिवार्य — संदेश सुरक्षित हवा.", code: `<label>क्रेडिट कार्ड: <input name="cc" type="text" autocomplete="off" inputmode="numeric"></label>`, codeLanguage: "html" },
@@ -446,11 +550,25 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "video srcset, poster, tracks, muted autoplay आणि audio व्यवस्था.",
     sections: [
+      {
+        title: "Video आणि Audio — प्रगत मीडिया म्हणजे काय?",
+        content: "video srcset, poster, tracks, muted autoplay आणि audio व्यवस्था.\nvideo घटकात एकापेक्षा अधिक source ठेवता येतात.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Video आणि Audio — प्रगत मीडिया चे फायदे आणि महत्त्व",
+        content: "✓ गरज नसलेला video नंतर load नका.\n✓ मराठी podcasts नवीन युगात audio महत्त्वाचा.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. video स्रोत", content: "video घटकात एकापेक्षा अधिक source ठेवता येतात.\n\nप्राथमिक MP4; दुय्यम WebM — आधार बदलतो.\n\nब्राउझर पहिला सुरू होणारा स्रोत निवडतो.\n\nप्रत्येक source type ने लिहा — सुसंगतता.\n\nप्रारंभक चित्र poster ने दिसते.", code: `<video controls width="480" height="270" poster="still.jpg">
   <source src="film.mp4" type="video/mp4">
   <source src="film.webm" type="video/webm">
   <p>तुमचा ब्राउझर video दर्शवू शकत नाही.</p>
-</video>`, codeLanguage: "html" },
+</video>`, codeLanguage: "html" ,
+        output: "<video controls width=\"480\" height=\"270\" poster=\"still.jpg\">\n <source src=\"film.mp4\" type=\"video/mp4\">\n <source src=\"film.webm\" type=\"video/webm\">\nतुमचा ब्राउझर video दर्शवू शकत नाही.",},
       { title: "2. poster आणि controls", content: "poster हे व्हिडिओचे प्रारंभक चित्र.\n\nउघडण्यापूर्वी ते दिसते — त्यावरून content अंदाज येतो.\n\ncontrols हे ब्राउझरचे play/pause बटण.\n\nposter साठीचे चित्र योग्य तेथे ठेवा.\n\ncontrols नसल्यास वापरकर्त्याला दिशा मिळत नाही.", code: `<video controls width="480" height="270" poster="cover-mr.jpg">
   <source src="intro.mp4" type="video/mp4">
 </video>`, codeLanguage: "html" },
@@ -506,8 +624,22 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "hash routing, history API विचार, target नियम आणि scroll वर्तणूक.",
     sections: [
+      {
+        title: "Navigation — दिशा, इतिहास आणि वर्तणूक म्हणजे काय?",
+        content: "hash routing, history API विचार, target नियम आणि scroll वर्तणूक.\nदुवे नेहमी नवीन टॅब वर टाकू नका — target नियम.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Navigation — दिशा, इतिहास आणि वर्तणूक चे फायदे आणि महत्त्व",
+        content: "✓ हे embedded दृश्यांचा उपयोग.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. दुव्यांची दिशा", content: "दुवे नेहमी नवीन टॅब वर टाकू नका — target नियम.\n\nबाहेरची साइट target=\"_blank\" पण rel नाही.\n\nrel=\"noopener\" बसते — सुरक्षा नियम.\n\nमुख्य दुवे same tab — वापरकर्ता इतिहासात.\n\nदुवे आणि target यांचा तोल ठेवा.", code: `<a href="https://example.com" target="_blank" rel="noopener">बाहेरील</a>
-<a href="#भाग">आतील</a>`, codeLanguage: "html" },
+<a href="#भाग">आतील</a>`, codeLanguage: "html" ,
+        output: "बाहेरील\nआतील",},
       { title: "2. hash navigation", content: "hash दुवे (#भाग) त्या घटकात स्क्रोल करतात.\n\nहे एक पेज साइटची दिशा — अशी रचना SP.\n\nब्राउझर history hash ठेवतो — back काम.\n\nही media state नसून दृष्टी आहे.\n\nइतिहासात hash ची नोंद — मागे-पुढे काम करते.", code: `<nav>
   <a href="#परिचय">परिचय</a>
   <a href="#स्वरूप">स्वरूप</a>
@@ -557,8 +689,18 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "validator, DOM tree, सामान्य त्रुटी आणि निराकरणाचे नियम.",
     sections: [
+      {
+        title: "Debugging — चुका शोधण्याची साधने म्हणजे काय?",
+        content: "validator, DOM tree, सामान्य त्रुटी आणि निराकरणाचे नियम.\nvalidator हे व्याकरण तपासणारे साधन.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Debugging — चुका शोधण्याची साधने चे फायदे आणि महत्त्व",
+        content: "✓ ही debugging ची सवय सर्वत्र उपयोगी.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
       { title: "1. validator वापर", content: "validator हे व्याकरण तपासणारे साधन.\n\nW3C validator कोड वाचतो आणि दोष दाखवतो.\n\nटाका म्हणजेच — कोड बरोबर नियम.\n\nअशा तपासणीने अनेक त्रुटी आधी दिसतात.\n\nHTML शिकताना नियमित validator हा मित्र.", code: `<p>validator काय सांगते:</p>
-<p>missing end tag, अजून दोष.</p>`, codeLanguage: "html" },
+<p>missing end tag, अजून दोष.</p>`, codeLanguage: "html" ,
+        output: "validator काय सांगते:\nmissing end tag, अजून दोष.",},
       { title: "2. DOM tree समज", content: "पेजचे घटक एका झाडात — DOM tree.\n\nपालक-child संबंध झाड दाखवतो.\n\nकुठला tag कुठे चुकला हे त्यातून कळतो.\n\ndiv भरपूर का? — ते tree मध्ये दिसते.\n\nडीबग मध्ये tree ने प्रथम स्थान.", code: `<main>
   <h2>शीर्षक</h2>
   <p>मजकूर खाली.</p>
@@ -608,6 +750,19 @@ export const htmlLevel4: Tutorial[] = [
     minutes: 20,
     summary: "एंटरप्राइझ माहिती अॅप — Web Components, PWA पाया, storage दिशा आणि सुरक्षा.",
     sections: [
+      {
+        title: "Enterprise App — सर्व Level 4 एकत्र म्हणजे काय?",
+        content: "एंटरप्राइझ माहिती अॅप — Web Components, PWA पाया, storage दिशा आणि सुरक्षा.\nहा धडा Level 4 ची सर्व कौशल्ये एकत्र करतो.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Enterprise App — सर्व Level 4 एकत्र चे फायदे आणि महत्त्व",
+        content: "\"Enterprise App — सर्व Level 4 एकत्र\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. उद्दिष्टे", content: "हा धडा Level 4 ची सर्व कौशल्ये एकत्र करतो.\n\nटार्गेट: \"मराठी माहिती केंद्र\" — माहिती अॅप.\n\ncustom element दिशा, manifest, मेटा डीप.", code: `<!DOCTYPE html>
 <html lang="mr">
 <head>
@@ -615,7 +770,8 @@ export const htmlLevel4: Tutorial[] = [
   <title>मराठी माहिती केंद्र</title>
 </head>
 <body></body>
-</html>`, codeLanguage: "html" },
+</html>`, codeLanguage: "html" ,
+        output: "<html lang=\"mr\">\n<head>\n <meta charset=\"utf-8\">\nTitle: मराठी माहिती केंद्र\nमराठी माहिती केंद्र\n</head>",},
       { title: "2. head enterprise", content: "head मध्ये PWA आणि मेटा डीप.\n\nmanifest link, theme-color, icon sizes.\n\ncanonical, og locale, twitter card.\n\nhreflang दोन भाषा. robots ध्येय.\n\nहा पाया enterprise दर्जाचा.", code: `<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

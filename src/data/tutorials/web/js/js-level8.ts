@@ -18,6 +18,19 @@ export const jsLevel8: Tutorial[] = [
       "Promise, .then/.catch chain, Promise.all/race — वेळखाऊ काम न थांबवता.",
     sections: [
       {
+        title: "Promises — साखळीतले वचन आणि निकाल म्हणजे काय?",
+        content: "Promise, .then/.catch chain, Promise.all/race — वेळखाऊ काम न थांबवता.\nPromise = अजून निकाल नसलेले पण भविष्यात मिळणार असे वचन.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Promises — साखळीतले वचन आणि निकाल चे फायदे आणि महत्त्व",
+        content: "\"Promises — साखळीतले वचन आणि निकाल\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ चुका कोठेही आल्या तरी शेवटचा .catch हाताळतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "1. Promise म्हणजे 'वचन'",
         content:
           "Promise = अजून निकाल नसलेले पण भविष्यात मिळणार असे वचन.\nतीन अवस्था: pending (वाट), fulfilled (मिळालं), rejected (अपयश).\nनव्याने promise: new Promise(function (धन, व्यंग) { ... });\nयश → धन(निकाल); अपयश → व्यंग(चूक).\nतिच्याशी जोडणी: .then(निकालप्राप्ति), .catch(चूक).\nहे event callback च्या जागी — आता 'निकाल open असतो'.",
@@ -59,7 +72,12 @@ Promise.all([पहिला, दुसरा]).then(सगळे => {
         output: "[ 3, 6 ]\nबेरीज: 9",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "Promises — साखळीतले वचन आणि निकाल चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "Promises — साखळीतले वचन आणि निकाल वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "promise ची 'वाट पाहणारी' अवस्था?",
         options: ["pending", "done", "wait", "loading"],
@@ -70,7 +88,13 @@ Promise.all([पहिला, दुसरा]).then(सगळे => {
         options: ["Promise.single", "Promise.all", "Promise.each", "Promise.one"],
         correct: 1,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["Promises — साखळीतले वचन आणि निकाल", "Web App - Flask मध्ये", "Document Resources — head चे खोल विश्व", "box decoration — विभाग सजावट"],
+        correct: 0,
+      },
+],
     related: ["js-async", "js-fetch", "js-events", "js-functions"],
     next: "js-debugging",
     prev: "js-async",
@@ -85,6 +109,15 @@ Promise.all([पहिला, दुसरा]).then(सगळे => {
     summary:
       "console.log, console.table, console.error, breakpoints, step-over — DevTools ने.",
     sections: [
+      {
+        title: "Debugging — DevTools ने चूक ठोकणे म्हणजे काय?",
+        content: "console.log, console.table, console.error, breakpoints, step-over — DevTools ने.\nconsole.log — सर्वसामान्य मजकूर.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Debugging — DevTools ने चूक ठोकणे चे फायदे आणि महत्त्व",
+        content: "\"Debugging — DevTools ने चूक ठोकणे\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
       {
         title: "1. console चे रूपांतर",
         content:
@@ -120,7 +153,12 @@ let x = 5;
         output: "Uncaught ReferenceError: अस्तित्वातनाही is not defined",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "Debugging — DevTools ने चूक ठोकणे चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "Debugging — DevTools ने चूक ठोकणे वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "निळ्या dot ने काय होतं?",
         options: ["code वेगवान होतो", "code तिथे थांबतो", "page बंद होते", "net चालू होते"],
@@ -131,7 +169,13 @@ let x = 5;
         options: ["console.log", "console.error", "console.action", "console.win"],
         correct: 1,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["Debugging — DevTools ने चूक ठोकणे", "Workers — पार्श्वभूमीची कामे", "text-overflow — दांडी थर", "aspect-ratio — प्रमाण नियम"],
+        correct: 0,
+      },
+],
     related: ["js-promises", "js-console", "js-conditionals", "js-scope"],
     next: "js-objects",
     prev: "js-promises",

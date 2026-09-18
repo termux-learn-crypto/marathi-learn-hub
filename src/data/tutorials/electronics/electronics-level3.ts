@@ -16,6 +16,19 @@ export const electronicsLevel3: Tutorial[] = [
     summary: "Diode हा one-way valve — forward/reverse bias, rectifier म्हणून उपयोग, zener voltage regulation, LED व photodiode ची ओळख.",
     sections: [
       {
+        title: "Diode सखोल — forward/reverse bias, rectifier, zener, LED म्हणजे काय?",
+        content: "Diode हा one-way valve — forward/reverse bias, rectifier म्हणून उपयोग, zener voltage regulation, LED व photodiode ची ओळख.\nDiode हा दोन-पायांचा घटक — वीज फक्त एका दिशेने जाऊ देतो.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Diode सखोल — forward/reverse bias, rectifier, zener, LED चे फायदे आणि महत्त्व",
+        content: "\"Diode सखोल — forward/reverse bias, rectifier, zener, LED\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "Diode — one-way valve",
         content: "Diode हा दोन-पायांचा घटक — वीज फक्त एका दिशेने जाऊ देतो. साधर्म्य: पाण्याचा नलकोश (check valve). Forward मध्ये पाणी वाहते; Reverse मध्ये थांबते.\nदोन पाय: Anode (A) — प्रवाह या बाजूने आत. Cathode (K) — प्रवाह बाहेर; Cathode वर रेषेची खूण (band) असते.\nForward bias: Anode ला +, Cathode ला −. ~0.6-0.7V च्या पुढे प्रवाह वाहतो (silicon); Germanium ~0.3V. प्रवाह वाढला तर diode गरम होतो.\nReverse bias: Anode ला −, Cathode ला +. प्रवाह ~शून्य; जास्त reverse voltage → breakdown (नुकसान).\nIV curve: Forward मध्ये वक्र वर गेल्यावर प्रवाह वेगाने वाढतो; Reverse मध्ये सपाट, त्यानंतर abrupt breakdown.\nवापर: AC ला DC मध्ये बदलणे (rectifier), उलट प्रवाहापासून वाचवणे, signal demodulation.\nसराव: datasheet मध्ये 1N4007 चे max reverse voltage वाचा; 1N4148 — लहान signal साठी.",
       },
@@ -62,6 +75,19 @@ export const electronicsLevel3: Tutorial[] = [
     minutes: 25,
     summary: "स्विचचे प्रकार, बटण व debounce, relay म्हणजे काय, electromagnetic coil, flyback diode आणि transistor+relay driver सह मोठे भार चालवणे.",
     sections: [
+      {
+        title: "Switch, बटण debounce, relay केमिस्ट्री आणि flyback protection म्हणजे काय?",
+        content: "स्विचचे प्रकार, बटण व debounce, relay म्हणजे काय, electromagnetic coil, flyback diode आणि transistor+relay driver सह मोठे भार चालवणे.\nSwitch सर्किटची जाणीवपूर्वक जोडणी/तोड करतो.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Switch, बटण debounce, relay केमिस्ट्री आणि flyback protection चे फायदे आणि महत्त्व",
+        content: "✓ Module (optocoupled) — Arduino साठी सोयीचे.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ चुका: flyback diode नाही → transistor जळतो; base resistor नाही → base current खूप.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "Switch प्रकार आणि debounce",
         content: "Switch सर्किटची जाणीवपूर्वक जोडणी/तोड करतो. प्रकार: SPST — on/off (एक स्विच); SPDT — दोन स्थाने (A किंवा B); Push button (momentary) — दाबल्यावरच; Toggle — स्थान राखतो; Slide, rocker, rotary.\nनिवड: current/voltage rating विचारात घ्या (उदा. 2A 125V); momentary vs latching वापरानुसार.\nPhysical बटण दाबताना contact हलका 'चटचट' होतो — bounce म्हणतात. समस्या: डिजिटल वाचनात ०/१/०/१ झटपट बदल; counter एकाऐवजी अनेक गणती करतो.\nउपाय — Software debounce: थोडा delay पडताळा. बटण स्थिर होण्यासाठी 5-20ms पुरेसा. Hardware debounce: capacitor बटणाला समांतर (100nF).\nPull-up/pull-down: INPUT_PULLUP वापरा — बटण दुसऱ्या टोकाला GND.\nसराव: घरातील switch प्रकार ओळखा (SPST/SPDT); बटण counter — debounce न करता बग पहा.",
@@ -119,6 +145,19 @@ void loop() {
     minutes: 30,
     summary: "मोटरचे प्रकार, DC motor direction/speed, H-bridge (L298N) driver, servo control, stepper accuracy आणि घरगुती वापर.",
     sections: [
+      {
+        title: "Motor सखोल — DC, servo, stepper, H-bridge, PWM speed म्हणजे काय?",
+        content: "मोटरचे प्रकार, DC motor direction/speed, H-bridge (L298N) driver, servo control, stepper accuracy आणि घरगुती वापर.\nमोटर विद्युत ऊर्जा mechanical हालचालीत बदलते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Motor सखोल — DC, servo, stepper, H-bridge, PWM speed चे फायदे आणि महत्त्व",
+        content: "✓ महत्त्वाचे: attach(pin) — सर्वसामान्य pin 9/10.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "मोटरचे प्रकार",
         content: "मोटर विद्युत ऊर्जा mechanical हालचालीत बदलते. सामान्य प्रकार: DC motor — सतत फिरणारा; कमी खर्च; direction+speed नियंत्रण. Servo — 0-180° नेमक्या कोनात; library सह सोपा. Stepper — अचूक पावले; position control. Brushless — रोबोट व drone मध्ये.\nनिवड: फिरत राहायचे? → DC. कोन हवा? → servo. अचूक position? → stepper.\nरेटिंग: Voltage (3V, 5V, 12V); Current (stall current); Torque (किती भार ओढेल).\nसराव: घरातील उपकरणांतील मोटर प्रकार ओळखा (पंखा=AC; toy=DC; printer=stepper).",
@@ -188,6 +227,19 @@ void loop() { m.step(100); delay(200); }`,
     summary: "बॅटरी म्हणजे काय, voltage vs capacity (mAh), series/parallel एकत्र जोडणी, AA/Li-ion/LiPo/9V प्रकार आणि charging व discharge सुरक्षा.",
     sections: [
       {
+        title: "बॅटरी सखोल — cells, mAh, series/parallel, प्रकार, charging सुरक्षा म्हणजे काय?",
+        content: "बॅटरी म्हणजे काय, voltage vs capacity (mAh), series/parallel एकत्र जोडणी, AA/Li-ion/LiPo/9V प्रकार आणि charging व discharge सुरक्षा.\nबॅटरी रासायनिक ऊर्जा विद्युत उर्जेत बदलते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? बॅटरी सखोल — cells, mAh, series/parallel, प्रकार, charging सुरक्षा चे फायदे आणि महत्त्व",
+        content: "✓ तापमान महत्त्वाचे.\n✓ उपयोग: Portable devices, Projects (Arduino, LED, motors), Backup (UPS, power banks).\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ खेळणी/drone मध्ये — धोकादायक चुका टाळा.\n✗ शारीरिक: थर्मल runaway टाळा; ध्रुव उलट जोडू नका; Swollen battery ताबडतोब काढून dispose करा.\n✗ सुरक्षा — योग्य charger, ध्रुव, overdischarge टाळा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "बॅटरी — cells, voltage, capacity",
         content: "बॅटरी रासायनिक ऊर्जा विद्युत उर्जेत बदलते. Cell vs battery: Cell — एक घटक; Battery — एक किंवा अधिक cells एकत्र.\nकाम: दोन टर्मिनल (+ आणि −). आत chemical reaction — प्रवाह बाहेर.\nमूल्य: Voltage — प्रति cell नुसार (AA alkaline — 1.5V; Li-ion — 3.7V; lead-acid — 2V). Capacity — mAh; 2000mAh — 2000mA तासभर, किंवा 500mA चार तास.\nवास्तविक: खर्च जास्त → capacity कमी (Peukert). तापमान महत्त्वाचे. उदा. 5V, 2000mAh power bank → 5 × 2 = 10Wh ऊर्जा.\nउपयोग: Portable devices, Projects (Arduino, LED, motors), Backup (UPS, power banks).\nसराव: घरातील बॅटरीचे label वाचा; power bank label वर Wh/mAh मोजा.",
       },
@@ -234,6 +286,15 @@ void loop() { m.step(100); delay(200); }`,
     minutes: 30,
     summary: "विविध voltage ची गरज, linear regulator (7805) आणि तोटे, buck converter कार्यक्षम, 5V/3.3V rails Arduino साठी आणि reverse polarity protection.",
     sections: [
+      {
+        title: "पॉवर सप्लाय सखोल — linear regulator, 7805, buck converter, rails, protection म्हणजे काय?",
+        content: "विविध voltage ची गरज, linear regulator (7805) आणि तोटे, buck converter कार्यक्षम, 5V/3.3V rails Arduino साठी आणि reverse polarity protection.\nप्रत्येक घटकाला योग्य voltage हवे — चुकल्यास नुकसान.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ प्रत्येक घटकाला योग्य voltage हवे — चुकल्यास नुकसान.\n✗ Power चुकीच्या दिशेने जोडल्यास घटक अनेकदा जळतात.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "पॉवर सप्लायची गरज",
         content: "प्रत्येक घटकाला योग्य voltage हवे — चुकल्यास नुकसान. उदाहरणे: Arduino — 5V; ESP8266 — 3.3V; Servo — 5-6V; Relay coil — 5V/12V.\nप्रवाह धरवा: सर्व load च्या current बेरीज हवी. Margin ठेवा (उदा. 2×).\nसमस्या: जास्त voltage → घटक जळतो; कमी current → voltage बुडते.\nउपाय: Battery + regulator → स्थिर voltage. Buck/boost — कार्यक्षम रूपांतर.\nसराव: आपल्या current project चा एकूण current अंदाज घ्या.",

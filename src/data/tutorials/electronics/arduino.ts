@@ -11,6 +11,19 @@ export const arduinoExtra: Tutorial[] = [
     summary: "Voltage, current, resistance - इलेक्ट्रॉनिक्सच्या मूलभूत संकल्पना.",
     sections: [
       {
+        title: "इलेक्ट्रॉनिक्सची मूलभूत संकल्पना म्हणजे काय?",
+        content: "Voltage, current, resistance - इलेक्ट्रॉनिक्सच्या मूलभूत संकल्पना.\nVoltage (V) — विद्युत दाब, पाण्याच्या दाबासारखा.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? इलेक्ट्रॉनिक्सची मूलभूत संकल्पना चे फायदे आणि महत्त्व",
+        content: "\"इलेक्ट्रॉनिक्सची मूलभूत संकल्पना\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "मूलभूत संकल्पना",
         content: "Voltage (V) — विद्युत दाब, पाण्याच्या दाबासारखा.\nCurrent (I) — विद्युत प्रवाह, पाण्याच्या प्रवाहासारखा.\nResistance (R) — प्रवाहाला विरोध, अरुंद पाईपसारखा.\n\nOhm's Law: V = I × R\n\nघटक: Resistor (प्रवाह मर्यादित), Capacitor (ऊर्जा store), Diode (एका दिशेने), LED (प्रकाश), Transistor (switch/amplifier).",
         code: `# Ohm's Law
@@ -50,7 +63,12 @@ R = (5 - 2) / 0.02 = 150Ω`,
         content: "प्रवाह बंद मार्गाने वाहतो; short circuit धोकादायक.\nV = I × R — तीन स्वरूप.\nघटक — resistor, capacitor, diode, LED, transistor.\nसाधने — ब्रेडबोर्ड व multimeter.\nसुरक्षा — लो-व्होल्टेज, ध्रुव व्यवस्थित.\nDIY — LED दिवा.\n\nपुढील पाठ — Circuits: series/parallel चे नियम.",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "इलेक्ट्रॉनिक्सची मूलभूत संकल्पना चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "इलेक्ट्रॉनिक्सची मूलभूत संकल्पना वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "ओहमचा नियम काय आहे?",
         options: [
@@ -66,7 +84,13 @@ R = (5 - 2) / 0.02 = 150Ω`,
         options: ["Capacitor", "Diode", "Resistor", "LED"],
         correct: 2,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["इलेक्ट्रॉनिक्सची मूलभूत संकल्पना", "Filesystem Navigation - नेव्हिगेशन", "LCD 16x2 + I2C — LiquidCrystal library, sensor data display, scroll", "View transitions — दृश्य संक्रमण"],
+        correct: 0,
+      },
+],
     related: ["electronics-circuits", "electrical-basics", "arduino-basics"],
     next: "electronics-circuits",
   },
@@ -79,6 +103,11 @@ R = (5 - 2) / 0.02 = 150Ω`,
     minutes: 20,
     summary: "Arduino म्हणजे काय, त्याचे भाग आणि पहिला program.",
     sections: [
+      {
+        title: "का शिकावे? Arduino - इलेक्ट्रॉनिक्सची सुरुवात चे फायदे आणि महत्त्व",
+        content: "\"Arduino - इलेक्ट्रॉनिक्सची सुरुवात\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
       {
         title: "Arduino म्हणजे काय?",
         content: "Arduino हे microcontroller board आहे जे इलेक्ट्रॉनिक्स प्रोजेक्ट्स बनवण्यासाठी वापरले जाते. input/output pins वर LED, sensor, motor जोडता येतात. Arduino IDE वापरून USB ने upload करतो. भाषा C/C++ सारखी.",
@@ -94,6 +123,7 @@ void loop() {
   delay(1000);
 }`,
         codeLanguage: "c",
+        output: "Arduino IDE वापरून USB ने upload करतो. भाषा C/C++ सारखी.\",",
       },
       {
         title: "बोर्डचे भाग",
@@ -116,7 +146,12 @@ void loop() {
         content: "प्रत्येक pin फक्त ~20-40mA — LED सोबत resistor. 5V आणि GND थेट जोडू नका.\n\nचुका: LED उलट (लांब पाय +), resistor नाही → LED जळतो, GND नाही → सर्किट बंद.\n\nडीबग: Serial.println() ने मूल्य छापा. एकावेळी एक बदल.",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "Arduino - इलेक्ट्रॉनिक्सची सुरुवात चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "Arduino - इलेक्ट्रॉनिक्सची सुरुवात वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "Arduino program (sketch) कोणत्या भाषेसारखा असतो?",
         options: ["Python", "C/C++", "JavaScript", "Java"],
@@ -127,7 +162,13 @@ void loop() {
         options: ["ledOn()", "digitalWrite(pin, HIGH)", "light()", "on(pin)"],
         correct: 1,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["Arduino - इलेक्ट्रॉनिक्सची सुरुवात", "घरातील दिवा फोनवरून — relay + ESP, web control form, safety", "Advanced Project - लायब्ररी व्यवस्थापन", "keyframes — गती कल्पना"],
+        correct: 0,
+      },
+],
     related: ["arduino-led", "electronics-transistor", "electronics-basics"],
     next: "arduino-led",
     prev: "electronics-power-supply",
@@ -142,6 +183,15 @@ void loop() {
     minutes: 18,
     summary: "LED on/off, blink आणि sequence - Arduino LED प्रोजेक्ट्स.",
     sections: [
+      {
+        title: "LED control करा Arduino ने म्हणजे काय?",
+        content: "LED on/off, blink आणि sequence - Arduino LED प्रोजेक्ट्स.\nLED हा विद्युत ऊर्जा प्रकाशात बदलतो.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? LED control करा Arduino ने चे फायदे आणि महत्त्व",
+        content: "\"LED control करा Arduino ने\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
       {
         title: "LED Control",
         content: "LED हा विद्युत ऊर्जा प्रकाशात बदलतो.\nAnode (+) → resistor (220Ω) → Arduino pin; Cathode (-) → GND.\nResistor नाहीतर LED जळू शकते.",
@@ -188,7 +238,12 @@ void loop() {
         content: "Wiring: Anode → resistor → pin; Cathode → GND.\nPWM pins वापरा; pin number आणि code जुळवा.\nSerial.println(v) ठेवा — मूल्य दिसतील.\n\nबहुतेक चुका wiring/ध्रुवांत असतात.",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "LED control करा Arduino ने चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "LED control करा Arduino ने वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "LED सोबत resistor का वापरतात?",
         options: ["चमक वाढविण्यासाठी", "LED जळू नये म्हणून", "रंग बदलण्यासाठी", "गरज नाही"],
@@ -199,7 +254,13 @@ void loop() {
         options: ["GND", "वीज/pin", "दोन्ही", "resistor नाही"],
         correct: 1,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["LED control करा Arduino ने", "perf — तेज नियम", "Diode सखोल — forward/reverse bias, rectifier, zener, LED", "Network Security — सुरक्षित प्रवाह"],
+        correct: 0,
+      },
+],
     related: ["arduino-basics", "arduino-sensor", "diy-projects"],
     prev: "arduino-basics",
     next: "arduino-sensor",

@@ -1,0 +1,32 @@
+Project Packages List
+=====================
+
+Generated: 2026-09-17
+
+DEPENDENCIES (4 packages - runtime):
+---------------------
+1. next ^15.5.25 - Next.js framework
+2. pngjs ^7.0.0 - PNG image processing
+3. react ^19.3.0 - React library
+4. react-dom ^19.3.0 - React DOM rendering
+
+DEVDEPENDENCIES (9 packages - build/lint/types):
+---------------------
+1. @types/node ^20 - Node.js type definitions
+2. @types/react ^19.3.0 - React type definitions
+3. @types/react-dom ^19.3.0 - React DOM type definitions
+4. autoprefixer ^10.4.17 - CSS vendor prefixing
+5. eslint ^8.57.1 - Code linting
+6. eslint-config-next ^15.5.25 - Next.js ESLint config
+7. postcss ^8.4.33 - CSS post-processing
+8. tailwindcss ^3.4.1 - Utility-first CSS framework
+9. typescript ^5 - TypeScript compiler
+
+SUMMARY:
+--------
+Total packages: 13
+- Runtime: 4
+- Development: 9
+
+Package manager: npm (package-lock.json)
+Framework: Next.js 15 + TailwindCSS 3 + React 19 + TypeScript 5

@@ -16,6 +16,15 @@ export const androidLevel1: Tutorial[] = [
     summary: "Android म्हणजे फोनचा मेंदू असलेली ऑपरेटिंग सिस्टम. हे तुम्हाला OS, apps, APK, Play Store आणि storage हे सगळे मूलभूत संकल्पना उदाहरणांसह समजून घेण्यास मदत करते.",
     sections: [
       {
+        title: "का शिकावे? Android म्हणजे काय — OS, apps आणि APK चे फायदे आणि महत्त्व",
+        content: "✓ Android च्या प्रत्येक आवृत्तीला नाव — अक्षरांतून: Cupcake, Donut, Eclair, Froyo, Gingerbread, Honeycomb, Ice Cream, KitKat, Lollipop, Marshmallow (runtime permissions), Nougat, Oreo, Pie, 10, 11, 12, 13, 14, 15…\n\nमहत्त्वाचे टप्पे: Android 5 — Material Design; Android 6 — runtime permissions; Android 10+ — dark theme, gestures; Android 12+ — Material You, privacy indicators.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "Android म्हणजे काय?",
         content: "Android म्हणजे एक ऑपरेटिंग सिस्टम (OS) — फोन चालवणारा मुख्य प्रोग्राम. Windows संगणकावर चालतो तशी Android फोनवर चालते.\n\nSamsung, Xiaomi, Motorola, OnePlus, Vivo, Realme — ही सगळी वेगवेगळी दिसतात, पण आतला मेंदू (kernel व सिस्टम) मोठ्या प्रमाणात सारखाच असतो.\n\nAndroid चा पाया Linux नावाच्या open-source kernel वर आहे. सोप्या भाषेत: Android म्हणजे फोनच्या hardware आणि apps यांच्यामधला पूल.",
       },
@@ -78,6 +87,15 @@ export const androidLevel1: Tutorial[] = [
     minutes: 25,
     summary: "MIT App Inventor हे मोफत, browser मधून चालणारे साधन आहे ज्यात बिना कोडिंग तुम्ही Android apps बनवू शकता. account तयार करणे, पहिला project सुरू करणे व phone वर live preview बघणे हे शिकवते.",
     sections: [
+      {
+        title: "का शिकावे? MIT App Inventor — सेटअप आणि पहिला प्रोजेक्ट चे फायदे आणि महत्त्व",
+        content: "✓ हा live preview फायदा — design बदलताच फोनवर दिसते!\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ \\t• कीबोर्ड व छोट्या screen चा आकार लक्षात ठेवा — design थोडी लहान दिसेल पण चालते.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "MIT App Inventor म्हणजे काय?",
         content: "MIT App Inventor हे Massachusetts Institute of Technology ने बनवलेले देणे आहे — अतिशय सोपी, block-आधारित app बनवण्याची यंत्रणा.\n\n• Browser मध्ये चालते — ai2.appinventor.mit.edu ला जा, तत्पर तयार.\n• कोणतेही software install करावे लागत नाही.\n• Drag-drop design आणि block coding (Scratch सारखी शैली).\n• मोफत आणि शैक्षणिक.\n\nया series मध्ये आपण calculator, quiz, webview असे apps बनवणार.\n\nपूर्वी app बनवायला Android Studio + Java/Kotlin आणि बरीच मेहनत लागायची. App Inventor ने app बनवण्याचा मार्ग अगदी मोकळा केला.\n\nतुम्हाला programming चे complete ज्ञान लागणार नाही — पण logic, विचार आणि एकाग्रता लागेल.",
@@ -142,6 +160,11 @@ export const androidLevel1: Tutorial[] = [
     minutes: 25,
     summary: "App बनवण्याचे मूलभूत ब्लॉक: UI घटक (button, label, textbox), layouts, आणि दिसत न दिसणारे घटक (notifier, clock, tinydb). कोणता घटक निवडायचा व properties कसे नियंत्रित करायचे हे समजून घ्या.",
     sections: [
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ \\t• Button click → if textbox text == '1234' then Notifier alert 'यश' else 'पुन्हा प्रयत्न करा'.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "घटक म्हणजे काय?",
         content: "App Inventor मध्ये तुम्हाला तयार ब्लॉक्ससारखे घटक (components) मिळतात. प्रत्येक घटकाचा एक देखावा, काही properties आणि काही events असतात.\n\nघटक दोन वर्गात:\n\n१) Visible (UI) — screen वर दिसतात: Button, Label, TextBox, Image, ListView, Slider.\n२) Non-visible — कोडमध्ये काम करतात, पण screen वर दिसत नाहीत: Notifier, Clock, Sound, TinyDB, Accelerometer.\n\nNon-visible component निवडल्यावर viewer मध्ये एक लहान icon दिसतो — तो तुम्हाला कळवतो की घटक तिथे आहे.\n\nकोणता घटक कोणत्या कामासाठी हेच आजचे मुख्य धडे. गोंधळ झाल्यास palette मध्ये प्रत्येक component चे मायक्रो वर्णन आहे.\n\nआपण सुरुवात 5 घटकांपासून करू — ते समजले की बाकीचे स्वतः शिकता येतात.",
@@ -211,6 +234,19 @@ export const androidLevel1: Tutorial[] = [
     summary: "आता एक पूर्ण कार्यशील Calculator app बनवूया — display, नंबर बटणे, + − × ÷ ऑपरेटर, दशांश गणना आणि त्रुटींचे नियंत्रण. variables आणि functions चा संपूर्ण practice.",
     sections: [
       {
+        title: "Calculator अॅप — नंबरपॅड, ऑपरेटर आणि गणना म्हणजे काय?",
+        content: "आता एक पूर्ण कार्यशील Calculator app बनवूया — display, नंबर बटणे, + − × ÷ ऑपरेटर, दशांश गणना आणि त्रुटींचे नियंत्रण. variables आणि functions चा संपूर्ण practice.\nसाधा पण पूर्ण कॅल्क्युलेटर बनवणार आहोत.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Calculator अॅप — नंबरपॅड, ऑपरेटर आणि गणना चे फायदे आणि महत्त्व",
+        content: "✓ = दाबल्यावर गणना:\n\nprocedure calculate:\n\\tset global secondNumber to number of current display\n\\tif operator == '+' then set global result to firstNumber + secondNumber\n\\telse if operator == '−' then result = firstNumber − secondNumber\n\\telse if operator == '×' then result = firstNumber × secondNumber\n\\telse if operator == '÷' then result = firstNumber ÷ secondNumber\n\\tset Label1.Text to result; displayText = result; firstNumber = result\n\nमहत्त्व: if operator != '' then ...\n✓ \\tif displayText contains '.' then nothing\n\\telse call appendDigit '.'\n\nच्या '0' बटणासाठी: सुरुवातीला display '0' असेल तर 0 जोडण्याची गरज नाही (005 → 5).\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ + किंवा − दाबल्यावर current display value आणि operator लक्षात ठेवायचे:\n\nprocedure storeOperator op:\n\\tset global firstNumber to (number of displayText)\n\\tset global operator to op\n\\tset global displayText to '0'\n\\tset Label1.Text to '0'\n\nप्रत्येक ऑपरेटर बटणावर call storeOperator '+', call storeOperator '−' इत्यादी.\n✗ बग आढळल्यास: कोणता टप्पा चुकला ते पहा, तात्पुरता label लावून variable value दाखवा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "कॅल्क्युलेटर — पहिला खरा आराखडा",
         content: "साधा पण पूर्ण कॅल्क्युलेटर बनवणार आहोत.\n\nFeatures: Display (मोठा Label), अंक 0-9, दशांश बिंदू, + − × ÷, = बटण, C (क्लिअर), ⌫ (एक अंक मागे).\n\nArchitecture: तीन global variables — firstNumber, operator, displayText. प्रत्येक अंक दाबल्यावर displayText ला जोडला जातो. ऑपरेटर दाबला की firstNumber मध्ये current display ची संख्या साठवतो. = दाबल्यावर गणना होते.",
       },
@@ -279,6 +315,19 @@ export const androidLevel1: Tutorial[] = [
     summary: "प्रश्नांची यादी असलेला, screens चालवणारा, scoring करणारा Quiz app बनवू — lists, indexes, conditions, TinyDB high score. हेच real app बनवण्याची गुरुकिल्ली.",
     sections: [
       {
+        title: "Quiz अॅप — प्रश्नांची यादी, स्कोअर आणि पडदे म्हणजे काय?",
+        content: "प्रश्नांची यादी असलेला, screens चालवणारा, scoring करणारा Quiz app बनवू — lists, indexes, conditions, TinyDB high score. हेच real app बनवण्याची गुरुकिल्ली.\nक्विझ अॅपचे नमुना flow:\n\\t1.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Quiz अॅप — प्रश्नांची यादी, स्कोअर आणि पडदे चे फायदे आणि महत्त्व",
+        content: "✓ महत्त्वाचे: variables चे व्यवस्थापन — screen बदलल्यावर global variables सर्व screen ला दिसत नाहीत.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ Label3 condition: if score == total then 'परिपूर्ण!' else if score > half then 'चांगलं!' else 'पुन्हा प्रयत्न करा'.\n✗ आणखी ideas: प्रश्न यादी randomize करणे; चुकलेल्या प्रश्नांची यादी ठेवणे.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "Quiz अॅप — आराखडा",
         content: "क्विझ अॅपचे नमुना flow:\n\t1. सुरुवातीचा screen — सुरु करा बटण.\n\t2. प्रश्न screen — प्रश्न + 4 पर्याय बटणे.\n\t3. उत्तर दिल्यावर — बरोबर/चूक feedback.\n\t4. पुढील बटण — next प्रश्न.\n\t5. शेवटी — score screen.\n\nयासाठी तीन screens बनवू — Screen1 (सुरुवात), Screen2 (प्रश्न), Screen3 (निकाल).\n\nApp Inventor मध्ये प्रत्येक screen म्हणजे वेगळा संग्रह; screen बदलणे म्हणजे Open another screen with start value block.\n\nआराखडा ठरल्यावर घटक योग्य ठिकाणी ठेवा. महत्त्वाचे: variables चे व्यवस्थापन — screen बदलल्यावर global variables सर्व screen ला दिसत नाहीत. म्हणून प्रश्नांची यादी एका ठिकाणी ठेवून मूल्ये screen दरम्यान start value ने पाठवा.",
       },
@@ -343,6 +392,19 @@ export const androidLevel1: Tutorial[] = [
     summary: "App Inventor मध्ये बनवलेले app फोनवर नेणे, install करणे, सुरक्षित share करणे आणि भविष्यात Play Store वर प्रकाशित करण्याची तयारी.",
     sections: [
       {
+        title: "तुमचा अॅप install करा व share करा म्हणजे काय?",
+        content: "App Inventor मध्ये बनवलेले app फोनवर नेणे, install करणे, सुरक्षित share करणे आणि भविष्यात Play Store वर प्रकाशित करण्याची तयारी.\nआठवण — APK हा Android अॅपचा संपूर्ण बॉक्स:\n\\t• Compiled code.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? तुमचा अॅप install करा व share करा चे फायदे आणि महत्त्व",
+        content: "✓ प्रत्येक महत्त्वाच्या सुधारणेला नवा आवृत्ती क्रमांक (version) द्या.\n✓ वर्णन मराठीत लिहा — स्थानिक वापरकर्त्यांना नक्की उपयोगी.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ आधीची पायरी — project जतन करा.\n✗ फोनवर QR स्कॅन करा (Google Lens किंवा camera).\n✗ लक्षात ठेवा:\n\\t• QR कोड काही काळानंतर कदाचित expire होतो — नवीन generate करा.\n✗ Install करताना लक्षात ठेवा:\n\\t1.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "APK — तुमच्या अॅपचा पॅक",
         content: "आठवण — APK हा Android अॅपचा संपूर्ण बॉक्स:\n\t• Compiled code.\n\t• Resources — चित्रे, layouts.\n\t• AndroidManifest — permissions व activities.\n\t• Digital signature.\n\nApp Inventor मध्ये Build मेनू APK तयार करतो. हाच बॉक्स तुम्ही फोनवर install करता.\n\nBuild menu विकल्प — दोन:\n\t• App (save .apk to my computer) — संगणकावर download.\n\t• App (give QR code) — फोनवर घेण्यासाठी QR.\n\nआपण दोन्ही पद्धती पाहू. आधीची पायरी — project जतन करा.",
       },
@@ -406,6 +468,15 @@ export const androidLevel1: Tutorial[] = [
     minutes: 25,
     summary: "WebView घटक वापरून तुमची विद्यमान HTML/CSS/JS website आणि वेबपेज Android app म्हणून कशी package होते हे शिका — त्याच्या शक्ती आणि मर्यादांसह.",
     sections: [
+      {
+        title: "का शिकावे? WebView — तुमची HTML website app करा चे फायदे आणि महत्त्व",
+        content: "✓ (web series मध्ये शिकलेल्या गोष्टी आता इथे वापरता येतात!)\n\nWebView कधी उपयोगी?\n✓ WebView चे फायदे समजले, पण मर्यादा:\n\\t• Offline — remote URL असेल तर internet नसल्यास page लोड होत नाही (फक्त embedded HTML चालते).\n✓ \\t• Hardware access — camera/सेन्सर्स native घटकांपेक्षा मर्यादित; बऱ्याच वेळा App Inventor चे native components जास्त उपयोगी.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "WebView म्हणजे काय?",
         content: "WebView हा एक घटक असतो जो तुमच्या app आत browser चालवतो — म्हणजे app मध्येच HTML page दाखवता येतो.\n\nम्हणजेच — तुम्ही आधी HTML/CSS/JS बनवलेली वेबपेज app मध्ये embed करू शकता! (web series मध्ये शिकलेल्या गोष्टी आता इथे वापरता येतात!)\n\nWebView कधी उपयोगी?\n\t• तुमच्या व्यवसाय/साइटचे mobile wrapper.\n\t• वेगवेगळ्या वेबसाइटची app रूपे — native rebuild न घेता.\n\t• जलद prototipo.\n\nहे lightweight app बनवण्याचा त्वरित मार्ग — पण त्याची मर्यादा पुढे बघू.",
@@ -485,6 +556,15 @@ export const androidLevel1: Tutorial[] = [
     minutes: 20,
     summary: "प्रत्येक app फोनच्या camera, storage, location, contacts मागतो — पण का? कोणती permission आवश्यक, कोणती खतरनाक आणि स्वतःला कसे सुरक्षित ठेवायचे.",
     sections: [
+      {
+        title: "का शिकावे? Permissions व प्रायव्हसी — अॅप सुरक्षा समजा चे फायदे आणि महत्त्व",
+        content: "✓ \\t• प्रत्येक permission वेळेवर (जेव्हा गरज पडते) विचारली जाते.\n✓ याचा फायदा अगदी स्पष्ट — आधुनिक फोनवर प्रत्येक परवानगी तुमच्या नियंत्रणाखाली.\n✓ \\t• कॅल्क्युलेटर → कोणत्याही permission ची गरज नाही.\n✓ ही सवय सगळ्यात महत्त्वाची protection — तुमचा सर्वात मजबूत बिंदू तुम्हीच.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "Permissions म्हणजे काय?",
         content: "जेव्हा app install करतो तेव्हा किंवा वापरताना तो फोनच्या विशेष सुविधा मागतो — camera, microphone, location, contacts, storage. यांना permissions म्हणतात.\n\nAndroid चा दृष्टिकोन:\n\t• App ला फोनच्या खाजगी भागांवर अधिकार हवा असेल तर विशेष परवानगी चाहिए.\n\t• प्रत्येक permission वेगळी — सर्व एकाच वेळी मिळत नाही.\n\nजेवढ्या कमी permissions तेवढी सुरक्षित.\n\nपुढे permissions अधिक तपशीलवार पाहू.",

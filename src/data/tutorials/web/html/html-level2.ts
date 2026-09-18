@@ -13,10 +13,20 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "header, nav, main, section, article, aside, footer, figure, figcaption, details, summary.",
     sections: [
+      {
+        title: "का शिकावे? Semantic Elements - मजकुराचा खरा अर्थ tags ला द्यायचा चे फायदे आणि महत्त्व",
+        content: "✓ <aside> हा बाजूचा भाग असतो — मुख्य मजकुराशी संबंधित पण कमी महत्त्वाची माहिती.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ प्रत्येक वेळी aside = बाजूची, गौण माहिती असा नियम लक्षात ठेवा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. semantic म्हणजे काय?", content: "Semantic म्हणजे अर्थपूर्ण. Semantic HTML म्हणजे अशा tags चा वापर जे स्वतःच्या मजकुराचा अर्थ सांगतात. <header> हा वरचा भाग, <nav> नेव्हिगेशन — tag वाचूनच कळतं.\n\ndiv चं काम म्हणजे फक्त बॉक्स बनवणे — त्याला अर्थ नाही. ब्राउझरला <div> आणि <div> मध्ये फरक दिसत नाही. पण <article> पाहिल्यावर समजतं — इथे एक स्वतंत्र लेख आहे.\n\nSemantic tags ने मशीनला समजणं वाढतं. Search engine, screen reader, ब्राउझर — सगळे अर्थ ओळखतात. त्यामुळे वेबपेज समजण्यास सोपी होते.\n\nजुन्या काळी सर्व रचना div सह होती. आता प्रत्येक भागाचा स्पष्ट tag आहे. हे HTML5 चं मोठं नवनिर्माण होतं.\n\nआपण पुढील भागांत प्रत्येक semantic tag चा वापर एक-एक करून शिकू.", code: `<div>हा साधा box आहे.</div>
 <header>हा वरचा विभाग आहे.</header>
 <nav>हा नेव्हिगेशन आहे.</nav>
-<section>हा एक विभाग आहे.</section>`, codeLanguage: "html" },
+<section>हा एक विभाग आहे.</section>`, codeLanguage: "html" ,
+        output: "हा साधा box आहे.\nहा वरचा विभाग आहे. \n हा नेव्हिगेशन आहे. \n हा एक विभाग आहे.",},
       { title: "2. header, nav आणि footer", content: "प्रत्येक पेजची तीन गाभ्याची क्षेत्रे: header वर, nav दुव्यांसाठी, footer खाली.\n\n<header> मध्ये पेजचं शीर्षक, लोगो, परिचय येतो. तो पेजच्या सुरुवातीला असतो, पण तो दृश्य अवस्था — background असाच ठेवत.\n\n<nav> फक्त नेव्हिगेशन दुव्यांचा संग्रह — उदा. मुख्य, परिचय, संपर्क. प्रत्येक लिंकची सूची नव्हे; जो मुख्य मेनू आहे तोच nav मध्ये.\n\n<footer> पेजचा शेवट — कॉपीराइट, संपर्क, साइटमॅप दुवे. footer ची माहिती गौण पण उपयुक्त असते.\n\nहे तिन्ही tags पेजला एक हाडाची चौकट देतात. त्यामुळे वाचक आणि machine दोघांना दिशा सापडते.", code: `<header>
   <h1>मराठी वेब शाळा</h1>
 </header>
@@ -121,10 +131,24 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "audio, video, source, track, iframe, poster, controls, muted, loop, preload.",
     sections: [
+      {
+        title: "audio, video, source, iframe — media ची शक्ती म्हणजे काय?",
+        content: "audio, video, source, track, iframe, poster, controls, muted, loop, preload.\nध्वनी पेजवर आणण्यासाठी <audio> element आहे.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? audio, video, source, iframe — media ची शक्ती चे फायदे आणि महत्त्व",
+        content: "✓ फाइल फॉरमॅट महत्त्वाचं: MP3 सर्वत्र चालतं, Ogg सर्वत्र नाही.\n✓ controls, poster, width, height हे महत्त्वाचे attributes.\n✓ title attribute महत्त्वाचा — screen reader ला iframe मध्ये काय आहे ते सांगतो.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. audio element", content: "ध्वनी पेजवर आणण्यासाठी <audio> element आहे. त्याची रचना सोपी: <audio src=\"song.mp3\" controls></audio>.\n\ncontrols attribute दिल्यास ब्राउझर बटणे, आवाजाची पट्टी दाखवतो. ते न दिल्यास ध्वनी अदृश्य राहतो.\n\naudio हा inline element नाही तर एक embedded content — तो ठराविक जागा घेतो.\n\nसुरुवातीला चालवण्यासाठी autoplay — पण ते ब्राउझर बहुतेक वेळा अडवतात. वापरकर्त्याची ही सोय आहे.\n\nफाइल फॉरमॅट महत्त्वाचं: MP3 सर्वत्र चालतं, Ogg सर्वत्र नाही. योग्य फॉरमॅट निवडा.", code: `<audio src="gane/marathi.mp3" controls></audio>`, codeLanguage: "html" },
       { title: "2. video element", content: "व्हिडिओ साठी <video> element — <video src=\"movie.mp4\" controls width=\"400\"></video>.\n\ncontrols, poster, width, height हे महत्त्वाचे attributes. poster मध्ये व्हिडिओ सुरू होण्यापूर्वीचं चित्र देतात.\n\nwidth आणि height दिल्यास लेआउट स्थिर राहतो. व्हिडिओ लोड होण्यापूर्वी जागा निश्चित होते.\n\nmuted आणि loop attributes — muted ने सुरुवात शांत, loop ने पुन्हा पुन्हा वाजतो.\n\nबहुतेक ब्राउझर autoplay ने audio सोबत मनाई करतात, पण muted व्हिडिओ autoplay होऊ शकतो.", code: `<video src="shale/marathi.mp4" controls poster="poster.png" width="400">
   तुमचा ब्राउझर व्हिडिओ सपोर्ट करत नाही.
-</video>`, codeLanguage: "html" },
+</video>`, codeLanguage: "html" ,
+        output: "तुमचा ब्राउझर व्हिडिओ सपोर्ट करत नाही.",},
       { title: "3. source एकाहून अधिक फॉरमॅट", content: "एकाच media ला अनेक फॉरमॅट देण्यासाठी <source> element. audio/video च्या आत अनेक source.\n\nब्राउझर पहिल्या चालणाऱ्या source ची निवड करतो. म्हणून सर्वात प्रचलित फॉरमॅट वर ठेवा.\n\ntype attribute मध्ये MIME नाव: type=\"video/mp4\", type=\"audio/ogg\". ब्राउझर आधीच तपासतो — improper तर सोडून देतो.\n\nशेवटी मजकूर ठेवता येतो — जो कोणता फॉरमॅट चालत नाही तेव्हा दिसतो. हे एक सुरक्षित fallback म्हणून.\n\nsource क्रॉस-ब्राउझर समस्या सोडवते. एक फॉरमॅट सर्वत्र चालतो ते दुर्मिळ.", code: `<audio controls>
   <source src="gane/marathi.mp3" type="audio/mpeg">
   <source src="gane/marathi.ogg" type="audio/ogg">
@@ -193,8 +217,18 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "entities, nbsp, amp, lt, gt, copy, reg, numeric references, special characters.",
     sections: [
+      {
+        title: "का शिकावे? Character Entities - > < & आणि खास चिन्हे लिहायचे नियम चे फायदे आणि महत्त्व",
+        content: "✓ जेव्हा कोड दाखवायची गरज येत तेव्हा entity ची ही खास मदत लक्षात ठेवा.\n✓ फायदा: कीबोर्डवर नसलेली चिन्हे — विराम, arrow, गणितीय — लिहिता येते.\n✓ <meta charset=\\\"utf-8\\\"> असल्यास मराठी, हिंदी, तामिळ अक्षरे थेट लिहिता येतात — entity ची गरज नाही.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ entity समजल्याशिवाय तांत्रिक मजकूर किंवा कोड दाखवणं कठीण.\n✗ जेव्हा कोड दाखवायची गरज येत तेव्हा entity ची ही खास मदत लक्षात ठेवा.\n✗ मराठी अक्षरे पेजवर दिसतात की चुकतात — ते entity वर नाही, charset वर अवलंबून.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. entity म्हणजे काय?", content: "Entity हा एक खास मार्ग — असे चिन्ह लिहायचे जे HTML मधील नियमांच्या समस्येने भरलं नाही. उदा. < चिन्ह थेट लिहू नये.\nHTML मध्ये < हे tag ची सुरुवात. त्यामुळे मजकुरात < दाखवायचा असेल तर &lt; लिहितात.\nentity ची रचना: & चिन्ह, नाव/क्रमांक, नंतर ;. उदा. &amp; म्हणजे &, &lt; म्हणजे <, &gt; म्हणजे >.\nप्रत्येक entity ब्राउझर रूपांतर करतो — पेजवर योग्य चिन्ह दिसतं.\nentity समजल्याशिवाय तांत्रिक मजकूर किंवा कोड दाखवणं कठीण.", code: `<p>गणित: 5 &lt; 7 आणि 9 &gt; 4.</p>
-<p>कंपनीचं नाव: अमीर &amp; सहकारी</p>`, codeLanguage: "html" },
+<p>कंपनीचं नाव: अमीर &amp; सहकारी</p>`, codeLanguage: "html" ,
+        output: "गणित: 5 &lt; 7 आणि 9 &gt; 4.\nकंपनीचं नाव: अमीर &amp; सहकारी",},
       { title: "2. tag दाखवणे", content: "HTML: कोडचा नमुना पेजवर दाखवायचा की tags अक्षरशः दिसत नाहीत — कारण ब्राउझर त्यांचा व्याख्या करतो.\nदाखवण्यासाठी त्वरित कोष्टकांचा नियम: < लिहा &lt; आणि > लिहा &gt;. मग त्याचा अर्थ मजकूर.\nउदा. <p> टाईप करायचे असल्यास &lt;p&gt;. पेजवर <p> शब्दशः दिसेल.\nहीच युक्ती कोड sample व शिकवणीत वापरतात — वाचकाला असे दाखवतात.\nजेव्हा कोड दाखवायची गरज येत तेव्हा entity ची ही खास मदत लक्षात ठेवा.", code: `<p>खालील कोड तयार करा: &lt;p&gt;नमस्कार&lt;/p&gt;</p>
 <pre>&lt;h1&gt;मराठी&lt;/h1&gt;</pre>`, codeLanguage: "html" },
       { title: "3. nbsp — सुटू न देणारी जागा", content: "सामान्य जागा ओळीच्या शेवटी तुटू शकते — शब्द वेगळे होतात. ते टाळण्यासाठी &nbsp; non-breaking space.\nnbsp दिल्यास दोन शब्द एकत्र राहतात. उदा. \"श्री. &nbsp;महोदय\" — फरकाप्रमाणे तोड नाही.\nवापर: वेळ, आकडे, नावे, चिन्हे — मूल्ये २″ &nbsp;तीन ठिकाणी न येता स्थिर.\nnbsp एकदम काही ओळी रिकाम्या करण्यासाठी वापरू नका — त्या layout समस्या निर्माण करतात.\nnbsp साधी आणि आवश्यक नाही ती एकत्रतेसाठी आहे.", code: `<p>१०&nbsp;किलोमीटर</p>
@@ -258,11 +292,25 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "head, title, meta charset, viewport, description, keywords, robots, Open Graph, Twitter Card, canonical, theme-color.",
     sections: [
+      {
+        title: "head, title, meta, viewport, Open Graph, Twitter Cards म्हणजे काय?",
+        content: "head, title, meta charset, viewport, description, keywords, robots, Open Graph, Twitter Card, canonical, theme-color.\nhead हे पेजचे \\\"डोके\\\" — ते पेजवर थेट दिसत नाही, पण पेजची प्रत्येक माहिती इथे ठरते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? head, title, meta, viewport, Open Graph, Twitter Cards चे फायदे आणि महत्त्व",
+        content: "\"head, title, meta, viewport, Open Graph, Twitter Cards\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. head ची ओळख", content: "head हे पेजचे \"डोके\" — ते पेजवर थेट दिसत नाही, पण पेजची प्रत्येक माहिती इथे ठरते.\nhead मध्ये title, meta, link येतात. सर्व काही body च्या आधी, एका ठिकाणी.\n<title> टॅबवर, बुकमार्कला, search result मध्ये दिसणारं नाव. प्रत्येक पेजला एक अचूक title हवा.\nmeta खास माहितीचे टॅग असतात — author, माहिती, robots. प्रत्येक meta चा goal वेगळा.\nhead तयार केल्याशिवाय पेज search engine ला तसा ओळखत नाही.", code: `<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>माझे पेज — मराठी</title>
-</head>`, codeLanguage: "html" },
+</head>`, codeLanguage: "html" ,
+        output: "<head>\n <meta charset=\"utf-8\">\n <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\nTitle: माझे पेज — मराठी\nमाझे पेज — मराठी",},
       { title: "2. charset आणि viewport", content: "head चे दोन अनिवार्य meta: charset आणि viewport.\n<meta charset=\"utf-8\"> हे author अक्षरांची व्यवस्था. त्याशिवाय मराठी अक्षरे खराब दिसतात.\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> हा मोबाइलचा आधार.\nviewport न दिल्यास मोबाइलचा स्क्रीन संगणकाच्या आकाराचा दिसतो — वापरकर्त्याला झूम करावं लागतं.\ndevice-width सह वेबपेज मोबाइलच्या रुंदीशी जुळते; initial-scale १ म्हणजे मूळ झूम पातळी.", code: `<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -349,8 +397,18 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "SEO, search engine, h1 h2 hierarchy, title, meta description, anchor text, alt text, internal links, robots, sitemap.",
     sections: [
+      {
+        title: "का शिकावे? SEO, heading hierarchy, anchor text, alt, semantic structure, performance चे फायदे आणि महत्त्व",
+        content: "✓ सर्वात महत्त्वाचं: वाचकांसाठी चांगली रचना, मग search engine स्वतःच खरे करतो.\n✓ semantic tags मधील मजकूर महत्त्वाचा मानला जातो.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ चित्रांचा आकार लहान करा, अतिरिक्त resources वगळा, मोबाइल दृश्य योग्य करा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. SEO म्हणजे काय?", content: "SEO म्हणजे Search Engine Optimization — शोध इंजिनात पेज वरच्या क्रमांकावर आणण्याचं शिस्तबद्ध काम.\nगुगल सारख्या search engine वेबवर kroडे पेज वाचतात आणि क्रमवार तयार करतात. त्यांना कोणते पेज original, उपयुक्त हे समजायला हवं.\nHTML हा search engine चा संपर्कच होय. मजकूर, कोड, रचना — सर्व काही मशीनला वाचता येईल पाहिजे.\nSEO चे तीन स्तर: तांत्रिक (कोड), मजकूर (लिखाण), सामाजिक (दुवे). आपण आता तांत्रिक शिकतोय.\nसर्वात महत्त्वाचं: वाचकांसाठी चांगली रचना, मग search engine स्वतःच खरे करतो.", code: `<title>मराठीतून वेब विकास शिका</title>
-<meta name="description" content="मराठीतून झिरप तरी HTML सोप्या पद्धतीने शिका.">`, codeLanguage: "html" },
+<meta name="description" content="मराठीतून झिरप तरी HTML सोप्या पद्धतीने शिका.">`, codeLanguage: "html" ,
+        output: "Title: मराठीतून वेब विकास शिका\nमराठीतून वेब विकास शिका",},
       { title: "2. शीर्षक आणि heading क्रम", content: "पेजचा नकाशा heading क्रम. हे h1, h2, h3 ची साखळी — एकच h1, मग h2, त्याच्या आत h3.\nh1 पेजचा मुख्य विषय. search engine h1 ला प्रमुख सांगतो. दोन h1 गोंधळ निर्माण करतो.\nh2 मुख्य भाग, h3 छोटे उपभाग. क्रम मोडल्यास मशीनला रचना अस्पष्ट होते.\nशीर्षक शब्द निवडताना वास्तविक प्रश्नांची भाषा वापरा — वाचक जसे शोधतो तसे.\nheading एक रचना, सजावट नव्हे. त्यामुळे order नेहमी पाळा.", code: `<h1>मराठी कोडिंग</h1>
 <h2>HTML मूलभूत</h2>
 <h3>tags काय?</h3>
@@ -432,8 +490,18 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "screen reader, labels, alt, ARIA, aria-label, role, tabindex, focus, contrast, skip link, lang.",
     sections: [
+      {
+        title: "का शिकावे? a11y, labels, alt, aria, focus, contrast, skip links, screen readers चे फायदे आणि महत्त्व",
+        content: "✓ ARIA \\\"चक्कर\\\" पर्याय आहे — शक्यतो शुद्ध HTML label वापरा; ARIA गरज असेल तेव्हाच.\n✓ Keyboard नेव्हिगेशन order महत्त्वाचा — focus एका घटकातून दुसऱ्यात सहज सरकतं.\n✓ मोठ्या अक्षरांची सवय, रंगांधळेपणासाठी हे सर्व छोटे निर्णय महत्त्वाचे.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ केवळ रंगाने अर्थ सांगू नका — \\\"लाल = चुकीचं\\\" असेल त्याला मजकूरही जोडा.\n✗ का चुकलं, कुठे चुकलं — सांगा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. a11y म्हणजे काय?", content: "Accessibility म्हणजे वेबपेज प्रत्येकाला वापरता येणं — दृष्टिहीन, श्रवणहीन, विकलांग व्यक्तींसह.\na11y हे लघुरूप — a, 11 अक्षरे, y असे. \"Accessibility\" चं आंतरराष्ट्रीय नाव.\nScreen reader हे सॉफ्टवेअर पेजचा मजकूर मोठ्याने वाचतं. त्याला योग्य रचना हवी.\nकीबोर्ड एकाकी — अनेक वापरकर्ते माऊस न वापरता keyboard ने नेव्हिगेट करतात.\na11y म्हणजे \"अपंगांना मदत\" नव्हे — तो सर्वांसाठी चांगला अनुभव आहे.", code: `<label for="नाव">तुमचं नाव:</label>
-<input id="नाव" name="नाव" type="text">`, codeLanguage: "html" },
+<input id="नाव" name="नाव" type="text">`, codeLanguage: "html" ,
+        output: "तुमचं नाव:",},
       { title: "2. label आणि form", content: "प्रत्येक <input> ला एक <label> हवा. label संबंधित फील्डचे नाव सांगतो.\nfor आणि id समान असावे — ते जोडणी करतात. त्याशिवाय screen reader फील्ड ओळखत नाही.\nlabel वर क्लिक केल्यावर फील्ड focus होतं — मोठे लक्ष्य, चांगला अनुभव.\nplaceholder हा label नाही. तो नमुना मजकूर; तो गहाळ होतो. नेहमी खरा label द्या.\nform ला name, autocomplete, आवश्यक गुणधर्म स्पष्ट द्या — तपासणी आणि a11y दोन्ही.", code: `<form action="#" method="post">
   <label for="em">ईमेल:</label>
   <input id="em" name="email" type="email" autocomplete="email">
@@ -516,8 +584,22 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "srcset, sizes, picture, source media, width descriptors, density, lazy, decoding, fetchpriority, formát.",
     sections: [
+      {
+        title: "srcset, sizes, picture, source, lazy loading, WebP, art direction म्हणजे काय?",
+        content: "srcset, sizes, picture, source media, width descriptors, density, lazy, decoding, fetchpriority, formát.\nसंगणकाचे मोठे चित्र मोबाइलवर कसे दाखवता?.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? srcset, sizes, picture, source, lazy loading, WebP, art direction चे फायदे आणि महत्त्व",
+        content: "✓ एवढीच गरज — विविध शर्ती येथे लिहितात.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. चित्र आकाराची समस्या", content: "संगणकाचे मोठे चित्र मोबाइलवर कसे दाखवता? खूप मोठे लोड होतं, खूप लहान दिसतं.\nप्रत्येक पडद्यासाठी एक आकार नसतो. टीव्ही 1920px, मोबाइल 360px — दोन्ही एकच image, दोन आकार.\nwidth attribute आकार देतो, पण फाइल ती मोठीच राहते. मोबाइलवर 2MB चित्र वाया.\nसोय: ब्राउझर पडद्यानुसार योग्य फाइल निवडेल — srcset आणि sizes ची किमया.\nलक्ष्य: लहान पडदा = लहान फाइल, मोठा पडदा = मोठी फाइल. वेग आणि डेटा दोन्ही वाचतो.", code: `<img src="pune.jpg" alt="पुणे" width="400" height="300">
-<p>एकच आकार, सर्व पडद्यांवर.</p>`, codeLanguage: "html" },
+<p>एकच आकार, सर्व पडद्यांवर.</p>`, codeLanguage: "html" ,
+        output: "एकच आकार, सर्व पडद्यांवर.",},
       { title: "2. srcset — फाइलांची सूची", content: "srcset या attribute मध्ये एकाच चित्राच्या अनेक आकारांच्या फाइलांची सूची देतात.\nप्रत्येक entry: फाइल, स्पेस, रुंदी (w) किंवा घनता (x). उदा. \"pune-400.jpg 400w\".\nब्राउझर आपल्या पडद्याच्या आकारानुसार योग्य आकार निवडतो. कोणता निवडेल ते ब्राउझरचं.\nw descriptor — म्हणजे चित्राची खरी पिक्सेल रुंदी. ही सूची आरोही क्रमाने लिहा.\nsrcset फक्त src च्या जोरावर काम करत नाही — src हा सुरक्षित fallback असतो.", code: `<img src="pune-400.jpg" alt="पुणे"
      srcset="pune-400.jpg 400w, pune-800.jpg 800w, pune-1200.jpg 1200w">`, codeLanguage: "html" },
       { title: "3. sizes — ठिकाणाचा अंदाज", content: "sizes attribute ब्राउझरला सांगतो — चित्र पेजच्या किती रुंद जागा घेईल. त्यातून निवड सोपी होते.\nउदा. sizes=\"(max-width: 600px) 100vw, 600px\" — लहान पडद्यावर पूर्ण रुंदी, मोठ्यावर 600px.\nvw म्हणजे viewport width; px थेट. एवढीच गरज — विविध शर्ती येथे लिहितात.\nतंतोतंत गणतीत नको; योग्य अंदाज ब्राउझरला पुरेसा — guest image देतो.\nsizes नसेल तर srcset w देखील अंदाजे निवडते — पण sizes अधिक अचूक.", code: `<img src="pune-800.jpg" alt="पुणे"
@@ -582,11 +664,25 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "fieldset, legend, select, option, optgroup, datalist, textarea, output, file, accept, multiple, disabled, readonly.",
     sections: [
+      {
+        title: "fieldset, legend, select, optgroup, datalist, textarea, output, file म्हणजे काय?",
+        content: "fieldset, legend, select, option, optgroup, datalist, textarea, output, file, accept, multiple, disabled, readonly.\nफॉर्मचे भाग गटबद्ध करण्यासाठी <fieldset>.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? fieldset, legend, select, optgroup, datalist, textarea, output, file चे फायदे आणि महत्त्व",
+        content: "✓ एकावेळी एक मूल्य सामान्य; क्रम महत्त्वाचा असेल तर multiple.\n✓ optgroup ने सूची वाचण्यास सोपी आणि नेव्हिगेट करण्यास सोयीची.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ whitespace लक्षात ठेवा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. fieldset आणि legend", content: "फॉर्मचे भाग गटबद्ध करण्यासाठी <fieldset>. त्याचं शीर्षक <legend>.\nउदा. \"पत्ता\" fieldset मध्ये नाव, गाव, पिन; \"पैसे\" fieldset मध्ये खाते. गट स्पष्ट.\nfieldset सभोवती एक रेषा/चौकट दाखवतो — मोठ्या फॉर्मला दृश्य सुसंगतता.\nlegend फील्ड्सेटचं नाव screen reader वाचतो — a11y साठी मोलाचं.\ndisabled fieldset मधील सर्व fields अक्षम करतो — एकाच ठिकाणी नियंत्रण.", code: `<fieldset>
   <legend>घराचा पत्ता</legend>
   <label>गाव: <input name="गाव"></label>
   <label>पिन: <input name="पिन" type="text"></label>
-</fieldset>`, codeLanguage: "html" },
+</fieldset>`, codeLanguage: "html" ,
+        output: "<fieldset>\n <legend>घराचा पत्ता</legend>\nगाव:\nपिन:",},
       { title: "2. select आणि option", content: "सूचीतून एक निवडण्यासाठी <select>. त्याचे पर्याय <option>.\n<option value=\"pune\">पुणे</option> — value पाठवली जाते, दिसणारा मजकूर वेगळा.\nselected attribute पूर्व-निवडलेला पर्याय. अनेक निवड — multiple attribute.\nselect मोबाइलवर नैसर्गिक picker उघडतो — वापरकर्त्यास सोय.\nएकावेळी एक मूल्य सामान्य; क्रम महत्त्वाचा असेल तर multiple.", code: `<label>जिल्हा:
   <select name="जिल्हा">
     <option value="pune">पुणे</option>
@@ -700,6 +796,19 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "table, thead, tbody, tfoot, caption, colgroup, col, span, scope, rowspan, colspan, headers.",
     sections: [
+      {
+        title: "thead, tbody, tfoot, caption, colspan, rowspan, scope, colgroup म्हणजे काय?",
+        content: "table, thead, tbody, tfoot, caption, colgroup, col, span, scope, rowspan, colspan, headers.\nमोठ्या तक्त्याला तीन भाग: <thead> शीर्षकांच्या ओळी, <tbody> आकडेवारी, <tfoot> सारांश.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? thead, tbody, tfoot, caption, colspan, rowspan, scope, colgroup चे फायदे आणि महत्त्व",
+        content: "✓ कॅलेंडर, वेगवेगळ्या मांडणीमध्ये उपयोग.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ योग्य: &nbsp; रिकाम्या सेलमध्ये टाळा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. thead, tbody, tfoot", content: "मोठ्या तक्त्याला तीन भाग: <thead> शीर्षकांच्या ओळी, <tbody> आकडेवारी, <tfoot> सारांश.\nthead मध्ये column labels. tbody मधील rows खरा डेटा. tfoot निकाल/oटा.\nब्राउझर या तीन गटांशी लांबलचक तक्ता हाताळण्यास सोय करतो.\nthead ने स्तंभाचे नाव एकवेळ वाचताना search engine ला समजतं.\nतीन गट आल्यावर तक्ता संरचित — वाचन योग्य, styling सोपी.", code: `<table>
   <thead>
     <tr><th>महिना</th><th>उत्पन्न</th><th>खर्च</th></tr>
@@ -711,7 +820,8 @@ export const htmlLevel2: Tutorial[] = [
   <tfoot>
     <tr><td>एकूण</td><td>105000</td><td>61000</td></tr>
   </tfoot>
-</table>`, codeLanguage: "html" },
+</table>`, codeLanguage: "html" ,
+        output: "महिना उत्पन्न खर्च \n \n \n जानेवारी 50000 30000 \n फेब्रुवारी 55000 31000 \n \n \n एकूण 105000 61000",},
       { title: "2. caption आणि scope", content: "<caption> तक्त्याचं शीर्षक — table टॅगच्या लगेच आत. वाचकाला तक्त्याचा विषय कळतो.\nscope=\"col\" सांगतो — ही header सेल संपूर्ण column ला. scope=\"row\" — संपूर्ण row ला.\nscope screen reader मधील नेव्हिगेशन सुधारतो — सेल वाचताना तो head सोबत जोडतो.\nscreen reader साठी headers attribute — cells मध्ये column header जोडणी.\ncaption+scope अनेक थरांची a11y सोय — तक्ता स्पष्ट.", code: `<table>
   <caption>मासिक खर्च (रुपये)</caption>
   <thead>
@@ -834,6 +944,15 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "svg, circle, rect, line, polygon, text, path, canvas, width, height, graphics.",
     sections: [
+      {
+        title: "का शिकावे? inline SVG, shapes, canvas element, graphics, script-free markup चे फायदे आणि महत्त्व",
+        content: "✓ SVG: लोगो, चिन्ह, नकाशे, चार्ट — मजकूर/semantic ची गरज.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. SVG म्हणजे काय?", content: "SVG म्हणजे Scalable Vector Graphics — आकार, रेषा, आकार यांची गणितीय चित्रे.\nप्रत्येक SVG घटक वेक्टर — म्हणजे स्केलवर धार नाही. कितीही मोठा केला तरी स्पष्ट.\nएक्सएमएल सारखी संरचना — <svg> मध्ये shapes tags. पेजवरच लिहिता येतं.\nलोगो, चिन्हे, नकाशे, ग्राफ — SVG चा व्यापक वापर.\nCSS ने class/image सारखी SVG रंग, आकार बदलता येतो — पूर्ण शक्ती.", code: `<svg width="200" height="100" viewBox="0 0 200 100">
   <rect x="10" y="10" width="80" height="60" fill="teal"></rect>
   <circle cx="150" cy="50" r="30" fill="orange"></circle>
@@ -843,7 +962,8 @@ export const htmlLevel2: Tutorial[] = [
   <line x1="120" y1="15" x2="120" y2="95" stroke="black" stroke-width="3"></line>
   <polygon points="140,95 160,15 180,95" fill="gold"></polygon>
   <circle cx="230" cy="55" r="25" fill="tomato"></circle>
-</svg>`, codeLanguage: "html" },
+</svg>`, codeLanguage: "html" ,
+        output: "<svg width=\"300\" height=\"120\">\n <rect x=\"5\" y=\"20\" width=\"90\" height=\"60\" fill=\"skyblue\"></rect>",},
       { title: "3. text आणि path", content: "SVG मध्ये मजकूरही — <text> element. x, y ने स्थान, font-size label.\ntext ॲनिमेशन/लिंक सह वापरता येतो — पण मराठी फॉन्ट समर्थन ब्राउझरभर भिन्न.\npath हा सर्वात लवचिक — curves, arcs वेगवेगळ्या खुणा. d attribute मधील commands.\nM रेषा सुरू, L रेषा ओढतो, Z बंद करतो. Q किंवा C वक्र.\nपहिला path साधा ठेवा; जटिलतेतून शक्यता वाढतात.", code: `<svg width="300" height="120">
   <text x="10" y="60" font-size="24" fill="darkgreen">मराठी SVG</text>
   <path d="M 40 90 L 90 30 L 140 90 Z" fill="none" stroke="purple" stroke-width="3"></path>
@@ -913,10 +1033,24 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "lang, dir, bdi, bdo, ruby, rt, rp, wbr, meter, progress, dialog.",
     sections: [
+      {
+        title: "lang, dir, bdi, bdo, ruby, wbr, meter, progress, dialog म्हणजे काय?",
+        content: "lang, dir, bdi, bdo, ruby, rt, rp, wbr, meter, progress, dialog.\nHTML मध्ये भाषा सांगण्यासाठी lang attribute: <html lang=\\\"mr\\\">.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? lang, dir, bdi, bdo, ruby, wbr, meter, progress, dialog चे फायदे आणि महत्त्व",
+        content: "✓ मिश्र मजकूर दिशांची गरज.\n✓ <wbr> मजकुरात ओळ तोडण्याचे ठिकाण खूण करतो — गरज असल्यास तुम्ही.\n✓ wbr visible म्हणतात — दिसत नाही, पण रचना सोयीस्कर करतो.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ एकाच ठिकाणी खूप लांब शब्द असेल तर ते अडचणीचं.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. lang आणि dir", content: "HTML मध्ये भाषा सांगण्यासाठी lang attribute: <html lang=\"mr\">. प्रत्येक भागालाही शक्य.\nlang मुळे screen reader योग्य उच्चार, ब्राउझर योग्य spellcheck करतो.\ndir attribute मजकुराची दिशा — ltr बाक ते उजवीकडे, rtl उजवीकडून बाक.\nमराठी, हिंदी ltr; अरबी, हिब्रू rtl. मिश्र मजकूर दिशांची गरज.\nlang आणि dir हे a11y चे पाया — त्यांच्याशिवाय वाचन निर्जीव होतं.", code: `<html lang="mr">
 <p>मराठीतून लिहिलेला मजकूर.</p>
 <p dir="rtl">हा मजकूर उजवीकडून.</p>
-</html>`, codeLanguage: "html" },
+</html>`, codeLanguage: "html" ,
+        output: "<html lang=\"mr\">\nमराठीतून लिहिलेला मजकूर.\nहा मजकूर उजवीकडून.",},
       { title: "2. bdi आणि bdo", content: "मिश्र दिशेच्या मजकुरात bdi आणि bdo दिशेचे नियंत्रक.\n<bdi> isolated text — त्याची दिशा सभोवतालच्या मजकुराच्या प्रभावापासून वेगळी राहते.\nउदा. user list मध्ये अरबी अक्षरांची नावे — bdi मध्ये दिशा बरोबर राहते.\n<bdo> जबरदस्ती दिशा — dir प्रमाणे ltr/rtl; सजावटीसाठी नको.\nमिश्र मजकुरात अचूकता — बाकी पोस्ट दिशेचा परिणाम inputs ने.", code: `<p>वापरकर्ते: <bdi>अली</bdi>, <bdi>विनय</bdi>, <bdi>कात्या</bdi></p>
 <p><bdo dir="rtl">हा मजकूर उलटा दिसेल</bdo></p>`, codeLanguage: "html" },
       { title: "3. ruby — उच्चार टीप", content: "<ruby> element मजकुरावर छोटी उच्चार टीप दाखवतो — पूर्व आशियाई भाषांमध्ये सामान्य.\n<ruby>शब्द<rt>उच्चार</rt></ruby> — rt मध्ये मुख्यचा उच्चार वर दिसतो.\nrp — browsers आधार न करणाऱ्यासाठी कंस — <rp>(</rp><rt>…</rt><rp>)</rp>.\nजपानी कानजी, चायनीज — pause यांच्यासाठी ruby मोलाची.\nमराठीत कमी, पण भाषेची संधी — HTML वरच्या रचना पोहोचते.", code: `<ruby>संज्ञा<rt>सं-ज्ञा</rt></ruby>
@@ -982,8 +1116,22 @@ export const htmlLevel2: Tutorial[] = [
     minutes: 18,
     summary: "semantic layout, media, meta, SEO, accessibility, responsive images, forms, tables, profile page.",
     sections: [
+      {
+        title: "Mini Project - Level 2 चा सर्वांगीण सराव म्हणजे काय?",
+        content: "semantic layout, media, meta, SEO, accessibility, responsive images, forms, tables, profile page.\nआता Level 2 चे सर्व ज्ञान एकत्र — एक व्यक्तिमत्त्वाचं portfolio पेज.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Mini Project - Level 2 चा सर्वांगीण सराव चे फायदे आणि महत्त्व",
+        content: "\"Mini Project - Level 2 चा सर्वांगीण सराव\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. प्रकल्पाची उद्दिष्टे", content: "आता Level 2 चे सर्व ज्ञान एकत्र — एक व्यक्तिमत्त्वाचं portfolio पेज.\nउद्दिष्टे: semantic रचना, समृद्ध head/SEO, accessible फॉर्म, responsive image.\nपेज स्वतःची ओळख — आवडी, कौशल्ये, संपर्क. वाचकाला तुमची माहिती.\nमराठी अभ्यासकांसाठी उदाहरण: संपूर्ण कोड मराठीत.\nपुढील धडे सर्व मिळून एक आदर्श वेबपेज बांधतो.", code: `<h1>मराठी वेब शाळा — विद्यार्थी प्रोफाइल</h1>
-<p>हे पेज HTML Level 2 चा सारांश आहे.</p>`, codeLanguage: "html" },
+<p>हे पेज HTML Level 2 चा सारांश आहे.</p>`, codeLanguage: "html" ,
+        output: "मराठी वेब शाळा — विद्यार्थी प्रोफाइल\nहे पेज HTML Level 2 चा सारांश आहे.",},
       { title: "2. head आणि SEO", content: "पेजचं head व्यावसायिक ठेवा — charset, viewport, description.\ntitle एक अचूक: \"मराठी वेब — विद्यार्थी प्रोफाइल\". description चांगला.\nog:title, og:description, og:image — सामाजिक वाटणीसाठी. theme-color आणि favicon.\nrobots meta index,follow. canonical मूळ पत्ता.\nहा head पेज शोधात उठतं.", code: `<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

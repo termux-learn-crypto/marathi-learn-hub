@@ -13,13 +13,27 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "lang, dir, hidden, title, tabindex, contenteditable आणि data-* — जवळपास प्रत्येक HTML घटकाला लावता येणारे सार्वत्रिक गुणधर्म.",
     sections: [
+      {
+        title: "Global Attributes — सर्व घटकांसाठी एक नियम म्हणजे काय?",
+        content: "lang, dir, hidden, title, tabindex, contenteditable आणि data-* — जवळपास प्रत्येक HTML घटकाला लावता येणारे सार्वत्रिक गुणधर्म.\nGlobal attributes म्हणजे असे गुणधर्म जे जवळपास प्रत्येक HTML घटकावर चालतात.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Global Attributes — सर्व घटकांसाठी एक नियम चे फायदे आणि महत्त्व",
+        content: "✓ फक्त conditional कंटेंट साठवण्यासाठी सोयीचा.\n✓ स्क्रीन रीडर title नेहमी वाचू शकत नाही, त्यामुळे महत्त्वाची माहिती फक्त title मध्ये ठेवू नका.\n✓ tabindex=\\\"-1\\\" फोकस होतो पण टॅब क्रमात नसतो — प्रोग्रॅमेटिक फोकससाठी उपयोगी.\n✓ ते स्क्रीन रीडरला दिसत नाहीत आणि शोधायलाही उपयोगी नसतात — फक्त component स्टेट.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ नियम: तुमच्या कोडचाच क्रम ठीक ठेवा, tabindex शक्य तितका टाळा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. lang आणि dir", content: "Global attributes म्हणजे असे गुणधर्म जे जवळपास प्रत्येक HTML घटकावर चालतात. सगळ्यात पहिले lang आणि dir.\n\nlang मध्ये घटकाची भाषा सांगतो — lang=\"mr\" मराठी, lang=\"en\" इंग्रजी. ब्राउझर त्यानुसार hyphenation, quotes आणि spellcheck निवडतो.\n\ndir दिशा ठरवतो — dir=\"ltr\" डावीकडून, dir=\"rtl\" उजवीकडून. एकाच पेजवर वेगवेगळ्या भागांच्या दिशा वेगळ्या असू शकतात.\n\nlang फक्त एकदाच जोडा, मग उपघटक वारसा घेतात. अर्थ बदलत असेल तरच पुन्हा जोडा.\n\nस्क्रीन रीडरला भाषा कळली की उच्चार योग्य होतो.", code: `<html lang="mr">
 <body>
   <p>हा भाग मराठीत.</p>
   <p lang="en">This section is English.</p>
   <p dir="rtl">ही ओळ उजवीकडून वाचली जाते.</p>
 </body>
-</html>`, codeLanguage: "html" },
+</html>`, codeLanguage: "html" ,
+        output: "<html lang=\"mr\">\nहा भाग मराठीत.\nThis section is English.\nही ओळ उजवीकडून वाचली जाते.",},
       { title: "2. hidden", content: "जेव्हा घटक दिसू नये, पण कोडमध्ये असावा, तेव्हा hidden attribute वापरतात.\n\nhidden घटक रेंडरच होत नाही — तो दृष्टिहीनांसाठीही नाही. फक्त conditional कंटेंट साठवण्यासाठी सोयीचा.\n\nतरीही DOM मध्ये राहतो, त्यामुळे JavaScript तो पुन्हा दाखवू शकतं. टॅब बदलताना पॅनेल लपवणे एक उदाहरण.\n\nhidden घटकातले दुवे, फॉर्म वगैरेही सक्रिय राहतात? — नाही, hidden भागातले interactive elements प्रवेशयोग्य नसतात.\n\nप्रवेश्यता कायम ठेवायची असेल तर CSS द्वारे लपवू नका — hidden attribute वर विश्वास ठेवा.", code: `<details open>
   <summary>माझे बॅगेज</summary>
   <p>योग्य: हा मजकूर दिसतो.</p>
@@ -73,11 +87,25 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "आधुनिक फॉर्म autocomplete taxonomy, inputmode, autofocus आणि novalidate सह वापरकर्त्याला कमी वेळ घेतात.",
     sections: [
+      {
+        title: "Forms UX — autocomplete, inputmode आणि स्मार्ट फॉर्म म्हणजे काय?",
+        content: "आधुनिक फॉर्म autocomplete taxonomy, inputmode, autofocus आणि novalidate सह वापरकर्त्याला कमी वेळ घेतात.\nautocomplete attribute हाताने डेटा भरतो — नाव, ईमेल, पत्ता, फोन.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Forms UX — autocomplete, inputmode आणि स्मार्ट फॉर्म चे फायदे आणि महत्त्व",
+        content: "✓ हे subscription form मध्ये उपयोगी: बंद पॅकेज दिसतं पण निवडताही येत.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. autocomplete taxonomy", content: "autocomplete attribute हाताने डेटा भरतो — नाव, ईमेल, पत्ता, फोन.\n\noff अर्थात बंद. name, email, tel, street-address, postal-code — अशा मूल्यांची मोठी शब्दावली आहे.\n\nब्राउझर मागील भरलेली मूल्ये ओळखून सुचना देतो. त्यामुळे फॉर्म वेगाने भरला जातो.\n\nएकाच फॉर्ममध्ये अनेक fields autocomplete ने जोडले की browser गट वेळोवेळी वापरतो.\n\nautocomplete मध्ये street-address, postal-code, country अशी अधिक मूल्ये आहेत — वापरा.", code: `<form action="#" method="post">
   <label>नाव: <input name="n" autocomplete="name"></label>
   <label>ईमेल: <input name="e" type="email" autocomplete="email"></label>
   <label>गाव: <input name="g" autocomplete="street-address"></label>
-</form>`, codeLanguage: "html" },
+</form>`, codeLanguage: "html" ,
+        output: "<form action=\"#\" method=\"post\">\nनाव:\nईमेल:\nगाव:",},
       { title: "2. inputmode", content: "inputmode तुम्हाला जागा देतो की कोणतं कीबोर्ड उघडावं.\n\ninputmode=\"numeric\" फोन कीबोर्डवर अंक. inputmode=\"decimal\" दशांश चिन्ह. inputmode=\"email\" @ आणि . बटणे.\n\nहे फोनवर खूप मदत करते — ईमेल फील्डवर अंक कीबोर्ड उघडणे हात वाया.\n\ntype च्या जोडीने वापरा: type=\"text\" + inputmode=\"numeric\" म्हणजे अंक पण कोणतेही formatting नको.\n\ntel, email, url या types आधीच व्यवस्थापित कीबोर्ड देतात — तरीही तो वापरा.", code: `<label>पिन: <input name="pin" type="text" inputmode="numeric" pattern="[0-9]{6}"></label>
 <label>ईमेल: <input name="em" type="email" inputmode="email"></label>`, codeLanguage: "html" },
       { title: "3. autofocus", content: "पेज उघडताच पहिल्या फील्डवर फोकस हवा तर autofocus.\n\nautofocus वापरलेला input आधीच भरायला तयार — स्क्रीन रीडरला स्थान कळते.\n\nनियम: फक्त एकाच फील्डवर autofocus द्या — पेजवर एक.\n\nकधी नको? जेव्हा वापरकर्ता स्क्रोल करत असेल — फोकस त्याला वर आणतो.\n\nमालमत्तेचा नियम: autofocus आणि tabindex जुळवू नका — फोकस क्रम गोंधळतो.", code: `<form action="#" method="post">
@@ -138,8 +166,22 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "HTML4 ते HTML5 आणि living standard — doctype, quirks mode, deprecated tags आणि validity यांचा प्रवास.",
     sections: [
+      {
+        title: "HTML चा इतिहास आणि मानके म्हणजे काय?",
+        content: "HTML4 ते HTML5 आणि living standard — doctype, quirks mode, deprecated tags आणि validity यांचा प्रवास.\n1997 मध्ये HTML4 आले.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? HTML चा इतिहास आणि मानके चे फायदे आणि महत्त्व",
+        content: "✓ पहिली ओळ <!DOCTYPE html> आहे — सर्वांत महत्त्वाची.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ 2000 च्या दशकात XHTML आले — कडक व्याकरण, पण व्यावहारिक अडचणी.\n✗ सावधान: doctype न दिल्यास ब्राउझर जुने अंदाज वापरतो — त्यामुळे responsive रचना बिघडू शकते.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. HTML4 ते HTML5", content: "1997 मध्ये HTML4 आले. तेव्हा layout साठी फक्त table आणि font वापरत होते.\n\n2000 च्या दशकात XHTML आले — कडक व्याकरण, पण व्यावहारिक अडचणी.\n\n2014 मध्ये HTML5 प्रकाशित झाला — semantics, video, canvas, forms प्रगत.\n\nHTML5 चे ध्येय एक: रचना आणि सादरीकरण वेगळे — CSS ला दिसणे, HTML ला अर्थ.\n\nही दिशा आजही कायम.", code: `<div class="हेडर">जुनी पद्धत</div>
-<header>HTML5 मध्ये अर्थपूर्ण</header>`, codeLanguage: "html" },
+<header>HTML5 मध्ये अर्थपूर्ण</header>`, codeLanguage: "html" ,
+        output: "जुनी पद्धत\nHTML5 मध्ये अर्थपूर्ण",},
       { title: "2. doctype आणि mode", content: "पहिली ओळ <!DOCTYPE html> आहे — सर्वांत महत्त्वाची.\n\nयाच्याशिवाय ब्राउझर quirks mode मध्ये जातो — जुनी, अंदाजे CSS.\n\ndoctype दिल्यावर standards mode — नियमांची अचूक अंमलबजावणी.\n\nXHTML चे कडक doctype आता नको — साधे <!DOCTYPE html> पुरेसे.\n\nvisual layout doctype ब्राउझरला सांगतो — कोणता मोड वापरायचा: standards की quirks.", code: `<!DOCTYPE html>
 <html lang="mr">
 <head>
@@ -209,10 +251,24 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "h1-h6 चा नियमित क्रम, hgroup, sectioning roots आणि TOC — प्रत्येक पेजचा खरा नकाशा.",
     sections: [
+      {
+        title: "Semantic Outline — शीर्षकांचा नकाशा म्हणजे काय?",
+        content: "h1-h6 चा नियमित क्रम, hgroup, sectioning roots आणि TOC — प्रत्येक पेजचा खरा नकाशा.\nपेजची शीर्षके h1 ते h6 असा नियमित क्रम पाळतात.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Semantic Outline — शीर्षकांचा नकाशा चे फायदे आणि महत्त्व",
+        content: "\"Semantic Outline — शीर्षकांचा नकाशा\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. heading hierarchy", content: "पेजची शीर्षके h1 ते h6 असा नियमित क्रम पाळतात.\n\nh1 पेजचा मुख्य विषय — एकच असावे. h2 मोठे उपविभाग, h3 त्यातले भाग.\n\nस्तर उडवू नका — h1 नंतर थेट h4 नको. तो क्रम स्क्रीन रीडरची नेव्हिगेशन रचना आहे.\n\nheadings मधून वाचक \"कुठे आहे मी\" हे समजतात.\n\nफक्त आकाराच्या आधारावर heading निवडू नका — विषयाच्या गड्ड्यानुसार.", code: `<h1>शहरातील बाग</h1>
 <h2>वनस्पती</h2>
 <h3>गुलाब</h3>
-<h2>प्राणी</h2>`, codeLanguage: "html" },
+<h2>प्राणी</h2>`, codeLanguage: "html" ,
+        output: "शहरातील बाग\nवनस्पती\nगुलाब\nप्राणी",},
       { title: "2. hgroup", content: "hgroup दोन शीर्षकांना एक गट म्हणून जोडतो.\n\nउदा. हेडलाइन + subtitle: \"महाराष्ट्राला मोठा विजय\" आणि \"चार गोल नोंदवले\".\n\nहा गट मुख्य heading सोबतचा context असतो — मुख्य शीर्षकच वाचनीय ठरतो.\n\nस्क्रीन रीडर hgroup मधून मुख्य heading वाचतो.\n\nरचना: hgroup मध्ये एकच h1-h6, बाकी p किंवा span.", code: `<hgroup>
   <h1>औद्योगिक प्रगती</h1>
   <p>उज्ज्वल बातमी</p>
@@ -281,10 +337,20 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "role आणि aria-* attributes ने स्क्रीन रीडरनुसार क्षेत्रे, अवस्था व वर्णन देणे — HTML5 मध्येच.",
     sections: [
+      {
+        title: "का शिकावे? Landmarks आणि ARIA — प्रवेश्यता खोल चे फायदे आणि महत्त्व",
+        content: "✓ दृश्य मजकूर नसलेला button (फक्त icon) असेल तर aria-label गरजेचा.\n✓ सर्वात महत्त्वाचा: role बदलाऐवजी योग्य element निवडा.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ चुकीचा वापर: div वर role=\\\"button\\\" जोडणे — त्याऐवजी button element वापरा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. landmarks म्हणजे काय", content: "दस्तऐवजातील प्रमुख क्षेत्रे ब्राउझर ओळखतो — header, nav, main, footer.\n\nहे क्षेत्र screen reader मध्ये jump स्थानक म्हणून नोंदले जाते.\n\nrole attribute ते क्षेत्राचा प्रकार सांगतो — उदा. role=\"navigation\".\n\nजेव्हा HTML tag पुरेसे नसतात, तेव्हा role ने क्षेत्राचा प्रकार स्पष्ट होतो.\n\nआधुनिक HTML5 tag आधीच correct role देतात — दुर्मिळ पर्यायच role जोडतो.", code: `<div role="banner">शीर्षक क्षेत्र</div>
 <nav>दुवे</nav>
 <main>मुख्य मजकूर</main>
-<footer>पाद माहिती</footer>`, codeLanguage: "html" },
+<footer>पाद माहिती</footer>`, codeLanguage: "html" ,
+        output: "शीर्षक क्षेत्र\nदुवे \n मुख्य मजकूर \n पाद माहिती",},
       { title: "2. aria-label", content: "aria-label घटकाला स्क्रीन रीडरचे स्वतःचे नाव देते.\n\nदृश्य मजकूर नसलेला button (फक्त icon) असेल तर aria-label गरजेचा.\n\nउदा. <button aria-label=\"बंद\">×</button> — वाचकाला \"बंद\" कळेल.\n\naria-label च्या प्राथमिकतेने दृश्य मजकूर वगळला जाऊ शकतो.\n\nजेथे दृश्य मजकूरच धादस, तेथे aria-label नको.", code: `<button aria-label="मेनू उघडा">&#9776;</button>
 <nav aria-label="मुख्य नेव्हिगेशन">
   <a href="x.html">मुख्य</a>
@@ -341,12 +407,26 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "iframe ची सुरक्षा (sandbox, allow), lazy iframe, object/embed आणि media API ची माहिती.",
     sections: [
+      {
+        title: "Advanced Embedding — iframe, sandbox आणि वस्तू म्हणजे काय?",
+        content: "iframe ची सुरक्षा (sandbox, allow), lazy iframe, object/embed आणि media API ची माहिती.\nsandbox=\\\"\\\" ने आतलं पेज सर्व परवानग्यांविना चालते — forms, scripts बंद.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Advanced Embedding — iframe, sandbox आणि वस्तू चे फायदे आणि महत्त्व",
+        content: "✓ HTML मध्ये शिकायला आवश्यक म्हणजे video आणि controls सुयोग्यता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. iframe आणि sandbox", content: "sandbox=\"\" ने आतलं पेज सर्व परवानग्यांविना चालते — forms, scripts बंद.\n\nसुरक्षेसाठी मर्यादित allow: sandbox=\"allow-scripts\" इतकेच आवश्यक.\n\nallow-same-origin शिवाय scripts येऊ शकत नाहीत.\n\nनियम: फक्त आवश्यक परवानग्या द्या — प्रत्येक परवानगी नेमकी असावी.", code: `<iframe src="map.html" sandbox="" width="400" height="300" title="नकाशा"></iframe>`, codeLanguage: "html" },
       { title: "2. allow — permissions", content: "allow attribute मध्ये ब्राउझर परवानग्या देतो.\n\nallow=\"fullscreen\" पूर्ण स्क्रीन; allow=\"autoplay\" आवाज; allow=\"geolocation\" ठिकाण.\n\nप्रत्येक iframe साठी फक्त आवश्यक permissions देणे सुरक्षित\n\nजास्त परवानग्या देऊ नका — त्या सुरक्षा धोका देतात.\n\nसंवेदनशील API मध्ये iframe ला कधीही सहज चालू नका.", code: `<iframe src="video.html" width="560" height="315" allow="fullscreen; autoplay" title="व्हिडिओ"></iframe>`, codeLanguage: "html" },
       { title: "3. lazy iframe", content: "खूप iframes असल्यास लोडिंग मंद — त्यासाठी lazy.\n\nloading=\"lazy\" असलेला iframe केवळ दिसेल तेव्हा लोड होतो.\n\nस्क्रीनच्या खाली असेल तर तो नाही येत ब्राउझर आधी उरला.\n\nहे performance तर भरपूर सुधारते — पेज वेगाने उघडते.\n\nvisualShift टाळण्यासाठी width/height नेहमी द्या.", code: `<iframe src="map.html" loading="lazy" width="400" height="300" title="नकाशा"></iframe>`, codeLanguage: "html" },
       { title: "4. object आणि embed", content: "object आणि embed अनेक media types आणतात — PDF, SVG, अॅप.\n\nobject मध्ये data आणि type: <object data=\"guide.pdf\" type=\"application/pdf\">.\n\nembed जुने, साधे: <embed src=\"a.swf\" type=\"application/x-shockwave-flash\">.\n\nPDF आणि SVG आधार ब्राउझरमधूनच चालतो — फक्त plugin साठी इशारा.\n\nआज object/embed चा वापर थोडा — media साठी अधिक पर्याय आहेत.", code: `<object data="चार्ट.pdf" type="application/pdf" width="400" height="300">
   <p>PDF read करणे समर्थन नाही: <a href="चार्ट.pdf">डाउनलोड</a></p>
-</object>`, codeLanguage: "html" },
+</object>`, codeLanguage: "html" ,
+        output: "<object data=\"चार्ट.pdf\" type=\"application/pdf\" width=\"400\" height=\"300\">\nPDF read करणे समर्थन नाही: डाउनलोड\nPDF read करणे समर्थन नाही:\nडाउनलोड",},
       { title: "5. picture-in-picture (चर्चा)", content: "व्हिडिओला छोट्या खिडकीत ठेवणे = picture-in-picture.\n\nहे कोडमधून सांगितले जाते — पण हे HTML attribute नाही.\n\nहे JavaScript ने नियंत्रित होते — HTML attribute नाही.\n\nआधुनिक ब्राउझर त्यासाठी आधार देतात.\n\nHTML मध्ये शिकायला आवश्यक म्हणजे video आणि controls सुयोग्यता.", code: `<video controls width="320" height="180">
   <source src="demo.mp4" type="video/mp4">
   <p>व्हिडिओ समर्थन नाही.</p>
@@ -386,10 +466,20 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "itemscope, itemprop आणि विकिपीडिया-rich स्निपेट्स — तुमच्या पेजला SEO चा स्कोर.",
     sections: [
+      {
+        title: "का शिकावे? Microdata आणि Rich Results चे फायदे आणि महत्त्व",
+        content: "\"Microdata आणि Rich Results\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ चुकीच्या माहितीवर Google सूचना देतो — खोटे टाळा.\n✗ माइक्रोडेटा मध्ये खोटी माहिती देऊ नका — चुकीचे label शिक्षा देते.\n✗ चुकीची माहिती काढून टाका — शोध गुणवत्ता दीर्घकाळ टिकते.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. microdata म्हणजे काय", content: "Microdata = HTML मध्ये मशीन-वाचनीय माहिती जोडणारे attributes.\n\nहे शोधायला मदत करते: pages, products, people यांचे प्रकार.\n\nमुख्य attributes: itemscope, itemtype, itemprop.\n\nitemscope=\"itemscope\" — घटकाचे स्वतःच्या scope चा block. itemtype schema.org URL.\n\nउदा. <div itemscope> नाव आणि किंमत आतच.", code: `<div itemscope>
   <div itemprop="name">लाल गुलाब</div>
   <div itemprop="price">100</div>
-</div>`, codeLanguage: "html" },
+</div>`, codeLanguage: "html" ,
+        output: "लाल गुलाब\n100",},
       { title: "2. itemscope आणि itemtype", content: "itemscope सांगते \"येथे एक item सुरु\".\n\nitemtype item चा प्रकार: https://schema.org/Product, /Person, /Article.\n\nप्रकारानुसार itemprop ची अपेक्षित यादी असते.\n\nहे URL बरोबर itemtype लिहा — validator सहज तपासतो.\n\nएका itemscope मध्ये फक्त त्या item ची माहिती ठेवा.", code: `<div itemscope itemtype="https://schema.org/Product">
   <span itemprop="name">मराठी अभ्यास</span>
   <span itemprop="brand">वेब शाळा</span>
@@ -456,6 +546,19 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "preconnect, dns-prefetch, prefetch, preload, lazy loading आणि CLS — HTML-स्तरावर वेग सुधारणे.",
     sections: [
+      {
+        title: "HTML Performance — वेगाचे नियम म्हणजे काय?",
+        content: "preconnect, dns-prefetch, prefetch, preload, lazy loading आणि CLS — HTML-स्तरावर वेग सुधारणे.\nमोबाईल नेटवर्क मंद असते — HTML काटकसर असणे गरजेचे.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? HTML Performance — वेगाचे नियम चे फायदे आणि महत्त्व",
+        content: "✓ मोबाईल नेटवर्क मंद असते — HTML काटकसर असणे गरजेचे.\n✓ वरच्या भागाला सर्वाधिक महत्त्व — critical content लवकर हवे.\n✓ फक्त गरजेच्या domains ला — बाकी ओव्हरहेड.\n✓ CSS/JS फाइली फक्त गरजेच्या ठेवा.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ CLS = लेआउट अचानक हलणे — मोजमाप योग्य नाही तर वाचक अडचणीत.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. परफॉर्मन्स ओळख", content: "मोबाईल नेटवर्क मंद असते — HTML काटकसर असणे गरजेचे.\n\nresources (CSS/JS/चित्रे) वेगवेगळ्या वेळी येतात.\n\nवरच्या भागाला सर्वाधिक महत्त्व — critical content लवकर हवे.\n\nHTML-स्ट्रक्चरमध्येच खूप वेळ वाचवता येतो.", code: `<!DOCTYPE html>
 <html lang="mr">
 <head>
@@ -465,7 +568,8 @@ export const htmlLevel3: Tutorial[] = [
 <body>
   <h1>प्रथम मजकूर</h1>
 </body>
-</html>`, codeLanguage: "html" },
+</html>`, codeLanguage: "html" ,
+        output: "<html lang=\"mr\">\n<head>\n <meta charset=\"utf-8\">\nTitle: वेग पेज\nवेग पेज\n</head>\nप्रथम मजकूर",},
       { title: "2. preconnect आणि dns-prefetch", content: "परकीय hosts शी आधी संपर्क करणे = preconnect.\n\n<link rel=\"preconnect\" href=\"https://fonts.example.com\"> — early handshake.\n\nहे थर्ड-पार्टी resources वेगवान करतात.\n\nफक्त गरजेच्या domains ला — बाकी ओव्हरहेड.", code: `<head>
   <link rel="preconnect" href="https://cdn.example.com">
   <link rel="dns-prefetch" href="https://api.example.com">
@@ -515,9 +619,23 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "canonical, base, robots, Open Graph खोल, theme-color, manifest आणि favicon variants.",
     sections: [
+      {
+        title: "Document Resources — head चे खोल विश्व म्हणजे काय?",
+        content: "canonical, base, robots, Open Graph खोल, theme-color, manifest आणि favicon variants.\ncanonical एका पेजचा अधिकृत प्रत ठरवतो.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Document Resources — head चे खोल विश्व चे फायदे आणि महत्त्व",
+        content: "✓ base शीर्षकात फक्त एकच ठेवा — लहान साइटसाठी त्याची गरज नाही.\n✓ head मध्ये प्रत्येक meta चा योग्य उपयोग.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. canonical", content: "canonical एका पेजचा अधिकृत प्रत ठरवतो.\n\nहे duplicate content ची शिक्षा टाळते — search engine एकच URL ओळखतो.\n\n<link rel=\"canonical\" href=\"https://example.com/page\">.\n\nप्रिंट/सॉर्ट आवृत्त्यांना एकच canonical द्या.\n\nयोग्य मूळ URL द्या — ट्रॅकिंग URL नको.", code: `<head>
   <link rel="canonical" href="https://example.com/articles/marathi">
-</head>`, codeLanguage: "html" },
+</head>`, codeLanguage: "html" ,
+        output: "<head>",},
       { title: "2. base", content: "<base href=\"https://example.com/\"> मूळ पत्ता दर्शवतो.\n\nपण base ने सर्व relative दुव्यांचा आधार बदलतो.\n\nbase शीर्षकात फक्त एकच ठेवा — लहान साइटसाठी त्याची गरज नाही.\n\nसावधपणा — हा element फार वापरला जात नाही.", code: `<head>
   <base href="/articles/">
 </head>
@@ -581,7 +699,21 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "dishes, quotes, ellipsis, nbsp नियम, संख्या आणि Unicode सुसंगत लेखन.",
     sections: [
-      { title: "1. dash दोन प्रकार", content: "टाइपोग्राफी मध्ये dash मागासलेले नाही.\nhyphen (-) शब्द-विभाजन. en dash (–) श्रेणी. em dash (—) विराम.\n\"१–३ मे\" मध्ये en dash श्रेणी; \"माझा — एक निर्णय\" em dash.\nही चिन्हे keyboard वर नसतात — आवश्यक तेथे &mdash; व &ndash; वापरा.\nहे अक्षरे जास्त नको — पण योग्य चिन्ह हवे.", code: `<p>वय १८&ndash;२५ वर्ष. शिक्षण&mdash;प्राथमिक ते महाविद्यालय.</p>`, codeLanguage: "html" },
+      {
+        title: "Text आणि Typography — अचूक लेखन म्हणजे काय?",
+        content: "dishes, quotes, ellipsis, nbsp नियम, संख्या आणि Unicode सुसंगत लेखन.\nटाइपोग्राफी मध्ये dash मागासलेले नाही.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Text आणि Typography — अचूक लेखन चे फायदे आणि महत्त्व",
+        content: "✓ फॉर्म placeholder मध्येही उपयोगी.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      { title: "1. dash दोन प्रकार", content: "टाइपोग्राफी मध्ये dash मागासलेले नाही.\nhyphen (-) शब्द-विभाजन. en dash (–) श्रेणी. em dash (—) विराम.\n\"१–३ मे\" मध्ये en dash श्रेणी; \"माझा — एक निर्णय\" em dash.\nही चिन्हे keyboard वर नसतात — आवश्यक तेथे &mdash; व &ndash; वापरा.\nहे अक्षरे जास्त नको — पण योग्य चिन्ह हवे.", code: `<p>वय १८&ndash;२५ वर्ष. शिक्षण&mdash;प्राथमिक ते महाविद्यालय.</p>`, codeLanguage: "html" ,
+      output: "वय १८&ndash;२५ वर्ष. शिक्षण&mdash;प्राथमिक ते महाविद्यालय.",},
       { title: "2. quotes प्रकार", content: "अवतरण चिन्हे भाषेनुसार बदलतात.\nमराठीत \"...\" सामान्य; इंग्रजीत \"...\" माणूस.\nEuropean भाषांत &laquo; &raquo; आणि &bdquo; &ldquo;.\nHTML attribute मध्येही quotes हीच चिन्हे — कधी nested.\nभाषा पाळून quotes निवडा — क्षेत्रीय अपेक्षा.", code: `<p>ती म्हणाली: &ldquo;मला मराठी आवडते&rdquo;.</p>
 <p lang="fr">Elle dit: &laquo;Bonjour&raquo;.</p>`, codeLanguage: "html" },
       { title: "3. ellipsis आणि निकट", content: "मजकूर तोडण्यावर तीन ठिपके (…) — &hellip;.\nतीन स्वतंत्र खाली नको — एक अणकुचीदार वर्ण &hellip;.\nनिअरिश: \"अधिक &hellip;\" — धडा पूर्णता.\nफॉर्म placeholder मध्येही उपयोगी.\nथ्री-पॉइंट संपूर्ण वाचनीयता देतो.", code: `<p>वाचा: आधुनिक मराठी कविता&hellip;</p>`, codeLanguage: "html" },
@@ -619,6 +751,19 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "details/summary accordion, dialog मोडल आणि नवीन popover attributes — केवळ HTML ने संवाद.",
     sections: [
+      {
+        title: "Interactive Elements — details, dialog आणि popover म्हणजे काय?",
+        content: "details/summary accordion, dialog मोडल आणि नवीन popover attributes — केवळ HTML ने संवाद.\ndetails आणि summary एक नावीन्यपूर्ण disclosure.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Interactive Elements — details, dialog आणि popover चे फायदे आणि महत्त्व",
+        content: "\"Interactive Elements — details, dialog आणि popover\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. details/summary पुन्हा", content: "details आणि summary एक नावीन्यपूर्ण disclosure.\n<details> मध्ये content; <summary> चा लेबल.\nopen attribute आधीच उघडलेले आणतो.\nFAQ, क्रॅम, accordion — अगदी सुरळीत.", code: `<details>
   <summary>आणखी माहिती</summary>
   <p>येथे वर्णन.</p>
@@ -626,7 +771,8 @@ export const htmlLevel3: Tutorial[] = [
 <details open>
   <summary>आधी उघडलेले</summary>
   <p>दिसत आहे.</p>
-</details>`, codeLanguage: "html" },
+</details>`, codeLanguage: "html" ,
+        output: "<details>\n <summary>आणखी माहिती</summary>\nयेथे वर्णन.\n</details>\n<details open>\n <summary>आधी उघडलेले</summary>\nदिसत आहे.",},
       { title: "2. dialog मोडल", content: "dialog मोडल/सामान्य संवाद खिडकी.\n<dialog> रचना; open gुण दिसणे.\ndialog रचना HTML; उघडणे-बंद करणे JavaScript लागते.\nform method=\"dialog\" ने dialog बंद होतो.\nप्रवेशयोग्यता: focus आत — modal semantics.", code: `<dialog open>
   <p>संदेश मजकूर.</p>
   <form method="dialog">
@@ -691,6 +837,19 @@ export const htmlLevel3: Tutorial[] = [
     minutes: 18,
     summary: "प्रगत मासिक पेज — semantic outline, landmarks, embedded media, microdata, performance आणि संवाद.",
     sections: [
+      {
+        title: "मासिक प्रकल्प — सर्व कौशल्य एकत्र म्हणजे काय?",
+        content: "प्रगत मासिक पेज — semantic outline, landmarks, embedded media, microdata, performance आणि संवाद.\nहा प्रकल्प HTML Level 3 चे सर्व धडे एकत्र.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? मासिक प्रकल्प — सर्व कौशल्य एकत्र चे फायदे आणि महत्त्व",
+        content: "✓ प्रत्येक meta चा एक उपयोग.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       { title: "1. उद्दिष्टे", content: "हा प्रकल्प HTML Level 3 चे सर्व धडे एकत्र.\nटार्गेट: \"मराठी टेक मासिक\" फ्रंट पेज.\nsemantic outline, landmarks, embedded media, microdata.\nperformance attributes आणि interactive घटक.\nप्रत्येक विभाग हे एक कौशल्याचे demonstrative.", code: `<!DOCTYPE html>
 <html lang="mr">
 <head>
@@ -698,7 +857,8 @@ export const htmlLevel3: Tutorial[] = [
   <title>मराठी टेक मासिक</title>
 </head>
 <body></body>
-</html>`, codeLanguage: "html" },
+</html>`, codeLanguage: "html" ,
+        output: "<html lang=\"mr\">\n<head>\n <meta charset=\"utf-8\">\nTitle: मराठी टेक मासिक\nमराठी टेक मासिक\n</head>",},
       { title: "2. head resources", content: "head मध्ये सर्व मेटा.\ncharset utf-8, viewport. description, canonical.\nog आणि twitter card. theme-color. favicon.\nperformance: preload hero चित्र, preconnect cdn.\nप्रत्येक meta चा एक उपयोग.", code: `<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

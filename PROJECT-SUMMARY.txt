@@ -1,0 +1,26 @@
+Marathi Learn Hub - Project Summary
+====================================
+
+STATUS: Pushed to git remote (origin/main)
+
+COMMIT HISTORY:
+- 40a0e11: CSS Level 3, 11, 15 - deep HTML-style मराठी explanations for all 12 lessons
+- 273a379: CSS Levels 3, 11, 15 + rollout - deep Marathi explanations, navbar restructure, /learn vs /tutorials differentiation, card badges, contact cleanup
+- e8dfca5: Remove email contact section from Contact page
+
+CORE FEATURES:
+- CSS Tutorials: Levels 1-15 with Marathi prose explanations
+- Navigation: Primary items + "More" dropdown
+- /learn vs /tutorials: Differentiated learning paths
+- /tutorials cards: Quiz and Project badges
+- Homepage: Reordered sections (Learning Paths → Projects → Categories → Value Pillars → Community)
+- Contact: Telegram + GitHub Issue only (email removed)
+
+PACKAGES (13 total):
+Runtime: next, pngjs, react, react-dom
+Dev: @types/node, @types/react, @types/react-dom, autoprefixer, eslint, eslint-config-next, postcss, tailwindcss, typescript
+
+AUDIT RESULTS:
+- Content: 450/450 tutorials passing
+- TypeScript: clean build
+- Paths: no broken steps

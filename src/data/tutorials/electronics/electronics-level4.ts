@@ -15,6 +15,19 @@ export const electronicsLevel4: Tutorial[] = [
     summary: "HC-SR04 ultrasonic sensor कसे काम करते, trig/echo wiring, पल्सिन गणित, सेंटिमीटरमध्ये अंतर आणि distance alarm प्रोजेक्ट.",
     sections: [
       {
+        title: "HC-SR04 ultrasonic — अंतर मापन, wired measuring, distance alarm म्हणजे काय?",
+        content: "HC-SR04 ultrasonic sensor कसे काम करते, trig/echo wiring, पल्सिन गणित, सेंटिमीटरमध्ये अंतर आणि distance alarm प्रोजेक्ट.\nHC-SR04 आवाज (ultrasonic) पाठवून परत येण्याची वेळ मोजून अंतर सांगते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? HC-SR04 ultrasonic — अंतर मापन, wired measuring, distance alarm चे फायदे आणि महत्त्व",
+        content: "\"HC-SR04 ultrasonic — अंतर मापन, wired measuring, distance alarm\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ Sensor समोर अडथळा मोकळा ठेवा; wiring double-check करा — चुका प्रचलित आहेत.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "HC-SR04 ultrasonic sensor — अंतर मोजणे",
         content: "HC-SR04 आवाज (ultrasonic) पाठवून परत येण्याची वेळ मोजून अंतर सांगते. Trigger pin 40kHz sound pulse सोडतो; अडथळा आदळून echo pin वर परत येतो; pulseIn() ही वेळ microseconds मध्ये देते. हवेत ध्वनी वेग ~343 m/s (0.0343 cm/µs). दोन्ही दिशांचा प्रवास मोजला जातो म्हणून /2 अनिवार्य — सूत्र: distance_cm = duration × 0.01715. अंतर 2cm–400cm, कोनीय क्षेत्र ~15°. वापर: parking sensor, robot obstacle detection, level measuring.",
         code: `const int trig = 9;
@@ -104,6 +117,19 @@ void loop() {
     summary: "Servo library वापर, 0-180° कोन नियंत्रण, sweep, potentiometer द्वारे manual control आणि automatic gate चे प्रोजेक्ट.",
     sections: [
       {
+        title: "Arduino सह servo — library, sweep, potentiometer control, auto-gate म्हणजे काय?",
+        content: "Servo library वापर, 0-180° कोन नियंत्रण, sweep, potentiometer द्वारे manual control आणि automatic gate चे प्रोजेक्ट.\nServo 0° ते 180° पर्यंत नेमका कोन नियंत्रित करतो.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Arduino सह servo — library, sweep, potentiometer control, auto-gate चे फायदे आणि महत्त्व",
+        content: "\"Arduino सह servo — library, sweep, potentiometer control, auto-gate\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "Servo motor — ओळख आणि कार्यपद्धती",
         content: "Servo 0° ते 180° पर्यंत नेमका कोन नियंत्रित करतो. आतून: small motor + gearbox, potentiometer (सध्याचा कोन वाचतो), control circuit (desired vs actual तुलना). position control अचूक; continuous rotation नाही — angle देतो. वापर: robotic arm, camera gimbal, auto-gate. तारा: Brown—GND, Red—5V (मोठ्या servo ला बाह्य वीज), Signal—PWM pin (9/10). Servo signal 50Hz PWM pulse: 1ms ~ 0°, 1.5ms ~ 90°, 2ms ~ 180°. Library write() angle → pulse width करते.",
         code: `#include <Servo.h>
@@ -180,6 +206,19 @@ void loop() {
     summary: "LCD 16x2 ची ओळख, I2C adapter wiring, LiquidCrystal_I2C library, सेन्सर डेटा दाखवणे, scroll/text format आणि decoration.",
     sections: [
       {
+        title: "LCD 16x2 + I2C — LiquidCrystal library, sensor data display, scroll म्हणजे काय?",
+        content: "LCD 16x2 ची ओळख, I2C adapter wiring, LiquidCrystal_I2C library, सेन्सर डेटा दाखवणे, scroll/text format आणि decoration.\nLCD 16x2 — 16 columns × 2 rows character display.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? LCD 16x2 + I2C — LiquidCrystal library, sensor data display, scroll चे फायदे आणि महत्त्व",
+        content: "\"LCD 16x2 + I2C — LiquidCrystal library, sensor data display, scroll\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ नवीन update आधी clear करा — stale text टाळा; setCursor + print मध्ये spaces द्या (ओव्हरराइट).\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "LCD 16x2 — I2C ने जोडणी",
         content: "LCD 16x2 — 16 columns × 2 rows character display. Direct parallel मध्ये 16 pins लागतात; I2C module सह फक्त 4 तारा. I2C LCD wiring: VCC→5V, GND→GND, SDA→A4, SCL→A5 (Uno; Mega 20/21; ESP8266 D1/D2). Common I2C address 0x27 किंवा 0x3F — I2C Scanner केवळ शोधून देतो. 5V logic — 3.3V boards सह level shifter आवश्यक.",
         code: `#include <Wire.h>
@@ -254,6 +293,19 @@ lcd.print("   ");`,
     summary: "IR remote कसे काम करते, IR receiver wiring, IRremote library ने codes वाचणे, remote ने LED control आणि multiple codes व्यवस्था.",
     sections: [
       {
+        title: "IR remote — receiver, IRremote library, codes वाचणे, LED प्रोजेक्ट म्हणजे काय?",
+        content: "IR remote कसे काम करते, IR receiver wiring, IRremote library ने codes वाचणे, remote ने LED control आणि multiple codes व्यवस्था.\nIR remote प्रकाशाच्या pulse ने codes पाठवते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? IR remote — receiver, IRremote library, codes वाचणे, LED प्रोजेक्ट चे फायदे आणि महत्त्व",
+        content: "\"IR remote — receiver, IRremote library, codes वाचणे, LED प्रोजेक्ट\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "IR remote — ओळख आणि कार्यपद्धती",
         content: "IR remote प्रकाशाच्या pulse ने codes पाठवते. IR LED — invisible प्रकाश; 38kHz carrier — receiver ला स्पष्ट; data — pulse widths च्या गणनेतून. Protocols: NEC, Sony, RC-5; प्रत्येक बटण — unique 32-bit code. Receiver: TSOP38238/VS1838B — IR प्रकाश सेन्स करून digital output देतो. वापर: TV/AC remote projects. IR range कमी ठेवून deliberate वापरा.",
       },
@@ -326,6 +378,15 @@ void loop() {
     minutes: 30,
     summary: "Motor driver गरज, L298N wiring, PWM ने speed control, H-bridge direction, घरगुती fan प्रोजेक्ट आणि debugging टिप्स.",
     sections: [
+      {
+        title: "L298N motor driver — wiring, PWM speed, direction, घरगुती fan म्हणजे काय?",
+        content: "Motor driver गरज, L298N wiring, PWM ने speed control, H-bridge direction, घरगुती fan प्रोजेक्ट आणि debugging टिप्स.\nArduino थेट motor चालवू शकत नाही — motor ला 100mA+ current; Arduino pin 20-40mA; back-EMF spikes खराब करतात.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "Motor driver — गरज आणि L298N wiring",
         content: "Arduino थेट motor चालवू शकत नाही — motor ला 100mA+ current; Arduino pin 20-40mA; back-EMF spikes खराब करतात. म्हणून driver/MOSFET: signal → power पूल; speed → PWM; direction → H-bridge. L298N — dual H-bridge module. Wiring: 5V→Arduino 5V, Motor power→VS (बाह्य 12V), GND→common GND, Enable A/B + IN1-IN4→Arduino pins. Common GND अनिवार्य.",

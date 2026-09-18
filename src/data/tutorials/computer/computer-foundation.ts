@@ -18,6 +18,11 @@ export const computerFoundation: Tutorial[] = [
     summary: "संगणक म्हणजे काय, त्याचे चार मुख्य काम, डेटा-माहिती, बायनरी आणि संगणकाचे प्रकार — संपूर्ण पायाभूत ज्ञान.",
     sections: [
       {
+        title: "का शिकावे? संगणकाची मूलभूत माहिती चे फायदे आणि महत्त्व",
+        content: "✓ दोघांची गरज एकमेकांना: हार्डवेअर हे 'शरीर' आणि सॉफ्टवेअर हे 'आत्मा' — एकाशिवाय दुसरे निरुपयोगी.\n✓ महत्त्वाचं: 'संगणक' हा शब्द आपल्याला फक्त डेस्कटॉप आडवण्याची सवय आहे, पण तंत्रज्ञानात — हार्डवेअर चालवणारा प्रत्येक electronic उपकरण — तो संगणकच आहे.\n✓ संगणकाचे प्रकार, उपयोग आणि गैरसमज — हे पाया आहेत.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
+      {
         title: "संगणक म्हणजे काय?",
         content:
           "संगणक (Computer) हे electronic device आहे जे data घेते, लगेच प्रोसेस करते आणि अचूक निकाल देते. फक्त गणित नव्हे — मजकूर, चित्रे, आवाज, इंटरनेट यांचाही काम करतो. AI सारख्या कार्यक्रम उदाहरणांवरून शिकतात, पण सामान्य संगणक आपण दिलेल्या सूचनाच पाळतो.\n\nसंगणक व माणसाची साधर्म्य:\n• कीबोर्ड/माउस = इनपुट (डोळे-कान-हात)\n• CPU = प्रोसेसिंग (मेंदू)\n• RAM/डिस्क = स्टोरेज (आठवण)\n• मॉनिटर/प्रिंटर = आउटपुट (तोंड)\n\nसंगणकाला 'वेगवान, अचूक, पण आज्ञापालक यंत्र' म्हणतात — आपण शिकवतो तेच करतो.",
@@ -64,7 +69,12 @@ export const computerFoundation: Tutorial[] = [
           "आतापर्यंतची गोष्ट आचरणात आणण्यासाठी:\n\n१) या घरातील / कार्यालयातील ५ उपकरणांना इनपुट-प्रोसेस-आउटपुट तत्त्वाने वर्ग करा.\n२) स्मार्टफोन — त्याचे CPU, RAM, storage भाग खरेदी मेनूमध्ये पहा (settings → About).\n३) तुमच्या फोनमधील कोणत्याही ३ अँपसाठी 'ते काय इनपुट घेतात, काय आउटपुट देतात' असा अंदाज लावा.\n\nसारांश:\n• संगणक = इनपुट + प्रोसेसिंग + स्टोरेज + आउटपुट.\n• हार्डवेअर = शरीर, सॉफ्टवेअर = मेंदूला दिशा.\n• सर्व काही शेवटी 0/1 मध्ये.\n• संगणकाचे प्रकार, उपयोग आणि गैरसमज — हे पाया आहेत.\n\nपुढचा tutorial — computer-hardware — मध्ये या संकल्पनांचे भौतिक रूप (CPU, RAM, डिस्क, मदरबोर्ड) सविस्तर उलगडले आहे.",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "संगणकाची मूलभूत माहिती चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "संगणकाची मूलभूत माहिती वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "संगणकाचे hardware म्हणजे काय?",
         options: ["प्रोग्रॅम्स", "भौतिक भाग", "डेटा", "इंटरनेट"],
@@ -75,7 +85,13 @@ export const computerFoundation: Tutorial[] = [
         options: ["RAM", "Hard Disk", "CPU", "Monitor"],
         correct: 2,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["संगणकाची मूलभूत माहिती", "Forms — दाखल फॉर्म", "Masking — दृश्य सजावट", "font — परतप्रमाण नियम"],
+        correct: 0,
+      },
+],
     related: ["computer-hardware", "linux-basics", "python-basics"],
     next: "computer-hardware",
   },
@@ -88,6 +104,11 @@ export const computerFoundation: Tutorial[] = [
     minutes: 18,
     summary: "CPU, motherboard, RAM, storage, PSU, GPU — संगणकाचे प्रत्येक hardware भाग सखोलपणे.",
     sections: [
+      {
+        title: "का शिकावे? संगणकाचे भाग समजून घ्या चे फायदे आणि महत्त्व",
+        content: "✓ मदरबोर्डवरील महत्त्वाचे भाग:\n• CPU Socket — प्रोसेसर बसतो.\n✓ एकाच फॉर्म-फॅक्टरचे निरनिराळे मदरबोर्ड वेगवेगळ्या CPU ला सपोर्ट करू शकत नाहीत — म्हणून upgrade करताना सुसंगतता (compatibility) तपासणे महत्त्वाचे.\n✓ महत्त्वाचे त्रिदेव:\n• RAM जितकी जास्त, एकाच वेळी तितके जास्त अॅप्स उघडू शकतो.\n✓ सर्वात महत्त्वाचं — PSU कडून योग्य पॉवर मिळत नसल्यास संगणक अस्थिर होतो किंवा part जळतो — स्वस्त PSU टाळा.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
       {
         title: "हार्डवेअर म्हणजे काय?",
         content:
@@ -142,7 +163,12 @@ Octa-core processor
           "१) Task Manager → Performance → CPU, Memory, Disk — chips ओळखा.\n२) Termux: `free -h` RAM, `df -h` डिस्क.\n३) Settings → About मध्ये model पहा.\n\nसारांश: CPU = मेंदू. Motherboard = जोडमेळा. RAM = तात्पुरती जलद जागा. Storage = कायमस्वरूपी. GPU/PSU/cooling/बाह्य — प्रत्येकाची भूमिका.\n\nपुढचा tutorial — computer-software.",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "संगणकाचे भाग समजून घ्या चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "संगणकाचे भाग समजून घ्या वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "कोणते device तात्पुरती माहिती ठेवते?",
         options: ["Hard Disk", "SSD", "RAM", "CD"],
@@ -153,7 +179,13 @@ Octa-core processor
         options: ["Graphics card", "Motherboard", "Sound card", "Network card"],
         correct: 1,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["संगणकाचे भाग समजून घ्या", "light-dark — थीम रंग", "AI बनवण्यासाठी Python का", "breadcrumb — मार्ग दाखला"],
+        correct: 0,
+      },
+],
     related: ["computer-basics", "linux-basics", "computer-software"],
     prev: "computer-basics",
     next: "computer-software",
@@ -167,6 +199,11 @@ Octa-core processor
     minutes: 12,
     summary: "सिस्टम सॉफ्टवेअर, अॅप्लिकेशन सॉफ्टवेअर, driver, open-source, install पद्धती — सखोल.",
     sections: [
+      {
+        title: "का शिकावे? सॉफ्टवेअर चे फायदे आणि महत्त्व",
+        content: "✓ फायदे: नामोषित, समुदायाने विकसित.\n✓ फायदे: पाठबळ, support.\n✓ महत्त्वाचे: Address bar (padlock + https://), Pop-up blocker, Extensions (AdBlock, password manager).\n✓ दोन्हीकडून data security तितकीच महत्त्वाची.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+
       {
         title: "सॉफ्टवेअर म्हणजे काय आणि ते कसे तयार होतो?",
         content:
@@ -222,7 +259,12 @@ User`,
         content: "१) ३ सिस्टम सॉफ्टवेअर आणि ३ अॅप्लिकेशन यादी करा.\n२) open-source vs proprietary तुलना लिहा.\n३) install 'permission' एकदा वाचा.\n\nसारांश: सॉफ्टवेअर = सूचनांचा संच. System software — OS, drivers (पाया). Application — कामाची साधने. Open source vs proprietary. योग्य install/update/uninstall.\n\nपुढचा topic — computer-io-devices.",
       },
     ],
-    quiz: [
+
+practiceQuestions: [
+      "सॉफ्टवेअर चे थोडक्यात स्पष्टीकरण तुमच्या शब्दांत लिहा.",
+      "सॉफ्टवेअर वर आधारित एक छोटे व्यावहारिक उदाहरण तयार करा व त्याची चाचणी करा.",
+      "ह्या धड्यातून तुम्हाला नेमकी कोणती एक गोष्ट नवी समजली ती लिहा.",
+    ],    quiz: [
       {
         question: "Operating System कोणत्या प्रकारचे software आहे?",
         options: ["Application", "System", "Utility", "Driver"],
@@ -233,7 +275,13 @@ User`,
         options: ["Windows", "Linux", "Chrome Browser", "BIOS"],
         correct: 2,
       },
-    ],
+    
+      {
+        question: "ह्या धड्यात मुख्य विषय कोणता?",
+        options: ["सॉफ्टवेअर", "has() — नवा निवडक", "Events — button दाबल्यावर कृती", "Document Resources — head चे खोल विश्व"],
+        correct: 0,
+      },
+],
     related: ["computer-hardware", "computer-basics", "linux-basics"],
     prev: "computer-hardware",
     next: "computer-io-devices",

@@ -15,6 +15,19 @@ export const electronicsLevel2: Tutorial[] = [
     summary: "Arduino सोबत sensors कसे जोडायचे: analog vs digital, LDR प्रकाश-संवेदक voltage divider सह, thermistor ने तापमान, DHT11 humidity आणि serial monitor मध्ये data वाचणे व map() ने scale करणे.",
     sections: [
       {
+        title: "Arduino sensors सखोल — LDR, thermistor, DHT11, serial वाचन, calibration म्हणजे काय?",
+        content: "Arduino सोबत sensors कसे जोडायचे: analog vs digital, LDR प्रकाश-संवेदक voltage divider सह, thermistor ने तापमान, DHT11 humidity आणि serial monitor मध्ये data वाचणे व map() ने scale करणे.\nArduino ला बाहेरचे जग sensors द्वारे कळते.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? Arduino sensors सखोल — LDR, thermistor, DHT11, serial वाचन, calibration चे फायदे आणि महत्त्व",
+        content: "\"Arduino sensors सखोल — LDR, thermistor, DHT11, serial वाचन, calibration\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "Sensors — analog vs digital",
         content: "Arduino ला बाहेरचे जग sensors द्वारे कळते. दोन प्रकार आहेत: digital (फक्त ON/OFF) आणि analog (सतत मूल्य 0–1023).\n\nDigital sensors — बटण, motion sensor, IR obstacle sensor.\nAnalog sensors — LDR (प्रकाश), potentiometer, thermistor.\n\nPin mapping: analog inputs A0–A5 (analogRead), digital inputs pin 2–13 (digitalRead).\nanalogRead वाचन: 0V → 0; 5V → 1023.\n\nसाधा नियम: जिथे yes/no हवा तेथे digital, जिथे मोठेपणा हवा तेथे analog.",
       },
@@ -100,6 +113,19 @@ void loop() {
     minutes: 35,
     summary: "शेवटचा capstone: LDR automatic night light. पार्ट्स, ब्रेडबोर्ड wiring, थ्रेशोल्ड व hysteresis कोड, flicker कसे टाळायचे, troubleshooting आणि पुढील upgrades.",
     sections: [
+      {
+        title: "पहिला project — LDR automatic night light wiring, कोड, hysteresis, troubleshooting म्हणजे काय?",
+        content: "शेवटचा capstone: LDR automatic night light. पार्ट्स, ब्रेडबोर्ड wiring, थ्रेशोल्ड व hysteresis कोड, flicker कसे टाळायचे, troubleshooting आणि पुढील upgrades.\nउद्देश: अंधारात LED आपोआप उजळते — automatic night light.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? पहिला project — LDR automatic night light wiring, कोड, hysteresis, troubleshooting चे फायदे आणि महत्त्व",
+        content: "\"पहिला project — LDR automatic night light wiring, कोड, hysteresis, troubleshooting\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ चुकल्यास: +/− उलट नाही ना, 10kΩ कुठे आहे — ही दोन गोष्टी प्रथम तपासा.\n✗ सामान्य समस्या:\n• LED कधीही झळकत नाही → threshold चुकीचा; +/− उलट नाही ना.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "प्रोजेक्ट — automatic night light",
         content: "उद्देश: अंधारात LED आपोआप उजळते — automatic night light.\n\nआवश्यक पार्ट्स: Arduino Uno, LDR + 10kΩ, LED + 220Ω, ब्रेडबोर्ड, जोड तारा.\n\nकाम: LDR वाचन कमी → threshold पेक्षा कमी → LED ON. प्रकाश परत → LED OFF.\n\nपद्धत: १. hardware wiring, २. कोड, ३. threshold समायोजन, ४. चाचणी.",

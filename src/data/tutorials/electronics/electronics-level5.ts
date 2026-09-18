@@ -15,6 +15,15 @@ export const electronicsLevel5: Tutorial[] = [
     summary: "IoT म्हणजे काय, ESP8266/ESP32 का खास, Arduino सोबत तुलना, बोर्ड निवड (NodeMCU/Wemos) आणि पहिला WiFi प्रोग्राम.",
     sections: [
       {
+        title: "का शिकावे? IoT म्हणजे काय — ESP8266/ESP32, Arduino vs ESP, NodeMCU पहिला WiFi प्रोग्राम चे फायदे आणि महत्त्व",
+        content: "✓ फायदे: दूरून वाचन/नियंत्रण, data इतिहास trends, स्वयंचलित action.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "IoT म्हणजे काय",
         content: "IoT — Internet of Things म्हणजे साधनं इंटरनेटशी जोडणे. सेन्सर data गोळा करतात, नेटवर्क (WiFi/fone) द्वारे पाठवतात, आणि दूरून नियंत्रण/कृती करता येते. Smart home (दिवे, fans), monitoring (तापमान, आर्द्रता), agriculture (soil/weather) आणि industrial (machine status) यांमध्ये वापरले जाते. फायदे: दूरून वाचन/नियंत्रण, data इतिहास trends, स्वयंचलित action. सुरुवात सोपी — button on board → phone connection.",
       },
@@ -71,6 +80,19 @@ void setup() {
     minutes: 30,
     summary: "WiFi connect सखोल, स्थानिक IP वापर, ESP चा mini web server, फोनवरून पेज उघडणे, HTTP request आणि सुरक्षा मूलभूत.",
     sections: [
+      {
+        title: "स्थानिक web server — ESP सह पेज, IP, HTTP requests, सुरक्षा मूलभूत म्हणजे काय?",
+        content: "WiFi connect सखोल, स्थानिक IP वापर, ESP चा mini web server, फोनवरून पेज उघडणे, HTTP request आणि सुरक्षा मूलभूत.\nESP कडे WiFi stack आहे — फक्त include + begin.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? स्थानिक web server — ESP सह पेज, IP, HTTP requests, सुरक्षा मूलभूत चे फायदे आणि महत्त्व",
+        content: "\"स्थानिक web server — ESP सह पेज, IP, HTTP requests, सुरक्षा मूलभूत\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ TLS certificate setup थोडे कठीण.\n✗ डिफॉल्ट password टाळा, public internet वर NEVER कच्चा.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "WiFi connection — library + स्थानिक IP",
         content: "ESP कडे WiFi stack आहे — फक्त include + begin. WiFi.mode(WIFI_STA) स्थापित करा, WiFi.begin(ssid, pass) ने connect करा, status wait करा. IP उदा. 192.168.1.50 — हे केवळ local network. Static IP: IPAddress ip(192,168,1,60); WiFi.config(ip, gw, sn); — DHCP dependency कमी. connect fail असेल तर retry logic + reconnect व्यवस्था लिहा. ब्राउझरमध्ये http://IP टाइप करून पेज उघडता येते.",
@@ -143,6 +165,19 @@ void loop() { server.handleClient(); }`,
     summary: "DHT11 sensor तापमान+आर्द्रता वाचणे, ESP सह web पेजवर दाखवणे, ThingSpeak cloud वर data upload आणि खर्च/क्षमतेचा अंदाज.",
     sections: [
       {
+        title: "DHT11 + ESP — तापमान/आर्द्रता वाचन, web मध्ये दाखवणे, ThingSpeak cloud म्हणजे काय?",
+        content: "DHT11 sensor तापमान+आर्द्रता वाचणे, ESP सह web पेजवर दाखवणे, ThingSpeak cloud वर data upload आणि खर्च/क्षमतेचा अंदाज.\nDHT11 — low cost तापमान + आर्द्रता sensor.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? DHT11 + ESP — तापमान/आर्द्रता वाचन, web मध्ये दाखवणे, ThingSpeak cloud चे फायदे आणि महत्त्व",
+        content: "\"DHT11 + ESP — तापमान/आर्द्रता वाचन, web मध्ये दाखवणे, ThingSpeak cloud\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "DHT11 sensor ओळख",
         content: "DHT11 — low cost तापमान + आर्द्रता sensor. Temperature 0-50°C (±2°C), Humidity 20-90% (±5%), digital single-wire protocol, 4 pins (किंवा 3-pin module). VCC → 3.3V/5V (ESP ला 3.3V), Data pin → GPIO, optional pullup resistor. DHT22 — अधिक अचूक पण खर्च जास्त; module — soldered, सोपी. Adafruit_DHT library install करा.",
       },
@@ -213,6 +248,19 @@ Serial.println(code);`,
     summary: "Relay + ESP सह घरचा दिवा नियंत्रण, web form/POST, साधी security, fail-safe design आणि प्रोजेक्ट विस्तार विचार.",
     sections: [
       {
+        title: "घरातील दिवा फोनवरून — relay + ESP, web control form, safety म्हणजे काय?",
+        content: "Relay + ESP सह घरचा दिवा नियंत्रण, web form/POST, साधी security, fail-safe design आणि प्रोजेक्ट विस्तार विचार.\nरचना: ESP ← WiFi → phone/browser; Relay module — ESP GPIO मधून; Relay — AC load संपर्क.\nहा धडा हे सोप्या शब्दांत, उदाहरणांसह आणि सरावासहित पूर्ण उलगडतो — आता सुरुवात करूया.",
+      },
+      {
+        title: "का शिकावे? घरातील दिवा फोनवरून — relay + ESP, web control form, safety चे फायदे आणि महत्त्व",
+        content: "✓ गरज — दूर नियंत्रण; Relay module — GPIO सोबत; Web form — /on /off routes; सुरक्षा — auth/TLS; Fail-safe — default off; विस्तार — schedule, multiple.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ फक्त वाचून पुढे जाणे — वाचनाने समज राहते पण प्रत्यक्ष सराव न झाल्यास आठवण ठाम होत नाही; प्रत्येक उदाहरण स्वतः रन करा.\n✗ निर्णयात घाई करणे — तपशीलात न जाता निष्कर्ष काढल्यास चुकीचा अर्थ बसतो; प्रत्येक संकल्पना क्रमाक्रमाने तपासा.\n✗ परिणाम/आउटपुट न तपासणे — अपेक्षित उत्तराशी तुमचे उत्तर जुळते आहे का हे पाहूनच पुढे जा.\n✗ सर्व एकाच दिवशी संपवण्याची घाई — छोट्या खंडांमध्ये शिका; ताज्या मनाने केलेला अभ्यास अधिक अचूक होतो.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
+      {
         title: "दिवा/उपकरण इंटरनेटद्वारे ON/OFF",
         content: "रचना: ESP ← WiFi → phone/browser; Relay module — ESP GPIO मधून; Relay — AC load संपर्क. AC मेन्स — engineering-safe circuit नको नाही तर. Relay contact rating — 10A सुरक्षित. सुरक्षा: नव्याने सर्किट नाही, shielded module वापरा, कमी power load सोबत प्रयोग, fuse + insulation. फक्त थोडा load (LED) साठी relay ब्लास्ट करून सुरू करा.",
       },
@@ -268,6 +316,15 @@ server.on("/off", [](){
     minutes: 35,
     summary: "ThingSpeak channel निर्माण, write API key, HTTP GET upload, मल्टी-field data, graphs/charts वाचणे आणि mobile अॅप/channel नियम.",
     sections: [
+      {
+        title: "का शिकावे? ThingSpeak full — channel setup, write API, HTTP upload, graphs, mobile अॅप चे फायदे आणि महत्त्व",
+        content: "\"ThingSpeak full — channel setup, write API, HTTP upload, graphs, mobile अॅप\" हा विषय व्यावहारिक जीवनात आणि पुढील शिक्षणात थेट उपयोगी आहे — म्हणून तो क्रमाक्रमाने नीट समजून घेणे महत्त्वाचे आहे.\nहे शिकल्यानंतर तुम्ही स्वतः छोटी उदाहरणे घडवू शकता आणि याच्या पुढील संकल्पना सहजपणे समजून घेऊ शकता.\nवाचून न थांबता प्रत्येक संकल्पनेचे एक छोटे स्वतःचे उदाहरण प्रयत्न करा — तेव्हाच हा फायदा खऱ्या अर्थाने मिळतो.",
+      },
+      {
+        title: "सामान्य चुका आणि सावधानता",
+        content: "✗ Keys गुप्त — public read न करा अनावश्यक.\nप्रत्येक चुकीचा उपाय आधीच वाचल्याने पुढील प्रयोगांमध्ये तुम्हाला ती चुक टाळता येईल.",
+      },
+
       {
         title: "ThingSpeak म्हणजे काय",
         content: "MathWorks चा free cloud — IoT data storage/chart. Channel — एक विषय; Field1..Field8 — variables; API keys — write/read. Devices HTTP upload, Visualizations ग्राफ, Downloads CSV. Free tier शिकण्यासाठी, MATLAB integration, Browser/mobile access. Keys गुप्त — public read न करा अनावश्यक.",

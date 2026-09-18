@@ -178,7 +178,7 @@ function audit() {
       slugs.push(slug);
 
       const sections = findBlock(obj, "sections");
-      const titles = [...sections.matchAll(/^\s*title:\s*"([^"]+)"/gm)].map((m) => m[1]);
+      const titles = [...sections.matchAll(/(?:^|[{,])\s*title\s*:\s*"([^"]+)"/gm)].map((m) => m[1]);
       const hasCode = countField(sections, "code") > 0;
       const hasOutput = countField(sections, "output") > 0;
 
@@ -223,7 +223,11 @@ function audit() {
   const unique = new Set(slugs).size;
   const totals = { what: 0, why: 0, example: 0, output: 0, mistakes: 0, practice: 0, quiz: 0, related: 0, project: 0 };
   for (const r of rows) {
-    for (const k of Object.keys(totals)) if (r[k] === true || (typeof r[k] === "number" && r[k] > 0)) totals[k]++;
+    for (const k of Object.keys(totals)) {
+      if (k === "quiz") { if (r.quiz >= QUIZ_MIN) totals[k]++; continue; }
+      if (k === "related") { if (r.related >= RELATED_MIN) totals[k]++; continue; }
+      if (r[k] === true || (typeof r[k] === "number" && r[k] > 0)) totals[k]++;
+    }
   }
   const exampleApplicable = rows.filter((r) => r.example || r.output).length;
 
