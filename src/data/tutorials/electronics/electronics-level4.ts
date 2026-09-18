@@ -453,6 +453,6 @@ if (digitalRead(btn)) {
     ],
     related: ["electronics-motor", "arduino-project", "electronics-switch-relay"],
     prev: "arduino-ir",
-    next: "iot-intro",
+    next: "arduino-thermometer",
   },
 ];

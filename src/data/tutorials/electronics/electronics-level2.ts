@@ -101,7 +101,7 @@ void loop() {
       { question: "DHT11 वाचनासाठी कोणता आदेश आवश्यक?", options: ["delay", "map", "constrain", "analogRead"], correct: 0 },
     ],
     related: ["arduino-led", "electronics-capacitor", "diy-projects"],
-    prev: "arduino-led",
+    prev: "arduino-buzzer",
     next: "arduino-project",
   },
   {

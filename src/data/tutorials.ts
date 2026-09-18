@@ -88,6 +88,10 @@ import { electronicsLevel2 } from "./tutorials/electronics/electronics-level2";
 import { electronicsLevel3 } from "./tutorials/electronics/electronics-level3";
 import { electronicsLevel4 } from "./tutorials/electronics/electronics-level4";
 import { electronicsLevel5 } from "./tutorials/electronics/electronics-level5";
+import { arduinoSensors } from "./tutorials/electronics/arduino-sensors";
+import { arduinoProjects } from "./tutorials/electronics/arduino-projects";
+import { espIot } from "./tutorials/electronics/esp-iot";
+import { electronicsAdvanced } from "./tutorials/electronics/electronics-advanced";
 import { arduinoExtra } from "./tutorials/electronics/arduino";
 import { linuxLessons } from "./tutorials/linux/linux-lessons";
 import { termuxLessons } from "./tutorials/termux/termux-lessons";
@@ -148,6 +152,10 @@ export const tutorials: Tutorial[] = [
   ...electronicsLevel3,
   ...electronicsLevel4,
   ...electronicsLevel5,
+  ...arduinoSensors,
+  ...arduinoProjects,
+  ...espIot,
+  ...electronicsAdvanced,
   ...arduinoExtra,
   ...linuxLessons,
   ...termuxLessons,

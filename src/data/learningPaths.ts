@@ -125,22 +125,26 @@ export const learningPaths: LearningPath[] = [
       {
         title: "सुरुवात",
         english: "Beginner",
-        steps: ["electronics-circuits", "electronics-diode"],
+        steps: ["electronics-circuits", "electronics-diode", "arduino-button"],
       },
       {
         title: "मध्यम",
         english: "Intermediate",
-        steps: ["arduino-sensor"],
+        steps: ["arduino-sensor", "arduino-dht11", "arduino-lcd"],
       },
       {
         title: "प्रोजेक्ट",
         english: "Capstone Project",
-        steps: [{ project: "led-project" }],
+        steps: [
+          { project: "led-project" },
+          { project: "arduino-thermometer" },
+          { project: "arduino-plant-waterer" },
+        ],
       },
       {
         title: "पुढे",
         english: "Advanced",
-        steps: ["iot-intro"],
+        steps: ["iot-intro", "esp-telegram", "raspberrypi-intro"],
       },
     ],
   },

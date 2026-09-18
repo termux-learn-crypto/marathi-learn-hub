@@ -263,6 +263,6 @@ practiceQuestions: [
 ],
     related: ["arduino-basics", "arduino-sensor", "diy-projects"],
     prev: "arduino-basics",
-    next: "arduino-sensor",
+    next: "arduino-button",
   }
 ];

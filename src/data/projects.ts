@@ -429,6 +429,156 @@ void loop() {
 }`,
     codeLanguage: "cpp",
   },
+  {
+    id: "arduino-thermometer",
+    categoryId: "electronics",
+    title: "Digital Thermometer",
+    marathiTitle: "डिजिटल थर्मामीटर",
+    difficulty: "मध्यम",
+    minutes: 30,
+    summary: "DHT11 + LCD 16x2 ने real-time तापमान आणि आर्द्रता दाखवा.",
+    steps: [
+      "DHT11 sensor ला Arduino वर जोडा",
+      "LCD 16x2 ची wiring करा",
+      "DHT आणि LiquidCrystal libraries install करा",
+      "Code upload करा आणि readings तपासा",
+    ],
+    code: `#include <DHT.h>
+#include <LiquidCrystal.h>
+#define DHTPIN 2
+DHT dht(DHTPIN, DHT11);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 6);
+void setup() {
+  dht.begin();
+  lcd.begin(16, 2);
+}
+void loop() {
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: ");
+  lcd.print(dht.readTemperature(), 1);
+  lcd.print(" C");
+  lcd.setCursor(0, 1);
+  lcd.print("Hum:  ");
+  lcd.print(dht.readHumidity(), 0);
+  lcd.print(" %");
+  delay(2000);
+}`,
+    codeLanguage: "cpp",
+    components: ["Arduino UNO", "DHT11 sensor", "LCD 16x2", "Potentiometer", "Resistors", "Wires"],
+  },
+  {
+    id: "arduino-plant-waterer",
+    categoryId: "electronics",
+    title: "Auto Plant Waterer",
+    marathiTitle: "स्वयंचलित झाडांना पाणी",
+    difficulty: "मध्यम",
+    minutes: 40,
+    summary: "Soil moisture sensor ने जमीन कोरडी झाली की water pump आपोआप चालवा.",
+    steps: [
+      "FC-28 soil moisture sensor A0 वर जोडा",
+      "Water pump relay/MOSFET ने drive करा",
+      "Threshold सेट करा (कोरडे > 550)",
+      "वेळ safety ने pump control करा",
+    ],
+    code: `int sensor = A0;
+int relay = 8;
+void setup() { pinMode(relay, OUTPUT); }
+void loop() {
+  if (analogRead(sensor) > 550) {
+    digitalWrite(relay, HIGH);
+    delay(10000);
+    digitalWrite(relay, LOW);
+    delay(3600000);
+  } else {
+    digitalWrite(relay, LOW);
+  }
+  delay(2000);
+}`,
+    codeLanguage: "cpp",
+    components: ["Arduino UNO", "FC-28 soil sensor", "Water pump 3-6V", "Relay/MOSFET", "Battery", "Wires"],
+  },
+  {
+    id: "arduino-obstacle-robot",
+    categoryId: "electronics",
+    title: "Obstacle Robot",
+    marathiTitle: "अडथळा टाळणारा रोबोट",
+    difficulty: "अवघड",
+    minutes: 60,
+    summary: "HC-SR04 + servo + L298N मोटर्सने स्वतःच अडथळा टाळणारा robot बनवा.",
+    steps: [
+      "L298N सह दोन DC मोटर्स जोडा",
+      "HC-SR04 ultrasonic servo वर तयार करा",
+      "अंतर मोजणारा कोड लिहा",
+      "scan + turn algorithm जोडा",
+    ],
+    code: `// servo scan 0/90/180
+// dist() = echo duration * 0.01715
+// d < 20cm → stop, clear direction ने वळ
+// स्पीड: analogWrite(enA/enB)`,
+    codeLanguage: "cpp",
+    components: ["Arduino UNO", "2x DC motors + wheels", "L298N driver", "HC-SR04", "Servo", "Battery", "Robot chassis"],
+  },
+  {
+    id: "arduino-smart-light",
+    categoryId: "electronics",
+    title: "Smart Auto Light",
+    marathiTitle: "स्मार्ट ऑटो लाईट",
+    difficulty: "मध्यम",
+    minutes: 30,
+    summary: "LDR + PIR — अंधारात हालचाल दिसल्यावर दिवा आपोआप चालू.",
+    steps: [
+      "LDR voltage divider A0 वर जोडा",
+      "PIR motion sensor पिन 2 वर जोडा",
+      "अंधार + हालचाल तर दिवा ON",
+      "30s auto-off देऊन वीज वाचवा",
+    ],
+    code: `int pirPin = 2, ldrPin = A0, led = 9;
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(led, OUTPUT);
+}
+void loop() {
+  bool motion = digitalRead(pirPin) == HIGH;
+  bool dark = analogRead(ldrPin) < 500;
+  if (motion && dark) { digitalWrite(led, HIGH); delay(30000); }
+  else digitalWrite(led, LOW);
+  delay(100);
+}`,
+    codeLanguage: "cpp",
+    components: ["Arduino UNO", "PIR sensor", "LDR", "10k resistor", "LED 220Ω", "Wires"],
+  },
+  {
+    id: "esp-weather-station",
+    categoryId: "electronics",
+    title: "ESP Weather Station",
+    marathiTitle: "ESP वेदर स्टेशन",
+    difficulty: "अवघड",
+    minutes: 45,
+    summary: "DHT11 + BMP180 + ESP8266 — तापमान, आर्द्रता आणि दाब JSON मध्ये publish करा.",
+    steps: [
+      "DHT11 आणि BMP180 ESP वर जोडा",
+      "Adafruit BMP085 + DHT libraries install करा",
+      "दाब hPa मध्ये करा (readPressure/100)",
+      "JSON publish करून Network तपासा",
+    ],
+    code: `#include <Adafruit_BMP085.h>
+#include <DHT.h>
+#define DHTPIN 0
+DHT dht(DHTPIN, DHT11);
+Adafruit_BMP085 bmp;
+void setup() { Serial.begin(115200); dht.begin(); bmp.begin(); }
+void loop() {
+  float p = bmp.readPressure() / 100.0;
+  Serial.print("{\\"temp\\":");
+  Serial.print(dht.readTemperature(), 1);
+  Serial.print(",\\"pres\\":");
+  Serial.print(p, 1);
+  Serial.println("}");
+  delay(10000);
+}`,
+    codeLanguage: "cpp",
+    components: ["NodeMCU/ESP8266", "DHT11", "BMP180", "Breadboard", "Wires"],
+  },
 ];
 
 export function getProject(id: string): Project | undefined {

@@ -368,6 +368,6 @@ Serial.println(code);`,
     ],
     related: ["iot-temp-monitor", "iot-wifi-basics", "arduino-sensor"],
     prev: "iot-smart-relay",
-    next: "",
+    next: "esp8266-intro",
   },
 ];
