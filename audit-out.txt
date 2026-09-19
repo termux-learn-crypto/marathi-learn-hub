@@ -1,0 +1,17 @@
+Lessons parsed: 85 | total words: 226156 | min: 3000
+Below min: 29/85
+
+=== SHORTEST LESSONS ===
+    437  python-threading                       9 sections  (data/tutorials/python/python-level7.ts) <-- BELOW
+    463  python-async                           9 sections  (data/tutorials/python/python-level7.ts) <-- BELOW
+    568  python-practical-project              10 sections  (data/tutorials/python/python-level7.ts) <-- BELOW
+    571  python-pip-advanced                   10 sections  (data/tutorials/python/python-level7.ts) <-- BELOW
+    725  python-match-case                     10 sections  (data/tutorials/python/python-level8.ts) <-- BELOW
+   1346  python-input                          14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1456  python-type-conversion                14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1504  python-operators-logical              14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1578  python-data-types                     14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1593  python-naming-rules                   14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1703  python-comments                       14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1719  python-variables                      14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
+   1778  python-print                          14 sections  (data/tutorials/python/python-level1.ts) <-- BELOW
