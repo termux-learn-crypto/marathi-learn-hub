@@ -63,6 +63,12 @@ export default function RootLayout({
   return (
     <html lang="mr" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("mlh_dark_mode");if(t!==null){var d=t==="true"}else{d=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches}if(d){document.documentElement.classList.add("dark")}}catch(e){}})();`,

@@ -90,6 +90,22 @@ Source-of-truth docs (reference only, read-only):
 ### Verified
 - `typecheck` PASS, `lint` PASS, `next build` PASS; course page HTML contains Course+BreadcrumbList JSON-LD; search live-tested (default + query).
 
+## Current milestone — Phase 24 (Performance audit) + Phase 25 (Security audit) ✅ DONE
+
+### Done
+- **`npm run audit`** — new deterministic audit suite (`scripts/audit.ts`, tsx-driven) with 21 checks, exit-code gating:
+  - **Security**: all 7 security headers in next.config.js, poweredByHeader off, reactStrictMode on, `<html lang="mr">`, no `.env*` in tree / tracked by git, no hardcoded secret patterns (tokens, Google API keys, private keys) across src + config.
+  - **Performance**: python-curriculum data footprint (2.6 MB source → 6.5 MB shared client chunk), bundle budget check, `@import url()` font-blocking check, manifest/PWA shape.
+- **Performance fix**: removed render-blocking `@import url()` Google-Fonts call from globals.css → moved to `<link rel=preconnect>` + `<link rel=stylesheet>` in root layout `<head>` (parallel fetch, `display=swap` retained).
+
+### Audit findings (intentional warnings, not failures)
+1. 572 tutorials + 23 projects are inlined into shared client bundles (`/`, `/tutorials`, `/quiz`, `/learn`, etc.); largest chunk 6528 KB (gzip ~1 MB). Durable fix = Phase 7 MDX content engine — out of scope until infra partner.
+2. PG1: no lint rule gating; fonts warning `no-page-custom-font` accepted (deliberate `<link>` approach; `next/font` needs build-time network fetch).
+
+### Verified
+- `npm run audit` → **PASS** (21 checks, 0 failures, 4 warnings); `typecheck` PASS; `lint` PASS (non-blocking font warning); `next build` PASS (644 static pages).
+- Built HTML: preconnect + fonts stylesheet present, `@import url` gone.
+
 ## Pending phases (from implintion.md)
 1. Phase 1 — Folder architecture (src/app, src/components, src/lib, src/types, src/styles)
 2. Phase 2 — Design system components
@@ -123,6 +139,8 @@ Source-of-truth docs (reference only, read-only):
 ---
 ## Changelog (newest first)
 
+- (audit) npm run audit: 21-check perf+security suite (headers, secrets, bundle budget, font-blocking, PWA); 0 failures.
+- (perf) Google Fonts moved from render-blocking @import to preconnect + stylesheet <link> in root layout.
 - (search) /search now includes languages/courses results section; empty-state covers courses.
 - (seo) Course pages emit Course + BreadcrumbList JSON-LD (schema.org) with siteUrl().
 - (test) Real data-integrity suite: 29 checks (tutorials/categories/projects/glossary/paths/languages+resources) via tsx; package.json test → tsx; tsx devDep added.
