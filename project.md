@@ -64,6 +64,22 @@ Source-of-truth docs (reference only, read-only):
 - `typecheck` PASS, `lint` PASS, `next build` PASS, and 16-route smoke test in `next start`: `/`, `/courses`, `/courses/python`, `/courses/web`, `/lessons`, `/practice`, `/challenges`, `/roadmaps`, `/playground`, `/privacy-policy`, `/terms`, `/disclaimer`, `/tutorial/python-basics`, `/notes`, `/quiz`, `/learn` → all HTTP 200.
 - `/learn`, `/quiz`, `/notes` reviewed: already rich (filters, quiz hub, progress+notes+backup) → kept as-is.
 
+## Current milestone — Phase 15/17/18/22: Search + SEO + Internal Linking + Testing ✅ DONE
+
+### Done
+- **Phase 22 — Testing**: rewrote `scripts/check-content.js` → `scripts/check-content.ts`, run via `tsx` (devDep added). 29 data-integrity checks against the real modules:
+  - tutorials: 572 present, slugs+marathiTitle unique, required fields set, all categoryIds valid, related/project refs resolve, quiz correct-index in-range.
+  - categories (14), projects (23), glossary (79): unique ids, valid categoryIds, no orphan categories.
+  - learning paths (6): all steps resolve through `resolveStep`; categoryIds valid.
+  - languages (14) + official resources (32): unique ids/slugs, resource URLs valid http(s), order > 0, ids unique.
+  - `npm test` → PASS (exit 0).
+- **Phase 17 — SEO (sitemap expansion)**: `src/app/sitemap.ts` now includes static (courses, lessons, practice, challenges, roadmaps, playground, search, glossary, legal, notes, paths), courses pages (per language), path pages, in addition to 572 tutorials + 14 categories + 23 projects → **652 total URLs** (verified in build output).
+- **Phase 18 — Internal linking**: `/courses/[slug]` gains "इतर अभ्यासक्रम" related-courses grid (all languages with lessons); `/tutorial/[slug]` meta row gains a "📚 अभ्यासक्रम" chip linking to the language course page.
+
+### Verified
+- `typecheck` PASS, `lint` PASS, `npm test` PASS (29 checks, 0 failures), `next build` PASS.
+- Sitemap 652 URLs verified (all new routes present).
+
 ## Pending phases (from implintion.md)
 1. Phase 1 — Folder architecture (src/app, src/components, src/lib, src/types, src/styles)
 2. Phase 2 — Design system components
@@ -97,6 +113,9 @@ Source-of-truth docs (reference only, read-only):
 ---
 ## Changelog (newest first)
 
+- (test) Real data-integrity suite: 29 checks (tutorials/categories/projects/glossary/paths/languages+resources) via tsx; package.json test → tsx; tsx devDep added.
+- (seo) sitemap expanded to 652 URLs (new routes + courses + paths).
+- (seo) Course pages + tutorial pages internal linking (related courses, अभ्यासक्रम chip).
 - (course-nav) Added getOrderedLessonSlugs/getLessonNavigation; course lesson rows show quiz badge; tutorial page got TableOfContents scroll-spy + section anchors.
 - (ui-complete) Finished design system: Modal, Accordion, Dropdown, Input, Pagination, TableOfContents, CodeBlock added to ui/index.ts.
 - (phase-0/) Initialized: prettier config + check-content.js test script; package renamed.

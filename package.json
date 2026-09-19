@@ -8,7 +8,7 @@
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "node node_modules/next/dist/bin/next lint",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
-    "test": "node scripts/check-content.js",
+    "test": "node node_modules/tsx/dist/cli.mjs scripts/check-content.ts",
     "prettier:check": "node node_modules/prettier/bin/prettier.cjs --check \"src/**/*.{ts,tsx}\"",
     "prettier:write": "node node_modules/prettier/bin/prettier.cjs --write \"src/**/*.{ts,tsx}\"",
     "icons": "node scripts/generate-icons.js",
@@ -30,6 +30,7 @@
     "postcss": "^8.4.33",
     "prettier": "^3.3.0",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

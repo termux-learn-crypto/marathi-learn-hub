@@ -206,6 +206,11 @@ export default async function TutorialDetailPage({ params }: Props) {
                   {cat.icon} {cat.name}
                 </Link>
               )}
+              {cat && (
+                <Link href={`/courses/${cat.id}`} className="px-2 py-1 rounded bg-marathi-50 dark:bg-marathi-900/40 text-marathi-700 dark:text-marathi-300 text-xs font-medium">
+                  📚 अभ्यासक्रम
+                </Link>
+              )}
               <span className={`text-xs px-2 py-1 rounded-full font-medium ${tutorial.level === "beginner" ? "bg-green-100 text-green-700" : tutorial.level === "intermediate" ? "bg-yellow-100 text-yellow-700" : "bg-red-100 text-red-700"}`}>
                 {diffLabel}
               </span>

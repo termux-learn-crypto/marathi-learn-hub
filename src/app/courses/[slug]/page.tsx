@@ -5,7 +5,7 @@ import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import { OfficialResources } from "@/components/course/OfficialResources";
 import { Breadcrumb, Badge } from "@/components/ui";
-import { getLanguage } from "@/data/languages";
+import { getLanguage, languages } from "@/data/languages";
 import { buildModules, getLessonsForLanguage } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/seo";
 
@@ -31,6 +31,9 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
 
   const modules = buildModules(lang.categoryId);
   const lessons = getLessonsForLanguage(lang.categoryId);
+  const relatedCourses = languages.filter(
+    (l) => l.id !== lang.id && getLessonsForLanguage(l.categoryId).length > 0
+  );
 
   return (
     <>
@@ -106,6 +109,25 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
         )}
 
         <OfficialResources language={lang} />
+
+        {relatedCourses.length > 0 && (
+          <section className="py-8">
+            <h2 className="text-2xl font-bold marathi mb-4">🔗 इतर अभ्यासक्रम</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {relatedCourses.map((c) => (
+                <Link
+                  key={c.id}
+                  href={`/courses/${c.slug}`}
+                  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                >
+                  <div className="text-2xl mb-2">{c.icon}</div>
+                  <p className="font-medium text-sm marathi">{c.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{c.marathiName}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </>

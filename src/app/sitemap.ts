@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { tutorials } from "@/data/tutorials";
 import { categories } from "@/data/categories";
 import { projects } from "@/data/projects";
+import { learningPaths } from "@/data/learningPaths";
+import { languages } from "@/data/languages";
 import { siteUrl } from "@/lib/site";
 import { getLessonDates } from "@/lib/lesson-dates";
 
@@ -12,17 +14,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = [
     "/",
+    "/courses",
+    "/lessons",
+    "/practice",
+    "/challenges",
+    "/projects",
+    "/roadmaps",
+    "/playground",
+    "/search",
+    "/glossary",
     "/learn",
     "/tutorials",
     "/categories",
     "/quiz",
-    "/projects",
     "/tools",
-    "/glossary",
     "/community",
     "/about",
     "/contact",
-    "/privacy",
+    "/privacy-policy",
+    "/terms",
+    "/disclaimer",
+    "/notes",
+    "/paths",
   ].map((path) => ({
     url: `${base}${path}`,
     changeFrequency: "weekly",
@@ -51,5 +64,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...tutorialPages, ...categoryPages, ...projectPages];
+  const coursePages: MetadataRoute.Sitemap = languages.map((l) => ({
+    url: `${base}/courses/${l.slug}`,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  const pathPages: MetadataRoute.Sitemap = learningPaths.map((p) => ({
+    url: `${base}/path/${p.id}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...tutorialPages, ...categoryPages, ...projectPages, ...coursePages, ...pathPages];
 }
