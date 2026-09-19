@@ -10,6 +10,7 @@ export const pythonLevel7: Tutorial[] = [
     title: "f-strings in Depth",
     marathiTitle: "f-strings - सुबक मजकूर कोड",
     level: "advanced",
+    levelLabel: L7_LABEL,
     minutes: 14,
     summary: "f-strings ने variables थेट string मध्ये; formatting तपशीलवार.",
     sections: [
