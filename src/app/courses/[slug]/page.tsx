@@ -67,33 +67,40 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
             <h2 className="text-2xl font-bold marathi mb-4">📖 पाठधडे</h2>
             <div className="space-y-4">
               {modules.map((mod) => (
-                <div key={mod.id} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">
-                  <p className="px-5 py-3 font-semibold bg-gray-50 dark:bg-gray-700/50 text-gray-800 dark:text-gray-100 marathi">
-                    {mod.title}
-                  </p>
-                  <ul className="divide-y divide-gray-100 dark:divide-gray-700">
-                    {mod.lessonIds.map((lessonSlug) => {
-                      const lesson = lessons.find((l) => l.slug === lessonSlug);
-                      if (!lesson) return null;
-                      return (
-                        <li key={lessonSlug}>
-                          <Link
-                            href={`/tutorial/${lessonSlug}`}
-                            className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                          >
-                            <span className="text-lg">📄</span>
-                            <div className="flex-1 min-w-0">
-                              <p className="font-medium text-gray-800 dark:text-gray-100">{lesson.marathiTitle}</p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{lesson.title}</p>
-                            </div>
-                            <span className="text-xs text-gray-400">{lesson.minutes} मि</span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ))}
+                  <div key={mod.id} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">
+                    <p className="px-5 py-3 font-semibold bg-gray-50 dark:bg-gray-700/50 text-gray-800 dark:text-gray-100 marathi">
+                      {mod.title}
+                    </p>
+                    <ul className="divide-y divide-gray-100 dark:divide-gray-700">
+                      {mod.lessonIds.map((lessonSlug) => {
+                        const lesson = lessons.find((l) => l.slug === lessonSlug);
+                        if (!lesson) return null;
+                        return (
+                          <li key={lessonSlug}>
+                            <Link
+                              href={`/tutorial/${lessonSlug}`}
+                              className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                            >
+                              <span className="text-lg">📄</span>
+                              <div className="flex-1 min-w-0">
+                                <p className="font-medium text-gray-800 dark:text-gray-100">{lesson.marathiTitle}</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{lesson.title}</p>
+                              </div>
+                              <div className="flex items-center gap-2 shrink-0">
+                                {lesson.hasQuiz && (
+                                  <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300">
+                                    🧩 Quiz
+                                  </span>
+                                )}
+                                <span className="text-xs text-gray-400">{lesson.minutes} मि</span>
+                              </div>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ))}
             </div>
           </section>
         )}

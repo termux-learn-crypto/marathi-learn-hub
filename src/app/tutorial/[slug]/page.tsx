@@ -9,6 +9,7 @@ import { getProject } from "@/data/projects";
 import CodeEditor from "@/components/CodeEditor";
 import QuizPlayer from "@/components/QuizPlayer";
 import { TutorialCard } from "@/components/Cards";
+import { TableOfContents } from "@/components/ui/TableOfContents";
 import { Fragment } from "react";
 import TutorialActions from "./TutorialActions";
 import TrackVisit from "@/components/TrackVisit";
@@ -219,6 +220,13 @@ export default async function TutorialDetailPage({ params }: Props) {
 
         <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 marathi leading-relaxed">{tutorial.summary}</p>
 
+        <TableOfContents
+          headings={tutorial.sections.map((s, idx) => ({
+            id: `sec-${idx}`,
+            title: s.title,
+          }))}
+        />
+
         <AdUnit />
 
         {/* Sections */}
@@ -227,7 +235,7 @@ export default async function TutorialDetailPage({ params }: Props) {
             const chips = sectionChips(section.title, Boolean(section.code), Boolean(section.output));
             return (
             <Fragment key={idx}>
-              <section className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
+              <section id={`sec-${idx}`} className="rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800">
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 flex items-center justify-center font-bold text-sm">
                   {idx + 1}

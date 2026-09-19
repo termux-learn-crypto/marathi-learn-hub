@@ -43,15 +43,26 @@ Source-of-truth docs (reference only, read-only):
   - Route output shows: `/`, `/courses`, `/courses/[slug]` (14), `/lessons`, `/practice`, `/challenges`, `/roadmaps`, `/playground`, `/privacy-policy`, `/terms`, `/disclaimer`, glossary, projects, search, sitemap, robots, plus 572 static tutorial pages + 23 projects + 6 paths.
 - `npm test` (check-content.js) PASS.
 
-## Current milestone — remaining work (next sessions)
+## Current milestone — Phase 2: Design System ✅ COMPLETE
 
-### To-do
-- Phase 2 completion: missing ui components (Modal, Dropdown, Input, Accordion, Pagination, TableOfContents, CodeBlock) per implintion.md.
-- Replace placeholder future pages: `/learn`, `/quiz`, `/tools`, `/community`, `/notes` to route to new architecture or be reworked.
-- Course detail: add project/code challenge wiring + prev/next navigation.
-- Phase 11+: DB layer (PostgreSQL + Prisma), MDX content engine, Live Code Runner (backend), Admin CMS — depends on infra.
-- Phase 21+: PWAs, install prompts, revenue (ads), advanced SEO/analytics.
-- Phase 28: final QA, performance audit, git history cleanup.
+### Done
+- `src/components/ui/` full set per implintion.md Phase 2: Button, Card(+Header/Body), Badge, Breadcrumb, Tabs, Accordion, Modal, Dropdown, Input, Alert, Skeleton, EmptyState, Pagination, TableOfContents, CodeBlock. All exported from `ui/index.ts`.
+- CodeBlock: light-weight client-side keyword highlighting (no heavy deps), copy button, inline/block variants.
+
+### Verified
+- `typecheck` PASS after Phase 2.
+
+## Current milestone — detail layer: course navigation, TOC, table of contents adoption ✅ COMPLETE
+
+### Done
+- `src/lib/content/courses.ts` additions: `getOrderedLessonSlugs(languageId)` and `getLessonNavigation(languageId, slug)` (prev/next for any lesson within a course/module order).
+- `/courses/[slug]` lesson rows now show Quiz badge (+ 'मि' duration), module cards polished.
+- Tutorial detail page (`/tutorial/[slug]`): sections now have `id="sec-N"` anchors and a `TableOfContents` (scroll-spy) below the summary — adoption of Phase 2 design system.
+- `ui/` already covers: Button, Card, Badge, Breadcrumb, Tabs, Accordion, Modal, Dropdown, Input, Alert, Skeleton, EmptyState, Pagination, TableOfContents, CodeBlock.
+
+### Verified
+- `typecheck` PASS, `lint` PASS, `next build` PASS, and 16-route smoke test in `next start`: `/`, `/courses`, `/courses/python`, `/courses/web`, `/lessons`, `/practice`, `/challenges`, `/roadmaps`, `/playground`, `/privacy-policy`, `/terms`, `/disclaimer`, `/tutorial/python-basics`, `/notes`, `/quiz`, `/learn` → all HTTP 200.
+- `/learn`, `/quiz`, `/notes` reviewed: already rich (filters, quiz hub, progress+notes+backup) → kept as-is.
 
 ## Pending phases (from implintion.md)
 1. Phase 1 — Folder architecture (src/app, src/components, src/lib, src/types, src/styles)
@@ -86,4 +97,7 @@ Source-of-truth docs (reference only, read-only):
 ---
 ## Changelog (newest first)
 
+- (course-nav) Added getOrderedLessonSlugs/getLessonNavigation; course lesson rows show quiz badge; tutorial page got TableOfContents scroll-spy + section anchors.
+- (ui-complete) Finished design system: Modal, Accordion, Dropdown, Input, Pagination, TableOfContents, CodeBlock added to ui/index.ts.
+- (phase-0/) Initialized: prettier config + check-content.js test script; package renamed.
 - (init) Created this log file; running Phase 0.

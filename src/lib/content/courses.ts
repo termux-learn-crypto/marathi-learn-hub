@@ -81,6 +81,21 @@ export function getLessonsForLanguage(languageId: string): LessonSummary[] {
   return tutorials.filter((t) => t.categoryId === languageId).map(toLessonSummary);
 }
 
+// Ordered lesson slugs for a language (module order flat), for prev/next nav.
+export function getOrderedLessonSlugs(languageId: string): string[] {
+  return buildModules(languageId).flatMap((m) => m.lessonIds);
+}
+
+export function getLessonNavigation(
+  languageId: string,
+  slug: string
+): { prev?: string; next?: string } {
+  const order = getOrderedLessonSlugs(languageId);
+  const index = order.indexOf(slug);
+  if (index === -1) return {};
+  return { prev: order[index - 1], next: order[index + 1] };
+}
+
 export function getLesson(slug: string): Tutorial | undefined {
   return getTutorial(slug);
 }
