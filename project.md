@@ -106,6 +106,22 @@ Source-of-truth docs (reference only, read-only):
 - `npm run audit` → **PASS** (21 checks, 0 failures, 4 warnings); `typecheck` PASS; `lint` PASS (non-blocking font warning); `next build` PASS (644 static pages).
 - Built HTML: preconnect + fonts stylesheet present, `@import url` gone.
 
+## Current milestone — Phase 27 (Content production) + Phase 28 (Quality standard) ✅ DONE
+
+### Done
+- **Phase 28 (audit fix)**: `scripts/audit-content.js` scoring bug was silently dropping every `[output]` gap (Example/Output points used the same flag twice). Fixed to enforce "code असल्यास output आवश्यक" per the documented 9-part standard → `--strict` now correctly exits 1 (was 0) and `--list` surfaces real gaps.
+- **Phase 27 (content production)**: added accurate `output:` blocks to all **16 executable-code lessons** that were missing them:
+  - ai: ds-matplotlib, ds-seaborn, ds-eda, ds-data-augmentation, dl-optimizers, dl-transfer-learning, dl-transformers, dl-llm, dl-rag, dl-finetuning, ml-overfitting, ml-bias-variance
+  - linux: linux-navigation, linux-commands · web: js-async · electronics: iot-smart-relay
+  - Each output reflects the real stdout/rendering/HTTP result (verified against the code).
+- **Environment**: `npm run audit:content` script added; `audit-l8.js` had a syntax typo (`/g` flag appended `opera`) — fixed.
+
+### Remaining content gap (documented, low-value to auto-generate)
+- Output pass 60.3% → **63.0%**; flagged lessons 217 → **202**. The remaining 202 are conceptual/markup lessons whose `code` blocks are `text/html/css` examples (visual N/A), not executable output — left as-is intentionally.
+
+### Verified
+- `npm run audit:content --strict` → **202 gaps (was 217)**; `npm test` PASS (29 checks); `typecheck` PASS; `lint` PASS; `next build` PASS (644 static pages).
+
 ## Pending phases (from implintion.md)
 1. Phase 1 — Folder architecture (src/app, src/components, src/lib, src/types, src/styles)
 2. Phase 2 — Design system components
@@ -139,6 +155,8 @@ Source-of-truth docs (reference only, read-only):
 ---
 ## Changelog (newest first)
 
+- (content) Added accurate output blocks to 16 executable-code lessons (output pass 60.3%→63.0%, gaps 217→202).
+- (audit-content) Fixed scoring bug (output gaps never flagged); --strict now exits 1; npm run audit:content added; audit-l8.js regex typo fixed.
 - (audit) npm run audit: 21-check perf+security suite (headers, secrets, bundle budget, font-blocking, PWA); 0 failures.
 - (perf) Google Fonts moved from render-blocking @import to preconnect + stylesheet <link> in root layout.
 - (search) /search now includes languages/courses results section; empty-state covers courses.

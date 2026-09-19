@@ -177,6 +177,9 @@ practiceQuestions: [
 }
 उभारणी();`,
         codeLanguage: "js",
+        output: `{ response data }
+// fetch पूर्ण झाल्यावर API ने परतलेले JSON data console मध्ये छापले जाते.
+// async/await ने कोड line-by-line (सीरियल) दिसतो, पण page थांबत नाही.`,
       },
       {
         title: "2. Promise — वचन",
@@ -187,6 +190,8 @@ practiceQuestions: [
   .then(डेटा => console.log(डेटा.नाव))
   .catch(चूक => console.error("अपयश: " + चूक));`,
         codeLanguage: "js",
+        output: `नाव (म्हणजे users API च्या परतलेल्या data मधील .नाव फील्ड)
+// यशस्वी असल्यास .then मधील निकाल छापले जातो; चूक झाल्यास "अपयश: <चूक>" मिळते.`,
       },
     ],
 

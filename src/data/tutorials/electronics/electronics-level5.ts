@@ -280,6 +280,9 @@ server.on("/off", [](){
   server.send(200, "text/html", page("OFF"));
 });`,
         codeLanguage: "cpp",
+        output: `/on वर: relay HIGH होतो आणि page("ON") — "ON" साठी HTML पेज return होते (HTTP 200).
+/off वर: relay LOW होतो आणि page("OFF") return होते.
+ब्राउझरमध्ये http://<esp-ip>/on टाकल्यावर दिवा लागतो, /off ने बंद.`,
       },
       {
         title: "सुरक्षा — auth आणि fail-safe",

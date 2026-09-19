@@ -196,12 +196,16 @@ function audit() {
       const mistakes = titles.some((t) => MISTAKE_RE.test(t));
 
       const exampleApplicable = hasCode || hasOutput;
-      const applicable = 1 + 1 + 1 + (exampleApplicable ? 1 : 0) + (hasOutput ? 1 : 0) + 1 + 1 + 1;
+      // Output is REQUIRED whenever a lesson shows code (code असल्यास output आवश्यक).
+      // When no code at all (conceptual lesson), Example/Output are N/A (excluded from applicable).
+      const examplePassed = exampleApplicable && hasCode;
+      const outputPassed = hasOutput;
+      const applicable = 6 + (exampleApplicable ? 2 : 0);
       const passed =
         (what ? 1 : 0) +
         (why ? 1 : 0) +
-        (exampleApplicable && hasCode ? 1 : 0) +
-        (hasOutput ? 1 : 0) +
+        (examplePassed ? 1 : 0) +
+        (outputPassed ? 1 : 0) +
         (mistakes ? 1 : 0) +
         (hasPractice ? 1 : 0) +
         (quizCount >= QUIZ_MIN ? 1 : 0) +

@@ -449,6 +449,10 @@ X_test = sc.transform(X_test)         # test वर फक्त transform`,
 #  20       0.03        0.75     → वाढतच चाललं
 # समस्या: epochs जास्त, model जटिल, data कमी`,
         codeLanguage: "python",
+        output: `ही कल्पनारूप्य learning curve table आहे:
+- epoch 5: train 0.12, val 0.40 → model train चांगले शिकतोय, validation मध्ये गॅप सुरू
+- epoch 20: train 0.03, val 0.75 → val वाढतोय = overfitting होतोय
+निष्कर्ष: ~epoch 5-8 च्या आसपास थांबवणे (early stopping) योग्य.`,
       },
       {
         title: "उपाय",
@@ -506,6 +510,10 @@ X_test = sc.transform(X_test)         # test वर फक्त transform`,
 # total error ->  (उत्तम आराम मध्य) best point
 # "बरोबर जटिलता हीच निवड"`,
         codeLanguage: "python",
+        output: `हा कल्पनारूप्य bias-variance graph असा दिसतो:
+- Low complexity: bias खूप (model data नीट समजत नाही)
+- High complexity: variance खूप (model अस्थिर)
+- Best point: उभा (कमाल कमी) — जिथे एकूण error किमान होते.`,
       },
       {
         title: "कशी कमी करायची",

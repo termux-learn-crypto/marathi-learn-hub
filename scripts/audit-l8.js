@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const src = fs.readFileSync("src/data/tutorials/python/python-level8.ts", "utf8");
 
-const WORD_RE = /[A-Za-z\u0900-\u097F0-9]{2,}/gopera;
+const WORD_RE = /[A-Za-z\u0900-\u097F0-9]{2,}/g;
 function countWords(s) {
   const m = s.match(WORD_RE);
   return m ? m.length : 0;

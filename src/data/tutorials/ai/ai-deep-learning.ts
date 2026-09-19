@@ -299,6 +299,9 @@ SGD = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 Adam = torch.optim.Adam(model.parameters(), lr=0.001)
 print(SGD, Adam)`,
         codeLanguage: "python",
+        output: `SGD (momentum 0.9, lr 0.01) —
+Adam (lr 0.001) —
+हे optimizer object च्या repr असते; महत्त्वाचे: SGD ला momentum=0.9 होतिकार, Adam ला एकच lr.`,
       },
       {
         title: "Learning rate schedules",
@@ -309,6 +312,8 @@ for epoch in range(50):
     # ... train
     sched.step(loss)` ,
         codeLanguage: "python",
+        output: `कोणतेही stdout नाही — sched.step(loss) ने आतल्या state मध्ये बदल:
+वैधता loss 5 epochs थांबल्यावर lr अर्धा (factor=0.5) होतो.`,
       },
       {
         title: "सारांश — optimizers",
@@ -557,6 +562,9 @@ for p in model.parameters():
 model.fc = nn.Linear(model.fc.in_features, 2)  # आपले 2 classes
 print(model)`,
         codeLanguage: "python",
+        output: `resnet18 चा संपूर्ण architecture छापतो (सर्व layers):
+- कन्व्होल्युशन layers चे weights frozen (requires_grad = False)
+- शेवटी fc प्रथम: Linear(in_features=512, out_features=2) — फक्त हेच शिकायचे`,
       },
       {
         title: "Finetune तोडणे",
@@ -858,6 +866,8 @@ summ = pipeline("summarization", model="facebook/bart-large-cnn")
 text = "Transformers are neural networks using attention ..."
 print(summ(text, max_length=30)[0]["summary_text"])`,
         codeLanguage: "python",
+        output: `तुमच्या text चा अर्थविषयक सारांश (max 30 tokens):
+उदा. text च्या आधारावर BART एक concise Marathi/English summary परत करतो.`,
       },
       {
         title: "सारांश — transformers",
@@ -915,6 +925,11 @@ for step in range(output_len):
     next_tok = sample(prob, top_p=0.9)
     tokens.append(next_tok)`,
         codeLanguage: "python",
+        output: `कोणताही direct output नाही — हा generation loop आहे:
+- temperature लहान (<1): अचूक, कमी विविधता
+- temperature मोठा (>1): सर्जनशील, पण चुका जास्त
+- top_p=0.9: फक्त शीर्ष probability पूल लक्षात घेतो
+प्रत्येक पाऊल tokens append होऊन शेवटी पूर्ण उत्तर मिळते.`,
       },
       {
         title: "सारांश — LLM",
@@ -970,6 +985,9 @@ chunks = RecursiveCharacterTextSplitter(
     PyPDFLoader("guide.pdf").load())
 db = Chroma.from_documents(chunks, embedding_model)`,
         codeLanguage: "python",
+        output: `कोणताही stdout नाही — guide.pdf मधील मजकूर 500-token च्या chunks मध्ये विभागून
+embedding मध्ये रूपांतरित होऊन Chroma vector DB मध्ये साठवला जातो (chunk_size=500, chunk_overlap=50).
+`,
       },
       {
         title: "LLM ला संदर्भ",

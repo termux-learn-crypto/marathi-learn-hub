@@ -122,6 +122,9 @@ find /home -name "*.txt"
 # पाथ मध्ये file आहे का तपासणे
 file /etc/hostname`,
         codeLanguage: "bash",
+        output: `हे commands कोणताही output होईपर्यंत काम करतात; शेवटचा:
+/etc/hostname: ASCII text
+(तुमच्या filesystem नुसार listing/results बदलतात — ls -l ने permissions व sizes दिसतात.)`,
       },
     ],
 
@@ -272,6 +275,11 @@ history
 # पॅकेज इन्स्टॉल (Ubuntu/Debian)
 sudo apt install <package>`,
         codeLanguage: "bash",
+        output: `प्रत्येक command चे आउटपुट तुमच्या system नुसार असते — उदा. free -h:
+               total        used        free      shared  buff/cache   available
+Mem:           7.7G        2.1G        3.2G        120M        2.4G        5.0G
+Swap:          2.0G          0B        2.0G
+(कमीत कमी "error" hits grep, wc ने lines संख्या अशी निरनिराळी दिसते.)`,
       },
     ],
 

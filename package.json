@@ -10,6 +10,7 @@
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "test": "node node_modules/tsx/dist/cli.mjs scripts/check-content.ts",
     "audit": "node node_modules/tsx/dist/cli.mjs scripts/audit.ts",
+    "audit:content": "node scripts/audit-content.js",
     "prettier:check": "node node_modules/prettier/bin/prettier.cjs --check \"src/**/*.{ts,tsx}\"",
     "prettier:write": "node node_modules/prettier/bin/prettier.cjs --write \"src/**/*.{ts,tsx}\"",
     "icons": "node scripts/generate-icons.js",

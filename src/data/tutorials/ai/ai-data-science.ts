@@ -627,6 +627,10 @@ plt.xlabel("month"); plt.ylabel("रुपये")
 plt.title("एका वर्षाचे मासिक निकाल")
 plt.legend(); plt.show()`,
         codeLanguage: "python",
+        output: `Plot window उघडते:
+- line "sales" (o marker): (1,2) (2,4) (3,1) (4,5) (5,3)
+- bar "cost" (alpha 0.5): 1,3,2,4,2
+- x-axis "month", y-axis "रुपये", शीर्षक "एका वर्षाचे मासिक निकाल", legend वर दोन्ही sequence.`,
       },
       {
         title: "Scatter आणि horizontal-bar",
@@ -638,6 +642,9 @@ ax[1].barh(["a", "b", "c"], [40, 72, 55])
 ax[1].set_title("पदार्थ")
 plt.tight_layout(); plt.show()`,
         codeLanguage: "python",
+        output: `दोन आलेख एका figure मध्ये:
+- डावे: scatter (crimson) — x व y चे संबंध, शीर्षक "किंमत vs विक्री"
+- उजवे: horizontal bars — a=40, b=72, c=55, शीर्षक "पदार्थ"`,
       },
       {
         title: "सारांश — Matplotlib",
@@ -694,6 +701,9 @@ plt.title("वजन वितरण"); plt.show()
 sns.boxplot(x="species", y="body_mass_g", data=df)
 plt.show()`,
         codeLanguage: "python",
+        output: `दोन आलेख:
+1) histogram (bins=20) — penguins च्या body_mass_g चे वितरण, शीर्षक "वजन वितरण"
+2) boxplot — प्रत्येक species साठी body_mass_g ची मध्य/quartile + outlier dots`,
       },
       {
         title: "Heatmap आणि pairplot",
@@ -701,6 +711,8 @@ plt.show()`,
         code: `sns.heatmap(df.corr(numeric_only=True), annot=True, cmap="coolwarm")
 plt.show()`,
         codeLanguage: "python",
+        output: `Heatmap — numeric columns ची correlation ग्रिड (annot=True मुळे प्रत्येक cell मध्ये संख्या):
+लाल/कोष्ण = जास्त positive, निळा/थंड = negative correlation.`,
       },
       {
         title: "सारांश — Seaborn",
@@ -754,6 +766,15 @@ print(df.dtypes)
 print(df.describe(include="all"))
 print(df.isna().sum())`,
         codeLanguage: "python",
+        output: `तुमच्या data.csv नुसार बदलते — उदा. (120, 5):
+(120, 5)
+age          int64
+city        object
+salary       int64
+...
+age    0
+city   3   ← असे concede missing columns
+...`,
       },
       {
         title: "Visual EDA workflow",
@@ -763,6 +784,8 @@ df.hist(figsize=(10, 6), bins=20)
 plt.tight_layout(); plt.show()
 # character-view: वेटrझन distribution पाहा, outliers ओळखा`,
         codeLanguage: "python",
+        output: `प्रत्येक numerical column साठी एक histogram (bins=20):
+distribution कशी आहे (normal/skewed), कोणते outliers दिसतात हे पहा.`,
       },
       {
         title: "सारांश — EDA",
@@ -1092,6 +1115,12 @@ train_aug = transforms.Compose([
 ])
 # train ला aug; test ला फक्त ToTensor`,
         codeLanguage: "python",
+        output: `train_aug हा transforms.Compose pipeline तयार होतो — प्रत्येक batch वर:
+- 50% chance: क्षैतिज flip
+- ±10° rotation
+- brightness ±20%
+- tensor रूपांतरण
+तुमच्या Dataset ला या pipeline ने फीड करा; test/validation ला फक्त ToTensor() द्या.`,
       },
       {
         title: "Text augmentation",
