@@ -10,7 +10,6 @@ export const pythonLevel8: Tutorial[] = [
     title: "match-case (Structural Pattern Matching)",
     marathiTitle: "match-case - सोपे नियम नियंत्रण",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "match statement ने switch सारखे नियंत्रण; patterns, guards, OR.",
     sections: [
@@ -115,72 +114,6 @@ match निवड:
         codeLanguage: "python",
         output: `शिल्लक तपासा`,
       },
-    },
-      {
-        title: "match कोड कसा वाचतो आणि क्रमाचे महत्त्व",
-        content: "match हा सामान्य if-elif पेक्षा वेगळा असतो — तो फक्त वरून खाली पहिली जुळणी शोधतो आणि तिथेच थांबतो. याला linear search असे म्हणतात. प्रत्येक case च्या pattern ला वरून खाली क्रमाने तपासले जाते; पहिला जुळलेला case निवडला जातो आणि मागे वळून पाहिले जात नाही. यामुळे case चा क्रम महत्त्वाचा ठरतो — विशेष (specific) case आधी लिहा, सामान्य (general) case शेवटी.\n\nउदाहरणार्थ संख्या तपासताना case 0: ने शून्य पकडा आणि case n: ने उरलेली सर्व मूल्ये. जर तुम्ही आधी case n: लिहिले तर तो प्रत्येक मूल्याला जुळेल आणि case 0: चा विशेष भाग कधीच चालणार नाही. ही स्वतःची उमगणारी चूक असते; क्रम सांभाळल्यास मात्र प्रत्येक case ला योग्य संधी मिळते.\n\nसंगणक match कसा निवडतो याची मानसिक रूपरेखा: दिलेले मूल्य घ्या, ते पहिल्या case च्या pattern शी जुळवा, जुळले तर चालवा आणि थांबा; न जुळले तर पुढील case कडे जा. अशीच तपासणी शेवटपर्यंत चालते. case _: हा सर्वांत शेवटचा default म्हणून ठेवला जातो — तो कोणत्याही मूल्याला जुळतो, त्यामुळे त्याच्या पुढे कोणताही case लिहू नये.\n\nएक महत्त्वाची खूण: if-elif मध्ये प्रत्येक अट स्वतंत्र Boolean expression असते; match मध्ये मात्र pattern रचना आणि मूल्य दोन्ही एकत्र तपासले जाते. नियंत्रणाचा प्रवाह एका ठिकाणी दिसतो — मोठ्या menu आणि API parsing मध्ये हे खूप उपयोगी आहे. match वाचताना हा क्रम आठवा: मूल्य घ्या, पहिला pattern तपासा, जुळले की चालवा, नाही तर पुढे. या प्रवाहाची सवय झाली की तुम्ही दहापेक्षा जास्त case असलेली रचना देखील आरामात लिहू शकता.",
-        code: `x = 9
-match x:
-    case 0:
-        print("शून्य")
-    case n:
-        print(f"इतर संख्या: {n}")`,
-        codeLanguage: "python",
-        output: `इतर संख्या: 9`,
-      },
-      {
-        title: "कॅप्चर patterns आणि मूल्य बांधणे",
-        content: "कॅप्चर pattern म्हणजे case मध्ये नाव लिहून ते मूल्य त्या नावात बांधणे. उदा. case (x, y): लिहिल्यास tuple चे घटक x आणि y या नावांच्या नवीन व्हेरिएबल्समध्ये ठेवले जातात. याला pattern बांधणी (binding) म्हणतात. जुळवताना pattern ने value ची घोषणा केली नसल्यास ते मूल्य नवीन नावाने उपलब्ध होते.\n\nनाव बांधताना लक्षात ठेवा: pattern मधले नाव match अवस्थेतील एक नवीन variable बनते. जर नाव आधीच असेल तरही नवीन बांधणी होते — हे एकूण match च्या आतच मर्यादित असते. उदा.\n\nmatch (5, 8): नंतर case (a, b): असल्यास a = 5 आणि b = 8 असे मूल्य मिळते. तुम्ही case मधल्या नावांना पुढील कामात वापरू शकता — जसे हाताळणी करणे, decimal पाहणे किंवा दुसऱ्या function ला पाठवणे.\n\nसंयोजनात खबरदारी: जुळणीचे मूल्य pattern जुळत नसल्यास ती बांधणी होत नाही. कॅप्चर नाव फक्त त्या case मध्येच खरे असते; इतर case मध्ये हेच नाव पुन्हा वापरल्यास भिन्न मूल्य मिळते. small programs मध्ये हे लवचिक असले तरी मोठ्या program मध्ये स्पष्ट नावे द्यावीत.\n\nअनेक कॅप्चर एकत्र उपयोजनात येतात — API उत्तर वाचताना तुम्हाला शेवटचे घटक, status आणि मजकूर एकाच वेळी मिळतो. pattern जुळला म्हणजे तो संपूर्ण रचना तपासतो; उदा. case (_, status, msg): मध्ये status आणि msg बांधले जातात आणि _ ने पहिला घटक टाकला जातो. 'कोणते मूल्य हवे, कोणते नको' हे तुम्हीच ठरवता.",
-        code: `match ("मराठी", 200, "ठीक"):
-    case (_, st, md):
-        print(f"status {st}: {md}")`,
-        codeLanguage: "python",
-        output: `status 200: ठीक`,
-      },
-      {
-        title: "list आणि sequence patterns",
-        content: "sequence pattern ने list, tuple किंवा इतर sequence ची रचना तपासता येते. case [a, b]: असा लिहिल्यास दोन घटक असलेल्या list ला a आणि b जुळतात. फिक्स्ड आयटम तपासण्यासाठी case [1, y]: असे लिहितात — पहिला घटक 1 असल्याशिवाय जुळत नाही.\n\nविशेष वाक्यरचना: शेवटी *rest लिहिल्यास उरलेले घटक rest मध्ये एकत्र येतात. उदा. case [पहिला, *उरले]: लिहिल्यास पहिला घटक वेगळा आणि बाकी सर्व उरले या list मध्ये साठवले जातात. हे split या function च्या वागणुकीसारखे आहे.\n\nदोन घटक असलेल्या रचना जुळवताना दोन्ही घटक संख्या किंवा मजकूर यांसारखे मूल्य असू शकतात; pattern नक्की तेच तपासेल. दिलेल्या list मध्ये वेगळा क्रम असेल तर जुळणी होत नाही कारण मूल्य आणि क्रम दोन्ही नियंत्रित आहेत.\n\nsequence pattern वापरून डेटा वेगळे करणे: वापरकर्त्याच्या नोंदी (records) सारख्या रचना वाचताना प्रत्येक रांग एक pattern मध्ये मोडता येते. उदा. [नाव, गुण] या list मध्ये नाव मजकूर आणि गुण संख्या असणे आवश्यक असल्यास pattern ते तपासून वेगळे करतो.\n\nखबरदारी: मोठ्या list वर पूर्ण रचना तपासताना पुढील घटकांची संख्या न सुटण्यासाठी *rest वापरा; अन्यथा case अचूक संख्येनेच जुळेल. उदाहरण तयार करताना कठीण संशय आल्यास छोट्या आकड्यांवर उदाहरण चालवून पहा — कमाल स्पष्टता मिळते.",
-        code: `match [10, 20, 30]:
-    case [पहिला, *उरले]:
-        print(पहिला, sum(उरले))`,
-        codeLanguage: "python",
-        output: `10 50`,
-      },
-      {
-        title: "क्लास (Class) patterns — objects तपासणे",
-        content: "match ची सर्वांत मोठी ताकद म्हणजे objects तपासणे. case व्यक्ती(नाव=n): या pattern मध्ये वर्गाची नावे आणि त्यांचे attribute values तपासले जातात. object व्यक्ती प्रकाराचा असेल आणि त्याच्या नाव attribute मध्ये काहीही असेल तर ते n मध्ये बांधले जाते.\n\nहे dictionary किंवा विशाल if-elif च्या तुलनेत खूप सुबक आहे. तुम्ही attributes च्या आधारे वेगवेगळ्या श्रेणींमध्ये वर्गीकरण करू शकता. उदा. आकार (Shape) वर्गाची विविध उपरूपे तपासताना प्रत्येक उपरूपासाठी एक case लिहा.\n\nमहत्त्वाची टीप: क्लास pattern वापरण्यासाठी त्या वर्गाला विशेष method लागते — Python 3.10 पासून 자동 됨 म्हणजे सर्वत्र काम करणारे pattern बनण्यासाठी वर्ग स्वतः तयार करताना प्रकार विचारात घ्या. जर तुमचा वर्ग dataclass असेल तर तो match ला सहज उपलब्ध होतो.\n\nक्लास pattern ने nested objects देखील तपासता येतात — एका attribute च्या आत आणखी एक pattern ठेवता येतो. उदा. पत्ता(शहर=\"पुणे\") सारखी रचना. यामुळे संपूर्ण डेटा झाडाच्या खोलीत तपासता येतो.\n\nसाधारण नियम: नवीन वर्ग pattern लिहिताना attribute नावांचा spellcheck खरे करा; चुकीच्या नावाने ते मूल्य कधीच जुळणार नाही. देखरेखीसाठी नावे अर्थपूर्ण ठेवा — कोड वाचणाऱ्या व्यक्तीला आपोआप कळते की कोणता attribute कशासाठी आहे.",
-        code: `from dataclasses import dataclass
-@dataclass
-class व्यक्ती:
-    नाव: str
-    वय: int
-p = व्यक्ती("स्वरा", 25)
-match p:
-    case व्यक्ती(नाव=n, वय=w):
-        print(f"{n} वय {w}")`,
-        codeLanguage: "python",
-        output: `स्वरा वय 25`,
-      },
-      {
-        title: "match मध्ये डेटा पार्सिंग — व्यावहारिक उदाहरणे",
-        content: "आता खऱ्या डेटावर match चा उपयोग पाहूया. API मधून मिळणारे उत्तर अनेक रूपांमध्ये असते — some वेळी नोंदी, काही वेळी चूक. match ने हे रूप आधी ओळखून मग कृती करता येते.\n\nउदा. प्रत्येक उत्तरात status ही खूण असते. case {\"status\": \"ok\", \"data\": d}: लिहिल्यास dictionary च्या key ची रचना तपासली जाते आणि data त्या list मध्ये वेगळा होतो. दुसऱ्या स्थितीसाठी case {\"status\": \"error\", \"msg\": m}: असा शाखा देतो. JSON मधील nested dictionary देखील अशाच patterns ने साधी वेगळी होतात.\n\nया व्यवहारात dictionary patterns चा मुख्य फायदा: key चा क्रम लक्षात घेण्याची गरज नाही. {\"msg\": m, \"status\": \"ok\"} असा reversed क्रमही आपोआप जुळतो. त्यामुळे dictionary मधील data मिळवणे if chain च्या तुलनेत नरम ठरते.\n\nआणखी एक व्यावहारिक केस: चौकशीचे अनेक पर्याय. प्रत्येक पर्यायाचे मूल्य आणि त्याला जोडलेली क्रिया — match एकाच ठिकाणी ठेवतो. वापरकर्त्याची चूक पकडण्यासाठी case _: शेवटी ठेवा; त्यामध्ये अज्ञात पर्यायाची तक्रार दाखवता येते.\n\nशिकण्याच्या दृष्टीने ही सर्वात चांगली सवय: प्रत्येक उदाहरण बदलून वेगवेगळी मूल्ये देऊन output तपासा. जुळणी कशी बदलते ते पहा — देखील case चा क्रम बदलून पहा. अशा प्रयोगांमुळे match चा खरा अर्थ लक्षात येतो; फक्त वाचनाने जो क्रम येत नाही तो प्रयोगाने ठाम होतो.",
-        code: `प्रतिसाद = {"status": "ok", "data": [1, 2, 3]}
-match प्रतिसाद:
-    case {"status": "ok", "data": d}:
-        print("डेटा:", d)
-    case {"status": "error", "msg": m}:
-        print("चूक:", m)`,
-        codeLanguage: "python",
-        output: `डेटा: [1, 2, 3]`,
-      },
-      {
-        title: "सामान्य चुका आणि उपाय",
-        content: "match शिकताना होणाऱ्या सामान्य चुका आणि त्यांचे उपाय:\n\n✗ case चा क्रम चुकल्यास विशेष case आधी लिहिण्याऐवजी सामान्य case आधी लिहिला जातो — सामान्य case प्रत्येक मूल्याला जुळून पुढील विशेष case ला संधी देईल का ते तपासा.\n\n✗ case _: अन्य case च्या आधी ठेवल्यास इतर case कधीच चालत नाहीत — _ नेहमी शेवटी ठेवा.\n\n✗ dict pattern मध्ये key तपासताना key ची चुकलेली spell — key नेमका तोच असला पाहिजे; JSON वाचताना ठीक नक्कल करा.\n\n✗ वर्ग pattern मध्ये attribute नाव चुकवले — वर्गातील संपूर्ण नाव लिहा आणि कंसाची जोडी लक्षात ठेवा.\n\n✗ | वापरताना भिन्न प्रकारांची जोडी — case 1 | \"एक\": कधी मूल्य आणि कधी मजकूर; करायला हरकत नाही, पण नेहमी तर्क लक्षात ठेवा.\n\n✗ variable नाव आणि स्थिर मूल्य यातला गोंधळ — case x: हा नेहमी कॅप्चर होतो (कोणत्याही मूल्याला) आणि case 5: ही फक्त 5. स्थिर मूल्य tपासवायचे असेल तर दुसऱ्या संदर्भात बांधून पाहताना काळजी घ्या.\n\nचूक झाली की निराश होऊ नका — error message वाचा आणि क्रम तपासा. छोट्या उदाहरणांवर प्रयोग करा; प्रत्येक चुकीतून नवीन समज मिळते.",
-      },
-      {
-        title: "अधिक संसाधने — Python अधिकृत (Official)",
-        content: "या धड्यातील प्रगतीसाठी आणि सखोल वाचनासाठी ही अधिकृत संसाधने उपयोगी पडतील. सर्व links अधिकृत आणि विनामूल्य आहेत:\n\n• match statement चा अधिकृत संदर्भ: https://docs.python.org/3/reference/compound_stmts.html#match\n• Tutorial मधील match statements: https://docs.python.org/3/tutorial/controlflow.html#match-statements\n• PEP 634 — Structural Pattern Matching: https://peps.python.org/pep-0634/\n• PEP 635 — pattern matching प्रेरणा: https://peps.python.org/pep-0635/\n• PEP 636 — tutorial सोबत खेळ: https://peps.python.org/pep-0636/\n• Python अधिकृत tutorial मुख्यपृष्ठ: https://docs.python.org/3/tutorial/index.html\n• compound statements संदर्भ: https://docs.python.org/3/reference/compound_stmts.html\n• library संदर्भ मुख्ययादी: https://docs.python.org/3/library/index.html\n• Python अधिकृत संकेतस्थळ: https://www.python.org\n• Python FAQ: https://docs.python.org/3/faq/general.html\n• community discussion: https://discuss.python.org\n\nहे links बुकमार्क करा; पुढील धड्यांमध्ये देखील संबंधित अधिक संसाधने दिली जातील.",
-      },
     ],
     practiceQuestions: [
       "match statement कसे वापरायचे?",
@@ -214,7 +147,6 @@ match d:
     title: "Context Managers (with statement)",
     marathiTitle: "Context Managers - with वापर",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "with statement ने resources आपोआप बंद; __enter__/__exit__ आणि contextlib.",
     sections: [
@@ -324,62 +256,6 @@ with Transaction():
 रक्कम बदलली
 खाते बंद`,
       },
-    },
-      {
-        title: "कोणत्या resources ला with लागतो?",
-        content: "ज्या सर्व निर्मितीला शेवटी बंद करणे किंवा मुक्त करणे अपेक्षित आहे त्या प्रत्येकाला with ची सोय आहे. फाईल्स, locks, connections, sockets, streams यांसारख्या सर्व बाबतींत resource गळती टाळण्यासाठी with हीच योग्य निवड आहे.\n\nफाईल उघडल्यावर close न केल्यास संगणक ती फाईल मोकळी करण्यास विसरतो; दीर्घ चालणाऱ्या server मध्ये अनेक अशा विसरलेल्या फाईल्स जमा झाल्या तर सिस्टमची memory आणि file handle संपू शकते. with ने ही जोखीम पूर्णपणे नाहीशी होते कारण block संपल्यावर समाप्ती आपोआप होते.\n\nइतर उदाहरणे: database connection बंद करणे, network socket संपवणे, thread lock सोडणे, तात्पुरती फाईल हटवणे. या सर्वांना 'सुरू करा आणि शेवटी उलट करा' या जोडीच्या तत्त्वानुसार सांभाळता येते.\n\nमानसिक रूपरेखा: विचार करा की प्रत्येक resource चे आयुष्य सुरुवातीपासून सुरू होते आणि निर्धारित ठिकाणी संपते. with या आयुष्याचे invariable अंतर binary गोष्टींना उलट बदलते — संपूर्ण block संपल्याबरोबर सगळ्यांचा पाठलाग होतो.\n\nअगदी सोपा नियम: जर कोडमध्ये तुम्हाला निर्मितीनंतर काहीतरी बंद/सोडावे लागत असेल तर ते with मध्ये ठेवा. यामुळे कोड सुरक्षित, स्पष्ट आणि कमी absorbing होतो — हा मास्टर programmers चा आवडता पॅटर्न आहे.",
-      },
-      {
-        title: "एकाहून अधिक resources एकत्र",
-        content: "कधीकधी एकच block मध्ये अनेक resources लागतात — उदा. एक फाईल वाचून दुसरी फाईलमध्ये लिहिणे. with मध्ये एकाच ओळीत अनेक विधाने कॉमाने वेगळी लिहितात: with open(a) as p, open(b) as q: असे लिहिल्यास दोन्ही एकत्र व्यवस्थापित होतात आणि block संपल्यावर दोन्ही आपोआप बंद होतात.\n\nइथे महत्त्वाचे म्हणजे क्रम: resources वरून भाग ठरवताना पहिले वाचन, मग लेखन अशी व्यवस्था करा. दोन्ही ओळी ने समान अंतराने सुरू होतात; कोणतीही उघडण्यात चूक झाली तर आधी उघडलेल्या resource ला देखील बंद होण्याची संधी मिळते.\n\nजुना पर्याय: नेस्टेड with. with open(a) as p: मध्ये आणखी एक with open(b) as q: लिहिल्यास समान रीत काम करते, पण indentation वाढते आणि कोड लांब होतो. एकाच ओळीत अनेक resources हा अधिक सुवाच्य पर्याय आहे — दोन upto तीन resources साठी उत्तम.\n\nतीन ओळींपेक्षा जास्त resources असल्यास contextlib.ExitStack हा उत्तम पर्याय आहे — तो resources ची संख्या सांभाळून ठेवतो आणि शेवटी सगळे सोडतो. पुढील धड्यात त्याबद्दल सविस्तर पाहू.\n\nसरावासाठी: एका फाईलमधून मजकूर वाचून दुसऱ्या फाईलमध्ये प्रत करून पहा. दोन्ही resources एका with मध्ये ठेवा — ही व्यवहारातील सर्वात वापरली जाणारी रचना आहे.",
-        code: `import tempfile, os
-p = os.path.join(tempfile.gettempdir(), "a.txt")
-q = os.path.join(tempfile.gettempdir(), "b.txt")
-with open(p, "w") as f:
-    f.write("मराठी अभ्यास")
-with open(p) as src, open(q, "w") as dst:
-    dst.write(src.read())
-with open(q) as f:
-    print(f.read())`,
-        codeLanguage: "python",
-        output: `मराठी अभ्यास`,
-      },
-      {
-        title: "contextlib साठी आधुनिक मदत",
-        content: "contextlib मॉड्यूलमध्ये ready-made पॅटर्न असतात जे नवीन कोड लिहिल्याशिवाय काम आटोपतात. यातले तीन महत्त्वाचे साधन: closing, suppress आणि ExitStack.\n\nclosing(resource) हा ресурс ला बंद करण्यासाठी वापरतात — जेव्हा resource वर quas().__enter__ किंवा __exit__ नसतात तेव्हा closing उपयुक्त ठरते. उदा. urllib किंवा अन्य library चे निर्माण ज्याला फक्त close() पद्धत असते.\n\nsuppress(error) हा विशेष error दडपण्यासाठी: with suppress(FileNotFoundError): मध्ये फाईल न मिळाली तर चूक दिसणार नाही अन्यथा कोड चालू राहील. हे try-except pass या जुन्या पॅटर्नपेक्षा स्पष्ट आहे.\n\nExitStack हे dynamic resource व्यवस्थापनासाठी — आधीच ठेवलेले resources नसतात तेव्हा आत ठेवलेले सर्व शेवटी मुक्त होतात. त्यात stack.enter_context(h) ने नवीन प्रवेश करतात; ExitStack निर्मिती संपल्यावर सर्व सोडले जातात.\n\nहे साधन कधी वापरायचे हे ओळखणे हीच शिकण्याची गुरुकिल्ली आहे. एकल resource असेल तर साधा with पुरेसा; अनेक आणि अज्ञात resource असेल तर ExitStack; एरर दाबायचा असेल तर suppress; बंद-पद्धत-फक्त असलेल्या object ला closing.\n\nआता हे सर्व module_open आणि module_close असे दोन الخطामध्ये तपासा; तुम्हाला यातून कधी वापरायचा हे लक्षात येईल आणि with ची पूर्ण शक्ती वापरता येईल.",
-        code: `from contextlib import suppress
-with suppress(FileNotFoundError):
-    open("/नाही/अशी/फाईल.txt").read()
-print("चूक नाही")`,
-        codeLanguage: "python",
-        output: `चूक नाही`,
-      },
-      {
-        title: "ExitStack — अनेक resources ची व्यवस्था",
-        content: "ExitStack म्हणजे resources विहिरीचा ढीग — तो दिलेल्या अनेक resources चे आयुष्य एकत्र व्यवस्थापित करतो. आधीची फाईल ती उघडते; जिचीची वेळ संपल्यावर प्रत्येक resource ला योग्य क्रमाने बंद करते.\n\nउपयोग: जेव्हा तुम्हाला अज्ञात संख्येच्या resources ची सुरुवात करायची असते — उदा. अनेक फाईल्स, अनेक sockets, लायब्ररीचा बॅच. एकापाठोपाठ सर्व उघडत जातात आणि block संपल्यावर सर्व एकाच ठिकाणी सोडले जातात.\n\nकामाचा तपशील: ExitStack मध्ये enter_context() ने प्रत्येक resource जोडता येतो; प्रत्येकवेळी तो resource ठीक तोच stack मध्ये ठेवतो. block पुरेसं संपल्यावर सर्व शेवटतून सुरुवातीकडे (LIFO क्रमाने) बंद होतात.\n\nकधी हवा: फाईल्सची यादी लूपमध्ये उघडायची असल्यास аа with ने प्रत्येक फाईल स्वतंत्र block मध्ये ठेवणे अवघड होते — इथे ExitStack मध्ये ठेवल्यास निर्णय स्वच्छ होतो. तसेच resources ची संख्या runtime मध्ये ठरते तेव्हा अपरिहार्य ठरतो.\n\nहा वापर सुरुवातीला जरा गुंतागुंतीचा वाटतो, पण सरावाने अंतर्भूत होतो. स्वतःचे उदाहरण बनवा: तीन फाईल्स तयार करा आणि ExitStack मध्ये उघडून शेवटी सर्व फाईल बंद झाल्या का ते तपासा — संपूर्ण प्रवाह एकाच दृष्टीक्षेपात दिसू लागेल.",
-        code: `from contextlib import ExitStack
-import tempfile, os
-with ExitStack() as st:
-    f1 = st.enter_context(open(os.path.join(tempfile.gettempdir(), "x.txt"), "w"))
-    f2 = st.enter_context(open(os.path.join(tempfile.gettempdir(), "y.txt"), "w"))
-    f1.write("एक")
-    f2.write("दोन")
-print("दोन्ही बंद झाल्या")`,
-        codeLanguage: "python",
-        output: `दोन्ही बंद झाल्या`,
-      },
-      {
-        title: "स्वतःचा context manager — डिझाइन कसा करावा",
-        content: "स्वतःचा context manager बनवताना प्रश्न असतो — class पद्धत का @contextmanager? दोन्ही टोक व्यवहारात वापरली जातात; निवड कामाच्या स्वरूपावर अवलंबून असते.\n\nजेव्हा तुम्हाला __exit__ मध्ये चुकीचा तपशील हवा असेल (exception type, message, traceback) तेव्हा class अधिक सोयीचे — तिन्ही argument मिळतात. जटिल cleanup किंवा विभिन्न परिस्थितींनुसार वेगळे काम करायचे असेल तर class नियंत्रण देतो.\n\nसोपे आणि लहान 'सुरू-शेवट' काम असेल तर @contextmanager ही short आणि readable राहते. yield च्या आधीचा कोड आरंभ, नंतरचा शेवट — याचा संदर्भ स्पष्ट दिसतो. अनेक वेळा तुम्हाला context manager फक्त try-finally ची व्यवस्था सुधारण्यासाठी हवा असतो; तेव्हा decorator पुरेसा असतो.\n\nडिझाइन नियम: context manager ने setup आणि teardown यामध्ये कोड मिच्छ नाही करावा — block मधले काम वेगळे, setup/teardown वेगळे. जर setup अयशस्वी झाला तर teardown रद्द झाला पाहिजे.\n\nछोटा चेतावणी: स्वतःचा context manager लिहिताना teardown नेहमी चालतो याची खात्री करा — यासाठी try-finally अंगभूत नियंत्रण give करतो. असं कंट्रोल विकसित करणे म्हणजेच व्यवस्थित संसाधन व्यवस्थापन — हेच पुढील level मधील कौशल्य होते.",
-      },
-      {
-        title: "context manager विषयी सामान्य चुका",
-        content: "सामान्य होणाऱ्या चुका आणि त्यांचे उपाय पाहू:\n\n✗ with वापरूनही close चा अतिरिक्त कॉल — with block संपल्यावर resource आधीच बंद होते; त्यानंतर पुन्हा close करणे चूक आणि सुरक्षा समस्या निर्माण करते.\n\n✗ as वापरणे विसरणे — जर तुम्हाला resource मधील object हवा असेल तर with ... as name: लिहा; ते न दिल्यास तुम्हाला तो object मिळत नाही.\n\n✗ __exit__ ने True परत करणे प्रत्येक वेळी — ते चूक दडपते आणि कोड न बदलता अडकतो; फक्त अपवादांच्या बाबतीत True परत करा.\n\n✗ योग्य नसताना with वापरणे — एकच resource अनेक ठिकाणी उघडायचे असेल किंवा resource जास्त काळ उघडे ठेवायचे असेल तर व्यवस्थित locking करा; with ला बिनबाद context चालू ठेवता नाही.\n\n✗ @contextmanager मध्ये yield नंतर return करणे — generator function मध्ये return exception उकलतो; त्याऐवजी सर्व कोड yield नंतर असावा.\n\n✗ ExitStack अखेर न बंद करणे — ExitStack() with मध्ये न ठेवता स्वतंत्र तयार केल्यास त्यांनी जमा केलेले resources मुक्त होत नाहीत; नेहमी with सोबत वापरा.\n\nप्रत्येक चुकीचे निराकरण कोड वाचून समजून घ्या; स्वतः प्रयत्न करून त्या कधी घडतात ते ओळखा. errors असले तरीही कोड चालू ठेवण्याची सवय — हेच व्यवहारी सुरक्षित programming चे लक्षण आहे.",
-      },
-      {
-        title: "अधिक संसाधने — Python अधिकृत (Official)",
-        content: "context manager चा सखोल अभ्यास करण्यासाठी ही अधिकृत संसाधने उपयोगी:\n\n• with statement संदर्भ: https://docs.python.org/3/reference/compound_stmts.html#with\n• context manager protocol डेटा मॉडेल: https://docs.python.org/3/reference/datamodel.html#context-managers\n• contextlib मॉड्यूल संदर्भ: https://docs.python.org/3/library/contextlib.html\n• PEP 343 — with statement:\t https://peps.python.org/pep-0343/\n• built-in functions संदर्भ: https://docs.python.org/3/library/functions.html\n• io मॉड्यूल (StringIO इ.): https://docs.python.org/3/library/io.html\n• tempfile (तात्पुरती फाईल): https://docs.python.org/3/library/tempfile.html\n• threading.Lock संदर्भ: https://docs.python.org/3/library/threading.html\n• os.path संदर्भ: https://docs.python.org/3/library/os.path.html\n• errors आणि exceptions संदर्भ: https://docs.python.org/3/library/exceptions.html\n• FAQ — कुठून शिकावे: https://docs.python.org/3/faq/programming.html\n\nहा धडा वाचल्यानंतर तुमची with वरची पकड उत्तम होईल आणि संसाधने व्यवस्थित managing करता येतील.",
-      },
     ],
     practiceQuestions: [
       "with statement कशासाठी?",
@@ -411,7 +287,6 @@ print("दोन्ही बंद झाल्या")`,
     title: "Type Hints (प्रकार खुणा)",
     marathiTitle: "Type Hints - प्रकार खुणा",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "hints ने प्रकार स्पष्ट; annotations, Optional, TypedDict.",
     sections: [
@@ -528,7 +403,6 @@ print(वय(40))`,
     title: "XML आणि Binary Files",
     marathiTitle: "XML आणि Binary Files",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "XML पार्सिंग, bytes, struct, base64; फाईल हाताळणी.",
     sections: [
@@ -636,7 +510,6 @@ r = ET.fromstring("<पॉप><नाव/></पॉप>")`,
     title: "Databases - SQLite",
     marathiTitle: "Databases - SQLite मध्ये",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "sqlite3 ने table, CRUD, parametrized queries, aggregation.",
     sections: [
@@ -761,7 +634,6 @@ print(con.execute("SELECT v FROM m").fetchall())`,
     title: "Web App - Flask",
     marathiTitle: "Web App - Flask मध्ये",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "Flask ने routes, dynamic URLs, methods, JSON.",
     sections: [
@@ -892,7 +764,6 @@ print(marks(50))`,
     title: "REST API - FastAPI",
     marathiTitle: "REST API - FastAPI मध्ये",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "FastAPI ने routes, params, status, body; REST आणि auth संकल्पना.",
     sections: [
@@ -1033,7 +904,6 @@ print(asyncio.run(main()))`,
     title: "Data Analysis - numpy",
     marathiTitle: "Data Analysis - numpy आणि CSV",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "numpy stats, filtering, reshape; CSV वाचन; pandas संकल्पना.",
     sections: [
@@ -1143,7 +1013,6 @@ print(float(m.mean()))`,
     title: "Machine Learning Basics",
     marathiTitle: "Machine Learning Basics - numpy ने",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "सरळ regression, loss, predictions; sklearn/पूर्ण AI stack संकल्पना.",
     sections: [
@@ -1264,7 +1133,6 @@ print(list(s >= 60))`,
     title: "Networking - Sockets",
     marathiTitle: "Networking - Sockets मध्ये",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "localhost TCP/UDP sockets, byte पाठवणे; TCP/UDP/DNS संकल्पना.",
     sections: [
@@ -1402,7 +1270,6 @@ u.close()`,
     title: "Security - Hashing व Encryption",
     marathiTitle: "Security - Hashing आणि Encryption",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "hashlib, base64, XOR, salted hash, self-hosted port scan.",
     sections: [
@@ -1521,7 +1388,6 @@ print(hashlib.sha256(b"demo").hexdigest()[:8])`,
     title: "GUI - Tkinter रचना",
     marathiTitle: "GUI - रचना/s आणि widgets",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "widget मॉडेल, layout, events; Tkinter/PyQt संकल्पना.",
     sections: [
@@ -1654,7 +1520,6 @@ for f in फॉर्म:
     title: "Automation आणि System",
     marathiTitle: "Automation - subprocess, सभ्यता",
     level: "advanced",
-    levelLabel: L8_LABEL,
     minutes: 14,
     summary: "subprocess, env vars, glob, scheduling heapq, logging, threads; multiprocessing संकल्पना.",
     sections: [

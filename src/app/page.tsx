@@ -8,6 +8,7 @@ import { projects } from "@/data/projects";
 import { CategoryCard, ProjectCard, SectionHeader } from "@/components/Cards";
 import LearningPaths from "@/components/LearningPaths";
 import { telegramUrl } from "@/lib/site";
+import { getCoursesWithCount } from "@/lib/content/courses";
 
 const trustBadges = [
   { icon: "✅", text: "100% मोफत" },
@@ -37,6 +38,7 @@ const filterIds = ["all", "computer", "web", "python", "ai", "electronics"];
 
 export default function Home() {
   const latestProjects = [...projects].slice(0, 3);
+  const courses = getCoursesWithCount().filter((c) => c.lessonCount > 0);
 
   const categoryCounts = new Map<string, number>();
   for (const t of tutorials) {
@@ -67,12 +69,12 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <a
-              href="#featured"
+            <Link
+              href="/courses"
               className="px-8 py-3.5 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-full shadow-lg shadow-primary-600/20 marathi transition-colors"
             >
               🚀 शिकायला सुरुवात करा
-            </a>
+            </Link>
             <Link
               href="/about"
               className="px-8 py-3.5 font-semibold rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/30 marathi transition-colors"
@@ -98,6 +100,32 @@ export default function Home() {
         <HomeClient categories={categories} featured={featured}>
           <LearningPaths />
         </HomeClient>
+
+        {/* Courses (data-driven) */}
+        <section className="py-8">
+          <SectionHeader
+            title="📚 अभ्यासक्रम"
+            subtitle="विषय निवडा — अधिकृत साधनांसह"
+            link="/courses"
+            linkText="सर्व अभ्यासक्रम"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {courses.slice(0, 8).map((course) => (
+              <Link
+                key={course.id}
+                href={`/courses/${course.slug}`}
+                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
+              >
+                <div className="text-3xl mb-2">{course.icon}</div>
+                <h3 className="font-semibold mb-1 marathi">{course.title}</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">{course.description}</p>
+                <span className="inline-block mt-3 text-xs px-2.5 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium">
+                  {course.lessonCount} पाठ
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* Latest Projects */}
         <section className="py-8">
