@@ -5,7 +5,9 @@ import SearchBox from "@/components/SearchBox";
 import { searchTutorials, toTutorialSummary, tutorials } from "@/data/tutorials";
 import { searchGlossary } from "@/data/glossary";
 import { projects } from "@/data/projects";
+import { languages } from "@/data/languages";
 import { TutorialCard, ProjectCard, SectionHeader } from "@/components/Cards";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   robots: {
@@ -24,6 +26,14 @@ export default async function SearchPage({
 
   const matchedTutorials = searchTutorials(query);
   const matchedGlossary = searchGlossary(query);
+  const matchedLanguages = query
+    ? languages.filter(
+        (l) =>
+          l.name.toLowerCase().includes(query.toLowerCase()) ||
+          l.marathiName.toLowerCase().includes(query.toLowerCase()) ||
+          l.description.toLowerCase().includes(query.toLowerCase())
+      )
+    : languages.slice(0, 6);
   const matchedQuiz = query
     ? tutorials
         .map((t) => ({
@@ -57,9 +67,28 @@ export default async function SearchPage({
 
         <p className="text-sm text-gray-500 mb-4">
           {query
-            ? `"${query}" साठी ${matchedTutorials.length + matchedProjects.length + matchedGlossary.length + matchedQuiz.reduce((n, r) => n + r.questions.length, 0)} निकाल`
+            ? `"${query}" साठी ${matchedTutorials.length + matchedProjects.length + matchedGlossary.length + matchedLanguages.length + matchedQuiz.reduce((n, r) => n + r.questions.length, 0)} निकाल`
             : `सर्व ${matchedTutorials.length} lessons`}
         </p>
+
+        {matchedLanguages.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-xl font-semibold mb-4">📚 अभ्यासक्रम</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {matchedLanguages.map((l) => (
+                <Link
+                  key={l.id}
+                  href={`/courses/${l.slug}`}
+                  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                >
+                  <div className="text-3xl mb-2">{l.icon}</div>
+                  <p className="font-semibold marathi">{l.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">{l.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {matchedTutorials.length > 0 && (
           <div className="mb-8">
@@ -125,7 +154,7 @@ export default async function SearchPage({
           </div>
         )}
 
-        {query && matchedTutorials.length === 0 && matchedProjects.length === 0 && matchedGlossary.length === 0 && matchedQuiz.length === 0 && (
+        {query && matchedTutorials.length === 0 && matchedProjects.length === 0 && matchedGlossary.length === 0 && matchedQuiz.length === 0 && matchedLanguages.length === 0 && (
           <div className="text-center py-12">
             <div className="text-5xl mb-4">🔍</div>
             <h3 className="text-lg font-semibold">काहीही सापडले नाही</h3>

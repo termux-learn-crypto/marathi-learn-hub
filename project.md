@@ -80,6 +80,16 @@ Source-of-truth docs (reference only, read-only):
 - `typecheck` PASS, `lint` PASS, `npm test` PASS (29 checks, 0 failures), `next build` PASS.
 - Sitemap 652 URLs verified (all new routes present).
 
+## Current milestone — Phase 15 (search upgrade) + Phase 23 (SEO structured data) ✅ DONE
+
+### Done
+- **Search**: `/search` now matches languages/courses too (query → name/marathiName/description; no query → featured 6). New "📚 अभ्यासक्रम" results section with course cards; empty-state also covers courses. Unified with Tutorials/Glossary/Quiz/Projects sections. Verified live (HTTP 200, default + ?q=python states).
+- **SEO structured data**: `/courses/[slug]` now emits Course + BreadcrumbList JSON-LD (schema.org, isAccessibleForFree=true, INR ₹0 offer, educationalLevel, totalLessons, provider). Uses siteUrl() (SITE_URL env / localhost / vercel fallback).
+- robots.ts already allows all + points to sitemap.
+
+### Verified
+- `typecheck` PASS, `lint` PASS, `next build` PASS; course page HTML contains Course+BreadcrumbList JSON-LD; search live-tested (default + query).
+
 ## Pending phases (from implintion.md)
 1. Phase 1 — Folder architecture (src/app, src/components, src/lib, src/types, src/styles)
 2. Phase 2 — Design system components
@@ -113,6 +123,8 @@ Source-of-truth docs (reference only, read-only):
 ---
 ## Changelog (newest first)
 
+- (search) /search now includes languages/courses results section; empty-state covers courses.
+- (seo) Course pages emit Course + BreadcrumbList JSON-LD (schema.org) with siteUrl().
 - (test) Real data-integrity suite: 29 checks (tutorials/categories/projects/glossary/paths/languages+resources) via tsx; package.json test → tsx; tsx devDep added.
 - (seo) sitemap expanded to 652 URLs (new routes + courses + paths).
 - (seo) Course pages + tutorial pages internal linking (related courses, अभ्यासक्रम chip).

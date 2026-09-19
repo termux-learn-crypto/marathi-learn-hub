@@ -8,6 +8,7 @@ import { Breadcrumb, Badge } from "@/components/ui";
 import { getLanguage, languages } from "@/data/languages";
 import { buildModules, getLessonsForLanguage } from "@/lib/content/courses";
 import { buildMetadata } from "@/lib/seo/seo";
+import { siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return ["python", "web", "android", "ai", "electronics", "linux", "termux", "cyber", "computer", "electrical", "diy", "digital", "freelancing", "general"].map((slug) => ({ slug }));
@@ -35,9 +36,55 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
     (l) => l.id !== lang.id && getLessonsForLanguage(l.categoryId).length > 0
   );
 
+  const base = siteUrl();
+  const courseUrl = `${base}/courses/${lang.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "@id": courseUrl,
+        name: `${lang.name} — Marathi Learn Hub`,
+        description: lang.description,
+        url: courseUrl,
+        inLanguage: "mr",
+        isAccessibleForFree: true,
+        educationalLevel: "beginner",
+        totalLessons: lessons.length,
+        provider: {
+          "@type": "Organization",
+          name: "Marathi Learn Hub",
+          url: `${base}/`,
+        },
+        offers: { "@type": "Offer", price: "0", priceCurrency: "INR", category: "Free" },
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: "PT0M",
+          location: { "@type": "Place", name: "Online" },
+          inLanguage: "mr",
+          isAccessibleForFree: true,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${courseUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+          { "@type": "ListItem", position: 2, name: "अभ्यासक्रम", item: `${base}/courses` },
+          { "@type": "ListItem", position: 3, name: lang.name, item: courseUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main className="max-w-7xl mx-auto px-4 py-8">
         <Breadcrumb
           items={[
