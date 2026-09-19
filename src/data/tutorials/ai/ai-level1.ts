@@ -342,7 +342,7 @@ print(max(0, z))`,
     marathiTitle: "LLM / ChatGPT — tokens, context, temperature (सोपं स्पष्टीकरण)",
     level: "intermediate",
     minutes: 30,
-    summary: "ChatGPT सारखे chatbots कसे बोलतात? ही भाषा मॉडेल्स (LLM) tokens मध्ये विचार करतात, पुढील शब्दाचा अंदाज घेतात आणि इंटरनेटवरील मजकुरातून शिकतात. halllucination व temperature या सगळ्या संकल्पना समजून घेऊ.",
+    summary: "ChatGPT सारखे chatbots कसे बोलतात? ही भाषा मॉडेल्स (LLM) tokens मध्ये विचार करतात, पुढील शब्दाचा अंदाज घेतात आणि इंटरनेटवरील मजकुरातून शिकतात. hallucination व temperature या सगळ्या संकल्पना समजून घेऊ.",
     sections: [
       {
         title: "का शिकावे? LLM / ChatGPT — tokens, context, temperature (सोपं स्पष्टीकरण) चे फायदे आणि महत्त्व",

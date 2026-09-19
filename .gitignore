@@ -31,6 +31,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python build artifacts
+__pycache__/
+*.pyc
+
+# one-off content-generation scripts
 scripts/rewrite-*.js
 scripts/_sanitize.js
 scripts/extract-l3.js

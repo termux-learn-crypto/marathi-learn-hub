@@ -4,10 +4,10 @@
 
 ## ✨ Features
 
-- **450+ Marathi lessons across 14 categories** — Computer, Web, Python, Android, AI, Electronics, Electrical, Linux, Termux, Cyber Security, DIY, Digital Skills, Freelancing, General Knowledge
+- **572 Marathi lessons across 14 categories** — Computer, Web, Python, Android, AI, Electronics, Electrical, Linux, Termux, Cyber Security, DIY, Digital Skills, Freelancing, General Knowledge
 - **Interactive Code Editor** — Browser मध्येच HTML/CSS/JS run करा (Python output simulated; backend/Pyodide नंतर जोडता येईल)
 - **Per-topic Quizzes & Scores** — प्रत्येक lesson नंतर quiz; scores LocalStorage मध्ये save
-- **13 Hands-on Projects** — Step-by-step मार्गदर्शनासह
+- **23 Hands-on Projects** — Step-by-step मार्गदर्शनासह
 - **Search** — Marathi + English दोन्ही भाषांतून (noindex, no crawl bloat)
 - **79-term Glossary** — मराठीत tech terms explained
 - **Developer Tools** — Binary Converter, Text Analyzer, Age Calculator

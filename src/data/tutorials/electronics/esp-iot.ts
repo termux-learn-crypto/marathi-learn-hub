@@ -322,7 +322,7 @@ void loop() {
       { question: "Opto-isolated modules मध्ये logic?", options: ["active LOW (अनेक)", "active HIGH (सगळे)", "analog", "PWM"], correct: 0 },
       { question: "AC load ATM relay कोणत्या terminals ने?", options: ["COM + NO", "IN + GND", "VCC + GND", "A0 + D1"], correct: 0 },
     ],
-    related: ["esp-telegram", "esp-mqtt", "arduino-switch-relay"],
+    related: ["esp-telegram", "esp-mqtt", "iot-smart-relay"],
     prev: "esp-telegram",
     next: "esp-weather-station",
   },
